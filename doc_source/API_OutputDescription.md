@@ -1,0 +1,51 @@
+# OutputDescription<a name="API_OutputDescription"></a>
+
+Describes the application output configuration, which includes the in\-application stream name and the destination where the stream data is written\. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream\. 
+
+## Contents<a name="API_OutputDescription_Contents"></a>
+
+ **DestinationSchema**   
+Data format used for writing data to the destination\.  
+Type: [DestinationSchema](API_DestinationSchema.md) object  
+Required: No
+
+ **KinesisFirehoseOutputDescription**   
+Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written\.  
+Type: [KinesisFirehoseOutputDescription](API_KinesisFirehoseOutputDescription.md) object  
+Required: No
+
+ **KinesisStreamsOutputDescription**   
+Describes Amazon Kinesis stream configured as the destination where output is written\.  
+Type: [KinesisStreamsOutputDescription](API_KinesisStreamsOutputDescription.md) object  
+Required: No
+
+ **LambdaOutputDescription**   
+Describes the AWS Lambda function configured as the destination where output is written\.  
+Type: [LambdaOutputDescription](API_LambdaOutputDescription.md) object  
+Required: No
+
+ **Name**   
+Name of the in\-application stream configured as output\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 32\.  
+Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
+Required: No
+
+ **OutputId**   
+A unique identifier for the output configuration\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 50\.  
+Pattern: `[a-zA-Z0-9_.-]+`   
+Required: No
+
+## See Also<a name="API_OutputDescription_SeeAlso"></a>
+
+For more information about using this API in one of the language\-specific AWS SDKs, see the following:
+
++  [AWS SDK for C\+\+](http://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/OutputDescription) 
+
++  [AWS SDK for Go](http://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/OutputDescription) 
+
++  [AWS SDK for Java](http://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/OutputDescription) 
+
++  [AWS SDK for Ruby V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/kinesisanalytics-2015-08-14/OutputDescription) 
