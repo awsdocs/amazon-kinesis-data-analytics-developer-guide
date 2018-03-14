@@ -16,77 +16,77 @@ In the output configuration, you can configure the application to write data fro
 
 ```
 {
-   "ApplicationCode": "string",
-   "ApplicationDescription": "string",
-   "ApplicationName": "string",
-   "CloudWatchLoggingOptions": [ 
+   "[ApplicationCode](#analytics-CreateApplication-request-ApplicationCode)": "string",
+   "[ApplicationDescription](#analytics-CreateApplication-request-ApplicationDescription)": "string",
+   "[ApplicationName](#analytics-CreateApplication-request-ApplicationName)": "string",
+   "[CloudWatchLoggingOptions](#analytics-CreateApplication-request-CloudWatchLoggingOptions)": [ 
       { 
-         "LogStreamARN": "string",
-         "RoleARN": "string"
+         "[LogStreamARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-LogStreamARN)": "string",
+         "[RoleARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-RoleARN)": "string"
       }
    ],
-   "Inputs": [ 
+   "[Inputs](#analytics-CreateApplication-request-Inputs)": [ 
       { 
-         "InputParallelism": { 
-            "Count": number
+         "[InputParallelism](API_Input.md#analytics-Type-Input-InputParallelism)": { 
+            "[Count](API_InputParallelism.md#analytics-Type-InputParallelism-Count)": number
          },
-         "InputProcessingConfiguration": { 
-            "InputLambdaProcessor": { 
-               "ResourceARN": "string",
-               "RoleARN": "string"
+         "[InputProcessingConfiguration](API_Input.md#analytics-Type-Input-InputProcessingConfiguration)": { 
+            "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
+               "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
+               "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
             }
          },
-         "InputSchema": { 
-            "RecordColumns": [ 
+         "[InputSchema](API_Input.md#analytics-Type-Input-InputSchema)": { 
+            "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
                { 
-                  "Mapping": "string",
-                  "Name": "string",
-                  "SqlType": "string"
+                  "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+                  "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+                  "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
                }
             ],
-            "RecordEncoding": "string",
-            "RecordFormat": { 
-               "MappingParameters": { 
-                  "CSVMappingParameters": { 
-                     "RecordColumnDelimiter": "string",
-                     "RecordRowDelimiter": "string"
+            "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
+            "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
+               "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+                  "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+                     "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+                     "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
                   },
-                  "JSONMappingParameters": { 
-                     "RecordRowPath": "string"
+                  "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+                     "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
                   }
                },
-               "RecordFormatType": "string"
+               "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
             }
          },
-         "KinesisFirehoseInput": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+         "[KinesisFirehoseInput](API_Input.md#analytics-Type-Input-KinesisFirehoseInput)": { 
+            "[ResourceARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-ResourceARN)": "string",
+            "[RoleARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-RoleARN)": "string"
          },
-         "KinesisStreamsInput": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+         "[KinesisStreamsInput](API_Input.md#analytics-Type-Input-KinesisStreamsInput)": { 
+            "[ResourceARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-ResourceARN)": "string",
+            "[RoleARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-RoleARN)": "string"
          },
-         "NamePrefix": "string"
+         "[NamePrefix](API_Input.md#analytics-Type-Input-NamePrefix)": "string"
       }
    ],
-   "Outputs": [ 
+   "[Outputs](#analytics-CreateApplication-request-Outputs)": [ 
       { 
-         "DestinationSchema": { 
-            "RecordFormatType": "string"
+         "[DestinationSchema](API_Output.md#analytics-Type-Output-DestinationSchema)": { 
+            "[RecordFormatType](API_DestinationSchema.md#analytics-Type-DestinationSchema-RecordFormatType)": "string"
          },
-         "KinesisFirehoseOutput": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+         "[KinesisFirehoseOutput](API_Output.md#analytics-Type-Output-KinesisFirehoseOutput)": { 
+            "[ResourceARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-ResourceARN)": "string",
+            "[RoleARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-RoleARN)": "string"
          },
-         "KinesisStreamsOutput": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+         "[KinesisStreamsOutput](API_Output.md#analytics-Type-Output-KinesisStreamsOutput)": { 
+            "[ResourceARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-ResourceARN)": "string",
+            "[RoleARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-RoleARN)": "string"
          },
-         "LambdaOutput": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+         "[LambdaOutput](API_Output.md#analytics-Type-Output-LambdaOutput)": { 
+            "[ResourceARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-ResourceARN)": "string",
+            "[RoleARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-RoleARN)": "string"
          },
-         "Name": "string"
+         "[Name](API_Output.md#analytics-Type-Output-Name)": "string"
       }
    ]
 }
@@ -96,7 +96,7 @@ In the output configuration, you can configure the application to write data fro
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationCode **   
+ ** [ApplicationCode](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-ApplicationCode"></a>
 One or more SQL statements that read input data, transform it, and generate output\. For example, you can write a SQL statement that reads data from one in\-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in\-application stream using pumps\. For more information about the typical pattern, see [Application Code](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html)\.   
 You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement\. You store intermediate results by creating in\-application streams and pumps\.  
 Note that the application code must create the streams with names specified in the `Outputs`\. For example, if your `Outputs` defines output streams named `ExampleOutputStream1` and `ExampleOutputStream2`, then your application code must create these streams\.   
@@ -104,25 +104,25 @@ Type: String
 Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
 Required: No
 
- ** ApplicationDescription **   
+ ** [ApplicationDescription](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-ApplicationDescription"></a>
 Summary description of the application\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1024\.  
 Required: No
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-ApplicationName"></a>
 Name of your Amazon Kinesis Analytics application \(for example, `sample-app`\)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CloudWatchLoggingOptions **   
+ ** [CloudWatchLoggingOptions](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-CloudWatchLoggingOptions"></a>
 Use this parameter to configure a CloudWatch log stream to monitor application configuration errors\. For more information, see [Working with Amazon CloudWatch Logs](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html)\.  
 Type: Array of [CloudWatchLoggingOption](API_CloudWatchLoggingOption.md) objects  
 Required: No
 
- ** Inputs **   
+ ** [Inputs](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-Inputs"></a>
 Use this parameter to configure the application input\.  
 You can configure your application to receive input from a single streaming source\. In this configuration, you map this streaming source to an in\-application stream that is created\. Your application code can then query the in\-application stream like a table \(you can think of it as a constantly updating table\)\.  
 For the streaming source, you provide its Amazon Resource Name \(ARN\) and format of data on the stream \(for example, JSON, CSV, etc\.\)\. You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf\.  
@@ -130,7 +130,7 @@ To create the in\-application stream, you need to specify a schema to transform 
 Type: Array of [Input](API_Input.md) objects  
 Required: No
 
- ** Outputs **   
+ ** [Outputs](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-Outputs"></a>
 You can configure application output to write data from any of the in\-application streams to up to three destinations\.  
 These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, AWS Lambda destinations, or any combination of the three\.  
 In the configuration, you specify the in\-application stream name, the destination stream or Lambda function Amazon Resource Name \(ARN\), and the format to use when writing data\. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream or Lambda function on your behalf\.  
@@ -142,10 +142,10 @@ Required: No
 
 ```
 {
-   "ApplicationSummary": { 
-      "ApplicationARN": "string",
-      "ApplicationName": "string",
-      "ApplicationStatus": "string"
+   "[ApplicationSummary](#analytics-CreateApplication-response-ApplicationSummary)": { 
+      "[ApplicationARN](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationARN)": "string",
+      "[ApplicationName](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationName)": "string",
+      "[ApplicationStatus](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationStatus)": "string"
    }
 }
 ```
@@ -156,7 +156,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** ApplicationSummary **   
+ ** [ApplicationSummary](#API_CreateApplication_ResponseSyntax) **   <a name="analytics-CreateApplication-response-ApplicationSummary"></a>
 In response to your `CreateApplication` request, Amazon Kinesis Analytics returns a response with a summary of the application it created, including the application Amazon Resource Name \(ARN\), name, and status\.  
 Type: [ApplicationSummary](API_ApplicationSummary.md) object
 

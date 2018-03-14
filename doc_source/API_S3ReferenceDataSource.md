@@ -6,20 +6,20 @@ An Amazon Kinesis Analytics application loads reference data only once\. If the 
 
 ## Contents<a name="API_S3ReferenceDataSource_Contents"></a>
 
- **BucketARN**   
+ **BucketARN**   <a name="analytics-Type-S3ReferenceDataSource-BucketARN"></a>
 Amazon Resource Name \(ARN\) of the S3 bucket\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **FileKey**   
+ **FileKey**   <a name="analytics-Type-S3ReferenceDataSource-FileKey"></a>
 Object key name containing reference data\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Required: Yes
 
- **ReferenceRoleARN**   
+ **ReferenceRoleARN**   <a name="analytics-Type-S3ReferenceDataSource-ReferenceRoleARN"></a>
 ARN of the IAM role that the service can assume to read data on your behalf\. This role must have permission for the `s3:GetObject` action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

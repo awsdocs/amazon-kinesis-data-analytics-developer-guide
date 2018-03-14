@@ -4,14 +4,14 @@ When updating application input configuration, provides information about an Ama
 
 ## Contents<a name="API_KinesisStreamsInputUpdate_Contents"></a>
 
- **ResourceARNUpdate**   
+ **ResourceARNUpdate**   <a name="analytics-Type-KinesisStreamsInputUpdate-ResourceARNUpdate"></a>
 Amazon Resource Name \(ARN\) of the input Amazon Kinesis stream to read\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-KinesisStreamsInputUpdate-RoleARNUpdate"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\. You need to grant the necessary permissions to this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

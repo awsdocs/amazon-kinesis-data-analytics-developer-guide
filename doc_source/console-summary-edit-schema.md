@@ -2,8 +2,7 @@
 
 The schema for an Amazon Kinesis data analytics application's input stream defines how data from the stream is made available to SQL queries in the application\. 
 
-![\[Diagram showing relationship between streaming input, source schema
-                        configuration, and in-application input streams\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-diagram.png)
+![\[Diagram showing relationship between streaming input, source schema configuration, and in-application input streams\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-diagram.png)
 
 The schema contains selection criteria for determining what part of the streaming input is transformed into a data column in the in\-application input stream\. This input can be one of the following: 
 
@@ -40,8 +39,7 @@ If you need to edit a schema for a streaming source, follow these steps\.
 **To edit the schema for a streaming source**
 
 1. On the **Source** page, choose **Edit schema**\.  
-![\[Screenshot of formatted stream sample tab containing stock
-                                    data, with the edit schema button highlighted.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-1.png)
+![\[Screenshot of formatted stream sample tab containing stock data, with the edit schema button highlighted.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-1.png)
 
 1. On the **Edit schema** page, edit the source schema\.  
 ![\[Screenshot of edit schema page.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-0.png)
@@ -75,8 +73,7 @@ You can edit a JSON schema by using the following steps\.
 The base **Row path** value is the path to the top\-level parent that contains the data to be imported\. This value is **$** by default\. For more information, see `RecordRowPath` in [JSONMappingParameters](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_JSONMappingParameters.html)\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
-![\[Screenshot of schema editor showing the x icon next to
-                                        the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
+![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
 1. To rename a column, type a new name for **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
@@ -86,8 +83,7 @@ The base **Row path** value is the path to the top\-level parent that contains t
 
 The modified schema appears in the editor and looks similar to the following\.
 
-![\[Screenshot of schema editor showing the modified
-                                schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-2.png)
+![\[Screenshot of schema editor showing the modified schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-2.png)
 
 If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, type `P` in the **Filter by column name** box\.
 
@@ -116,8 +112,7 @@ You can edit a CSV schema by using the following steps\.
      A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
-![\[Screenshot of schema editor showing the x icon next to
-                                        the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
+![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
 1. To rename a column, type a new name in **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
@@ -127,7 +122,6 @@ You can edit a CSV schema by using the following steps\.
 
 The modified schema appears in the editor and looks similar to the following\.
 
-![\[Screenshot of schema editor showing the modified
-                                schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-3.png)
+![\[Screenshot of schema editor showing the modified schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-3.png)
 
 If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, type `P` in the **Filter by column name** box\.

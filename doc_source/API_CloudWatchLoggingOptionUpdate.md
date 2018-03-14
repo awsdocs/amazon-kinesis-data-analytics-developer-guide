@@ -4,21 +4,21 @@ Describes CloudWatch logging option updates\.
 
 ## Contents<a name="API_CloudWatchLoggingOptionUpdate_Contents"></a>
 
- **CloudWatchLoggingOptionId**   
+ **CloudWatchLoggingOptionId**   <a name="analytics-Type-CloudWatchLoggingOptionUpdate-CloudWatchLoggingOptionId"></a>
 ID of the CloudWatch logging option to update  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **LogStreamARNUpdate**   
+ **LogStreamARNUpdate**   <a name="analytics-Type-CloudWatchLoggingOptionUpdate-LogStreamARNUpdate"></a>
 ARN of the CloudWatch log to receive application messages\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-CloudWatchLoggingOptionUpdate-RoleARNUpdate"></a>
 IAM ARN of the role to use to send application messages\. Note: To write application messages to CloudWatch, the IAM role used must have the `PutLogEvents` policy action enabled\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

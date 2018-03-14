@@ -4,34 +4,34 @@ Describes the application output configuration, which includes the in\-applicati
 
 ## Contents<a name="API_OutputDescription_Contents"></a>
 
- **DestinationSchema**   
+ **DestinationSchema**   <a name="analytics-Type-OutputDescription-DestinationSchema"></a>
 Data format used for writing data to the destination\.  
 Type: [DestinationSchema](API_DestinationSchema.md) object  
 Required: No
 
- **KinesisFirehoseOutputDescription**   
+ **KinesisFirehoseOutputDescription**   <a name="analytics-Type-OutputDescription-KinesisFirehoseOutputDescription"></a>
 Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written\.  
 Type: [KinesisFirehoseOutputDescription](API_KinesisFirehoseOutputDescription.md) object  
 Required: No
 
- **KinesisStreamsOutputDescription**   
+ **KinesisStreamsOutputDescription**   <a name="analytics-Type-OutputDescription-KinesisStreamsOutputDescription"></a>
 Describes Amazon Kinesis stream configured as the destination where output is written\.  
 Type: [KinesisStreamsOutputDescription](API_KinesisStreamsOutputDescription.md) object  
 Required: No
 
- **LambdaOutputDescription**   
+ **LambdaOutputDescription**   <a name="analytics-Type-OutputDescription-LambdaOutputDescription"></a>
 Describes the AWS Lambda function configured as the destination where output is written\.  
 Type: [LambdaOutputDescription](API_LambdaOutputDescription.md) object  
 Required: No
 
- **Name**   
+ **Name**   <a name="analytics-Type-OutputDescription-Name"></a>
 Name of the in\-application stream configured as output\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
 Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
- **OutputId**   
+ **OutputId**   <a name="analytics-Type-OutputDescription-OutputId"></a>
 A unique identifier for the output configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  

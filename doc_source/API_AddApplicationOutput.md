@@ -16,25 +16,25 @@ This operation requires permissions to perform the `kinesisanalytics:AddApplicat
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "Output": { 
-      "DestinationSchema": { 
-         "RecordFormatType": "string"
+   "[ApplicationName](#analytics-AddApplicationOutput-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-AddApplicationOutput-request-CurrentApplicationVersionId)": number,
+   "[Output](#analytics-AddApplicationOutput-request-Output)": { 
+      "[DestinationSchema](API_Output.md#analytics-Type-Output-DestinationSchema)": { 
+         "[RecordFormatType](API_DestinationSchema.md#analytics-Type-DestinationSchema-RecordFormatType)": "string"
       },
-      "KinesisFirehoseOutput": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+      "[KinesisFirehoseOutput](API_Output.md#analytics-Type-Output-KinesisFirehoseOutput)": { 
+         "[ResourceARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-ResourceARN)": "string",
+         "[RoleARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-RoleARN)": "string"
       },
-      "KinesisStreamsOutput": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+      "[KinesisStreamsOutput](API_Output.md#analytics-Type-Output-KinesisStreamsOutput)": { 
+         "[ResourceARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-ResourceARN)": "string",
+         "[RoleARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-RoleARN)": "string"
       },
-      "LambdaOutput": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+      "[LambdaOutput](API_Output.md#analytics-Type-Output-LambdaOutput)": { 
+         "[ResourceARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-ResourceARN)": "string",
+         "[RoleARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-RoleARN)": "string"
       },
-      "Name": "string"
+      "[Name](API_Output.md#analytics-Type-Output-Name)": "string"
    }
 }
 ```
@@ -43,20 +43,20 @@ This operation requires permissions to perform the `kinesisanalytics:AddApplicat
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_AddApplicationOutput_RequestSyntax) **   <a name="analytics-AddApplicationOutput-request-ApplicationName"></a>
 Name of the application to which you want to add the output configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_AddApplicationOutput_RequestSyntax) **   <a name="analytics-AddApplicationOutput-request-CurrentApplicationVersionId"></a>
 Version of the application to which you want to add the output configuration\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.   
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** Output **   
+ ** [Output](#API_AddApplicationOutput_RequestSyntax) **   <a name="analytics-AddApplicationOutput-request-Output"></a>
 An array of objects, each describing one output configuration\. In the output configuration, you specify the name of an in\-application stream, a destination \(that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function\), and record the formation to use when writing to the destination\.  
 Type: [Output](API_Output.md) object  
 Required: Yes

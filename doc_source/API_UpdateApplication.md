@@ -10,117 +10,117 @@ This operation requires permission for the `kinesisanalytics:UpdateApplication` 
 
 ```
 {
-   "ApplicationName": "string",
-   "ApplicationUpdate": { 
-      "ApplicationCodeUpdate": "string",
-      "CloudWatchLoggingOptionUpdates": [ 
+   "[ApplicationName](#analytics-UpdateApplication-request-ApplicationName)": "string",
+   "[ApplicationUpdate](#analytics-UpdateApplication-request-ApplicationUpdate)": { 
+      "[ApplicationCodeUpdate](API_ApplicationUpdate.md#analytics-Type-ApplicationUpdate-ApplicationCodeUpdate)": "string",
+      "[CloudWatchLoggingOptionUpdates](API_ApplicationUpdate.md#analytics-Type-ApplicationUpdate-CloudWatchLoggingOptionUpdates)": [ 
          { 
-            "CloudWatchLoggingOptionId": "string",
-            "LogStreamARNUpdate": "string",
-            "RoleARNUpdate": "string"
+            "[CloudWatchLoggingOptionId](API_CloudWatchLoggingOptionUpdate.md#analytics-Type-CloudWatchLoggingOptionUpdate-CloudWatchLoggingOptionId)": "string",
+            "[LogStreamARNUpdate](API_CloudWatchLoggingOptionUpdate.md#analytics-Type-CloudWatchLoggingOptionUpdate-LogStreamARNUpdate)": "string",
+            "[RoleARNUpdate](API_CloudWatchLoggingOptionUpdate.md#analytics-Type-CloudWatchLoggingOptionUpdate-RoleARNUpdate)": "string"
          }
       ],
-      "InputUpdates": [ 
+      "[InputUpdates](API_ApplicationUpdate.md#analytics-Type-ApplicationUpdate-InputUpdates)": [ 
          { 
-            "InputId": "string",
-            "InputParallelismUpdate": { 
-               "CountUpdate": number
+            "[InputId](API_InputUpdate.md#analytics-Type-InputUpdate-InputId)": "string",
+            "[InputParallelismUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-InputParallelismUpdate)": { 
+               "[CountUpdate](API_InputParallelismUpdate.md#analytics-Type-InputParallelismUpdate-CountUpdate)": number
             },
-            "InputProcessingConfigurationUpdate": { 
-               "InputLambdaProcessorUpdate": { 
-                  "ResourceARNUpdate": "string",
-                  "RoleARNUpdate": "string"
+            "[InputProcessingConfigurationUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-InputProcessingConfigurationUpdate)": { 
+               "[InputLambdaProcessorUpdate](API_InputProcessingConfigurationUpdate.md#analytics-Type-InputProcessingConfigurationUpdate-InputLambdaProcessorUpdate)": { 
+                  "[ResourceARNUpdate](API_InputLambdaProcessorUpdate.md#analytics-Type-InputLambdaProcessorUpdate-ResourceARNUpdate)": "string",
+                  "[RoleARNUpdate](API_InputLambdaProcessorUpdate.md#analytics-Type-InputLambdaProcessorUpdate-RoleARNUpdate)": "string"
                }
             },
-            "InputSchemaUpdate": { 
-               "RecordColumnUpdates": [ 
+            "[InputSchemaUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-InputSchemaUpdate)": { 
+               "[RecordColumnUpdates](API_InputSchemaUpdate.md#analytics-Type-InputSchemaUpdate-RecordColumnUpdates)": [ 
                   { 
-                     "Mapping": "string",
-                     "Name": "string",
-                     "SqlType": "string"
+                     "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+                     "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+                     "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
                   }
                ],
-               "RecordEncodingUpdate": "string",
-               "RecordFormatUpdate": { 
-                  "MappingParameters": { 
-                     "CSVMappingParameters": { 
-                        "RecordColumnDelimiter": "string",
-                        "RecordRowDelimiter": "string"
+               "[RecordEncodingUpdate](API_InputSchemaUpdate.md#analytics-Type-InputSchemaUpdate-RecordEncodingUpdate)": "string",
+               "[RecordFormatUpdate](API_InputSchemaUpdate.md#analytics-Type-InputSchemaUpdate-RecordFormatUpdate)": { 
+                  "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+                     "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+                        "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+                        "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
                      },
-                     "JSONMappingParameters": { 
-                        "RecordRowPath": "string"
+                     "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+                        "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
                      }
                   },
-                  "RecordFormatType": "string"
+                  "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
                }
             },
-            "KinesisFirehoseInputUpdate": { 
-               "ResourceARNUpdate": "string",
-               "RoleARNUpdate": "string"
+            "[KinesisFirehoseInputUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-KinesisFirehoseInputUpdate)": { 
+               "[ResourceARNUpdate](API_KinesisFirehoseInputUpdate.md#analytics-Type-KinesisFirehoseInputUpdate-ResourceARNUpdate)": "string",
+               "[RoleARNUpdate](API_KinesisFirehoseInputUpdate.md#analytics-Type-KinesisFirehoseInputUpdate-RoleARNUpdate)": "string"
             },
-            "KinesisStreamsInputUpdate": { 
-               "ResourceARNUpdate": "string",
-               "RoleARNUpdate": "string"
+            "[KinesisStreamsInputUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-KinesisStreamsInputUpdate)": { 
+               "[ResourceARNUpdate](API_KinesisStreamsInputUpdate.md#analytics-Type-KinesisStreamsInputUpdate-ResourceARNUpdate)": "string",
+               "[RoleARNUpdate](API_KinesisStreamsInputUpdate.md#analytics-Type-KinesisStreamsInputUpdate-RoleARNUpdate)": "string"
             },
-            "NamePrefixUpdate": "string"
+            "[NamePrefixUpdate](API_InputUpdate.md#analytics-Type-InputUpdate-NamePrefixUpdate)": "string"
          }
       ],
-      "OutputUpdates": [ 
+      "[OutputUpdates](API_ApplicationUpdate.md#analytics-Type-ApplicationUpdate-OutputUpdates)": [ 
          { 
-            "DestinationSchemaUpdate": { 
-               "RecordFormatType": "string"
+            "[DestinationSchemaUpdate](API_OutputUpdate.md#analytics-Type-OutputUpdate-DestinationSchemaUpdate)": { 
+               "[RecordFormatType](API_DestinationSchema.md#analytics-Type-DestinationSchema-RecordFormatType)": "string"
             },
-            "KinesisFirehoseOutputUpdate": { 
-               "ResourceARNUpdate": "string",
-               "RoleARNUpdate": "string"
+            "[KinesisFirehoseOutputUpdate](API_OutputUpdate.md#analytics-Type-OutputUpdate-KinesisFirehoseOutputUpdate)": { 
+               "[ResourceARNUpdate](API_KinesisFirehoseOutputUpdate.md#analytics-Type-KinesisFirehoseOutputUpdate-ResourceARNUpdate)": "string",
+               "[RoleARNUpdate](API_KinesisFirehoseOutputUpdate.md#analytics-Type-KinesisFirehoseOutputUpdate-RoleARNUpdate)": "string"
             },
-            "KinesisStreamsOutputUpdate": { 
-               "ResourceARNUpdate": "string",
-               "RoleARNUpdate": "string"
+            "[KinesisStreamsOutputUpdate](API_OutputUpdate.md#analytics-Type-OutputUpdate-KinesisStreamsOutputUpdate)": { 
+               "[ResourceARNUpdate](API_KinesisStreamsOutputUpdate.md#analytics-Type-KinesisStreamsOutputUpdate-ResourceARNUpdate)": "string",
+               "[RoleARNUpdate](API_KinesisStreamsOutputUpdate.md#analytics-Type-KinesisStreamsOutputUpdate-RoleARNUpdate)": "string"
             },
-            "LambdaOutputUpdate": { 
-               "ResourceARNUpdate": "string",
-               "RoleARNUpdate": "string"
+            "[LambdaOutputUpdate](API_OutputUpdate.md#analytics-Type-OutputUpdate-LambdaOutputUpdate)": { 
+               "[ResourceARNUpdate](API_LambdaOutputUpdate.md#analytics-Type-LambdaOutputUpdate-ResourceARNUpdate)": "string",
+               "[RoleARNUpdate](API_LambdaOutputUpdate.md#analytics-Type-LambdaOutputUpdate-RoleARNUpdate)": "string"
             },
-            "NameUpdate": "string",
-            "OutputId": "string"
+            "[NameUpdate](API_OutputUpdate.md#analytics-Type-OutputUpdate-NameUpdate)": "string",
+            "[OutputId](API_OutputUpdate.md#analytics-Type-OutputUpdate-OutputId)": "string"
          }
       ],
-      "ReferenceDataSourceUpdates": [ 
+      "[ReferenceDataSourceUpdates](API_ApplicationUpdate.md#analytics-Type-ApplicationUpdate-ReferenceDataSourceUpdates)": [ 
          { 
-            "ReferenceId": "string",
-            "ReferenceSchemaUpdate": { 
-               "RecordColumns": [ 
+            "[ReferenceId](API_ReferenceDataSourceUpdate.md#analytics-Type-ReferenceDataSourceUpdate-ReferenceId)": "string",
+            "[ReferenceSchemaUpdate](API_ReferenceDataSourceUpdate.md#analytics-Type-ReferenceDataSourceUpdate-ReferenceSchemaUpdate)": { 
+               "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
                   { 
-                     "Mapping": "string",
-                     "Name": "string",
-                     "SqlType": "string"
+                     "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+                     "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+                     "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
                   }
                ],
-               "RecordEncoding": "string",
-               "RecordFormat": { 
-                  "MappingParameters": { 
-                     "CSVMappingParameters": { 
-                        "RecordColumnDelimiter": "string",
-                        "RecordRowDelimiter": "string"
+               "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
+               "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
+                  "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+                     "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+                        "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+                        "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
                      },
-                     "JSONMappingParameters": { 
-                        "RecordRowPath": "string"
+                     "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+                        "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
                      }
                   },
-                  "RecordFormatType": "string"
+                  "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
                }
             },
-            "S3ReferenceDataSourceUpdate": { 
-               "BucketARNUpdate": "string",
-               "FileKeyUpdate": "string",
-               "ReferenceRoleARNUpdate": "string"
+            "[S3ReferenceDataSourceUpdate](API_ReferenceDataSourceUpdate.md#analytics-Type-ReferenceDataSourceUpdate-S3ReferenceDataSourceUpdate)": { 
+               "[BucketARNUpdate](API_S3ReferenceDataSourceUpdate.md#analytics-Type-S3ReferenceDataSourceUpdate-BucketARNUpdate)": "string",
+               "[FileKeyUpdate](API_S3ReferenceDataSourceUpdate.md#analytics-Type-S3ReferenceDataSourceUpdate-FileKeyUpdate)": "string",
+               "[ReferenceRoleARNUpdate](API_S3ReferenceDataSourceUpdate.md#analytics-Type-S3ReferenceDataSourceUpdate-ReferenceRoleARNUpdate)": "string"
             },
-            "TableNameUpdate": "string"
+            "[TableNameUpdate](API_ReferenceDataSourceUpdate.md#analytics-Type-ReferenceDataSourceUpdate-TableNameUpdate)": "string"
          }
       ]
    },
-   "CurrentApplicationVersionId": number
+   "[CurrentApplicationVersionId](#analytics-UpdateApplication-request-CurrentApplicationVersionId)": number
 }
 ```
 
@@ -128,19 +128,19 @@ This operation requires permission for the `kinesisanalytics:UpdateApplication` 
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_UpdateApplication_RequestSyntax) **   <a name="analytics-UpdateApplication-request-ApplicationName"></a>
 Name of the Amazon Kinesis Analytics application to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** ApplicationUpdate **   
+ ** [ApplicationUpdate](#API_UpdateApplication_RequestSyntax) **   <a name="analytics-UpdateApplication-request-ApplicationUpdate"></a>
 Describes application updates\.  
 Type: [ApplicationUpdate](API_ApplicationUpdate.md) object  
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_UpdateApplication_RequestSyntax) **   <a name="analytics-UpdateApplication-request-CurrentApplicationVersionId"></a>
 The current application version ID\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get this value\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  

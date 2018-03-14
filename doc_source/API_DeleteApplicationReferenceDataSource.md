@@ -10,9 +10,9 @@ This operation requires permissions to perform the `kinesisanalytics.DeleteAppli
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "ReferenceId": "string"
+   "[ApplicationName](#analytics-DeleteApplicationReferenceDataSource-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-DeleteApplicationReferenceDataSource-request-CurrentApplicationVersionId)": number,
+   "[ReferenceId](#analytics-DeleteApplicationReferenceDataSource-request-ReferenceId)": "string"
 }
 ```
 
@@ -20,20 +20,20 @@ This operation requires permissions to perform the `kinesisanalytics.DeleteAppli
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_DeleteApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-DeleteApplicationReferenceDataSource-request-ApplicationName"></a>
 Name of an existing application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_DeleteApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-DeleteApplicationReferenceDataSource-request-CurrentApplicationVersionId"></a>
 Version of the application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** ReferenceId **   
+ ** [ReferenceId](#API_DeleteApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-DeleteApplicationReferenceDataSource-request-ReferenceId"></a>
 ID of the reference data source\. When you add a reference data source to your application using the [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md), Amazon Kinesis Analytics assigns an ID\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the reference ID\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  

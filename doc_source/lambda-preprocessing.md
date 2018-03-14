@@ -24,7 +24,7 @@ When creating your Kinesis Data Analytics application, you enable Lambda preproc
 
 1. To use a Lambda function that you have already created, choose the function from the **Lambda function** drop\-down list\.
 
-1. To create a new Lambda function from one of the [[ERROR] BAD/MISSING LINK TEXT](#lambda-preprocessing-templates), choose the template from the drop\-down list, and choose the **View <template name> in Lambda** link to edit the function\.
+1. To create a new Lambda function from one of the [Lambda Preprocessing Templates](#lambda-preprocessing-templates), choose the template from the drop\-down list, and choose the **View <template name> in Lambda** link to edit the function\.
 
 1. To create a new Lambda function, choose **Create new**\. For information about creating a Lambda function, see [Create a HelloWorld Lambda Function and Explore the Console](http://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html)\.
 
@@ -78,6 +78,8 @@ The input model to your preprocessing function varies slightly, depending on whe
 
 If the source is a Kinesis Data Firehose delivery stream, the event input data model is as follows:
 
+**Kinesis Data Firehose Request Data Model**
+
 
 | Field | Description | 
 | --- | --- | 
@@ -88,7 +90,7 @@ If the source is a Kinesis Data Firehose delivery stream, the event input data m
 | invocationId | The Lambda invocation Id \(random GUID\)\. | 
 | applicationArn | Kinesis Data Analytics application Amazon Resource Name \(ARN\) | 
 | streamArn | Delivery stream ARN | 
-| Records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
+| records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | recordId | record ID \(random GUID\) | 
 | kinesisFirehoseRecordMetadata |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | data | Base64\-encoded source record payload | 
@@ -108,7 +110,7 @@ If the source is a Kinesis stream, the event input data model is as follows:
 | invocationId | The Lambda invocation Id \(random GUID\)\. | 
 | applicationArn | Kinesis Data Analytics application ARN | 
 | streamArn | Delivery stream ARN | 
-| Records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
+| records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | recordId | record ID based off of Kinesis record sequence number | 
 | kinesisStreamRecordMetadata |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | data | Base64\-encoded source record payload | 
@@ -126,6 +128,7 @@ All records returned from your Lambda preprocessing function \(with record IDs\)
 
 | Field | Description | 
 | --- | --- | 
+| records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | recordId | The record ID is passed from Kinesis Data Analytics to Lambda during the invocation\. The transformed record must contain the same record ID\. Any mismatch between the ID of the original record and the ID of the transformed record is treated as a data preprocessing failure\. | 
 | result | The status of the data transformation of the record\. The possible values are: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/lambda-preprocessing.html)  | 
 | data | The transformed data payload, after base64\-encoding\. Each data payload can contain multiple JSON documents if the application ingestion data format is JSON, or can contain multiple CSV rows \(with a row delimiter specified in each row\) if the application ingestion data format is CSV\. The Kinesis Data Analytics service successfully parses and processes data with either multiple JSON documents or CSV rows within the same data payload\.  | 

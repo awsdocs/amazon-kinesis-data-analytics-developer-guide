@@ -15,7 +15,6 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [What Is Amazon Kinesis Data Analytics?](what-is.md)
-+ [Kinesis Data Analytics SQL Reference](analytics-kdg-sqlref.md)
 + [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)
    + [Configuring Application Input](how-it-works-input.md)
       + [Working with JSONPath](about-json-path.md)
@@ -76,8 +75,6 @@ Amazon's trademarks and trade dress may not be used in
          + [Step 2: Create an Analytics Application](app-anom-with-exp-create-app.md)
          + [Step 3: Examine the Results](examine-results-with-exp.md)
       + [Example: Using Different Types of Times in Streaming Analytics](app-different-times.md)
-   + [Examples: Post Processing In-Application Stream](app-stream-post-processing.md)
-      + [Example: Integrating Amazon Kinesis Data Analytics with AWS Lambda](aws-lambda-integration.md)
    + [Examples: Other Amazon Kinesis Data Analytics Applications](app-other-apps.md)
       + [Example: Explore the In-Application Error Stream](app-explore-error-stream.md)
 + [Monitoring Amazon Kinesis Data Analytics](monitoring-overview.md)
@@ -93,6 +90,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Overview of Managing Access Permissions to Your Amazon Kinesis Data Analytics Resources](access-control-overview.md)
    + [Using Identity-Based Policies (IAM Policies) for Amazon Kinesis Data Analytics](using-identity-based-policies.md)
    + [Amazon Kinesis Data Analytics API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md)
++ [Kinesis Data Analytics SQL Reference](analytics-kdg-sqlref.md)
 + [API Reference](API_Reference.md)
    + [Actions](API_Operations.md)
       + [AddApplicationCloudWatchLoggingOption](API_AddApplicationCloudWatchLoggingOption.md)

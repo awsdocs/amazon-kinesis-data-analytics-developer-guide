@@ -4,12 +4,12 @@
 
 ## Contents<a name="API_RecordFormat_Contents"></a>
 
- **MappingParameters**   
+ **MappingParameters**   <a name="analytics-Type-RecordFormat-MappingParameters"></a>
 When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format \(such as JSON, CSV, or record fields delimited by some delimiter\) on the streaming source\.  
 Type: [MappingParameters](API_MappingParameters.md) object  
 Required: No
 
- **RecordFormatType**   
+ **RecordFormatType**   <a name="analytics-Type-RecordFormat-RecordFormatType"></a>
 The type of record format\.  
 Type: String  
 Valid Values:` JSON | CSV`   

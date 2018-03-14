@@ -4,19 +4,19 @@ Describes updates for the application's input schema\.
 
 ## Contents<a name="API_InputSchemaUpdate_Contents"></a>
 
- **RecordColumnUpdates**   
+ **RecordColumnUpdates**   <a name="analytics-Type-InputSchemaUpdate-RecordColumnUpdates"></a>
 A list of `RecordColumn` objects\. Each object describes the mapping of the streaming source element to the corresponding column in the in\-application stream\.   
 Type: Array of [RecordColumn](API_RecordColumn.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 1000 items\.  
 Required: No
 
- **RecordEncodingUpdate**   
+ **RecordEncodingUpdate**   <a name="analytics-Type-InputSchemaUpdate-RecordEncodingUpdate"></a>
 Specifies the encoding of the records in the streaming source\. For example, UTF\-8\.  
 Type: String  
 Pattern: `UTF-8`   
 Required: No
 
- **RecordFormatUpdate**   
+ **RecordFormatUpdate**   <a name="analytics-Type-InputSchemaUpdate-RecordFormatUpdate"></a>
 Specifies the format of the records on the streaming source\.  
 Type: [RecordFormat](API_RecordFormat.md) object  
 Required: No

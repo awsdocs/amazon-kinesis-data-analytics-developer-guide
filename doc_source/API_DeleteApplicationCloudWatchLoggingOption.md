@@ -6,9 +6,9 @@ Deletes a CloudWatch log stream from an application\. For more information about
 
 ```
 {
-   "ApplicationName": "string",
-   "CloudWatchLoggingOptionId": "string",
-   "CurrentApplicationVersionId": number
+   "[ApplicationName](#analytics-DeleteApplicationCloudWatchLoggingOption-request-ApplicationName)": "string",
+   "[CloudWatchLoggingOptionId](#analytics-DeleteApplicationCloudWatchLoggingOption-request-CloudWatchLoggingOptionId)": "string",
+   "[CurrentApplicationVersionId](#analytics-DeleteApplicationCloudWatchLoggingOption-request-CurrentApplicationVersionId)": number
 }
 ```
 
@@ -16,21 +16,21 @@ Deletes a CloudWatch log stream from an application\. For more information about
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_DeleteApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-DeleteApplicationCloudWatchLoggingOption-request-ApplicationName"></a>
 The Kinesis Analytics application name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CloudWatchLoggingOptionId **   
+ ** [CloudWatchLoggingOptionId](#API_DeleteApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-DeleteApplicationCloudWatchLoggingOption-request-CloudWatchLoggingOptionId"></a>
 The `CloudWatchLoggingOptionId` of the CloudWatch logging option to delete\. You can get the `CloudWatchLoggingOptionId` by using the [DescribeApplication](API_DescribeApplication.md) operation\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_DeleteApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-DeleteApplicationCloudWatchLoggingOption-request-CurrentApplicationVersionId"></a>
 The version ID of the Kinesis Analytics application\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  

@@ -4,7 +4,7 @@ Describes the data format when records are written to the destination\. For more
 
 ## Contents<a name="API_DestinationSchema_Contents"></a>
 
- **RecordFormatType**   
+ **RecordFormatType**   <a name="analytics-Type-DestinationSchema-RecordFormatType"></a>
 Specifies the format of the records on the output stream\.  
 Type: String  
 Valid Values:` JSON | CSV`   

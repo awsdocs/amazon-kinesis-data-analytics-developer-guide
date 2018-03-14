@@ -12,49 +12,49 @@ This operation requires permissions to perform the `kinesisanalytics:AddApplicat
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "Input": { 
-      "InputParallelism": { 
-         "Count": number
+   "[ApplicationName](#analytics-AddApplicationInput-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-AddApplicationInput-request-CurrentApplicationVersionId)": number,
+   "[Input](#analytics-AddApplicationInput-request-Input)": { 
+      "[InputParallelism](API_Input.md#analytics-Type-Input-InputParallelism)": { 
+         "[Count](API_InputParallelism.md#analytics-Type-InputParallelism-Count)": number
       },
-      "InputProcessingConfiguration": { 
-         "InputLambdaProcessor": { 
-            "ResourceARN": "string",
-            "RoleARN": "string"
+      "[InputProcessingConfiguration](API_Input.md#analytics-Type-Input-InputProcessingConfiguration)": { 
+         "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
+            "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
+            "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
          }
       },
-      "InputSchema": { 
-         "RecordColumns": [ 
+      "[InputSchema](API_Input.md#analytics-Type-Input-InputSchema)": { 
+         "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
             { 
-               "Mapping": "string",
-               "Name": "string",
-               "SqlType": "string"
+               "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+               "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+               "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
             }
          ],
-         "RecordEncoding": "string",
-         "RecordFormat": { 
-            "MappingParameters": { 
-               "CSVMappingParameters": { 
-                  "RecordColumnDelimiter": "string",
-                  "RecordRowDelimiter": "string"
+         "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
+         "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
+            "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+               "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+                  "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+                  "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
                },
-               "JSONMappingParameters": { 
-                  "RecordRowPath": "string"
+               "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+                  "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
                }
             },
-            "RecordFormatType": "string"
+            "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
          }
       },
-      "KinesisFirehoseInput": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+      "[KinesisFirehoseInput](API_Input.md#analytics-Type-Input-KinesisFirehoseInput)": { 
+         "[ResourceARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-ResourceARN)": "string",
+         "[RoleARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-RoleARN)": "string"
       },
-      "KinesisStreamsInput": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+      "[KinesisStreamsInput](API_Input.md#analytics-Type-Input-KinesisStreamsInput)": { 
+         "[ResourceARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-ResourceARN)": "string",
+         "[RoleARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-RoleARN)": "string"
       },
-      "NamePrefix": "string"
+      "[NamePrefix](API_Input.md#analytics-Type-Input-NamePrefix)": "string"
    }
 }
 ```
@@ -63,20 +63,20 @@ This operation requires permissions to perform the `kinesisanalytics:AddApplicat
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_AddApplicationInput_RequestSyntax) **   <a name="analytics-AddApplicationInput-request-ApplicationName"></a>
 Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_AddApplicationInput_RequestSyntax) **   <a name="analytics-AddApplicationInput-request-CurrentApplicationVersionId"></a>
 Current version of your Amazon Kinesis Analytics application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to find the current application version\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** Input **   
+ ** [Input](#API_AddApplicationInput_RequestSyntax) **   <a name="analytics-AddApplicationInput-request-Input"></a>
 The [Input](API_Input.md) to add\.  
 Type: [Input](API_Input.md) object  
 Required: Yes

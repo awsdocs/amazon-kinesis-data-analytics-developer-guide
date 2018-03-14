@@ -4,14 +4,13 @@ An *application* is the primary resource in Amazon Kinesis Data Analytics that y
 
 Amazon Kinesis data analytics applications continuously read and process streaming data in real time\. You write application code using SQL to process the incoming streaming data and produce output\. Then, Kinesis Data Analytics writes the output to a configured destination\. The following diagram illustrates a typical application architecture\.
 
-![\[Diagram showing a data analytics application, streaming input sources, reference
-                data, and application output.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kinesis-app.png)
+![\[Diagram showing a data analytics application, streaming input sources, reference data, and application output.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kinesis-app.png)
 
 Each application has a name, description, version ID, and status\. Amazon Kinesis Data Analytics assigns a version ID when you first create an application\. This version ID is updated when you update any application configuration\. For example, if you add an input configuration, add or delete a reference data source, or add or delete output configuration, or update application code, Kinesis Data Analytics updates the current application version ID\. Kinesis Data Analytics also maintains time stamps for when an application was created and last updated\. 
 
 In addition to these basic properties, each application consists of the following:
 
-+ **Input** – The streaming source for your application\. You can select either a Kinesis data stream or a Kinesis data delivery stream as the streaming source\. In the input configuration, you map the streaming source to an in\-application input stream\. The in\-application stream is like a continuously updating table upon which you can perform the SELECT and INSERT SQL operations\. In your application code you can create additional in\-application streams to store intermediate query results\. 
++ **Input** – The streaming source for your application\. You can select either a Kinesis data stream or a Kinesis Data Firehose data delivery stream as the streaming source\. In the input configuration, you map the streaming source to an in\-application input stream\. The in\-application stream is like a continuously updating table upon which you can perform the SELECT and INSERT SQL operations\. In your application code you can create additional in\-application streams to store intermediate query results\. 
 
    
 

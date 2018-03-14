@@ -4,7 +4,7 @@ Provides additional mapping information when JSON is the record format on the st
 
 ## Contents<a name="API_JSONMappingParameters_Contents"></a>
 
- **RecordRowPath**   
+ **RecordRowPath**   <a name="analytics-Type-JSONMappingParameters-RecordRowPath"></a>
 Path to the top\-level parent that contains the records\.  
 Type: String  
 Length Constraints: Minimum length of 1\.  

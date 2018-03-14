@@ -8,8 +8,8 @@ This operation requires permissions to perform the `kinesisanalytics:DeleteAppli
 
 ```
 {
-   "ApplicationName": "string",
-   "CreateTimestamp": number
+   "[ApplicationName](#analytics-DeleteApplication-request-ApplicationName)": "string",
+   "[CreateTimestamp](#analytics-DeleteApplication-request-CreateTimestamp)": number
 }
 ```
 
@@ -17,14 +17,14 @@ This operation requires permissions to perform the `kinesisanalytics:DeleteAppli
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_DeleteApplication_RequestSyntax) **   <a name="analytics-DeleteApplication-request-ApplicationName"></a>
 Name of the Amazon Kinesis Analytics application to delete\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CreateTimestamp **   
+ ** [CreateTimestamp](#API_DeleteApplication_RequestSyntax) **   <a name="analytics-DeleteApplication-request-CreateTimestamp"></a>
  You can use the `DescribeApplication` operation to get this value\.   
 Type: Timestamp  
 Required: Yes

@@ -4,14 +4,14 @@ Represents an update to the [InputLambdaProcessor](API_InputLambdaProcessor.md) 
 
 ## Contents<a name="API_InputLambdaProcessorUpdate_Contents"></a>
 
- **ResourceARNUpdate**   
+ **ResourceARNUpdate**   <a name="analytics-Type-InputLambdaProcessorUpdate-ResourceARNUpdate"></a>
 The Amazon Resource Name \(ARN\) of the new [AWS Lambda](https://aws.amazon.com/documentation/lambda/) function that is used to preprocess the records in the stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-InputLambdaProcessorUpdate-RoleARNUpdate"></a>
 The ARN of the new IAM role that is used to access the AWS Lambda function\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

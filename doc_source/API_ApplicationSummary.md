@@ -4,21 +4,21 @@ Provides application summary information, including the application Amazon Resou
 
 ## Contents<a name="API_ApplicationSummary_Contents"></a>
 
- **ApplicationARN**   
+ **ApplicationARN**   <a name="analytics-Type-ApplicationSummary-ApplicationARN"></a>
 ARN of the application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **ApplicationName**   
+ **ApplicationName**   <a name="analytics-Type-ApplicationSummary-ApplicationName"></a>
 Name of the application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **ApplicationStatus**   
+ **ApplicationStatus**   <a name="analytics-Type-ApplicationSummary-ApplicationStatus"></a>
 Status of the application\.  
 Type: String  
 Valid Values:` DELETING | STARTING | STOPPING | READY | RUNNING | UPDATING`   

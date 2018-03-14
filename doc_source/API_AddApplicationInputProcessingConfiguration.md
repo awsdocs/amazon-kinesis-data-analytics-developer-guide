@@ -6,13 +6,13 @@ Adds an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to a
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "InputId": "string",
-   "InputProcessingConfiguration": { 
-      "InputLambdaProcessor": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+   "[ApplicationName](#analytics-AddApplicationInputProcessingConfiguration-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-AddApplicationInputProcessingConfiguration-request-CurrentApplicationVersionId)": number,
+   "[InputId](#analytics-AddApplicationInputProcessingConfiguration-request-InputId)": "string",
+   "[InputProcessingConfiguration](#analytics-AddApplicationInputProcessingConfiguration-request-InputProcessingConfiguration)": { 
+      "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
+         "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
+         "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
       }
    }
 }
@@ -22,27 +22,27 @@ Adds an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to a
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-ApplicationName"></a>
 Name of the application to which you want to add the input processing configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-CurrentApplicationVersionId"></a>
 Version of the application to which you want to add the input processing configuration\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** InputId **   
+ ** [InputId](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-InputId"></a>
 The ID of the input configuration to add the input processing configuration to\. You can get a list of the input IDs for an application using the [DescribeApplication](API_DescribeApplication.md) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** InputProcessingConfiguration **   
+ ** [InputProcessingConfiguration](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-InputProcessingConfiguration"></a>
 The [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to add to the application\.  
 Type: [InputProcessingConfiguration](API_InputProcessingConfiguration.md) object  
 Required: Yes

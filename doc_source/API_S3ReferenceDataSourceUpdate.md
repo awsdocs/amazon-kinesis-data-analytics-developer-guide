@@ -4,20 +4,20 @@ Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis 
 
 ## Contents<a name="API_S3ReferenceDataSourceUpdate_Contents"></a>
 
- **BucketARNUpdate**   
+ **BucketARNUpdate**   <a name="analytics-Type-S3ReferenceDataSourceUpdate-BucketARNUpdate"></a>
 Amazon Resource Name \(ARN\) of the S3 bucket\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **FileKeyUpdate**   
+ **FileKeyUpdate**   <a name="analytics-Type-S3ReferenceDataSourceUpdate-FileKeyUpdate"></a>
 Object key name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Required: No
 
- **ReferenceRoleARNUpdate**   
+ **ReferenceRoleARNUpdate**   <a name="analytics-Type-S3ReferenceDataSourceUpdate-ReferenceRoleARNUpdate"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in\-application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

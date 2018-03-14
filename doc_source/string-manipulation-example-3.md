@@ -17,7 +17,7 @@ Then, you use the application code with the `SUBSTRING` function to parse the UR
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-20.png)
 
-## Step 1: Create a Kinesis Data Stream<a name="w3ab1c24c10b7c10c20"></a>
+## Step 1: Create a Kinesis Data Stream<a name="w3ab1c22c10b9c10c20"></a>
 
 Create an Amazon Kinesis data stream and populate log records as follows:
 
@@ -44,7 +44,7 @@ Create an Amazon Kinesis data stream and populate log records as follows:
            kinesis.put_record("teststreamforkinesisanalyticsapps", data, "partitionkey")
    ```
 
-## Step 2: Create the Amazon Kinesis Data Analytics Application<a name="w3ab1c24c10b7c10c22"></a>
+## Step 2: Create the Amazon Kinesis Data Analytics Application<a name="w3ab1c22c10b9c10c22"></a>
 
 Create an Amazon Kinesis Data Analytics application as follows:
 

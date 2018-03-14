@@ -17,7 +17,7 @@ Then, you use the application code with the `W3C_LOG_PARSE` function to parse th
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/log-20.png)
 
-## Step 1: Create a Kinesis Data Stream<a name="w3ab1c24c10b7b4c18"></a>
+## Step 1: Create a Kinesis Data Stream<a name="w3ab1c22c10b9b4c18"></a>
 
 Create an Amazon Kinesis data stream and populate log records as follows:
 
@@ -44,7 +44,7 @@ Create an Amazon Kinesis data stream and populate log records as follows:
            kinesis.put_record("stream-name", data, "partitionkey")
    ```
 
-## Step 2: Create the Amazon Kinesis Data Analytics Application<a name="w3ab1c24c10b7b4c20"></a>
+## Step 2: Create the Amazon Kinesis Data Analytics Application<a name="w3ab1c22c10b9b4c20"></a>
 
 Create an Amazon Kinesis Data Analytics application as follows:
 

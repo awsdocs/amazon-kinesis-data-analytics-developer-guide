@@ -22,7 +22,7 @@ The most important metric is the `millisBehindLatest`, which indicates how far b
 
 We recommend that you set up a CloudWatch alarm that triggers when the application is behind by more than an hour reading the streaming source\. For some use cases that require very close to real\-time processing, such as emitting processed data to a live application, you might choose to set the alarm at a lower value, such as five minutes\.
 
-For a list of metrics Amazon Kinesis Data Analytics supports, see [Viewing Amazon Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)\.
+For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesis Data Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
 
 + [Monitoring Tools](monitoring-automated-manual.md)

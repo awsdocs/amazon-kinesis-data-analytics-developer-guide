@@ -4,14 +4,14 @@ An object that contains the Amazon Resource Name \(ARN\) of the [AWS Lambda](htt
 
 ## Contents<a name="API_InputLambdaProcessorDescription_Contents"></a>
 
- **ResourceARN**   
+ **ResourceARN**   <a name="analytics-Type-InputLambdaProcessorDescription-ResourceARN"></a>
 The ARN of the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) function that is used to preprocess the records in the stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-InputLambdaProcessorDescription-RoleARN"></a>
 The ARN of the IAM role that is used to access the AWS Lambda function\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

@@ -12,37 +12,37 @@ Amazon Kinesis Analytics reads reference data \(that is, an Amazon S3 object\) a
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "ReferenceDataSource": { 
-      "ReferenceSchema": { 
-         "RecordColumns": [ 
+   "[ApplicationName](#analytics-AddApplicationReferenceDataSource-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-AddApplicationReferenceDataSource-request-CurrentApplicationVersionId)": number,
+   "[ReferenceDataSource](#analytics-AddApplicationReferenceDataSource-request-ReferenceDataSource)": { 
+      "[ReferenceSchema](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-ReferenceSchema)": { 
+         "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
             { 
-               "Mapping": "string",
-               "Name": "string",
-               "SqlType": "string"
+               "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+               "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+               "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
             }
          ],
-         "RecordEncoding": "string",
-         "RecordFormat": { 
-            "MappingParameters": { 
-               "CSVMappingParameters": { 
-                  "RecordColumnDelimiter": "string",
-                  "RecordRowDelimiter": "string"
+         "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
+         "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
+            "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+               "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+                  "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+                  "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
                },
-               "JSONMappingParameters": { 
-                  "RecordRowPath": "string"
+               "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+                  "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
                }
             },
-            "RecordFormatType": "string"
+            "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
          }
       },
-      "S3ReferenceDataSource": { 
-         "BucketARN": "string",
-         "FileKey": "string",
-         "ReferenceRoleARN": "string"
+      "[S3ReferenceDataSource](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-S3ReferenceDataSource)": { 
+         "[BucketARN](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-BucketARN)": "string",
+         "[FileKey](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-FileKey)": "string",
+         "[ReferenceRoleARN](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-ReferenceRoleARN)": "string"
       },
-      "TableName": "string"
+      "[TableName](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-TableName)": "string"
    }
 }
 ```
@@ -51,20 +51,20 @@ Amazon Kinesis Analytics reads reference data \(that is, an Amazon S3 object\) a
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_AddApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-AddApplicationReferenceDataSource-request-ApplicationName"></a>
 Name of an existing application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_AddApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-AddApplicationReferenceDataSource-request-CurrentApplicationVersionId"></a>
 Version of the application for which you are adding the reference data source\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** ReferenceDataSource **   
+ ** [ReferenceDataSource](#API_AddApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-AddApplicationReferenceDataSource-request-ReferenceDataSource"></a>
 The reference data source can be an object in your Amazon S3 bucket\. Amazon Kinesis Analytics reads the object and copies the data into the in\-application table that is created\. You provide an S3 bucket, object key name, and the resulting in\-application table that is created\. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf\.  
 Type: [ReferenceDataSource](API_ReferenceDataSource.md) object  
 Required: Yes

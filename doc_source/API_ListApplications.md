@@ -10,8 +10,8 @@ This operation requires permissions to perform the `kinesisanalytics:ListApplica
 
 ```
 {
-   "ExclusiveStartApplicationName": "string",
-   "Limit": number
+   "[ExclusiveStartApplicationName](#analytics-ListApplications-request-ExclusiveStartApplicationName)": "string",
+   "[Limit](#analytics-ListApplications-request-Limit)": number
 }
 ```
 
@@ -19,14 +19,14 @@ This operation requires permissions to perform the `kinesisanalytics:ListApplica
 
 The request accepts the following data in JSON format\.
 
- ** ExclusiveStartApplicationName **   
+ ** [ExclusiveStartApplicationName](#API_ListApplications_RequestSyntax) **   <a name="analytics-ListApplications-request-ExclusiveStartApplicationName"></a>
 Name of the application to start the list with\. When using pagination to retrieve the list, you don't need to specify this parameter in the first request\. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: No
 
- ** Limit **   
+ ** [Limit](#API_ListApplications_RequestSyntax) **   <a name="analytics-ListApplications-request-Limit"></a>
 Maximum number of applications to list\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 50\.  
@@ -36,14 +36,14 @@ Required: No
 
 ```
 {
-   "ApplicationSummaries": [ 
+   "[ApplicationSummaries](#analytics-ListApplications-response-ApplicationSummaries)": [ 
       { 
-         "ApplicationARN": "string",
-         "ApplicationName": "string",
-         "ApplicationStatus": "string"
+         "[ApplicationARN](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationARN)": "string",
+         "[ApplicationName](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationName)": "string",
+         "[ApplicationStatus](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationStatus)": "string"
       }
    ],
-   "HasMoreApplications": boolean
+   "[HasMoreApplications](#analytics-ListApplications-response-HasMoreApplications)": boolean
 }
 ```
 
@@ -53,11 +53,11 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** ApplicationSummaries **   
+ ** [ApplicationSummaries](#API_ListApplications_ResponseSyntax) **   <a name="analytics-ListApplications-response-ApplicationSummaries"></a>
 List of `ApplicationSummary` objects\.   
 Type: Array of [ApplicationSummary](API_ApplicationSummary.md) objects
 
- ** HasMoreApplications **   
+ ** [HasMoreApplications](#API_ListApplications_ResponseSyntax) **   <a name="analytics-ListApplications-response-HasMoreApplications"></a>
 Returns true if there are more applications to retrieve\.  
 Type: Boolean
 

@@ -4,7 +4,7 @@ Describes the point at which the application reads from the streaming source\.
 
 ## Contents<a name="API_InputStartingPositionConfiguration_Contents"></a>
 
- **InputStartingPosition**   
+ **InputStartingPosition**   <a name="analytics-Type-InputStartingPositionConfiguration-InputStartingPosition"></a>
 The starting position on the stream\.  
 
 +  `NOW` \- Start reading just after the most recent record in the stream, start at the request time stamp that the customer issued\.

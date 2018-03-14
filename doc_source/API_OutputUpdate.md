@@ -4,34 +4,34 @@
 
 ## Contents<a name="API_OutputUpdate_Contents"></a>
 
- **DestinationSchemaUpdate**   
+ **DestinationSchemaUpdate**   <a name="analytics-Type-OutputUpdate-DestinationSchemaUpdate"></a>
 Describes the data format when records are written to the destination\. For more information, see [Configuring Application Output](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html)\.  
 Type: [DestinationSchema](API_DestinationSchema.md) object  
 Required: No
 
- **KinesisFirehoseOutputUpdate**   
+ **KinesisFirehoseOutputUpdate**   <a name="analytics-Type-OutputUpdate-KinesisFirehoseOutputUpdate"></a>
 Describes an Amazon Kinesis Firehose delivery stream as the destination for the output\.  
 Type: [KinesisFirehoseOutputUpdate](API_KinesisFirehoseOutputUpdate.md) object  
 Required: No
 
- **KinesisStreamsOutputUpdate**   
+ **KinesisStreamsOutputUpdate**   <a name="analytics-Type-OutputUpdate-KinesisStreamsOutputUpdate"></a>
 Describes an Amazon Kinesis stream as the destination for the output\.  
 Type: [KinesisStreamsOutputUpdate](API_KinesisStreamsOutputUpdate.md) object  
 Required: No
 
- **LambdaOutputUpdate**   
+ **LambdaOutputUpdate**   <a name="analytics-Type-OutputUpdate-LambdaOutputUpdate"></a>
 Describes an AWS Lambda function as the destination for the output\.  
 Type: [LambdaOutputUpdate](API_LambdaOutputUpdate.md) object  
 Required: No
 
- **NameUpdate**   
+ **NameUpdate**   <a name="analytics-Type-OutputUpdate-NameUpdate"></a>
 If you want to specify a different in\-application stream for this output configuration, use this field to specify the new in\-application stream name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
 Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
- **OutputId**   
+ **OutputId**   <a name="analytics-Type-OutputUpdate-OutputId"></a>
 Identifies the specific output configuration that you want to update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  

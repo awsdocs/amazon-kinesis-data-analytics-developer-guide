@@ -4,39 +4,39 @@ Describes updates to a specific input configuration \(identified by the `InputId
 
 ## Contents<a name="API_InputUpdate_Contents"></a>
 
- **InputId**   
+ **InputId**   <a name="analytics-Type-InputUpdate-InputId"></a>
 Input ID of the application input to be updated\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **InputParallelismUpdate**   
+ **InputParallelismUpdate**   <a name="analytics-Type-InputUpdate-InputParallelismUpdate"></a>
 Describes the parallelism updates \(the number in\-application streams Amazon Kinesis Analytics creates for the specific streaming source\)\.  
 Type: [InputParallelismUpdate](API_InputParallelismUpdate.md) object  
 Required: No
 
- **InputProcessingConfigurationUpdate**   
+ **InputProcessingConfigurationUpdate**   <a name="analytics-Type-InputUpdate-InputProcessingConfigurationUpdate"></a>
 Describes updates for an input processing configuration\.  
 Type: [InputProcessingConfigurationUpdate](API_InputProcessingConfigurationUpdate.md) object  
 Required: No
 
- **InputSchemaUpdate**   
+ **InputSchemaUpdate**   <a name="analytics-Type-InputUpdate-InputSchemaUpdate"></a>
 Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in\-application stream that is created\.  
 Type: [InputSchemaUpdate](API_InputSchemaUpdate.md) object  
 Required: No
 
- **KinesisFirehoseInputUpdate**   
+ **KinesisFirehoseInputUpdate**   <a name="analytics-Type-InputUpdate-KinesisFirehoseInputUpdate"></a>
 If an Amazon Kinesis Firehose delivery stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN\.  
 Type: [KinesisFirehoseInputUpdate](API_KinesisFirehoseInputUpdate.md) object  
 Required: No
 
- **KinesisStreamsInputUpdate**   
+ **KinesisStreamsInputUpdate**   <a name="analytics-Type-InputUpdate-KinesisStreamsInputUpdate"></a>
 If an Amazon Kinesis stream is the streaming source to be updated, provides an updated stream Amazon Resource Name \(ARN\) and IAM role ARN\.  
 Type: [KinesisStreamsInputUpdate](API_KinesisStreamsInputUpdate.md) object  
 Required: No
 
- **NamePrefixUpdate**   
+ **NamePrefixUpdate**   <a name="analytics-Type-InputUpdate-NamePrefixUpdate"></a>
 Name prefix for in\-application streams that Amazon Kinesis Analytics creates for the specific streaming source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  

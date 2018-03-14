@@ -4,7 +4,7 @@ Provides a description of a processor that is used to preprocess the records in 
 
 ## Contents<a name="API_InputProcessingConfiguration_Contents"></a>
 
- **InputLambdaProcessor**   
+ **InputLambdaProcessor**   <a name="analytics-Type-InputProcessingConfiguration-InputLambdaProcessor"></a>
 The [InputLambdaProcessor](API_InputLambdaProcessor.md) that is used to preprocess the records in the stream before being processed by your application code\.  
 Type: [InputLambdaProcessor](API_InputLambdaProcessor.md) object  
 Required: Yes

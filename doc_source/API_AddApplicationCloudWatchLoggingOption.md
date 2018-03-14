@@ -6,12 +6,12 @@ Adds a CloudWatch log stream to monitor application configuration errors\. For m
 
 ```
 {
-   "ApplicationName": "string",
-   "CloudWatchLoggingOption": { 
-      "LogStreamARN": "string",
-      "RoleARN": "string"
+   "[ApplicationName](#analytics-AddApplicationCloudWatchLoggingOption-request-ApplicationName)": "string",
+   "[CloudWatchLoggingOption](#analytics-AddApplicationCloudWatchLoggingOption-request-CloudWatchLoggingOption)": { 
+      "[LogStreamARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-LogStreamARN)": "string",
+      "[RoleARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-RoleARN)": "string"
    },
-   "CurrentApplicationVersionId": number
+   "[CurrentApplicationVersionId](#analytics-AddApplicationCloudWatchLoggingOption-request-CurrentApplicationVersionId)": number
 }
 ```
 
@@ -19,19 +19,19 @@ Adds a CloudWatch log stream to monitor application configuration errors\. For m
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_AddApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-AddApplicationCloudWatchLoggingOption-request-ApplicationName"></a>
 The Kinesis Analytics application name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CloudWatchLoggingOption **   
+ ** [CloudWatchLoggingOption](#API_AddApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-AddApplicationCloudWatchLoggingOption-request-CloudWatchLoggingOption"></a>
 Provides the CloudWatch log stream Amazon Resource Name \(ARN\) and the IAM role ARN\. Note: To write application messages to CloudWatch, the IAM role that is used must have the `PutLogEvents` policy action enabled\.  
 Type: [CloudWatchLoggingOption](API_CloudWatchLoggingOption.md) object  
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_AddApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-AddApplicationCloudWatchLoggingOption-request-CurrentApplicationVersionId"></a>
 The version ID of the Kinesis Analytics application\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  

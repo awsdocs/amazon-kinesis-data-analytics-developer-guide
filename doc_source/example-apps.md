@@ -8,5 +8,4 @@ This section provides examples of working with Amazon Kinesis Data Analytics\. S
 + [Examples: Preprocessing Streams](apps-preprocess-stream.md)
 + [Examples: Basic Analytics](apps-basic-analytics.md)
 + [Examples: Advanced Analytics](apps-adv-analytics.md)
-+ [Examples: Post Processing In\-Application Stream](app-stream-post-processing.md)
 + [Examples: Other Amazon Kinesis Data Analytics Applications](app-other-apps.md)

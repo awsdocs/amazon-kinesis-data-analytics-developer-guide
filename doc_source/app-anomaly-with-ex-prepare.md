@@ -1,6 +1,6 @@
 # Step 1: Prepare the Data<a name="app-anomaly-with-ex-prepare"></a>
 
-Before you create an Amazon Kinesis Data Analytics application for this example, you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
+Before you create an Amazon Kinesis Data Analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
 
 ## Step 1\.1: Create a Kinesis Data Stream<a name="app-anomaly-create-two-streams"></a>
 

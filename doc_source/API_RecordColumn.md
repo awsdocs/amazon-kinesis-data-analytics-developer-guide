@@ -6,18 +6,18 @@ Also used to describe the format of the reference data source\.
 
 ## Contents<a name="API_RecordColumn_Contents"></a>
 
- **Mapping**   
+ **Mapping**   <a name="analytics-Type-RecordColumn-Mapping"></a>
 Reference to the data element in the streaming input of the reference data source\.  
 Type: String  
 Required: No
 
- **Name**   
+ **Name**   <a name="analytics-Type-RecordColumn-Name"></a>
 Name of the column created in the in\-application input stream or reference table\.  
 Type: String  
 Pattern: `[a-zA-Z_][a-zA-Z0-9_]*`   
 Required: Yes
 
- **SqlType**   
+ **SqlType**   <a name="analytics-Type-RecordColumn-SqlType"></a>
 Type of column created in the in\-application input stream or reference table\.  
 Type: String  
 Length Constraints: Minimum length of 1\.  

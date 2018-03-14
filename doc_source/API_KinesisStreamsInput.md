@@ -4,14 +4,14 @@
 
 ## Contents<a name="API_KinesisStreamsInput_Contents"></a>
 
- **ResourceARN**   
+ **ResourceARN**   <a name="analytics-Type-KinesisStreamsInput-ResourceARN"></a>
 ARN of the input Amazon Kinesis stream to read\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-KinesisStreamsInput-RoleARN"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\. You need to grant the necessary permissions to this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

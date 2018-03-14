@@ -4,14 +4,14 @@ When updating an output configuration using the [UpdateApplication](API_UpdateAp
 
 ## Contents<a name="API_LambdaOutputUpdate_Contents"></a>
 
- **ResourceARNUpdate**   
+ **ResourceARNUpdate**   <a name="analytics-Type-LambdaOutputUpdate-ResourceARNUpdate"></a>
 Amazon Resource Name \(ARN\) of the destination Lambda function\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-LambdaOutputUpdate-RoleARNUpdate"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf\. You need to grant the necessary permissions to this role\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

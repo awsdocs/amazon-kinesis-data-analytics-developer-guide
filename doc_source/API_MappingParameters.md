@@ -4,12 +4,12 @@ When configuring application input at the time of creating or updating an applic
 
 ## Contents<a name="API_MappingParameters_Contents"></a>
 
- **CSVMappingParameters**   
+ **CSVMappingParameters**   <a name="analytics-Type-MappingParameters-CSVMappingParameters"></a>
 Provides additional mapping information when the record format uses delimiters \(for example, CSV\)\.  
 Type: [CSVMappingParameters](API_CSVMappingParameters.md) object  
 Required: No
 
- **JSONMappingParameters**   
+ **JSONMappingParameters**   <a name="analytics-Type-MappingParameters-JSONMappingParameters"></a>
 Provides additional mapping information when JSON is the record format on the streaming source\.  
 Type: [JSONMappingParameters](API_JSONMappingParameters.md) object  
 Required: No

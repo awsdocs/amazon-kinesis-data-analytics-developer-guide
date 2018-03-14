@@ -4,7 +4,7 @@ Describes updates to an [InputProcessingConfiguration](API_InputProcessingConfig
 
 ## Contents<a name="API_InputProcessingConfigurationUpdate_Contents"></a>
 
- **InputLambdaProcessorUpdate**   
+ **InputLambdaProcessorUpdate**   <a name="analytics-Type-InputProcessingConfigurationUpdate-InputLambdaProcessorUpdate"></a>
 Provides update information for an [InputLambdaProcessor](API_InputLambdaProcessor.md)\.  
 Type: [InputLambdaProcessorUpdate](API_InputLambdaProcessorUpdate.md) object  
 Required: Yes

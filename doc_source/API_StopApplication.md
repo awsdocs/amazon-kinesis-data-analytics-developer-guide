@@ -8,7 +8,7 @@ This operation requires permissions to perform the `kinesisanalytics:StopApplica
 
 ```
 {
-   "ApplicationName": "string"
+   "[ApplicationName](#analytics-StopApplication-request-ApplicationName)": "string"
 }
 ```
 
@@ -16,7 +16,7 @@ This operation requires permissions to perform the `kinesisanalytics:StopApplica
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_StopApplication_RequestSyntax) **   <a name="analytics-StopApplication-request-ApplicationName"></a>
 Name of the running application to stop\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  

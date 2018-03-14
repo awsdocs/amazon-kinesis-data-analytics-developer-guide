@@ -14,12 +14,12 @@ This operation requires permissions to perform the `kinesisanalytics:StartApplic
 
 ```
 {
-   "ApplicationName": "string",
-   "InputConfigurations": [ 
+   "[ApplicationName](#analytics-StartApplication-request-ApplicationName)": "string",
+   "[InputConfigurations](#analytics-StartApplication-request-InputConfigurations)": [ 
       { 
-         "Id": "string",
-         "InputStartingPositionConfiguration": { 
-            "InputStartingPosition": "string"
+         "[Id](API_InputConfiguration.md#analytics-Type-InputConfiguration-Id)": "string",
+         "[InputStartingPositionConfiguration](API_InputConfiguration.md#analytics-Type-InputConfiguration-InputStartingPositionConfiguration)": { 
+            "[InputStartingPosition](API_InputStartingPositionConfiguration.md#analytics-Type-InputStartingPositionConfiguration-InputStartingPosition)": "string"
          }
       }
    ]
@@ -30,14 +30,14 @@ This operation requires permissions to perform the `kinesisanalytics:StartApplic
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_StartApplication_RequestSyntax) **   <a name="analytics-StartApplication-request-ApplicationName"></a>
 Name of the application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** InputConfigurations **   
+ ** [InputConfigurations](#API_StartApplication_RequestSyntax) **   <a name="analytics-StartApplication-request-InputConfigurations"></a>
 Identifies the specific input, by ID, that the application starts consuming\. Amazon Kinesis Analytics starts reading the streaming source associated with the input\. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading\.  
 Type: Array of [InputConfiguration](API_InputConfiguration.md) objects  
 Required: Yes

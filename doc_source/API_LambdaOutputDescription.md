@@ -4,14 +4,14 @@ For an application output, describes the AWS Lambda function configured as its d
 
 ## Contents<a name="API_LambdaOutputDescription_Contents"></a>
 
- **ResourceARN**   
+ **ResourceARN**   <a name="analytics-Type-LambdaOutputDescription-ResourceARN"></a>
 Amazon Resource Name \(ARN\) of the destination Lambda function\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-LambdaOutputDescription-RoleARN"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

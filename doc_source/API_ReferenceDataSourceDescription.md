@@ -4,24 +4,24 @@ Describes the reference data source configured for an application\.
 
 ## Contents<a name="API_ReferenceDataSourceDescription_Contents"></a>
 
- **ReferenceId**   
+ **ReferenceId**   <a name="analytics-Type-ReferenceDataSourceDescription-ReferenceId"></a>
 ID of the reference data source\. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **ReferenceSchema**   
+ **ReferenceSchema**   <a name="analytics-Type-ReferenceDataSourceDescription-ReferenceSchema"></a>
 Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in\-application stream\.  
 Type: [SourceSchema](API_SourceSchema.md) object  
 Required: No
 
- **S3ReferenceDataSourceDescription**   
+ **S3ReferenceDataSourceDescription**   <a name="analytics-Type-ReferenceDataSourceDescription-S3ReferenceDataSourceDescription"></a>
 Provides the S3 bucket name, the object key name that contains the reference data\. It also provides the Amazon Resource Name \(ARN\) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in\-application reference table\.  
 Type: [S3ReferenceDataSourceDescription](API_S3ReferenceDataSourceDescription.md) object  
 Required: Yes
 
- **TableName**   
+ **TableName**   <a name="analytics-Type-ReferenceDataSourceDescription-TableName"></a>
 The in\-application table name created by the specific reference data source configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  

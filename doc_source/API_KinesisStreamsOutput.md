@@ -4,14 +4,14 @@ When configuring application output, identifies an Amazon Kinesis stream as the 
 
 ## Contents<a name="API_KinesisStreamsOutput_Contents"></a>
 
- **ResourceARN**   
+ **ResourceARN**   <a name="analytics-Type-KinesisStreamsOutput-ResourceARN"></a>
 ARN of the destination Amazon Kinesis stream to write to\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-KinesisStreamsOutput-RoleARN"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf\. You need to grant the necessary permissions to this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

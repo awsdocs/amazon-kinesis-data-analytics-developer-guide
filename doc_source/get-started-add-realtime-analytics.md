@@ -3,8 +3,7 @@
 You can write your own SQL queries against the in\-application stream, but for the following step you use one of the templates that provides sample code\.
 
 1. On the application hub page, choose **Go to SQL editor**\.   
-![\[Screenshot of the example application page with Go to SQL editor
-                                button.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-40.png)
+![\[Screenshot of the example application page with Go to SQL editor button.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-40.png)
 
 1. In the **Would you like to start running "GSExample1"?** dialog box, choose **Yes, start application**\.
 
@@ -29,8 +28,7 @@ You can write your own SQL queries against the in\-application stream, but for t
    1. In the SQL Editor, choose **Save and run SQL**\. The console first sends update request to save the application code\. Then, the code continuously executes\.
 
    1. You can see the results in the **Real\-time analytics** tab\.   
-![\[Screenshot of the SQL editor with results shown in the
-                                        real-time analytics tab.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
+![\[Screenshot of the SQL editor with results shown in the real-time analytics tab.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
 
       The SQL editor has the following tabs:
 

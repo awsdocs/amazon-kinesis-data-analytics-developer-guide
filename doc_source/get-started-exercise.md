@@ -10,8 +10,7 @@ For this Getting Started exercise, you can use the console to work with either t
 + If you choose to use the demo stream, the console creates a Kinesis data stream in your account that is called `kinesis-analytics-demo-stream`\.
 
   A Kinesis data analytics application requires a streaming source\. For this source, several SQL examples in this guide use the demo stream `kinesis-analytics-demo-stream`\. The console also runs a script that continuously adds sample data \(simulated stock trade records\) to this stream, as shown following\.  
-![\[Formatted stream sample table showing stock symbols, sectors, and
-                            prices.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-30.png)
+![\[Formatted stream sample table showing stock symbols, sectors, and prices.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-30.png)
 
   You can use `kinesis-analytics-demo-stream` as the streaming source for your application in this exercise\.
 **Note**  

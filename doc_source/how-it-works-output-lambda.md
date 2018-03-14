@@ -97,7 +97,7 @@ Kinesis Data Analytics continuously sends the output records from the applicatio
 | --- | --- | 
 | invocationId | The Lambda invocation ID \(random GUID\)\. | 
 | applicationArn | The Kinesis data analytics application Amazon Resource Name \(ARN\)\. | 
-| Records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output-lambda.html)  | 
+| records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output-lambda.html)  | 
 | recordId | record ID \(random GUID\) | 
 | lambdaDeliveryRecordMetadata |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output-lambda.html)  | 
 | data | Base64\-encoded output record payload | 
@@ -113,6 +113,7 @@ Each record sent to your Lambda as output function \(with record IDs\) must be a
 
 | Field | Description | 
 | --- | --- | 
+| records [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output-lambda.html)  | 
 | recordId | The record ID is passed from Kinesis Data Analytics to Lambda during the invocation\. Any mismatch between the ID of the original record and the ID of the acknowledged record is treated as a delivery failure\. | 
 | result | The status of the delivery of the record\. The following are possible values: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output-lambda.html)  | 
 
@@ -120,7 +121,7 @@ Each record sent to your Lambda as output function \(with record IDs\) must be a
 
 A Kinesis data analytics application buffers the output records and invokes the AWS Lambda destination function frequently\.
 
-+ If records are emitted to the destination in\-application stream with in the Kinesis Analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger\. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in\-application stream, then the AWS Lambda function is invoked once every 60 seconds\.
++ If records are emitted to the destination in\-application stream within the Kinesis Analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger\. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in\-application stream, then the AWS Lambda function is invoked once every 60 seconds\.
 
 + If records are emitted to the destination in\-application stream with in the Kinesis data analytics application as a continuous query or a sliding window, the AWS Lambda destination function is invoked approximately once per second\.
 

@@ -4,14 +4,14 @@
 
 ## Contents<a name="API_KinesisFirehoseInputDescription_Contents"></a>
 
- **ResourceARN**   
+ **ResourceARN**   <a name="analytics-Type-KinesisFirehoseInputDescription-ResourceARN"></a>
 Amazon Resource Name \(ARN\) of the Amazon Kinesis Firehose delivery stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-KinesisFirehoseInputDescription-RoleARN"></a>
 ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

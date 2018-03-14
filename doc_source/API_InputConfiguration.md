@@ -4,14 +4,14 @@ When you start your application, you provide this configuration, which identifie
 
 ## Contents<a name="API_InputConfiguration_Contents"></a>
 
- **Id**   
+ **Id**   <a name="analytics-Type-InputConfiguration-Id"></a>
 Input source ID\. You can get this ID by calling the [DescribeApplication](API_DescribeApplication.md) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **InputStartingPositionConfiguration**   
+ **InputStartingPositionConfiguration**   <a name="analytics-Type-InputConfiguration-InputStartingPositionConfiguration"></a>
 Point at which you want the application to start processing records from the streaming source\.  
 Type: [InputStartingPositionConfiguration](API_InputStartingPositionConfiguration.md) object  
 Required: Yes

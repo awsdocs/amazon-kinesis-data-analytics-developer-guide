@@ -4,14 +4,14 @@
 
 ## Contents<a name="API_KinesisStreamsOutputUpdate_Contents"></a>
 
- **ResourceARNUpdate**   
+ **ResourceARNUpdate**   <a name="analytics-Type-KinesisStreamsOutputUpdate-ResourceARNUpdate"></a>
 Amazon Resource Name \(ARN\) of the Amazon Kinesis stream where you want to write the output\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-KinesisStreamsOutputUpdate-RoleARNUpdate"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\. You need to grant the necessary permissions to this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

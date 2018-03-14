@@ -4,14 +4,14 @@ Provides a description of CloudWatch logging options, including the log stream A
 
 ## Contents<a name="API_CloudWatchLoggingOption_Contents"></a>
 
- **LogStreamARN**   
+ **LogStreamARN**   <a name="analytics-Type-CloudWatchLoggingOption-LogStreamARN"></a>
 ARN of the CloudWatch log to receive application messages\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-CloudWatchLoggingOption-RoleARN"></a>
 IAM ARN of the role to use to send application messages\. Note: To write application messages to CloudWatch, the IAM role that is used must have the `PutLogEvents` policy action enabled\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

@@ -4,14 +4,14 @@
 
 ## Contents<a name="API_KinesisFirehoseOutputUpdate_Contents"></a>
 
- **ResourceARNUpdate**   
+ **ResourceARNUpdate**   <a name="analytics-Type-KinesisFirehoseOutputUpdate-ResourceARNUpdate"></a>
 Amazon Resource Name \(ARN\) of the Amazon Kinesis Firehose delivery stream to write to\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- **RoleARNUpdate**   
+ **RoleARNUpdate**   <a name="analytics-Type-KinesisFirehoseOutputUpdate-RoleARNUpdate"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\. You need to grant the necessary permissions to this role\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

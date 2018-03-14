@@ -8,13 +8,13 @@ Provides additional mapping information when the record format uses delimiters, 
 
 ## Contents<a name="API_CSVMappingParameters_Contents"></a>
 
- **RecordColumnDelimiter**   
+ **RecordColumnDelimiter**   <a name="analytics-Type-CSVMappingParameters-RecordColumnDelimiter"></a>
 Column delimiter\. For example, in a CSV format, a comma \(","\) is the typical column delimiter\.  
 Type: String  
 Length Constraints: Minimum length of 1\.  
 Required: Yes
 
- **RecordRowDelimiter**   
+ **RecordRowDelimiter**   <a name="analytics-Type-CSVMappingParameters-RecordRowDelimiter"></a>
 Row delimiter\. For example, in a CSV format, *'\\n'* is the typical row delimiter\.  
 Type: String  
 Length Constraints: Minimum length of 1\.  

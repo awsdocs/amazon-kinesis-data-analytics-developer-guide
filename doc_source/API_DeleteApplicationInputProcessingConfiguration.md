@@ -6,9 +6,9 @@ Deletes an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) f
 
 ```
 {
-   "ApplicationName": "string",
-   "CurrentApplicationVersionId": number,
-   "InputId": "string"
+   "[ApplicationName](#analytics-DeleteApplicationInputProcessingConfiguration-request-ApplicationName)": "string",
+   "[CurrentApplicationVersionId](#analytics-DeleteApplicationInputProcessingConfiguration-request-CurrentApplicationVersionId)": number,
+   "[InputId](#analytics-DeleteApplicationInputProcessingConfiguration-request-InputId)": "string"
 }
 ```
 
@@ -16,20 +16,20 @@ Deletes an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) f
 
 The request accepts the following data in JSON format\.
 
- ** ApplicationName **   
+ ** [ApplicationName](#API_DeleteApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-DeleteApplicationInputProcessingConfiguration-request-ApplicationName"></a>
 The Kinesis Analytics application name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- ** CurrentApplicationVersionId **   
+ ** [CurrentApplicationVersionId](#API_DeleteApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-DeleteApplicationInputProcessingConfiguration-request-CurrentApplicationVersionId"></a>
 The version ID of the Kinesis Analytics application\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- ** InputId **   
+ ** [InputId](#API_DeleteApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-DeleteApplicationInputProcessingConfiguration-request-InputId"></a>
 The ID of the input configuration from which to delete the input processing configuration\. You can get a list of the input IDs for an application by using the [DescribeApplication](API_DescribeApplication.md) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  

@@ -4,28 +4,28 @@ Describes updates to apply to an existing Amazon Kinesis Analytics application\.
 
 ## Contents<a name="API_ApplicationUpdate_Contents"></a>
 
- **ApplicationCodeUpdate**   
+ **ApplicationCodeUpdate**   <a name="analytics-Type-ApplicationUpdate-ApplicationCodeUpdate"></a>
 Describes application code updates\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
 Required: No
 
- **CloudWatchLoggingOptionUpdates**   
+ **CloudWatchLoggingOptionUpdates**   <a name="analytics-Type-ApplicationUpdate-CloudWatchLoggingOptionUpdates"></a>
 Describes application CloudWatch logging option updates\.  
 Type: Array of [CloudWatchLoggingOptionUpdate](API_CloudWatchLoggingOptionUpdate.md) objects  
 Required: No
 
- **InputUpdates**   
+ **InputUpdates**   <a name="analytics-Type-ApplicationUpdate-InputUpdates"></a>
 Describes application input configuration updates\.  
 Type: Array of [InputUpdate](API_InputUpdate.md) objects  
 Required: No
 
- **OutputUpdates**   
+ **OutputUpdates**   <a name="analytics-Type-ApplicationUpdate-OutputUpdates"></a>
 Describes application output configuration updates\.  
 Type: Array of [OutputUpdate](API_OutputUpdate.md) objects  
 Required: No
 
- **ReferenceDataSourceUpdates**   
+ **ReferenceDataSourceUpdates**   <a name="analytics-Type-ApplicationUpdate-ReferenceDataSourceUpdates"></a>
 Describes application reference data source updates\.  
 Type: Array of [ReferenceDataSourceUpdate](API_ReferenceDataSourceUpdate.md) objects  
 Required: No

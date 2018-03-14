@@ -8,27 +8,27 @@ For limits on how many destinations an application can write and other limitatio
 
 ## Contents<a name="API_Output_Contents"></a>
 
- **DestinationSchema**   
+ **DestinationSchema**   <a name="analytics-Type-Output-DestinationSchema"></a>
 Describes the data format when records are written to the destination\. For more information, see [Configuring Application Output](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html)\.  
 Type: [DestinationSchema](API_DestinationSchema.md) object  
 Required: Yes
 
- **KinesisFirehoseOutput**   
+ **KinesisFirehoseOutput**   <a name="analytics-Type-Output-KinesisFirehoseOutput"></a>
 Identifies an Amazon Kinesis Firehose delivery stream as the destination\.  
 Type: [KinesisFirehoseOutput](API_KinesisFirehoseOutput.md) object  
 Required: No
 
- **KinesisStreamsOutput**   
+ **KinesisStreamsOutput**   <a name="analytics-Type-Output-KinesisStreamsOutput"></a>
 Identifies an Amazon Kinesis stream as the destination\.  
 Type: [KinesisStreamsOutput](API_KinesisStreamsOutput.md) object  
 Required: No
 
- **LambdaOutput**   
+ **LambdaOutput**   <a name="analytics-Type-Output-LambdaOutput"></a>
 Identifies an AWS Lambda function as the destination\.  
 Type: [LambdaOutput](API_LambdaOutput.md) object  
 Required: No
 
- **Name**   
+ **Name**   <a name="analytics-Type-Output-Name"></a>
 Name of the in\-application stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  

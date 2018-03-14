@@ -4,7 +4,7 @@ Provides updates to the parallelism count\.
 
 ## Contents<a name="API_InputParallelismUpdate_Contents"></a>
 
- **CountUpdate**   
+ **CountUpdate**   <a name="analytics-Type-InputParallelismUpdate-CountUpdate"></a>
 Number of in\-application streams to create for the specified streaming source\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 64\.  

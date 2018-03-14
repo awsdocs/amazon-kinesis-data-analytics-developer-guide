@@ -4,7 +4,7 @@ Describes the number of in\-application streams to create for a given streaming 
 
 ## Contents<a name="API_InputParallelism_Contents"></a>
 
- **Count**   
+ **Count**   <a name="analytics-Type-InputParallelism-Count"></a>
 Number of in\-application streams to create\. For more information, see [Limits](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html)\.   
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 64\.  

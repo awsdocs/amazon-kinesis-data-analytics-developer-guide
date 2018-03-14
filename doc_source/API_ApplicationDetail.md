@@ -4,70 +4,70 @@ Provides a description of the application, including the application Amazon Reso
 
 ## Contents<a name="API_ApplicationDetail_Contents"></a>
 
- **ApplicationARN**   
+ **ApplicationARN**   <a name="analytics-Type-ApplicationDetail-ApplicationARN"></a>
 ARN of the application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **ApplicationCode**   
+ **ApplicationCode**   <a name="analytics-Type-ApplicationDetail-ApplicationCode"></a>
 Returns the application code that you provided to perform data analysis on any of the in\-application streams in your application\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
 Required: No
 
- **ApplicationDescription**   
+ **ApplicationDescription**   <a name="analytics-Type-ApplicationDetail-ApplicationDescription"></a>
 Description of the application\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 1024\.  
 Required: No
 
- **ApplicationName**   
+ **ApplicationName**   <a name="analytics-Type-ApplicationDetail-ApplicationName"></a>
 Name of the application\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
- **ApplicationStatus**   
+ **ApplicationStatus**   <a name="analytics-Type-ApplicationDetail-ApplicationStatus"></a>
 Status of the application\.  
 Type: String  
 Valid Values:` DELETING | STARTING | STOPPING | READY | RUNNING | UPDATING`   
 Required: Yes
 
- **ApplicationVersionId**   
+ **ApplicationVersionId**   <a name="analytics-Type-ApplicationDetail-ApplicationVersionId"></a>
 Provides the current application version\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
- **CloudWatchLoggingOptionDescriptions**   
+ **CloudWatchLoggingOptionDescriptions**   <a name="analytics-Type-ApplicationDetail-CloudWatchLoggingOptionDescriptions"></a>
 Describes the CloudWatch log streams that are configured to receive application messages\. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see [Working with Amazon CloudWatch Logs](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html)\.   
 Type: Array of [CloudWatchLoggingOptionDescription](API_CloudWatchLoggingOptionDescription.md) objects  
 Required: No
 
- **CreateTimestamp**   
+ **CreateTimestamp**   <a name="analytics-Type-ApplicationDetail-CreateTimestamp"></a>
 Time stamp when the application version was created\.  
 Type: Timestamp  
 Required: No
 
- **InputDescriptions**   
+ **InputDescriptions**   <a name="analytics-Type-ApplicationDetail-InputDescriptions"></a>
 Describes the application input configuration\. For more information, see [Configuring Application Input](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html)\.   
 Type: Array of [InputDescription](API_InputDescription.md) objects  
 Required: No
 
- **LastUpdateTimestamp**   
+ **LastUpdateTimestamp**   <a name="analytics-Type-ApplicationDetail-LastUpdateTimestamp"></a>
 Time stamp when the application was last updated\.  
 Type: Timestamp  
 Required: No
 
- **OutputDescriptions**   
+ **OutputDescriptions**   <a name="analytics-Type-ApplicationDetail-OutputDescriptions"></a>
 Describes the application output configuration\. For more information, see [Configuring Application Output](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html)\.   
 Type: Array of [OutputDescription](API_OutputDescription.md) objects  
 Required: No
 
- **ReferenceDataSourceDescriptions**   
+ **ReferenceDataSourceDescriptions**   <a name="analytics-Type-ApplicationDetail-ReferenceDataSourceDescriptions"></a>
 Describes reference data sources configured for the application\. For more information, see [Configuring Application Input](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html)\.   
 Type: Array of [ReferenceDataSourceDescription](API_ReferenceDataSourceDescription.md) objects  
 Required: No

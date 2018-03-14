@@ -10,21 +10,21 @@ Infers a schema by evaluating sample records on the specified streaming source \
 
 ```
 {
-   "InputProcessingConfiguration": { 
-      "InputLambdaProcessor": { 
-         "ResourceARN": "string",
-         "RoleARN": "string"
+   "[InputProcessingConfiguration](#analytics-DiscoverInputSchema-request-InputProcessingConfiguration)": { 
+      "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
+         "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
+         "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
       }
    },
-   "InputStartingPositionConfiguration": { 
-      "InputStartingPosition": "string"
+   "[InputStartingPositionConfiguration](#analytics-DiscoverInputSchema-request-InputStartingPositionConfiguration)": { 
+      "[InputStartingPosition](API_InputStartingPositionConfiguration.md#analytics-Type-InputStartingPositionConfiguration-InputStartingPosition)": "string"
    },
-   "ResourceARN": "string",
-   "RoleARN": "string",
-   "S3Configuration": { 
-      "BucketARN": "string",
-      "FileKey": "string",
-      "RoleARN": "string"
+   "[ResourceARN](#analytics-DiscoverInputSchema-request-ResourceARN)": "string",
+   "[RoleARN](#analytics-DiscoverInputSchema-request-RoleARN)": "string",
+   "[S3Configuration](#analytics-DiscoverInputSchema-request-S3Configuration)": { 
+      "[BucketARN](API_S3Configuration.md#analytics-Type-S3Configuration-BucketARN)": "string",
+      "[FileKey](API_S3Configuration.md#analytics-Type-S3Configuration-FileKey)": "string",
+      "[RoleARN](API_S3Configuration.md#analytics-Type-S3Configuration-RoleARN)": "string"
    }
 }
 ```
@@ -33,31 +33,31 @@ Infers a schema by evaluating sample records on the specified streaming source \
 
 The request accepts the following data in JSON format\.
 
- ** InputProcessingConfiguration **   
+ ** [InputProcessingConfiguration](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-InputProcessingConfiguration"></a>
 The [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to use to preprocess the records before discovering the schema of the records\.  
 Type: [InputProcessingConfiguration](API_InputProcessingConfiguration.md) object  
 Required: No
 
- ** InputStartingPositionConfiguration **   
+ ** [InputStartingPositionConfiguration](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-InputStartingPositionConfiguration"></a>
 Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes\.  
 Type: [InputStartingPositionConfiguration](API_InputStartingPositionConfiguration.md) object  
 Required: No
 
- ** ResourceARN **   
+ ** [ResourceARN](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-ResourceARN"></a>
 Amazon Resource Name \(ARN\) of the streaming source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: No
 
- ** RoleARN **   
+ ** [RoleARN](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-RoleARN"></a>
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   
 Required: No
 
- ** S3Configuration **   
+ ** [S3Configuration](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-S3Configuration"></a>
 Specify this parameter to discover a schema from data in an Amazon S3 object\.  
 Type: [S3Configuration](API_S3Configuration.md) object  
 Required: No
@@ -66,33 +66,33 @@ Required: No
 
 ```
 {
-   "InputSchema": { 
-      "RecordColumns": [ 
+   "[InputSchema](#analytics-DiscoverInputSchema-response-InputSchema)": { 
+      "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
          { 
-            "Mapping": "string",
-            "Name": "string",
-            "SqlType": "string"
+            "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
+            "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
+            "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
          }
       ],
-      "RecordEncoding": "string",
-      "RecordFormat": { 
-         "MappingParameters": { 
-            "CSVMappingParameters": { 
-               "RecordColumnDelimiter": "string",
-               "RecordRowDelimiter": "string"
+      "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
+      "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
+         "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
+            "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
+               "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
+               "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
             },
-            "JSONMappingParameters": { 
-               "RecordRowPath": "string"
+            "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
+               "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
             }
          },
-         "RecordFormatType": "string"
+         "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
       }
    },
-   "ParsedInputRecords": [ 
+   "[ParsedInputRecords](#analytics-DiscoverInputSchema-response-ParsedInputRecords)": [ 
       [ "string" ]
    ],
-   "ProcessedInputRecords": [ "string" ],
-   "RawInputRecords": [ "string" ]
+   "[ProcessedInputRecords](#analytics-DiscoverInputSchema-response-ProcessedInputRecords)": [ "string" ],
+   "[RawInputRecords](#analytics-DiscoverInputSchema-response-RawInputRecords)": [ "string" ]
 }
 ```
 
@@ -102,19 +102,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** InputSchema **   
+ ** [InputSchema](#API_DiscoverInputSchema_ResponseSyntax) **   <a name="analytics-DiscoverInputSchema-response-InputSchema"></a>
 Schema inferred from the streaming source\. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in\-application stream that you can create\.  
 Type: [SourceSchema](API_SourceSchema.md) object
 
- ** ParsedInputRecords **   
+ ** [ParsedInputRecords](#API_DiscoverInputSchema_ResponseSyntax) **   <a name="analytics-DiscoverInputSchema-response-ParsedInputRecords"></a>
 An array of elements, where each element corresponds to a row in a stream record \(a stream record can have more than one row\)\.  
 Type: Array of arrays of strings
 
- ** ProcessedInputRecords **   
+ ** [ProcessedInputRecords](#API_DiscoverInputSchema_ResponseSyntax) **   <a name="analytics-DiscoverInputSchema-response-ProcessedInputRecords"></a>
 Stream data that was modified by the processor specified in the `InputProcessingConfiguration` parameter\.  
 Type: Array of strings
 
- ** RawInputRecords **   
+ ** [RawInputRecords](#API_DiscoverInputSchema_ResponseSyntax) **   <a name="analytics-DiscoverInputSchema-response-RawInputRecords"></a>
 Raw stream data that was sampled to infer the schema\.  
 Type: Array of strings
 

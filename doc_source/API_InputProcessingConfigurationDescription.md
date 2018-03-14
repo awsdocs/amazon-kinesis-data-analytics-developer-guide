@@ -4,7 +4,7 @@ Provides configuration information about an input processor\. Currently, the onl
 
 ## Contents<a name="API_InputProcessingConfigurationDescription_Contents"></a>
 
- **InputLambdaProcessorDescription**   
+ **InputLambdaProcessorDescription**   <a name="analytics-Type-InputProcessingConfigurationDescription-InputLambdaProcessorDescription"></a>
 Provides configuration information about the associated [InputLambdaProcessorDescription](API_InputLambdaProcessorDescription.md)\.  
 Type: [InputLambdaProcessorDescription](API_InputLambdaProcessorDescription.md) object  
 Required: No

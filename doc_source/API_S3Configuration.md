@@ -4,20 +4,20 @@ Provides a description of an Amazon S3 data source, including the Amazon Resourc
 
 ## Contents<a name="API_S3Configuration_Contents"></a>
 
- **BucketARN**   
+ **BucketARN**   <a name="analytics-Type-S3Configuration-BucketARN"></a>
 ARN of the S3 bucket that contains the data\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
 Pattern: `arn:.*`   
 Required: Yes
 
- **FileKey**   
+ **FileKey**   <a name="analytics-Type-S3Configuration-FileKey"></a>
 The name of the object that contains the data\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
 Required: Yes
 
- **RoleARN**   
+ **RoleARN**   <a name="analytics-Type-S3Configuration-RoleARN"></a>
 IAM ARN of the role used to access the data\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
