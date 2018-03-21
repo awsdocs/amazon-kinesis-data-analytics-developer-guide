@@ -1,13 +1,11 @@
 # Streaming Data Operations: Stream Joins<a name="stream-joins-concepts"></a>
 
 You can have multiple in\-application streams in your application\. You can write `JOIN` queries to correlate data arriving on these streams\. For example, suppose you have the following in\-application streams:
-
 + **OrderStream** – Receives stock orders being placed\.
 
   ```
   (orderId SqlType, ticker SqlType, amount SqlType, ROWTIME TimeStamp)
   ```
-
 + **TradeStream** – Receives resulting stock trades for those orders\.
 
   ```

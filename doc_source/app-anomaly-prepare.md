@@ -7,11 +7,8 @@ Before you create an Amazon Kinesis Data Analytics application for this exercise
 In this section, you create two Kinesis streams \(`ExampleInputStream` and `ExampleOutputStream`\)\. 
 
 1. You can create these streams using the console or the AWS CLI\.
-
    + Sign in to the AWS Management Console and open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
-
    + Choose **Kinesis Stream**, and then create a stream with one shard\.
-
    + Use the following Kinesis `create-stream` CLI command to create the first stream \(`ExampleInputStream`\)\.
 
      ```

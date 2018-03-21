@@ -12,13 +12,9 @@ After you finalize a schema for your in\-application stream, there are functions
 ## Column Naming During Schema Discovery<a name="sch-dis-column-names"></a>
 
 During schema discovery, Amazon Kinesis Data Analytics tries to retain as much of the original column name as possible from the streaming input source, except in the following cases:
-
 + The source stream column name is a reserved SQL keyword, such as `TIMESTAMP`, `USER`, `VALUES`, or `YEAR`\. 
-
 + The source stream column name contains unsupported characters\. Only letters, numbers, and the underscore character \( \_ \) are supported\.
-
 + The source stream column name begins with a number\.
-
 + The source stream column name is longer than 100 characters\.
 
 If a column is renamed, the renamed schema column name begins with `COL_`\. In some cases, none of the original column name can be retained, for example if the entire name is unsupported characters\. In such a case, the column is named `COL_#`, with \# being a number indicating the column's place in the column order\.

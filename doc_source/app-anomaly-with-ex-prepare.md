@@ -5,7 +5,6 @@ Before you create an Amazon Kinesis Data Analytics application for this [example
 ## Step 1\.1: Create a Kinesis Data Stream<a name="app-anomaly-create-two-streams"></a>
 
 In this section, you create a Kinesis data stream named `ExampleInputStream`\. You can create this data stream using the AWS Management Console or the AWS CLI\.
-
 + To use the console:
 
   1. Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\.
@@ -15,7 +14,6 @@ In this section, you create a Kinesis data stream named `ExampleInputStream`\. Y
   1. For the name, type **ExampleInputStream**\. For the number of shards, type **1**\.
 
    ****\.
-
 + Alternatively, to use the AWS CLI to create the data stream, run the following command:
 
   ```

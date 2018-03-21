@@ -14,9 +14,7 @@ You can write your own SQL queries against the in\-application stream, but for t
 1. In the SQL editor, choose **Add SQL from templates**\.
 
 1. From the available template list, choose **Continuous filter**\. The sample code reads data from one in\-application stream \(the `WHERE` clause filters the rows\) and inserts it in another in\-application stream as follows:
-
    + It creates the in\-application stream `DESTINATION_SQL_STREAM`\.
-
    + It creates a pump `STREAM_PUMP`, and uses it to select rows from `SOURCE_SQL_STREAM_001` and insert them in the `DESTINATION_SQL_STREAM`\. 
 
 1. Choose **Add this SQL to editor**\. 
@@ -31,21 +29,17 @@ You can write your own SQL queries against the in\-application stream, but for t
 ![\[Screenshot of the SQL editor with results shown in the real-time analytics tab.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
 
       The SQL editor has the following tabs:
-
       + The **Source data** tab shows an in\-application input stream that is mapped to the streaming source\. Choose the in\-application stream, and you can see data coming in\. Note the additional columns in the in\-application input stream that weren't specified in the input configuration\. These include the following time stamp columns:
 
          
-
         + **ROWTIME** – Each row in an in\-application stream has a special column called `ROWTIME`\. This column is the time stamp when Amazon Kinesis Data Analytics inserted the row in the first in\-application stream \(the in\-application input stream that is mapped to the streaming source\)\.
 
            
-
         + **Approximate\_Arrival\_Time** – Each Kinesis Data Analytics record includes a value called `Approximate_Arrival_Time`\. This value is the approximate arrival time stamp that is set when the streaming source successfully receives and stores the record\. When Kinesis Data Analytics reads records from a streaming source, it fetches this column into the in\-application input stream\. 
 
         These time stamp values are useful in windowed queries that are time\-based\. For more information, see [Windowed Queries](windowed-sql.md)\.
 
          
-
       + The **Real\-time analytics** tab shows all the other in\-application streams created by your application code\. It also includes the error stream\. Kinesis Data Analytics sends any rows it cannot process to the error stream\. For more information, see [Error Handling](error-handling.md)\.
 
          
@@ -53,7 +47,6 @@ You can write your own SQL queries against the in\-application stream, but for t
         Choose `DESTINATION_SQL_STREAM` to view the rows your application code inserted\. Note the additional columns that your application code didn't create\. These columns include the `ROWTIME` time stamp column\. Kinesis Data Analytics simply copies these values from the source \(`SOURCE_SQL_STREAM_001`\)\.
 
          
-
       + The **Destination** tab shows the external destination where Kinesis Data Analytics writes the query results\. You haven't configured any external destination for your application output yet\.
 
 **Next Step**  

@@ -1,14 +1,12 @@
 # Example: Adding Reference Data to an Amazon Kinesis Data Analytics Application<a name="app-add-reference-data"></a>
 
-
+**Topics**
 + [Step 1: Prepare](#add-refdata-prepare)
 + [Step 2: Add Reference Data Source to the Application Configuration](#add-refdata-create-iamrole)
 + [Step 3: Test: Query the In\-Application Reference Table](#add-refdata-test)
 
 In this exercise, you add reference data to an existing Amazon Kinesis Data Analytics application\. For information about reference data, see the following topics:
-
 + [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)
-
 + [Configuring Application Input](how-it-works-input.md)
 
 In this exercise you add reference data to the application you created in the getting started exercise\. The reference data provides company name for each ticker symbol\. For example,
@@ -24,9 +22,7 @@ WAS,  SomeCompanyC
 First complete the [Getting Started Exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\. Then you do the following to set up and add reference data to your application\. 
 
 1. Prepare
-
    + Store preceding reference data as an object in your S3 bucket\.
-
    + Create an IAM role, that Amazon Kinesis Data Analytics can assume to read the S3 object on your behalf\.
 
 1. Add the reference data source to your application\. Amazon Kinesis Data Analytics reads the S3 object and create an in\-application reference table that you can query in your application code\.
@@ -61,9 +57,7 @@ Store sample reference data as S3 object\.
 Create an IAM role\. Follow the procedure to create an IAM role that Amazon Kinesis Data Analytics can assume and read the S3 object\.
 
 1. Create an IAM role called **KinesisAnalytics\-ReadS3Object**\. In the IAM console, you specify the following when you create a role:
-
    + Choose **AWS Lambda** on the **Select Role Type**\. After creating the role, you will change the trust policy to allow Amazon Kinesis Data Analytics to assume the role \(not AWS Lambda\)\.
-
    + Do not attach any policy on the **Attach Policy** page\.
 
    For instructions, see [Creating a Role for an AWS Service \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*\.
@@ -110,11 +104,8 @@ Create an IAM role\. Follow the procedure to create an IAM role that Amazon Kine
 ## Step 2: Add Reference Data Source to the Application Configuration<a name="add-refdata-create-iamrole"></a>
 
 In this section you add reference data source to your application configuration\. You will need the following information: 
-
 + Your Amazon Kinesis Data Analytics application name and current application version ID
-
 + S3 bucket name and object key name
-
 + IAM role ARN
 
 Now, you now use the AWS CLI to complete the step:

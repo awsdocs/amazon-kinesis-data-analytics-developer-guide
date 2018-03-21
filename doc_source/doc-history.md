@@ -1,16 +1,15 @@
 # Document History for Amazon Kinesis Data Analytics<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Data Analytics\.
-
 + **API version: 2015\-08\-14** 
-
-+ **Latest documentation update:** December 20, 2017
++ **Latest documentation update:** March 19, 2018
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| New HOTSPOTS function | Locate and return information about relatively dense regions in your data\. For more information, see [Example: Detecting Hotspots on a Stream \(HOTSPOTS Function\)](app-hotspots-detection.md)\. | March 19, 2018 | 
 | Lambda function as a destination | Send analytics results to a Lambda function as a destination\. For more information, see [Using a Lambda Function as Output](how-it-works-output-lambda.md)\. | December 20, 2017 | 
 | New RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION function | Get an explanation of what fields contribute to an anomaly score in a data stream\. For more information, see [Example: Detecting Data Anomalies and Getting an Explanation \(RANDOM\_CUT\_FOREST\_WITH\_EXPLANATION Function\)](app-anomaly-detection-with-explanation.md)\. | November 2, 2017 | 
 | Schema discovery on static data | Run schema discovery on static data stored in an Amazon S3 bucket\. For more information, see [Using the Schema Discovery Feature on Static Data](sch-dis-ref.md)\. | October 6, 2017 | 

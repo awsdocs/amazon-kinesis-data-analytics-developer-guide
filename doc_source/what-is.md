@@ -9,11 +9,8 @@ Kinesis Data Analytics supports Amazon Kinesis Data Firehose \(Amazon S3, Amazon
 ## When Should I Use Amazon Kinesis Data Analytics?<a name="when-should-i-use"></a>
 
 Amazon Kinesis Data Analytics enables you to quickly author SQL code that continuously reads, processes, and stores data in near real time\. Using standard SQL queries on the streaming data, you can construct applications that transform and provide insights into your data\. Following are some of example scenarios for using Kinesis Data Analytics:
-
 + **Generate time\-series analytics** – You can calculate metrics over time windows, and then stream values to Amazon S3 or Amazon Redshift through a Kinesis data delivery stream\.
-
 + **Feed real\-time dashboards** – You can send aggregated and processed streaming data results downstream to feed real\-time dashboards\.
-
 + **Create real\-time metrics** – You can create custom metrics and triggers for use in real\-time monitoring, notifications, and alarms\.
 
 For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.

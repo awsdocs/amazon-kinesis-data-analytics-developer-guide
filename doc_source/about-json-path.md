@@ -100,9 +100,7 @@ AnyStreet
 Arrays are queried using an array index expression inside square brackets \(`[]`\)\. Currently, the only index expression supported is `0:`, meaning that all the elements in the array are returned\.
 
 The format of the data returned depends on whether the array index expression is the last expression in the path:
-
 + When the array index is the last expression in the path expression, all of the contents of the array are returned as a single field in a single data row\. 
-
 + When there is a nested expression after the array index expression, the array is "flattened\." In other words, each element in the array is returned as a separate data row\.
 
 To query the entire contents of an array as a single row, use the following syntax\.
@@ -185,11 +183,8 @@ A schema containing elements in the following format is not valid\.
 ## Other Considerations<a name="about-json-path-other"></a>
 
 Additional considerations for working with JSONPath are as follows:
-
 + If no arrays are accessed by individual element in the JSONPath expression, then a single row is created for each JSON record processed\. Every JSONPath expression corresponds to a single column\.
-
 + When an array is flattened, any missing elements result in a null value being created in the in\-application stream\. 
-
 + An array is always flattened to at least one row\. If no values would be returned \(that is, the array is empty or none of its elements are queried\), a single row with all null values is returned\.
 
   The following expression returns records with null values from the preceding JSON example, because there is no matching element at the specified path\.
@@ -203,5 +198,4 @@ Additional considerations for working with JSONPath are as follows:
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/about-json-path.html)
 
 ## Related Topics<a name="about-json-path.Related"></a>
-
 + [Introducing JSON](http://www.json.org/)

@@ -1,6 +1,6 @@
 # Using a Lambda Function as Output<a name="how-it-works-output-lambda"></a>
 
-
+**Topics**
 + [Lambda as Output Permissions](#how-it-works-output-lambda-perms)
 + [Lambda as Output Metrics](#how-it-works-output-lambda-metrics)
 + [Lambda as Output Templates](#how-it-works-output-lambda-templates)
@@ -10,39 +10,23 @@
 + [Common Lambda as Output Failures](#how-it-works-output-lambda-troubleshooting)
 
 Using Lambda as a destination allows you to more easily perform post\-processing of your SQL results before sending them to a final destination\. Common post\-processing tasks include the following:
-
 + Aggregating multiple rows into a single record
-
 + Combining current results with past results to address late\-arriving data
-
 + Delivering to different destinations based on the type of information
-
 + Record format translation \(such as translating to Protobuf\)
-
 + String manipulation or transformation
-
 + Data enrichment after analytical processing
-
 + Custom processing for geospatial use cases
-
 + Data encryption
 
 Lambda functions can deliver analytic information to a variety of AWS services and other destinations, including the following:
-
 + [Amazon Simple Storage Service \(Amazon S3\)](http://docs.aws.amazon.com/AmazonS3/latest/dev/)
-
 + Custom APIs
-
 + [Amazon DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/)
-
 + [Apache Aurora](http://aurora.apache.org/)
-
 + [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/)
-
 + [Amazon Simple Notification Service \(Amazon SNS\)](http://docs.aws.amazon.com/sns/latest/dg/)
-
 + [Amazon Simple Queue Service \(Amazon SQS\)](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)
-
 + [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)
 
 For more information about creating Lambda applications, see [Getting Started with AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\.
@@ -120,9 +104,7 @@ Each record sent to your Lambda as output function \(with record IDs\) must be a
 ## Lambda Output Invocation Frequency<a name="how-it-works-output-lambda-frequency"></a>
 
 A Kinesis data analytics application buffers the output records and invokes the AWS Lambda destination function frequently\.
-
 + If records are emitted to the destination in\-application stream within the Kinesis Analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger\. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in\-application stream, then the AWS Lambda function is invoked once every 60 seconds\.
-
 + If records are emitted to the destination in\-application stream with in the Kinesis data analytics application as a continuous query or a sliding window, the AWS Lambda destination function is invoked approximately once per second\.
 
 **Note**  
@@ -161,17 +143,11 @@ Your application now sends records from the in\-application stream to your Lambd
 ## Common Lambda as Output Failures<a name="how-it-works-output-lambda-troubleshooting"></a>
 
 The following are common reasons why delivery to a Lambda function can fail\.
-
 + Not all records \(with record IDs\) in a batch that are sent to the Lambda function are returned to the Kinesis Data Analytics service\. 
-
 + The response is missing either the record ID or the status field\. 
-
 + The Lambda function timeouts are not sufficient to accomplish the business logic within the Lambda function\.
-
 + The business logic within the Lambda function does not catch all the errors, resulting in a timeout and backpressure due to unhandled exceptions\. These are often referred as “poison pill” messages\.
 
 In the case of data delivery failures, Kinesis Data Analytics continues to retry Lambda invocations on the same set of records until successful\. To gain insight into failures, you can monitor the following CloudWatch metrics: 
-
 + Kinesis Data Analytics application Lambda as Output CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
-
 + AWS Lambda function CloudWatch metrics and logs\.

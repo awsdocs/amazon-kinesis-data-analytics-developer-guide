@@ -5,9 +5,7 @@ In this step, you explore how to update the application code\.
 **To update application code**
 
 1. Create another in\-application stream as follows:
-
    + Create another in\-application stream called `DESTINATION_SQL_STREAM_2`\.
-
    + Create a pump, and then use it to insert rows in the newly created stream by selecting rows from the `DESTINATION_SQL_STREAM`\.
 
    In the SQL editor, append the following code to the existing application code:
@@ -57,15 +55,12 @@ In this step, you explore how to update the application code\.
    Save and run the code\. Notice additional in\-application streams on the **Real\-time analytics** tab\.
 
 You now have your first working Amazon Kinesis data analytics application\. In this exercise, you did the following: 
-
 + Created your first Kinesis data analytics application\.
 
    
-
 + Configured application input that identified the demo stream as the streaming source and mapped it to an in\-application stream \(`SOURCE_SQL_STREAM_001`\) that is created\. Kinesis Data Analytics continuously reads the demo stream and inserts records in the in\-application stream\.
 
    
-
 + Your application code queried the `SOURCE_SQL_STREAM_001` and wrote output to another in\-application stream called `DESTINATION_SQL_STREAM`\. 
 
 Now you can optionally configure application output to write the application output to an external destination\. That is, you can configure the application output to write records in the `DESTINATION_SQL_STREAM` to an external destination\. For this exercise, this is an optional step\. To learn how to configure the destination, go to the next step\.

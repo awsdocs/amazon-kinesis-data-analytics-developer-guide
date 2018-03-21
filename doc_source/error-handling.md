@@ -7,13 +7,9 @@ Amazon Kinesis Data Analytics reports runtime errors using an in\-application er
 ## Reporting Errors Using an In\-Application Error Stream<a name="error-handling-errorstream"></a>
 
 Amazon Kinesis Data Analytics reports runtime errors to the in\-application error stream called `error_stream`\. The following are examples of errors that might occur:
-
 + A record read from the streaming source does not conform to the input schema\. 
-
 + Your application code specifies division by zero\. 
-
 + The rows are out of order \(for example, a record appears on the stream with a `ROWTIME` value that a user modified that causes a record to go out of order\)\.
-
 + The data in the source stream can't be converted to the data type specified in the schema \(Coercion error\)\. For information about what data types can be converted, see [Mapping JSON Data Types to SQL Data Types](sch-mapping.md#sch-mapping-datatypes)\.
 
 We recommend that you handle these errors programmatically in your SQL code and/or persist the data on the error stream to an external destination\. This requires that you add an output configuration \(see [Configuring Application Output](how-it-works-output.md)\) to your application\. For an example of how the in\-application error stream works, see [Example: Explore the In\-Application Error Stream](app-explore-error-stream.md)\.

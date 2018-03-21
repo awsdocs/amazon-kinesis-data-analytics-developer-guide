@@ -55,19 +55,14 @@ Create an Amazon Kinesis Data Analytics application as follows:
 1. On the application hub, connect to the source\. 
 
 1. On the **Source** page, do the following:
-
    + Select the stream that you created in the preceding section\. 
-
    + Choose the create IAM role option\.
-
    + Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\. Note that the inferred schema has only one column\.
-
    + Choose **Save and continue**\.
 
 1. On the application hub, choose **Go to SQL editor**\. To start the application, choose **yes** in the dialog box that appears\.
 
 1. In the SQL editor, write the application code and verify the results as follows:
-
    + Copy the following application code and paste it into the editor\.
 
      ```
@@ -93,5 +88,4 @@ Create an Amazon Kinesis Data Analytics application as follows:
              FROM (SELECT STREAM W3C_LOG_PARSE("log", 'COMMON')
                    FROM "SOURCE_SQL_STREAM_001") AS l(r);
      ```
-
    + Choose **Save and run SQL**\. On the **Real\-time analytics **tab, you can see all of the in\-application streams that the application created and verify the data\. 

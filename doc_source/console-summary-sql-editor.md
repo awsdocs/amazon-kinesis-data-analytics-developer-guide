@@ -11,9 +11,7 @@ The **Source data** tab identifies a streaming source\. It also identifies the i
 ![\[Screenshot of the SQL editor showing the source data tab with the streaming source highlighted.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-60.png)
 
 Amazon Kinesis Data Analytics provides the following time stamp columns, so that you don't need to provide explicit mapping in your input configuration: 
-
 + **ROWTIME** – Each row in an in\-application stream has a special column called `ROWTIME`\. This column is the time stamp for the point when Kinesis Data Analytics inserted the row in the first in\-application stream\. 
-
 + **Approximate\_Arrival\_Time** – Records on your streaming source include the `Approximate_Arrival_Timestamp` column\. It is the approximate arrival time stamp that is set when the streaming source successfully receives and stores the related record\. Kinesis Data Analytics fetches this column into the in\-application input stream as `Approximate_Arrival_Time`\. Amazon Kinesis Data Analytics provides this column only in the in\-application input stream that is mapped to the streaming source\. 
 
 These time stamp values are useful in windowed queries that are time\-based\. For more information, see [Windowed Queries](windowed-sql.md)\.

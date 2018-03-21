@@ -9,11 +9,8 @@ Consider a simple query that counts records on the stream\. We assume a 5\-secon
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/sliding-10.png)
 
 Keep the following in mind:
-
 + We assume a 5\-second window\. The 5\-second window slides continuously with time\. 
-
 + For every row that enters a window, an output row is emitted by the sliding window\. Soon after the application starts, you see the query emit output for every new record that appears on the stream, even though a 5\-second window hasn't passed yet\. For example, the query emits output when a record appears in the first second and second second\. Later, the query processes records in the 5\-second window\.
-
 + The windows slide with time\. If an old record on the stream falls out of the window, the query doesn't emit output unless there is also a new record on the stream that falls within that 5\-second window\.
 
 Suppose the query starts executing at t0\. If so, the following occurs:
@@ -28,11 +25,8 @@ Suppose the query starts executing at t0\. If so, the following occurs:
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/sliding-t2.png)
 
 1. The 5\-second window slides with time:
-
    + At t3, the sliding window t3 to t0
-
    + At t4 \(sliding window t4 to t0\)
-
    + At t5 the sliding window t5–t0
 
    At all of these times, the 5\-second window has the same records—there are no new records\. Therefore, the query doesn't emit any output\.  

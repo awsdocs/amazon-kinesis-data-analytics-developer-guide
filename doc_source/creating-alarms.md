@@ -27,9 +27,7 @@ You can set alarms using the AWS Management Console, CloudWatch CLI, or CloudWat
 1. Choose **Create Alarm** to create the alarm\.
 
 **To set an alarm using the CloudWatch CLI**
-
 +  Call `[mon\-put\-metric\-alarm](http://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/cli-mon-put-metric-alarm.html)`\. For more information, see the [Amazon CloudWatch CLI Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/)\. 
 
 **To set an alarm using the CloudWatch API**
-
 + Call `[PutMetricAlarm](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)`\. For more information, see the [Amazon CloudWatch API Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/)\. 

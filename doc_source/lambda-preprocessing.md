@@ -3,15 +3,10 @@
 If the data in your stream needs format conversion, transformation, enrichment, or filtering, you can preprocess the data using an AWS Lambda function before your application SQL code executes, or before your application creates a schema from your data stream\. 
 
 Using a Lambda function for preprocessing records is useful in the following scenarios:
-
 + Transforming records from other formats \(such as KPL or GZIP\) into formats that Kinesis Data Analytics can analyze\. Kinesis Data Analytics currently supports JSON or CSV data formats\.
-
 + Expanding data into a format that is more accessible for operations such as aggregation or anomaly detection\. For instance, if several data values are stored together in a string, you can expand the data into separate columns\.
-
 + Data enrichment with other AWS services, such as extrapolation or error correction\.
-
 + Applying complex string transformation to record fields\.
-
 + Data filtering for cleaning up the data\.
 
 ## Using a Lambda Function for Preprocessing Records<a name="lambda-preprocessing-use"></a>
@@ -136,21 +131,14 @@ All records returned from your Lambda preprocessing function \(with record IDs\)
 ## Common Data Preprocessing Failures<a name="lambda-preprocessing-failures"></a>
 
 The following are common reasons why preprocessing can fail\.
-
 + Not all records \(with record IDs\) in a batch that are sent to the Lambda function are returned back to the Kinesis Data Analytics service\. 
-
 + The response is missing either the record ID, status, or data payload field\. The data payload field is optional for a `Dropped` or `ProcessingFailed` record\.
-
 + The Lambda function timeouts are not sufficient to preprocess the data\.
-
 + The Lambda function response exceeds the response limits imposed by the AWS Lambda service\.
 
 In the case of data preprocessing failures, the Kinesis Data Analytics service continues to retry Lambda invocations on the same set of records until successful\. You can monitor the following CloudWatch metrics to gain insight into failures\.
-
 + Kinesis Data Analytics Application `MillisBehindLatest`: Indicates how far behind an application is reading from the streaming source\. 
-
 + Kinesis Data Analytics Application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
-
 + AWS Lambda function CloudWatch metrics and logs\.
 
 ## For Further Information<a name="lambda-preprocessing-further-information"></a>

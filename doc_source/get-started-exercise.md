@@ -6,7 +6,6 @@ By following the steps in this section, you can create your first Amazon Kinesis
 We suggest that you review [Amazon Kinesis Data Analytics: How It Works](how-it-works.md) before trying the Getting Started exercise\.
 
 For this Getting Started exercise, you can use the console to work with either the demo stream or templates with application code\.
-
 + If you choose to use the demo stream, the console creates a Kinesis data stream in your account that is called `kinesis-analytics-demo-stream`\.
 
   A Kinesis data analytics application requires a streaming source\. For this source, several SQL examples in this guide use the demo stream `kinesis-analytics-demo-stream`\. The console also runs a script that continuously adds sample data \(simulated stock trade records\) to this stream, as shown following\.  
@@ -15,7 +14,6 @@ For this Getting Started exercise, you can use the console to work with either t
   You can use `kinesis-analytics-demo-stream` as the streaming source for your application in this exercise\.
 **Note**  
 The demo stream remains in your account\. You can use it to test other examples in this guide\. However, when you leave the console, the script that the console uses stops populating the data\. When needed, the console provides the option to start populating the stream again\. 
-
 + If you choose to use the templates with example application code, you use template code that the console provides to perform simple analytics on the demo stream\. 
 
 You use these features to quickly set up your first application as follows:

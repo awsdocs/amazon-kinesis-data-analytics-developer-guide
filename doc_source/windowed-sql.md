@@ -7,7 +7,5 @@ For a time\-based windowed query, you specify the window size in terms of time \
 For a row\-based windowed query, you specify window size in terms of the number of rows\.
 
 You can specify a query to process records in a tumbling window or sliding window manner, depending on your application needs\. For more information, see the following topics:
-
 + [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)
-
 + [Sliding Windows](sliding-window-concepts.md)

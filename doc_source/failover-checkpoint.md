@@ -5,15 +5,12 @@ Amazon Kinesis Data Analytics uses an "at least once" delivery model for applica
 In a normal situation, your application processes incoming data continuously, and Kinesis Data Analytics writes the output to the configured destinations such as a Kinesis stream or a Kinesis data delivery stream\.
 
 However, your application can be interrupted, either by your choice or by some application configuration change that causes an interruption or failure, such as: 
-
 + You might choose to stop your application and restart it later\.
 
    
-
 + You delete the IAM role that Amazon Kinesis Data Analytics needs to write your application output to the configured destination\. Without the IAM role, Kinesis Data Analytics does not have any permissions to write to the external destination on your behalf\.
 
    
-
 + Network outage or other internal service failures causing your application to stop running momentarily\. 
 
 When your application starts working again, Kinesis Data Analytics ensures that it continues to process and write output from a point before or equal to when the failure occurred, so that it does not miss delivering any of your application output to the configured destinations\. 

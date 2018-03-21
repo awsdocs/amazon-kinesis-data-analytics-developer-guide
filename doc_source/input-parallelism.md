@@ -9,23 +9,17 @@ When the `InputParallelism` parameter is greater than one, Amazon Kinesis Data A
 When you increase the number of in\-application streams, your application must access the data in each stream explicitly\. For information on accessing multiple in\-application streams in your code, see [Accessing Separate In\-Application Streams in Your Amazon Kinesis Data Analytics Application](#input-parallelism-code-example)\.
 
 Although Kinesis Data Analytics and Kinesis Data Firehose stream shards are both divided among in\-application streams in the same way, they differ in the way they appear to your application:
-
 + The records from a Kinesis Data Analytics stream include a `shard_id` field that can be used to identify the source shard for the record\.
-
 + The records from a Kinesis Data Firehose stream don't include a field that identifies the record's source shard or partition, because Kinesis Data Firehose abstracts this information away from your application\.
 
 ## Evaluating Whether to Increase Your Number of In\-Application Input Streams<a name="input-parallelism-evaluating"></a>
 
 In most cases, a single in\-application input stream can handle the throughput of a single source stream, depending on the complexity and data size of the input streams\. To determine if you need to increase the number of in\-application input streams, you can monitor the `MillisBehindLatest` metric in Amazon CloudWatch\. If the `MillisBehindLatest` metric has either of the following characteristics, you should increase your application's `InputParallelism` setting:
-
 + The `MillisBehindLatest` metric is gradually increasing, indicating that your application is falling behind the latest data in the stream\.
-
 + The `MillisBehindLatest` metric is consistently above 1000 \(one second\)\.
 
 You don't need to increase your application's `InputParallelism` setting if the following are true:
-
 + The `MillisBehindLatest` metric is gradually decreasing, indicating that your application is catching up to the latest data in the stream\.
-
 + The `MillisBehindLatest` metric is below 1000 \(one second\)\.
 
 For more information on using CloudWatch, see the [CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
@@ -115,13 +109,8 @@ The preceding code example produces output in `in_application_stream001` similar
 ## Additional Considerations<a name="input-parallelism-considerations"></a>
 
 When using multiple input streams, be aware of the following:
-
 + The maximum number of in\-application input streams is 64\.
-
 + The in\-application input streams are distributed evenly among the shards of the application's input stream\.
-
 + The performance gains from adding in\-application streams don't scale linearly\. That is, doubling the number of in\-application streams doesn't double throughput\. With a typical row size, each in\-application stream can achieve throughput of about 5,000 to 15,000 rows per second\. By increasing the in\-application stream count to 10, you can achieve a throughput of 20,000 to 30,000 rows per second\. Throughput speed is dependent on the count, data types, and data size of the fields in the input stream\.
-
 + Some aggregate functions \(such as [AVG](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-avg.html)\) can produce unexpected results when applied to input streams partitioned into different shards\. Because you need to run the aggregate operation on individual shards before combining them into an aggregate stream, the results might be weighted toward whichever stream contains more records\.
-
 + If your application continues to experience poor performance \(reflected by a high `MillisBehindLatest` metric\) after you increase your number of input streams, you might have reached your limit of Kinesis Processing Units \(KPUs\)\. For more information, see [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)\.

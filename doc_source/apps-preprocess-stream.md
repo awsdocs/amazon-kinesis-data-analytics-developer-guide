@@ -6,7 +6,7 @@ There are times when your application code needs to preprocess the incoming reco
 
 For information about preprocessing streams with AWS Lambda, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\.
 
-
+**Topics**
 + [Preprocessing Streams with Lambda](#apps-preprocess-stream-lambda)
 + [Example: Manipulating Strings and Date Times](app-string-datetime-manipulation.md)
 + [Example: Streaming Source With Multiple Record Types](app-tworecordtypes.md)

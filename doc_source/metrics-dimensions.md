@@ -17,7 +17,6 @@ For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesi
 1. In the upper pane, scroll to view the full list of metrics\.
 
 **To view metrics using the AWS CLI**
-
 + At a command prompt, use the following command\.
 
   ```
@@ -25,9 +24,6 @@ For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesi
   ```
 
  Amazon Kinesis Data Analytics metrics are collected at the following levels:
-
 + Application 
-
 + Input stream
-
 + Output stream

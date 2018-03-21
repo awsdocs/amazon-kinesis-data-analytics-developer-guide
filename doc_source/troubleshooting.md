@@ -5,11 +5,8 @@ The following can help you troubleshoot problems you have with Amazon Kinesis Da
 ## Get a SQL Statement to Work Correctly<a name="sql-statement"></a>
 
 If you need to figure out how to get a particular SQL statement to work correctly, you have several different resources when using Amazon Kinesis Data Analytics:
-
 + For more information about SQL statements, see [Example Amazon Kinesis Data Analytics Applications](example-apps.md) in the *Amazon Kinesis Data Analytics Developer Guide\.* This section provides a number of SQL examples that you can use\. 
-
 + The [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf_Preface.html) provides a detailed guide to authoring streaming SQL statements\. 
-
 + If you are still running into issues, we recommend that you ask a question on the [Kinesis Data Analytics Forums](https://forums.aws.amazon.com/ann.jspa?annID=4153)\. 
 
 ## Unable to Detect or Discover My Schema<a name="detect-schema"></a>
@@ -33,13 +30,9 @@ For more information, see [Best Practices](best-practices.md) in the *Amazon Kin
 ## Invalid Code Errors When Running an Application<a name="invalid-code"></a>
 
 When you cannot save and run the SQL code for your Amazon Kinesis Data Analytics application, the following are common causes:
-
 + **The stream was redefined in your SQL code** – After you create a stream and the pump associated with the stream, you cannot redefine the same stream in your code\. For more information about creating a stream, see [CREATE STREAM](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-create-stream.html)\. For more information about creating a pump, see [CREATE PUMP](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-create-pump.html)\.
-
 + **A GROUP BY clause uses multiple ROWTIME columns ** – You can specify only one ROWTIME column in the GROUP BY clause\. For more information, see [GROUP BY](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-group-by-clause.html) and [ROWTIME](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-rowtime.html)\. 
-
 + **One or more data types have an invalid casting ** – In this case, your code has an invalid implicit cast\. For example, you might be casting a timestamp to a bigint in your code\.
-
 + **A stream has the same name as a service reserved stream name ** – A stream cannot have the same name as the service\-reserved stream `error_stream`\. 
 
 ## Application Doesn't Process Data After Deleting and Re\-creating the Kinesis Application Input Stream or Kinesis Data Firehose Delivery Stream with the Same Name<a name="replace-stream"></a>

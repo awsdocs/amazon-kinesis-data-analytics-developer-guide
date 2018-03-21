@@ -1,17 +1,11 @@
 # Monitoring Amazon Kinesis Data Analytics<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Kinesis Data Analytics and your Amazon Kinesis Data Analytics application\. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multipoint failure if one occurs\. Before you start monitoring Amazon Kinesis Data Analytics, however, you should create a monitoring plan that includes answers to the following questions:
-
 + What are your monitoring goals?
-
 + What resources will you monitor?
-
 + How often will you monitor these resources?
-
 + What monitoring tools will you use?
-
 + Who will perform the monitoring tasks?
-
 + Who should be notified when something goes wrong?
 
 The next step is to establish a baseline for normal Amazon Kinesis Data Analytics performance in your environment, by measuring performance at various times and under different load conditions\. As you monitor Amazon Kinesis Data Analytics, you can store historical monitoring data\. If you do, you can compare it with current performance data, identify normal performance patterns and performance anomalies, and devise methods to address issues\.
@@ -24,6 +18,6 @@ We recommend that you set up a CloudWatch alarm that triggers when the applicati
 
 For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesis Data Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
-
+**Topics**
 + [Monitoring Tools](monitoring-automated-manual.md)
 + [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md)

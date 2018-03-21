@@ -19,15 +19,12 @@ FROM  SOURCE_SQL_STREAM_001
 ## Understanding Various Times in Streaming Analytics<a name="out-of-order-rows"></a>
 
 In addition to `ROWTIME`, there are other types of times in real\-time streaming applications\. These are:
-
 + **Event time** – The timestamp when the event occurred\. This is also sometimes called the *client\-side time*\. It is often desirable to use this time in analytics because it is the time when an event occurred\. However, many event sources, such as mobile phones and web clients, do not have reliable clocks, which can lead to inaccurate times\. In addition, connectivity issues can lead to records appearing on a stream not in the same order the events occurred\.
 
    
-
 + **Ingest time** – The timestamp of when record was added to the streaming source\. Amazon Kinesis Data Streams includes a field called `ApproximateArrivalTimeStamp` in every record that provides this timestamp\. This is also sometimes referred to as the *server\-side time*\. This ingest time is often the close approximation of event time\. If there is any kind of delay in the record ingestion to the stream, this can lead to inaccuracies, which are typically rare\. Also, the ingest time is rarely out of order, but it can occur due to the distributed nature of streaming data\. Therefore, Ingest time is a mostly accurate and in\-order reflection of the event time\. 
 
    
-
 + **Processing time** – The timestamp when Amazon Kinesis Data Analytics inserts a row in the first in\-application stream\. Amazon Kinesis Data Analytics provides this timestamp in the `ROWTIME` column that exists in each in\-application stream\.  The processing time is always monotonically increasing, but it will not be accurate if your application falls behind \(if an application falls behind, the processing time will not accurately reflect the event time\)\. This `ROWTIME` is very accurate in relation to the wall clock, but it might not be the time when the event actually occurred\. 
 
 As you can see from the preceding discussion, using each of these times in windowed queries that are time\-based has advantages and disadvantages\. We recommend you choose one or more of these times, and a strategy to deal with the relevant disadvantages based on your use case scenario\. 
@@ -36,9 +33,7 @@ As you can see from the preceding discussion, using each of these times in windo
 If you are using row\-based windows, time is not an issue and you can ignore this section\.
 
 We recommend a two\-window strategy that uses two time\-based, both `ROWTIME` and one of the other times \(ingest or event time\)\. 
-
 + Use `ROWTIME` as the first window, which controls how frequently the query emits the results, as shown in the following example\. It is not used as a logical time\.
-
 + Use one of the other times that is the logical time you want to associated with your analytics\. This time represents when the event occurred\. In the following example, the analytics goal is to group the records and return count by ticker\.
 
 The advantage of this strategy is that it can use a time that represents when the event occurred, and it can gracefully handle when your application falls behind or when events arrive out of order\. If the application falls behind when bringing records into the in\-application stream, they are still grouped by the logical time in the second window\. The query uses `ROWTIME` to guarantee the order of processing\. Any records that are late \(ingest timestamp shows earlier value compared to the `ROWTIME` value\) are processed successfully too\. 
