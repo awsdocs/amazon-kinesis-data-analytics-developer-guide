@@ -48,7 +48,7 @@ John Doe
 ```
 
 **Note**  
-Path expressions are case\-sensitive\. The expression `$.Name` returns `null` from the preceding JSON example\.
+Path expressions are case sensitive\. The expression `$.Name` returns `null` from the preceding JSON example\.
 
 **Note**  
 If no element appears at the location where the path expression specifies, the expression returns `null`\. The following expression returns `null` from the preceding JSON example, because there is no matching element\.  
@@ -183,7 +183,7 @@ A schema containing elements in the following format is not valid\.
 ## Other Considerations<a name="about-json-path-other"></a>
 
 Additional considerations for working with JSONPath are as follows:
-+ If no arrays are accessed by individual element in the JSONPath expression, then a single row is created for each JSON record processed\. Every JSONPath expression corresponds to a single column\.
++ If no arrays are accessed by an individual element in the JSONPath expression, then a single row is created for each JSON record processed\. Every JSONPath expression corresponds to a single column\.
 + When an array is flattened, any missing elements result in a null value being created in the in\-application stream\. 
 + An array is always flattened to at least one row\. If no values would be returned \(that is, the array is empty or none of its elements are queried\), a single row with all null values is returned\.
 

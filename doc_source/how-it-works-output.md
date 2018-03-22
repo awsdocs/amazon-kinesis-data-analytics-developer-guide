@@ -1,6 +1,6 @@
 # Configuring Application Output<a name="how-it-works-output"></a>
 
-In your application code, you write the output of SQL statements to one or more in\-application streams\. You can optionally add output configuration to your application to persist everything written to an in\-application stream to an external destination such as an Amazon Kinesis data stream, a Kinesis data delivery stream, or an AWS Lambda function\. 
+In your application code, you write the output of SQL statements to one or more in\-application streams\. You can optionally add output configuration to your application to persist everything written to an in\-application stream to an external destination such as an Amazon Kinesis data stream, a Kinesis Data Firehose delivery stream, or an AWS Lambda function\. 
 
 There is a limit on the number of external destinations you can use to persist an application output\. For more information, see [Limits](limits.md)\. 
 
@@ -10,8 +10,8 @@ We recommend that you use one external destination to persist in\-application er
 In each of these output configurations, you provide the following:
 + **In\-application stream name** – The stream that you want to persist to an external destination\. 
 
-  Amazon Kinesis Data Analytics looks for the in\-application stream that you specified in the output configuration \(note that the stream name is case\-sensitive and must match exactly\)\. Make sure that your application code creates this in\-application stream\. 
-+ **External destination** – You can persist data to a Kinesis data stream, a Kinesis data delivery stream, or a Lambda function\. You provide the Amazon Resource Name \(ARN\) of the stream or function, and an IAM role that Kinesis Data Analytics can assume to write to the stream or function on your behalf\. You also describe the record format \(JSON, CSV\) to Kinesis Data Analytics to use when writing to the external destination\.
+  Amazon Kinesis Data Analytics looks for the in\-application stream that you specified in the output configuration \(note that the stream name is case sensitive and must match exactly\)\. Make sure that your application code creates this in\-application stream\. 
++ **External destination** – You can persist data to a Kinesis data stream, a Kinesis Data Firehose delivery stream, or a Lambda function\. You provide the Amazon Resource Name \(ARN\) of the stream or function, and an IAM role that Kinesis Data Analytics can assume to write to the stream or function on your behalf\. You also describe the record format \(JSON, CSV\) to Kinesis Data Analytics to use when writing to the external destination\.
 
 If Amazon Kinesis Data Analytics can't write to the streaming or Lambda destination, the service continues to try indefinitely\. This creates back pressure, causing your application to fall behind\. If this is not resolved, your application eventually stops processing new data\. You can monitor [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) and set alarms for failures\. For more information about metrics and alarms, see [Using Amazon CloudWatch Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) and [Creating Amazon CloudWatch Alarms](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\.
 
@@ -41,9 +41,9 @@ The following JSON fragment shows the `Outputs` section in the `CreateApplicatio
 ]
 ```
 
-### Creating a Kinesis Data Delivery Stream Output<a name="how-it-works-output-cli-firehose"></a>
+### Creating a Kinesis Data Firehose Delivery Stream Output<a name="how-it-works-output-cli-firehose"></a>
 
-The following JSON fragment shows the `Outputs` section in the `CreateApplication` request body for creating an Amazon Kinesis data delivery stream destination\.
+The following JSON fragment shows the `Outputs` section in the `CreateApplication` request body for creating an Amazon Kinesis Data Firehose delivery stream destination\.
 
 ```
 "Outputs": [

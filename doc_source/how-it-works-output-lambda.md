@@ -1,15 +1,6 @@
 # Using a Lambda Function as Output<a name="how-it-works-output-lambda"></a>
 
-**Topics**
-+ [Lambda as Output Permissions](#how-it-works-output-lambda-perms)
-+ [Lambda as Output Metrics](#how-it-works-output-lambda-metrics)
-+ [Lambda as Output Templates](#how-it-works-output-lambda-templates)
-+ [Lambda as Output Event Input Data Model and Record Response Model](#how-it-works-output-lambda-model)
-+ [Lambda Output Invocation Frequency](#how-it-works-output-lambda-frequency)
-+ [Adding a Lambda Function for Use as an Output](#how-it-works-output-lambda-procedure)
-+ [Common Lambda as Output Failures](#how-it-works-output-lambda-troubleshooting)
-
-Using Lambda as a destination allows you to more easily perform post\-processing of your SQL results before sending them to a final destination\. Common post\-processing tasks include the following:
+Using AWS Lambda as a destination allows you to more easily perform post\-processing of your SQL results before sending them to a final destination\. Common post\-processing tasks include the following:
 + Aggregating multiple rows into a single record
 + Combining current results with past results to address late\-arriving data
 + Delivering to different destinations based on the type of information
@@ -31,6 +22,15 @@ Lambda functions can deliver analytic information to a variety of AWS services a
 
 For more information about creating Lambda applications, see [Getting Started with AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\.
 
+**Topics**
++ [Lambda as Output Permissions](#how-it-works-output-lambda-perms)
++ [Lambda as Output Metrics](#how-it-works-output-lambda-metrics)
++ [Lambda as Output Event Input Data Model and Record Response Model](#how-it-works-output-lambda-model)
++ [Lambda Output Invocation Frequency](#how-it-works-output-lambda-frequency)
++ [Adding a Lambda Function for Use as an Output](#how-it-works-output-lambda-procedure)
++ [Common Lambda as Output Failures](#how-it-works-output-lambda-troubleshooting)
++ [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md)
+
 ## Lambda as Output Permissions<a name="how-it-works-output-lambda-perms"></a>
 
 To use Lambda as output, the application’s Lambda output IAM role requires the following permissions policy:
@@ -50,19 +50,6 @@ To use Lambda as output, the application’s Lambda output IAM role requires the
 ## Lambda as Output Metrics<a name="how-it-works-output-lambda-metrics"></a>
 
 You use Amazon CloudWatch to monitor the number of bytes sent, successes and failures, and so on\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics using Lambda as output, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
-
-## Lambda as Output Templates<a name="how-it-works-output-lambda-templates"></a>
-
-Kinesis Data Analytics provides templates for creating a Lambda function for use as a destination for an application\. You can use these templates as a starting point for post\-processing output from your application\.
-
-The following templates are available:
-
-
-| Lambda as Output Blueprint | Language and Version | Description | 
-| --- | --- | --- | 
-| kinesis\-analytics\-output | Node\.js 6\.10 | Deliver output records from a Kinesis Data Analytics application to a custom destination\. | 
-| kinesis\-analytics\-output\-sns | Python 2\.7 | Deliver output records from a Kinesis Data Analytics application to Amazon SNS\. | 
-| kinesis\-analytics\-output\-ddb | Python 2\.7 | Deliver output records from a Kinesis Data Analytics application to Amazon DynamoDB\. | 
 
 ## Lambda as Output Event Input Data Model and Record Response Model<a name="how-it-works-output-lambda-model"></a>
 
@@ -92,7 +79,7 @@ The `retryHint` is a value that increases for every delivery failure\. This valu
 
 ### Record Response Model<a name="how-it-works-output-lambda-model-response"></a>
 
-Each record sent to your Lambda as output function \(with record IDs\) must be acknowledged with either `Ok` or `DeliveryFailed` and must contain the following parameters, or Kinesis Data Analytics treats them as a delivery failure\.
+Each record sent to your Lambda as output function \(with record IDs\) must be acknowledged with either `Ok` or `DeliveryFailed` and must contain the following parameters\. Otherwise, Kinesis Data Analytics treats them as a delivery failure\.
 
 
 | Field | Description | 
@@ -104,11 +91,11 @@ Each record sent to your Lambda as output function \(with record IDs\) must be a
 ## Lambda Output Invocation Frequency<a name="how-it-works-output-lambda-frequency"></a>
 
 A Kinesis data analytics application buffers the output records and invokes the AWS Lambda destination function frequently\.
-+ If records are emitted to the destination in\-application stream within the Kinesis Analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger\. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in\-application stream, then the AWS Lambda function is invoked once every 60 seconds\.
-+ If records are emitted to the destination in\-application stream with in the Kinesis data analytics application as a continuous query or a sliding window, the AWS Lambda destination function is invoked approximately once per second\.
++ If records are emitted to the destination in\-application stream within the data analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger\. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in\-application stream, the AWS Lambda function is invoked once every 60 seconds\.
++ If records are emitted to the destination in\-application stream within the data analytics application as a continuous query or a sliding window, the AWS Lambda destination function is invoked approximately once per second\.
 
 **Note**  
-[Per\-Lambda function invoke request payload size limits](http://docs.aws.amazon.com/lambda/latest/dg/limits.html) apply, and exceeding those limits will result in output records being split and sent across multiple Lambda function calls\.
+[Per\-Lambda function invoke request payload size limits](http://docs.aws.amazon.com/lambda/latest/dg/limits.html) apply\. Exceeding those limits results in output records being split and sent across multiple Lambda function calls\.
 
 ## Adding a Lambda Function for Use as an Output<a name="how-it-works-output-lambda-procedure"></a>
 
@@ -122,17 +109,17 @@ The following procedure demonstrates how to add a Lambda function as an output f
 
 1. For the **Destination** item, choose **AWS Lambda function**\.
 
-1. In the **Deliver records to AWS Lambda** section, either choose an existing Lambda function, or choose **Create new**\.
+1. In the **Deliver records to AWS Lambda** section, either choose an existing Lambda function or choose **Create new**\.
 
 1. If you are creating a new Lambda function, do the following:
 
-   1. Choose one of the [Lambda as Output Templates](#how-it-works-output-lambda-templates)\.
+   1. Choose one of the templates provided\. For more information, [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md)\.
 
-   1. In the **Create Function** page that opens in a new browser tab, in the **Name** field, give the function a meaningful name \(for example, **myLambdaFunction**\)\.
+   1. The **Create Function** page opens in a new browser tab\. In the **Name** box, give the function a meaningful name \(for example, **myLambdaFunction**\)\.
 
    1. Update the template with post\-processing functionality for your application\. For information about creating a Lambda function, see [Getting Started](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*\.
 
-   1. In the Kinesis Data Analytics console, in the **Lambda function** drop\-down list, choose the Lambda function that you just created\.
+   1. On the Kinesis Data Analytics console, in the **Lambda function** drop\-down list, choose the Lambda function that you just created\.
 
 1. In the **In\-application stream** section, choose **Choose an existing in\-application stream**\. For **In\-application stream name**, choose your application's output stream\. The results from the selected output stream are sent to the Lambda output function\.
 

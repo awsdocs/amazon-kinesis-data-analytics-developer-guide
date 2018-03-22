@@ -49,4 +49,4 @@ In this application, the query runs continuously on the in\-application stream c
 
 1. Configure AWS Lambda to monitor the Kinesis stream you created and invoke a Lambda function\. 
 
-   For instructions, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\.
+   For instructions, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\.

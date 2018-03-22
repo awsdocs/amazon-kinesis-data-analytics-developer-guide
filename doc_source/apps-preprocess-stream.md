@@ -4,7 +4,7 @@ There are times when your application code needs to preprocess the incoming reco
 
 ## Preprocessing Streams with Lambda<a name="apps-preprocess-stream-lambda"></a>
 
-For information about preprocessing streams with AWS Lambda, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\.
+For information about preprocessing streams with AWS Lambda, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\.
 
 **Topics**
 + [Preprocessing Streams with Lambda](#apps-preprocess-stream-lambda)

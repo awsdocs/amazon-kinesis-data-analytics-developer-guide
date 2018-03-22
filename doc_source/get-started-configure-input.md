@@ -22,7 +22,7 @@ Your application needs a streaming source\. To help you get started, the console
        In the input configuration, you map the demo stream to an in\-application input stream that is created\. When you start the application, Amazon Kinesis Data Analytics continuously reads the demo stream and insert rows in the in\-application input stream\. You query this in\-application input stream in your application code\. 
 
         
-     + **Record pre\-processing with AWS Lambda**: This option is where you specify an AWS Lambda expression that modifies the records in the input stream before your application code executes\. In this exercise, leave the **Disabled** option selected\. For more information about Lambda preprocessing, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\.
+     + **Record pre\-processing with AWS Lambda**: This option is where you specify an AWS Lambda expression that modifies the records in the input stream before your application code executes\. In this exercise, leave the **Disabled** option selected\. For more information about Lambda preprocessing, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\.
 
    After you provide all the information on this page, the console sends an update request \(see [UpdateApplication](API_UpdateApplication.md)\) to add the input configuration the application\. 
 

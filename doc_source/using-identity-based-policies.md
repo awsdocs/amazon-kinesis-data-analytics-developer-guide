@@ -236,7 +236,7 @@ Now suppose you want the user to create an Amazon Kinesis Data Analytics applica
 
 ### Step 6: Allow the Application to Use Lambda Preprocessing<a name="console-permissions-grant-lambda"></a>
 
-If you want the application to be able to use Lambda preprocessing, you can attach the following policy to the role\. For more information on Lambda preprocessing, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\.
+If you want the application to be able to use Lambda preprocessing, you can attach the following policy to the role\. For more information on Lambda preprocessing, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\.
 
 ```
      {

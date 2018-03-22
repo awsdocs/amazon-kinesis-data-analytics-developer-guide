@@ -8,7 +8,7 @@ At this time, you have application code reading heart rate data from a streaming
 
    Now you have an external destination, where Amazon Kinesis Data Analytics persists any records your application writes to the in\-application stream `DESTINATION_SQL_STREAM`\. 
 
-1. You can optionally configure AWS Lambda to monitor the `OutputStreamTestingAnomalyScores` stream and send you alerts\. For instructions, see [Using the Lambda Preprocessing Feature](lambda-preprocessing.md)\. If not, you can review the records that Amazon Kinesis Data Analytics writes to the external destination, the Kinesis stream `OutputStreamTestingAnomalyScores`, as described in the next step\.
+1. You can optionally configure AWS Lambda to monitor the `OutputStreamTestingAnomalyScores` stream and send you alerts\. For instructions, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\. If not, you can review the records that Amazon Kinesis Data Analytics writes to the external destination, the Kinesis stream `OutputStreamTestingAnomalyScores`, as described in the next step\.
 
 **Next Step**  
 [Step 4: Verify Output](app-anomaly-verify-output.md)
