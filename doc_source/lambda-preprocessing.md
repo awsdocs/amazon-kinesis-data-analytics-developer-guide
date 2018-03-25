@@ -9,7 +9,7 @@ Using a Lambda function for preprocessing records is useful in the following sce
 + Applying complex string transformation to record fields\.
 + Data filtering for cleaning up the data\.
 
-[a](https://aws.amazon.com/blogs/big-data/preprocessing-data-in-amazon-kinesis-analytics-with-aws-lambda/)\.
+[Preprocessing Data in Amazon Kinesis Analytics with AWS Lambda | AWS Big Data Blog](https://aws.amazon.com/blogs/big-data/preprocessing-data-in-amazon-kinesis-analytics-with-aws-lambda/)\.
 
 ## Using a Lambda Function for Preprocessing Records<a name="lambda-preprocessing-use"></a>
 
