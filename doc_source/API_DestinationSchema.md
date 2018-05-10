@@ -8,7 +8,7 @@ Describes the data format when records are written to the destination\. For more
 Specifies the format of the records on the output stream\.  
 Type: String  
 Valid Values:` JSON | CSV`   
-Required: No
+Required: Yes
 
 ## See Also<a name="API_DestinationSchema_SeeAlso"></a>
 

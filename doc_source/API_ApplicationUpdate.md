@@ -7,7 +7,7 @@ Describes updates to apply to an existing Amazon Kinesis Analytics application\.
  **ApplicationCodeUpdate**   <a name="analytics-Type-ApplicationUpdate-ApplicationCodeUpdate"></a>
 Describes application code updates\.  
 Type: String  
-Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
+Length Constraints: Minimum length of 0\. Maximum length of 102400\.  
 Required: No
 
  **CloudWatchLoggingOptionUpdates**   <a name="analytics-Type-ApplicationUpdate-CloudWatchLoggingOptionUpdates"></a>

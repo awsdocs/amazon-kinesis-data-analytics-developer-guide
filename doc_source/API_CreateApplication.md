@@ -101,7 +101,7 @@ One or more SQL statements that read input data, transform it, and generate outp
 You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement\. You store intermediate results by creating in\-application streams and pumps\.  
 Note that the application code must create the streams with names specified in the `Outputs`\. For example, if your `Outputs` defines output streams named `ExampleOutputStream1` and `ExampleOutputStream2`, then your application code must create these streams\.   
 Type: String  
-Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
+Length Constraints: Minimum length of 0\. Maximum length of 102400\.  
 Required: No
 
  ** [ApplicationDescription](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-ApplicationDescription"></a>

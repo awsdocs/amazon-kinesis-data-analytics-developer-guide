@@ -14,7 +14,7 @@ Required: Yes
  **ApplicationCode**   <a name="analytics-Type-ApplicationDetail-ApplicationCode"></a>
 Returns the application code that you provided to perform data analysis on any of the in\-application streams in your application\.  
 Type: String  
-Length Constraints: Minimum length of 0\. Maximum length of 51200\.  
+Length Constraints: Minimum length of 0\. Maximum length of 102400\.  
 Required: No
 
  **ApplicationDescription**   <a name="analytics-Type-ApplicationDetail-ApplicationDescription"></a>

@@ -43,8 +43,14 @@ The same effect occurs if you delete the Kinesis Data Firehose delivery stream f
 
 To resolve this issue, stop and restart the application through the AWS Management Console\.
 
-## Insufficient Throughput or High Latency<a name="insufficient-throughput"></a>
+## Insufficient Throughput or High MillisBehindLatest<a name="insufficient-throughput"></a>
 
-If your application's `MillisBehindLatest` metric is steadily increasing or consistently is above 1000 \(one second\), you can improve your application's throughput\. To do so, increase the value of the `InputParallelism` parameter\. For more information, see [Parallelizing Input Streams for Increased Throughput](input-parallelism.md)\.
-
-If your application is reaching the default limit for Kinesis Processing Units \(KPU\), you can request a limit increase\. For more information, see [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)\.
+If your application's [MillisBehindLatest](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) metric is steadily increasing or consistently is above 1000 \(one second\), it can be due to the following reasons:
++ Check your application's [InputBytes](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) CloudWatch metric\. If you are ingesting more than 4 MB/sec, this can cause an increase in MillisBehindLatest\. To improve your application's throughput, increase the value of the `InputParallelism` parameter\. For more information, see [Parallelizing Input Streams for Increased Throughput](input-parallelism.md)\. 
++ Check your application's output delivery [Success](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) metric for failures in delivering to your destination\. Verify that you have correctly configured the output, and that your output stream has sufficient capacity\. 
++ If your application uses an AWS Lambda function for pre\-processing or as an output, check the application’s [InputProcessing\.Duration](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) or [LambdaDelivery\.Duration](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html) CloudWatch metric\. If the Lambda function invocation duration is longer than 5 seconds, consider doing the following:
+  + Increase the Lambda function’s Memory allocation under Configuration \-> Basic Settings in the Lambda console\. For more information, see [Configuring Lambda Functions\.](http://docs.aws.amazon.com/lambda/latest/dg/resource-model.html)
+  + Increase the number of shards in your input stream of the application\. This will increase the number of parallel functions the application will invoke which may increase throughput\.
+  + Verify that the function is not making blocking calls that are impacting performance, such as synchronous requests for external resources\. 
+  + Examine your Lambda function to see if there are other areas where you can improve performance\. Check the CloudWatch Logs of the application Lambda function\.For more information, see [Accessing Amazon CloudWatch Metrics for AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-access-metrics.html)\.
++ Verify that your application is not reaching the default limit for Kinesis Processing Units \(KPU\)\. If your application is reaching this limit, you can request a limit increase\. For more information, see [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)\.

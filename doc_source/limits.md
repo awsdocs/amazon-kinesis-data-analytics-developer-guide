@@ -1,7 +1,10 @@
 # Limits<a name="limits"></a>
 
 When working with Amazon Kinesis Data Analytics, note the following limits:
-+ The size of a row in an in\-application stream is limited to 50 KB\. 
++ The size of a row in an in\-application stream is limited to 512 KB\. Kinesis Data Analytics uses up to 1 KB to store metadata\. This metadata counts against the row limit\. 
+
+   
++ The SQL code in an application is limited to 100 KB\. 
 
    
 + The service is available in specific AWS Regions\. For more information, see [Amazon Kinesis Data Analytics](http://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region) in the *AWS General Reference*\. 
