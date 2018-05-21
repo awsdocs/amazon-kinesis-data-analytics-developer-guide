@@ -30,7 +30,7 @@ Your application code can consist of many SQL statements\. For example:
 
 You can create in\-application streams to save intermediate results\. You insert data in in\-application streams using pumps\. For more information, see [In\-Application Streams and Pumps](streams-pumps.md)\.
 
-If you add an in\-application reference table, you can write SQL to join data in in\-application streams and reference tables\. For more information, see [Example: Adding Reference Data to an Amazon Kinesis Data Analytics Application](app-add-reference-data.md)\.
+If you add an in\-application reference table, you can write SQL to join data in in\-application streams and reference tables\. For more information, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
 
 According to the application's output configuration, Amazon Kinesis Data Analytics writes data from specific in\-application streams to the external destination according to the application's output configuration\. Make sure that your application code writes to the in\-application streams specified in the output configuration\. 
 

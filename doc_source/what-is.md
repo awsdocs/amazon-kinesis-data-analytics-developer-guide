@@ -25,4 +25,4 @@ If you are a first\-time user of Amazon Kinesis Data Analytics, we recommend tha
 
 1. **Explore the streaming SQL concepts\.** For more information, see [Streaming SQL Concepts](streaming-sql-concepts.md)\.
 
-1. **Try additional examples\.** For more information, see [Example Amazon Kinesis Data Analytics Applications](example-apps.md)\.
+1. **Try additional examples\.** For more information, see [Example Applications](examples.md)\.

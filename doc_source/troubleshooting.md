@@ -5,7 +5,7 @@ The following can help you troubleshoot problems you have with Amazon Kinesis Da
 ## Get a SQL Statement to Work Correctly<a name="sql-statement"></a>
 
 If you need to figure out how to get a particular SQL statement to work correctly, you have several different resources when using Amazon Kinesis Data Analytics:
-+ For more information about SQL statements, see [Example Amazon Kinesis Data Analytics Applications](example-apps.md) in the *Amazon Kinesis Data Analytics Developer Guide\.* This section provides a number of SQL examples that you can use\. 
++ For more information about SQL statements, see [Example Applications](examples.md) in the *Amazon Kinesis Data Analytics Developer Guide\.* This section provides a number of SQL examples that you can use\. 
 + The [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf_Preface.html) provides a detailed guide to authoring streaming SQL statements\. 
 + If you are still running into issues, we recommend that you ask a question on the [Kinesis Data Analytics Forums](https://forums.aws.amazon.com/ann.jspa?annID=4153)\. 
 

@@ -1,10 +1,10 @@
 # Example: Detecting Hotspots on a Stream \(HOTSPOTS Function\)<a name="app-hotspots-detection"></a>
 
-Amazon Kinesis Data Analytics provides a function \(`HOTSPOTS`\) that can locate and return information about relatively dense regions in your data\. For more information, see [HOTSPOTS](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf-hotspots.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+Amazon Kinesis Data Analytics provides the `HOTSPOTS` function, which can locate and return information about relatively dense regions in your data\. For more information, see [HOTSPOTS](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf-hotspots.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
-In this exercise, you write application code to locate hotspots on your application's streaming source\. You do the following to set up the application:
+In this exercise, you write application code to locate hotspots on your application's streaming source\. To set up the application, you do the following steps:
 
-1. **Set up a streaming source** – Set up a Kinesis stream and write sample coordinate data as shown following:
+1. **Set up a streaming source** – You set up a Kinesis stream and write sample coordinate data as shown following:
 
    ```
    {"x": 7.921782426109737, "y": 8.746265312709893, "is_hot": "N"}
@@ -15,9 +15,9 @@ In this exercise, you write application code to locate hotspots on your applicat
 
    The `is_hot` field is provided as an indicator if the script intentionally generated the value as part of a hotspot\. This can help you evaluate whether the hotspot detection function is working properly\.
 
-1. **Create the application** – Using the AWS Management Console, create a Kinesis Data Analytics application\. Configure the application input by mapping the streaming source to an in\-application stream \(`SOURCE_SQL_STREAM_001`\)\. When the application starts, Kinesis Data Analytics continuously reads the streaming source and inserts records into the in\-application stream\.
+1. **Create the application** – Using the AWS Management Console, you then create a Kinesis data analytics application\. Configure the application input by mapping the streaming source to an in\-application stream \(`SOURCE_SQL_STREAM_001`\)\. When the application starts, Kinesis Data Analytics continuously reads the streaming source and inserts records into the in\-application stream\.
 
-   Use the following application code for the application:
+   In this exercise, you use the following code for the application:
 
    ```
    CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
@@ -40,7 +40,7 @@ In this exercise, you write application code to locate hotspots on your applicat
 
    The code reads rows in the `SOURCE_SQL_STREAM_001`, analyzes it for significant hotspots, and writes the resulting data to another in\-application stream \(`DESTINATION_SQL_STREAM`\)\. You use pumps to insert rows in in\-application streams\. For more information, see [In\-Application Streams and Pumps](streams-pumps.md)\.
 
-1. **Configure the output** – Configure the application output to send data from the application to an external destination, which is another Kinesis data stream\. Review the hotspot scores and determine what scores indicate that a hotspot occured \(and that you need to be alerted\)\. You can use an AWS Lambda function to further process hotspot information and configure alerts\. 
+1. **Configure the output** – You configure the application output to send data from the application to an external destination, which is another Kinesis data stream\. Review the hotspot scores and determine what scores indicate that a hotspot occurred \(and that you need to be alerted\)\. You can use an AWS Lambda function to further process hotspot information and configure alerts\. 
 
 1. **Verify the output** – The example includes a JavaScript application that reads data from the output stream and displays it graphically, so you can view the hotspots that the application generates in real time\. 
 

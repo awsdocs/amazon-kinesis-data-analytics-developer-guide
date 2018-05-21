@@ -4,7 +4,7 @@ Your Amazon Kinesis Data Analytics application can use Lambda functions for prep
 
 **Topics**
 + [Creating a Preprocessing Lambda Function in Node\.js](#lambda-preprocessing-functions-nodejs)
-+ [Creating a Preprocessing Lambda Function in Python](#lambda-preprocessing-functions-Python)
++ [Creating a Preprocessing Lambda Function in Python](#lambda-preprocessing-functions-python)
 + [Creating a Preprocessing Lambda Function in Java](#lambda-preprocessing-functions-java)
 + [Creating a Preprocessing Lambda Function in \.NET](#lambda-preprocessing-functions-net)
 
@@ -18,7 +18,7 @@ The following templates for creating preprocessing Lambda function in Node\.js a
 | General Kinesis Data Analytics Input Processing  | Node\.js 6\.10 |  A Kinesis Data Analytics record preprocessor that receives JSON or CSV records as input and then returns them with a processing status\. Use this processor as a starting point for custom transformation logic\.  | 
 | Compressed Input Processing | Node\.js 6\.10 | A Kinesis Data Analytics record processor that receives compressed \(GZIP or Deflate compressed\) JSON or CSV records as input and returns decompressed records with a processing status\. | 
 
-## Creating a Preprocessing Lambda Function in Python<a name="lambda-preprocessing-functions-Python"></a>
+## Creating a Preprocessing Lambda Function in Python<a name="lambda-preprocessing-functions-python"></a>
 
 The following templates for creating preprocessing Lambda function in Python are available on the console:
 

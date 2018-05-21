@@ -10,7 +10,7 @@ Before you use Amazon Kinesis Data Analytics for the first time, complete the fo
 
 When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all services in AWS, including Amazon Kinesis Data Analytics\. You are charged only for the services that you use\.
 
-With Kinesis Data Analytics, you pay only for the resources you use\.  If you are a new AWS customer, you can get started with Kinesis Data Analytics for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com//free/)\.
+With Kinesis Data Analytics, you pay only for the resources you use\.  If you are a new AWS customer, you can get started with Kinesis Data Analytics for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
 
 If you already have an AWS account, skip to the next task\. If you don't have an AWS account, perform the steps in the following procedure to create one\.
 

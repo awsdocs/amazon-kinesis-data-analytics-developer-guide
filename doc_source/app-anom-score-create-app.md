@@ -1,20 +1,20 @@
 # Step 2: Create an Application<a name="app-anom-score-create-app"></a>
 
-In this section, you create an Amazon Kinesis Data Analytics application as follows:
-+ Configure the application input to use the Kinesis stream you created in the preceding section as the streaming source\.
-+ Use the **Anomaly Detection** template in the console\. 
+In this section, you create an Amazon Kinesis data analytics application as follows:
++ Configure the application input to use the Kinesis data stream that you created in [Step 1: Prepare](app-anomaly-prepare.md) as the streaming source\.
++ Use the **Anomaly Detection** template on the console\. 
 
 **To create an application**
 
-1. Follow steps 1, 2, and 3 in Getting Started exercise \(see [Step 3\.1: Create an Application](get-started-create-app.md)\) to create an application\. Note the following:
+1. Follow steps 1, 2, and 3 in the Kinesis Data Analytics **Getting Started** exercise \(see [Step 3\.1: Create an Application](get-started-create-app.md)\) to create an application\. 
    + In the source configuration, do the following:
-     + Specify the streaming source you created in the preceding section\. 
-     + After the console infers the schema, edit the schema and set the `heartRate` column type to INTEGER\. 
+     + Specify the streaming source that you created in the preceding section\. 
+     + After the console infers the schema, edit the schema, and set the `heartRate` column type to `INTEGER`\. 
 
-       Most of the heart rate values are normal and the discovery process will most likely assign TINYINT type to this column\. But very small percentage of values that show high heart rate\. If these high values don't fit in the TINYINT type, Amazon Kinesis Data Analytics sends these rows to error stream\. Update the data type to INTEGER so that it can accommodate all of the generated heart rate data\.
-   + Use the **Anomaly Detection** template in the console\. You then update the template code to provide appropriate column name\. 
+       Most of the heart rate values are normal, and the discovery process will most likely assign the `TINYINT` type to this column\. But a small percentage of values show a high heart rate\. If these high values don't fit in the `TINYINT` type, Kinesis Data Analytics sends these rows to an error stream\. Update the data type to `INTEGER` so that it can accommodate all the generated heart rate data\.
+   + Use the **Anomaly Detection** template on the console\. You then update the template code to provide the appropriate column name\.
 
-1. Update the application code by providing column names\. The resulting application code is shown following \(you can paste this code into the SQL editor\):
+1. Update the application code by providing column names\. The resulting application code is shown following \(paste this code into the SQL editor\):
 
    ```
    --Creates a temporary stream.
@@ -44,8 +44,8 @@ In this section, you create an Amazon Kinesis Data Analytics application as foll
          ORDER BY FLOOR("TEMP_STREAM".ROWTIME TO SECOND), ANOMALY_SCORE DESC;
    ```
 
-1. Run the SQL code and review results:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/anom-v2-40.png)
+1. Run the SQL code and review the results in the Kinesis Data Analytics console:  
+![\[Console screenshot showing real-time analytics tab with the resulting data in the in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/anom-v2-40.png)
 
 **Next Step**  
 [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md)

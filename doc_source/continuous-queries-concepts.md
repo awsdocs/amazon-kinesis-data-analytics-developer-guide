@@ -2,7 +2,7 @@
 
 A query over a stream executes continuously over streaming data\. This continuous execution enables scenarios, such as the ability for applications to continuously query a stream and generate alerts\. 
 
-In the Getting Started exercise, you have an in\-application stream called `SOURCE_SQL_STREAM_001` that continuously receives stock prices from a demo stream \(an Kinesis stream\)\. Following is the schema:
+In the Getting Started exercise, you have an in\-application stream called `SOURCE_SQL_STREAM_001` that continuously receives stock prices from a demo stream \(a Kinesis stream\)\. Following is the schema:
 
 ```
 (TICKER_SYMBOL VARCHAR(4), 

@@ -1,6 +1,6 @@
 # Working with the SQL Editor<a name="console-summary-sql-editor"></a>
 
-Following, you can find information about sections of the SQL editor and how each works\. In the SQL editor, you can either author your own code yourself or choose **Add SQL from templates**\. A SQL template gives you example SQL code that can help you write common Amazon Kinesis data analytics applications\. The example applications in this guide use some of these templates\. For more information, see [Example Amazon Kinesis Data Analytics Applications](example-apps.md)\.
+Following, you can find information about sections of the SQL editor and how each works\. In the SQL editor, you can either author your own code yourself or choose **Add SQL from templates**\. A SQL template gives you example SQL code that can help you write common Amazon Kinesis data analytics applications\. The example applications in this guide use some of these templates\. For more information, see [Example Applications](examples.md)\.
 
 ![\[Screenshot of the SQL editor showing the real-time analytics tab and in-application streams.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
 

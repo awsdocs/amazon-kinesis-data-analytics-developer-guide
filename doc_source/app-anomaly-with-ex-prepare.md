@@ -1,6 +1,10 @@
 # Step 1: Prepare the Data<a name="app-anomaly-with-ex-prepare"></a>
 
-Before you create an Amazon Kinesis Data Analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
+Before you create an Amazon Kinesis data analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
+
+**Topics**
++ [Step 1\.1: Create a Kinesis Data Stream](#app-anomaly-create-two-streams)
++ [Step 1\.2: Write Sample Records to the Input Stream](#app-anomaly-write-sample-records-inputstream)
 
 ## Step 1\.1: Create a Kinesis Data Stream<a name="app-anomaly-create-two-streams"></a>
 
@@ -9,11 +13,9 @@ In this section, you create a Kinesis data stream named `ExampleInputStream`\. Y
 
   1. Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\.
 
-  1. Go to the [Data Streams dashboard](https://console.aws.amazon.com/kinesis/home?#/streams/list), and choose **Create Kinesis stream**\.
+  1. Choose **Data Streams** in the navigation pane\. Then choose **Create Kinesis stream**\.
 
   1. For the name, type **ExampleInputStream**\. For the number of shards, type **1**\.
-
-   ****\.
 + Alternatively, to use the AWS CLI to create the data stream, run the following command:
 
   ```
@@ -22,7 +24,7 @@ In this section, you create a Kinesis data stream named `ExampleInputStream`\. Y
 
 ## Step 1\.2: Write Sample Records to the Input Stream<a name="app-anomaly-write-sample-records-inputstream"></a>
 
-In this step, you run Python code to continuously generate sample records and write them to the data stream you created\. 
+In this step, you run Python code to continuously generate sample records and write them to the data stream that you created\. 
 
 1. Install Python and pip\.
 
@@ -39,7 +41,7 @@ In this step, you run Python code to continuously generate sample records and wr
    
    kinesis = kinesis.connect_to_region("us-east-1")
    
-   # generate normal blood pressure with a 0.995 probability
+   # Generate normal blood pressure with a 0.995 probability
    def getNormalBloodPressure():
        data = {}
        data['Systolic'] = random.randint(90, 120)
@@ -47,7 +49,7 @@ In this step, you run Python code to continuously generate sample records and wr
        data['BloodPressureLevel'] = 'NORMAL'
        return data
        
-   # generate high blood pressure with probability 0.005
+   # Generate high blood pressure with probability 0.005
    def getHighBloodPressure():
        data = {}
        data['Systolic'] = random.randint(130, 200)
@@ -55,7 +57,7 @@ In this step, you run Python code to continuously generate sample records and wr
        data['BloodPressureLevel'] = 'HIGH'
        return data
        
-   # generate low blood pressure with probability 0.005
+   # Generate low blood pressure with probability 0.005
    def getLowBloodPressure():
        data = {}
        data['Systolic'] = random.randint(50, 80)

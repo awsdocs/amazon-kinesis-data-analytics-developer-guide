@@ -4,7 +4,7 @@ Your Kinesis Data Analytics application can use AWS Lambda functions as an outpu
 
 **Topics**
 + [Creating a Lambda Function Destination in Node\.js](#how-it-works-lambda-dest-nodejs)
-+ [Creating a Lambda Function Destination in Python](#how-it-works-lambda-dest-Python)
++ [Creating a Lambda Function Destination in Python](#how-it-works-lambda-dest-python)
 + [Creating a Lambda Function Destination in Java](#how-it-works-lambda-dest-java)
 + [Creating a Lambda Function Destination in \.NET](#how-it-works-lambda-net)
 
@@ -17,7 +17,7 @@ The following template for creating a destination Lambda function in Node\.js is
 | --- | --- | --- | 
 | kinesis\-analytics\-output | Node\.js 6\.10 | Deliver output records from a Kinesis Data Analytics application to a custom destination\. | 
 
-## Creating a Lambda Function Destination in Python<a name="how-it-works-lambda-dest-Python"></a>
+## Creating a Lambda Function Destination in Python<a name="how-it-works-lambda-dest-python"></a>
 
 The following templates for creating a destination Lambda function in Python are available on the console:
 

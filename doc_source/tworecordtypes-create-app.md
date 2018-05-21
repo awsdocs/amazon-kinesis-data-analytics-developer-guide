@@ -1,24 +1,24 @@
-# Step 2: Create an Application<a name="tworecordtypes-create-app"></a>
+# Step 2: Create the Application<a name="tworecordtypes-create-app"></a>
 
-In this section, you create an Amazon Kinesis Data Analytics application\. You then update the application by adding input configuration that maps the streaming source you created in the preceding section to an in\-application input stream\. 
+In this section, you create an Amazon Kinesis data analytics application\. You then update the application by adding input configuration that maps the streaming source you created in the preceding section to an in\-application input stream\. 
 
-1. Sign in to the AWS Management Console and open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
+1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
 
-1. Choose **Create new application**\. This example uses the application name **ProcessMultipleRecordTypes**\.
+1. Choose **Create application**\. This example uses the application name **ProcessMultipleRecordTypes**\.
 
-1. On the application hub, connect to the source\. 
+1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 
-1. On the **Source** page, 
+1. On the **Connect to source** page, do the following:
 
-   1. Select the stream you created in the preceding section\. 
+   1. Choose the stream that you created in [Step 1: Prepare the Data](tworecordtypes-prepare.md)\. 
 
-   1. Choose the create IAM role option\.
+   1. Choose to create an IAM role\.
 
-   1. Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\.
+   1. Wait for the console to show the inferred schema and samples records that are used to infer the schema for the in\-application stream created\.
 
    1. Choose **Save and continue**\.
 
-1. On the application hub, choose **Go to SQL editor**\. To start the application, choose **Yes** in the dialog box that appears\.
+1. On the application hub, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 
 1. In the SQL editor, write the application code and verify the results:
 
@@ -70,7 +70,7 @@ In this section, you create an Amazon Kinesis Data Analytics application\. You t
                       FLOOR("Trade_Stream".ROWTIME TO MINUTE);
       ```
 
-   1. Choose **Save and run SQL**\. Choose the **Real\-time analytics** tab to see all of the in\-application streams that the application created and verify data\. 
+   1. Choose **Save and run SQL**\. Choose the **Real\-time analytics** tab to see all of the in\-application streams that the application created and verify the data\. 
 
 **Next Step**  
-You can configure application output to persist results to an external destination, such as another Kinesis stream or a Kinesis data delivery stream\. 
+You can configure application output to persist results to an external destination, such as another Kinesis stream or a Kinesis Data Firehose data delivery stream\. 

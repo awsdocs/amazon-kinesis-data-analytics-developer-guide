@@ -1,12 +1,16 @@
-# Step 1: Prepare<a name="tworecordtypes-prepare"></a>
+# Step 1: Prepare the Data<a name="tworecordtypes-prepare"></a>
 
-In this section, you create a Kinesis data stream, and then populate order and trade records on the stream\. This is your streaming source for the application you create in the next step\.
+In this section, you create a Kinesis data stream, and then populate order and trade records on the stream\. This is your streaming source for the application that you create in the next step\.
+
+**Topics**
++ [Step 1\.1: Create a Streaming Source](#tworecordtypes-prepare-create-stream)
++ [Step 1\.2: Populate the Streaming Source](#tworecordtypes-prepare-populate-stream)
 
 ## Step 1\.1: Create a Streaming Source<a name="tworecordtypes-prepare-create-stream"></a>
 
 You can create a Kinesis data stream using the console or the AWS CLI\. The example assumes `OrdersAndTradesStream` as the stream name\. 
-+ Using the console – Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\. Choose **Data Streams**, and then create a stream with one shard\.
-+ Using the AWS CLI – Use the following Kinesis `create-stream` AWS CLI command to create the stream:
++ **Using the console** – Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\. Choose **Data Streams**, and then create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
++ **Using the AWS CLI** – Use the following Kinesis `create-stream` AWS CLI command to create the stream:
 
   ```
   $ aws kinesis create-stream \
@@ -24,7 +28,7 @@ Run the following Python script to populate sample records on the `OrdersAndTrad
 
    For information about installing Python, see the [Python](https://www.python.org/) website\. 
 
-   You can install dependencies using pip\. For information about installing pip, see [Installing](https://pip.pypa.io/en/stable/installing/) on the pip website\.
+   You can install dependencies using pip\. For information about installing pip, see [Installation](https://pip.pypa.io/en/stable/installing/) on the pip website\.
 
 1. Run the following Python code\. The `put-record` command in the code writes the JSON records to the stream\.
 
@@ -80,4 +84,4 @@ Run the following Python script to populate sample records on the `OrdersAndTrad
    ```
 
 **Next Step**  
- [Step 2: Create an Application](tworecordtypes-create-app.md)
+ [Step 2: Create the Application](tworecordtypes-create-app.md)

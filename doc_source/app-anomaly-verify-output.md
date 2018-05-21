@@ -1,6 +1,6 @@
 # Step 4: Verify Output<a name="app-anomaly-verify-output"></a>
 
-In this step, you use the following AWS CLI commands to read records in the destination stream written by the application:
+After configuring the application output in [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md), use the following AWS CLI commands to read records in the destination stream that is written by the application:
 
 1. Run the `get-shard-iterator` command to get a pointer to data on the output stream\.
 
@@ -23,7 +23,7 @@ In this step, you use the following AWS CLI commands to read records in the dest
 
    Copy the shard iterator value\. 
 
-1. Run the CLI `get-records` command\.
+1. Run the AWS CLI `get-records` command\.
 
    ```
    aws kinesis get-records \

@@ -1,16 +1,16 @@
 # Step 2: Create the Kinesis Data Analytics Application<a name="app-hotspot-create-app"></a>
 
-In this section of the [Hotspots example](app-hotspots-detection.md), you create an Amazon Kinesis Data Analytics application as follows:
+In this section of the [Hotspots example](app-hotspots-detection.md), you create an Amazon Kinesis data analytics application as follows:
 + Configure the application input to use the Kinesis data stream you created as the streaming source in [Step 1](app-hotspots-prepare.md)\.
 + Use the provided application code in the AWS Management Console\.
 
 **To create an application**
 
-1. Create a Kinesis Data Analytics application by following steps 1, 2, and 3 in [Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md) \(see [Step 3\.1: Create an Application](get-started-create-app.md)\)\.
+1. Create a Kinesis data analytics application by following steps 1, 2, and 3 in the [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise \(see [Step 3\.1: Create an Application](get-started-create-app.md)\)\.
 
    In the source configuration, do the following:
    + Specify the streaming source you created in [Step 1: Create the Input and Output Streams](app-hotspots-prepare.md)\.
-   + After the console infers the schema, edit the schema\. Ensure that the `x` and `y` column types are set to DOUBLE and that the `IS_HOT` column type is set to VARCHAR\. 
+   + After the console infers the schema, edit the schema\. Ensure that the `x` and `y` column types are set to `DOUBLE` and that the `IS_HOT` column type is set to `VARCHAR`\. 
 
 1. Use the following application code \(you can paste this code into the SQL editor\):
 

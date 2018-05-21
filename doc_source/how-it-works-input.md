@@ -99,7 +99,7 @@ Amazon Kinesis Data Analytics provides the following API actions to manage refer
 + [UpdateApplication](API_UpdateApplication.md)
 
 **Note**  
-The Kinesis Data Analytics console does not support managing reference data sources for your applications\. You can use the AWS Command Line Interface \(AWS CLI\) to add reference data source to your application\. For an example, see [Example: Adding Reference Data to an Amazon Kinesis Data Analytics Application](app-add-reference-data.md)\.
+The Kinesis Data Analytics console does not support managing reference data sources for your applications\. You can use the AWS Command Line Interface \(AWS CLI\) to add reference data source to your application\. For an example, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
 
 Note the following:
 + If the application is running, Kinesis Data Analytics creates an in\-application reference table, and then loads the reference data immediately\.

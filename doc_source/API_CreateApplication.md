@@ -1,6 +1,6 @@
 # CreateApplication<a name="API_CreateApplication"></a>
 
- Creates an Amazon Kinesis Analytics application\. You can configure each application with one streaming source as input, application code to process the input, and up to three destinations where you want Amazon Kinesis Analytics to write the output data from your application\. For an overview, see [How it Works](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html)\. 
+ Creates an Amazon Kinesis Analytics application\. You can configure each application with one streaming source as input, application code to process the input, and up to three destinations where you want Amazon Kinesis Analytics to write the output data from your application\. For an overview, see [How it Works](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html)\. 
 
 In the input configuration, you map the streaming source to an in\-application stream, which you can think of as a constantly updating table\. In the mapping, you must provide a schema for the in\-application stream and map each data column in the in\-application stream to a data element in the streaming source\.
 
@@ -10,7 +10,7 @@ In the output configuration, you can configure the application to write data fro
 
  To read data from your source stream or write data to destination streams, Amazon Kinesis Analytics needs your permissions\. You grant these permissions by creating IAM roles\. This operation requires permissions to perform the `kinesisanalytics:CreateApplication` action\. 
 
- For introductory exercises to create an Amazon Kinesis Analytics application, see [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html)\. 
+ For introductory exercises to create an Amazon Kinesis Analytics application, see [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html)\. 
 
 ## Request Syntax<a name="API_CreateApplication_RequestSyntax"></a>
 
@@ -97,7 +97,7 @@ In the output configuration, you can configure the application to write data fro
 The request accepts the following data in JSON format\.
 
  ** [ApplicationCode](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-ApplicationCode"></a>
-One or more SQL statements that read input data, transform it, and generate output\. For example, you can write a SQL statement that reads data from one in\-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in\-application stream using pumps\. For more information about the typical pattern, see [Application Code](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html)\.   
+One or more SQL statements that read input data, transform it, and generate output\. For example, you can write a SQL statement that reads data from one in\-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in\-application stream using pumps\. For more information about the typical pattern, see [Application Code](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html)\.   
 You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement\. You store intermediate results by creating in\-application streams and pumps\.  
 Note that the application code must create the streams with names specified in the `Outputs`\. For example, if your `Outputs` defines output streams named `ExampleOutputStream1` and `ExampleOutputStream2`, then your application code must create these streams\.   
 Type: String  
@@ -118,7 +118,7 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CloudWatchLoggingOptions](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-CloudWatchLoggingOptions"></a>
-Use this parameter to configure a CloudWatch log stream to monitor application configuration errors\. For more information, see [Working with Amazon CloudWatch Logs](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html)\.  
+Use this parameter to configure a CloudWatch log stream to monitor application configuration errors\. For more information, see [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html)\.  
 Type: Array of [CloudWatchLoggingOption](API_CloudWatchLoggingOption.md) objects  
 Required: No
 
@@ -181,12 +181,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateApplication_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](http://docs.aws.amazon.com/goto/aws-cli/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for \.NET](http://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for C\+\+](http://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for Go](http://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for Java](http://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for JavaScript](http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for PHP V3](http://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for Python](http://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for Ruby V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/kinesisanalytics-2015-08-14/CreateApplication) 

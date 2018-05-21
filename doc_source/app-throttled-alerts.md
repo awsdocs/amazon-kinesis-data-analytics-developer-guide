@@ -1,12 +1,12 @@
-# Example: Throttled Alerts<a name="app-throttled-alerts"></a>
+# Example: Creating Throttled Alerts<a name="app-throttled-alerts"></a>
 
-In this application, the query runs continuously on the in\-application stream created over the demo stream\. For more information, see [Continuous Queries](continuous-queries-concepts.md)\. If any rows show stock price change is greater than 1%, those rows are inserted in another in\-application stream\. The application throttles the alerts such that an alert is sent immediately when the stock price changes, but no more than one alert per minute per stock symbol is sent to the in\-application stream\.
+In this Amazon Kinesis data analytics application, the query runs continuously on the in\-application stream created over the demo stream\. For more information, see [Continuous Queries](continuous-queries-concepts.md)\. If any rows show that the stock price change is greater than 1 percent, those rows are inserted into another in\-application stream\. The application throttles the alerts such that an alert is sent immediately when the stock price changes\. However, no more than one alert per minute per stock symbol is sent to the in\-application stream\.
 
 **To create a throttled alerts application**
 
-1. Create the Amazon Kinesis Data Analytics application as described in the [Getting Started Exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.
+1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
 
-1. In the SQL editor, replace the application code with the following: 
+1. In the SQL editor in Kinesis Data Analytics, replace the application code with the following: 
 
    ```
    CREATE OR REPLACE STREAM "CHANGE_STREAM" 
@@ -42,12 +42,12 @@ In this application, the query runs continuously on the in\-application stream c
    WHERE trigger_count >= 1;
    ```
 
-   The SELECT statement in the application code filters rows in the `SOURCE_SQL_STREAM_001` for stock price changes greater than 1%, and inserts those rows to another in\-application stream `CHANGE_STREAM` using a pump\. 
+   The `SELECT` statement in the application code filters rows in the `SOURCE_SQL_STREAM_001` for stock price changes greater than 1 percent and inserts those rows into another in\-application stream `CHANGE_STREAM` using a pump\. 
 
-   The application then creates a second stream called `TRIGGER_COUNT_STREAM` for the throttled alerts\. A second query selects records from a window that hops forward every time a record is admitted into it, such that only one record per stock ticker per minute is written to the stream\.
+   The application then creates a second stream named `TRIGGER_COUNT_STREAM` for the throttled alerts\. A second query selects records from a window that hops forward every time a record is admitted into it, such that only one record per stock ticker per minute is written to the stream\.
 
-1. Click **Save and run SQL**\.
+1. Choose **Save and run SQL**\.
 
-The preceding example outputs a stream to `TRIGGER_COUNT_STREAM` similar to the following:
+The example outputs a stream to `TRIGGER_COUNT_STREAM` similar to the following:
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex-throttle-alerts.png)
+![\[Console screenshot showing the output stream containing ticker symbol, percentage change, and trigger count columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex-throttle-alerts.png)

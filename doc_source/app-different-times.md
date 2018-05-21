@@ -1,3 +1,0 @@
-# Example: Using Different Types of Times in Streaming Analytics<a name="app-different-times"></a>
-
-For information about different types of times and an example query, see [Timestamps and the ROWTIME Column](timestamps-rowtime-concepts.md)\. You can try the example query in that section against the demo stream you created in the [Getting Started Exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.

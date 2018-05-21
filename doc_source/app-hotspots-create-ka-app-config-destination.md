@@ -8,7 +8,7 @@ You can now send the application result from the in\-application stream to an ex
 
 1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
 
-1. In the the SQL editor, choose either **Destination** or **Add a destination** in the application dashboard\. 
+1. In the SQL editor, choose either **Destination** or **Add a destination** in the application dashboard\. 
 
 1. On the **Add a destination** page, choose **Select from your streams**, and then choose the `ExampleOutputStream` stream that you created in the preceding section\.
 

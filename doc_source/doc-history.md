@@ -2,13 +2,14 @@
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Data Analytics\.
 + **API version: 2015\-08\-14** 
-+ **Latest documentation update:** May 2, 2018
++ **Latest documentation update:** May 18, 2018
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Example applications for preprocessing data | Additional code samples for REGEX\_LOG\_PARSE, REGEX\_REPLACE, and DateTime operators\. For more information, see [Examples: Transforming Data](examples-transforming.md) \. | May 18, 2018 | 
 | Increase in size of returned rows and SQL code | The limit for the size for a returned row is increased to 512 KB, and the limit for the size of the SQL code in an application is increased to 100 KB\. For more information, see [Limits](limits.md)\. | May 2, 2018 | 
 | AWS Lambda function examples in Java and \.NET | Code samples for creating Lambda functions for preprocessing records and for application destinations\. For more information, see [Creating Lambda Functions for Preprocessing](lambda-preprocessing-functions.md) and [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md)\. | March 22, 2018 | 
 | New HOTSPOTS function | Locate and return information about relatively dense regions in your data\. For more information, see [Example: Detecting Hotspots on a Stream \(HOTSPOTS Function\)](app-hotspots-detection.md)\. | March 19, 2018 | 

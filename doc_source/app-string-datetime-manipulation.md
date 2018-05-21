@@ -1,93 +1,19 @@
-# Example: Manipulating Strings and Date Times<a name="app-string-datetime-manipulation"></a>
-
-## String Manipulation<a name="string-manipulation"></a>
-
-Amazon Kinesis Data Analytics supports formats such as JSON and CSV for records on a streaming source\. For details, see [RecordFormat](API_RecordFormat.md)\. These records then map to rows in in\-application stream as per the input configuration\. For details, see [Configuring Application Input](how-it-works-input.md)\. The input configuration specifies how record fields in the streaming source map to columns in in\-application stream\. 
-
-This mapping works when records on the streaming source follow the supported formats, which results in an in\-application stream with normalized data\. 
-
-But, what if data on your streaming source does not conform to supported standards? For example, what if your streaming source contains data such as clickstream data, IoT sensors, and application logs? Consider these examples:
-+ **Streaming source contains application logs** – The application logs follow the standard Apache log format, and are written to the stream using JSON format\. 
-
-  ```
-  {
-     "Log":"192.168.254.30 - John [24/May/2004:22:01:02 -0700] "GET /icons/apache_pb.gif HTTP/1.1" 304 0"
-  }
-  ```
-
-  For more information about the standard Apache log format, see [Log Files](https://httpd.apache.org/docs/2.4/logs.html) on the Apache website\. 
-
-   
-+ **Streaming source contains semi\-structured data** – The following example shows two records\. The `Col_E_Unstrucutured` field value is a series of comma\-separated values\.
-
-  ```
-  { "Col_A" : "string",
-    "Col_B" : "string",
-    "Col_C" : "string",
-    "Col_D" : "string",
-    "Col_E_Unstructured" : "value,value,value,value"}
-  
-  { "Col_A" : "string",
-    "Col_B" : "string",
-    "Col_C" : "string",
-    "Col_D" : "string",
-    "Col_E_Unstructured" : "value,value,value,value"}
-  ```
-
-  There are five columns, the first four have string type values and the last column contains comma\-separated values\.
-+ Records on your streaming source contain URLs and you need a portion of the URL domain name for analytics\.
-
-  ```
-  { "referrer" : "http://www.amazon.com"}
-  { "referrer" : "http://www.stackoverflow.com" }
-  ```
-
-In such cases, the following two\-step process generally works for creating in\-application streams that contain normalized data:
-
-1. Configure application input to map the unstructured field to a column of the `VARCHAR(N)` type in the in\-application input stream that is created\.
-
-1. In your application code, use string functions to split this single column into multiple columns and then save the rows in another in\-application stream\. This in\-application stream that your application code creates will have normalized data\. You can then perform analytics on this in\-application stream\.
-
-Amazon Kinesis Data Analytics provides string operations, standard SQL functions, and extensions to the SQL standard for working with string columns, including the following: 
-+ **String operators** – Operators such as `LIKE` and `SIMILAR` are useful in comparing strings\. For more information, see [String Operators](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-string-operators.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
-
-   
-+ **SQL functions** – The following functions are useful when manipulating individual strings\. For more information, see [Scalar Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-scalar-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
-  + CHAR\_LENGTH – Provides the length of a string\. 
-  + LOWER/UPPER – Converts a string to lowercase or uppercase\. 
-  + OVERLAY – Replace a portion of the first string argument \(the original string\) with the second string argument \(the replacement string\)\.
-  + SUBSTRING – Extracts a portion of a source string starting at a specific position\. 
-  + POSITION – Searches for a string within another string\. 
-
-     
-+ **SQL Extensions** – These are useful for working with unstructured strings such as logs and URIs\.
-  + REGEX\_LOG\_PARSE – Parses a string based on default Java Regular Expression patterns\.
-  + FAST\_REGEX\_LOG\_PARSER – Works similar to the regex parser, but takes several shortcuts to ensure faster results\. For example, the fast regex parser stops at the first match it finds \(known as *lazy semantics*\)\.
-  + W3C\_Log\_Parse – A function for quickly formatting Apache logs\.
-  + FIXED\_COLUMN\_LOG\_PARSE – Parses fixed\-width fields and automatically converts them to the given SQL types\.
-  + VARIABLE\_COLUMN\_LOG\_PARSE – Splits an input string into fields separated by a delimiter character or a delimiter string\.
-
-For examples using these functions, see the following topics:
-+ [Example: String Manipulation \(W3C\_LOG\_PARSE Function\) ](string-manipulation-example-1.md)
-+ [Example: String Manipulation \(VARIABLE\_COLUMN\_LOG\_PARSE Function\) ](string-manipulation-example-2.md)
-+ [Example: String Manipulation \(SUBSTRING Function\)](string-manipulation-example-3.md)
-
-## Date Time Manipulation<a name="datetime-manipulation"></a>
+# Example: Transforming DateTime Values<a name="app-string-datetime-manipulation"></a>
 
 Amazon Kinesis Data Analytics supports converting columns to time stamps\. For example, you might want to use your own time stamp as part of a `GROUP BY` clause as another time\-based window, in addition to the `ROWTIME` column\. Kinesis Data Analytics provides operations and SQL functions for working with date and time fields\. 
 + **Date and time operators** – You can perform arithmetic operations on dates, times, and interval data types\. For more information, see [Date, Timestamp, and Interval Operators](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-timestamp-interval.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
    
-+ **SQL Functions** – These include the following:
++ **SQL Functions** – These include the following\. For more information, see [Date and Time Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
   + `EXTRACT()` – Extracts one field from a date, time, time stamp, or interval expression\.
   + `CURRENT_TIME` – Returns the time when the query executes \(UTC\)\.
   + `CURRENT_DATE` – Returns the date when the query executes \(UTC\)\.
   + `CURRENT_TIMESTAMP` – Returns the time stamp when the query executes \(UTC\)\.
-  + `LOCALTIME` – Returns the current time when the query executes as defined by the environment on which Amazon Kinesis Data Analytics is running \(UTC\)\.
-  + `LOCALTIMESTAMP` – Returns the current time stamp as defined by the environment on which Amazon Kinesis Data Analytics is running \(UTC\)\.
+  + `LOCALTIME` – Returns the current time when the query executes as defined by the environment on which Kinesis Data Analytics is running \(UTC\)\.
+  + `LOCALTIMESTAMP` – Returns the current time stamp as defined by the environment on which Kinesis Data Analytics is running \(UTC\)\.
 
      
-+ **SQL Extensions** – These include the following: 
++ **SQL Extensions** – These include the following\. For more information, see [Date and Time Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) and [Datetime Conversion Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-datetime-conversion-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
   + `CURRENT_ROW_TIMESTAMP` – Returns a new time stamp for each row in the stream\. 
   + `TSDIFF` – Returns the difference of two time stamps in milliseconds\.
   + `CHAR_TO_DATE` – Converts a string to a date\.
@@ -98,3 +24,111 @@ Amazon Kinesis Data Analytics supports converting columns to time stamps\. For e
   + `TIMESTAMP_TO_CHAR` – Converts a time stamp to a string\.
 
 Most of the preceding SQL functions use a format to convert the columns\. The format is flexible\. For example, you can specify the format `yyyy-MM-dd hh:mm:ss` to convert an input string `2009-09-16 03:15:24` into a time stamp\. For more information, [Char To Timestamp\(Sys\)](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-char-to-timestamp.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+
+## Example: Transforming Dates<a name="examples-transforming-dates"></a>
+
+In this example, you write the following records to an Amazon Kinesis data stream\. 
+
+```
+{"EVENT_TIME": "2018-05-09T12:50:41.337510", "TICKER": "AAPL"}
+{"EVENT_TIME": "2018-05-09T12:50:41.427227", "TICKER": "MSFT"}
+{"EVENT_TIME": "2018-05-09T12:50:41.520549", "TICKER": "INTC"}
+{"EVENT_TIME": "2018-05-09T12:50:41.610145", "TICKER": "MSFT"}
+{"EVENT_TIME": "2018-05-09T12:50:41.704395", "TICKER": "AAPL"}
+...
+```
+
+You then create an Amazon Kinesis data analytics application on the console, with the Kinesis stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with two columns \(`EVENT_TIME` and `TICKER`\) as shown\.
+
+![\[Console screenshot showing the in-application schema with event time and ticker columns..\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_0.png)
+
+Then, you use the application code with SQL functions to convert the `EVENT_TIME` time stamp field in various ways\. You then insert the resulting data into another in\-application stream, as shown in the following screenshot: 
+
+![\[Console screenshot showing the resulting data in an in-application stream..\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_1.png)
+
+### Step 1: Create a Kinesis Data Stream<a name="examples-transforming-dates-1"></a>
+
+Create an Amazon Kinesis data stream and populate it with event time and ticker records as follows:
+
+1. Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\.
+
+1. Choose **Data Streams** in the navigation pane\.
+
+1. Choose **Create Kinesis stream**, and create a stream with one shard\.
+
+1. Run the following Python code to populate the stream with sample data\. This simple code continuously writes a record with a random ticker symbol and the current time stamp to the stream\.
+
+   ```
+   import json
+   import boto3
+   import random
+   import datetime
+   
+   kinesis = boto3.client('kinesis')
+   def getReferrer():
+       data = {}
+       now = datetime.datetime.now()
+       str_now = now.isoformat()
+       data['EVENT_TIME'] = str_now
+       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
+       return data
+   
+   while True:
+           data = json.dumps(getReferrer())
+           print(data)
+           kinesis.put_record(
+                   StreamName="teststreamforkinesisanalyticsapps",
+   ```
+
+### Step 2: Create the Amazon Kinesis Data Analytics Application<a name="examples-transforming-dates-2"></a>
+
+Create an application as follows:
+
+1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
+
+1. Choose **Create application**, type an application name, and choose **Create application**\.
+
+1. On the application details page, choose **Connect streaming data** to connect to the source\.
+
+1. On the **Connect to source** page, do the following:
+
+   1. Choose the stream that you created in the preceding section\. 
+
+   1. Choose to create an IAM role\.
+
+   1. Choose **Discover schema**\. Wait for the console to show the inferred schema and the sample records that are used to infer the schema for the in\-application stream created\. The inferred schema has two columns\.
+
+   1. Choose **Edit Schema**\. Change the **Column type** of the **EVENT\_TIME** column to `TIMESTAMP`\.
+
+   1. Choose **Save schema and update stream samples**\. After the console saves the schema, choose **Exit**\.
+
+   1. Choose **Save and continue**\.
+
+1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
+
+1. In the SQL editor, write the application code and verify the results as follows:
+
+   1. Copy the following application code and paste it into the editor\.
+
+      ```
+      CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
+          TICKER VARCHAR(4), 
+          event_time TIMESTAMP, 
+          five_minutes_before TIMESTAMP, 
+          event_unix_timestamp BIGINT,
+          event_timestamp_as_char VARCHAR(50),
+          event_second INTEGER);
+      
+      CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
+      
+      SELECT STREAM 
+          TICKER, 
+          EVENT_TIME,
+          EVENT_TIME - INTERVAL '5' MINUTE,
+          UNIX_TIMESTAMP(EVENT_TIME),
+          TIMESTAMP_TO_CHAR('yyyy-MM-dd hh:mm:ss', EVENT_TIME),
+          EXTRACT(SECOND FROM EVENT_TIME) 
+      FROM "SOURCE_SQL_STREAM_001"
+      ```
+
+   1. Choose **Save and run SQL**\. On the **Real\-time analytics **tab, you can see all the in\-application streams that the application created and verify the data\. 

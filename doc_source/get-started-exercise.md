@@ -52,7 +52,7 @@ You use these features to quickly set up your first application as follows:
 
     
 
-1. **Configuring output** – In this exercise, you don't configure any output\. That is, you don't persist data in the in\-application stream that your application creates to any external destination\. Instead, you verify query results in the console\. Additional examples in this guide show how to configure output\. For one example, see [Example: Simple Alerts](app-simple-alerts.md)\.
+1. **Configuring output** – In this exercise, you don't configure any output\. That is, you don't persist data in the in\-application stream that your application creates to any external destination\. Instead, you verify query results in the console\. Additional examples in this guide show how to configure output\. For one example, see [Example: Creating Simple Alerts](app-simple-alerts.md)\.
 
 **Important**  
 The exercise uses the US East \(N\. Virginia\) Region \(us\-east\-1\) to set up the application\. You can use any of the supported AWS Regions\.

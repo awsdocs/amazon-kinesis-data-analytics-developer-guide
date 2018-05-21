@@ -1,6 +1,6 @@
 # Step 3: Examine the Results<a name="examine-results-with-exp"></a>
 
-When you run the SQL code for this [example](app-anomaly-detection-with-explanation.md), you first see rows with an anomaly score equal to zero\. This happens during the initial learning phase\. Then you get results similar to the following\.
+When you run the SQL code for this [example](app-anomaly-detection-with-explanation.md), you first see rows with an anomaly score equal to zero\. This happens during the initial learning phase\. Then you get results similar to the following:
 
 ```
 ROWTIME SYSTOLIC DIASTOLIC BLOODPRESSURELEVEL ANOMALY_SCORE ANOMALY_EXPLANATION
