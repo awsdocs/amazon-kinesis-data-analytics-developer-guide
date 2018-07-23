@@ -52,18 +52,18 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    // Visualize example output from the Kinesis Analytics hotspot detection algorithm.
    // This script assumes that the output stream has a single shard.
    
-   // Modify this section to reflect your AWS configuration.
-   var awsRegion = "",        // The AWS Region where your Kinesis Analytics application is configured.
-       accessKeyId = "",      // Your AWS Access Key ID.
-       secretAccessKey = "",  // Your AWS Secret Access Key.
-       hotspotsStream = "";   // The name of the Kinesis Stream where the output from the HOTSPOTS function is being written.
+   // Modify this section to reflect your AWS configuration
+   var awsRegion = "",        // The AWS region where your Kinesis Analytics application is configured.
+       accessKeyId = "",      // Your AWS Access Key ID
+       secretAccessKey = "",  // Your AWS Secret Access Key
+       outputStream = "";     // The name of the Kinesis Stream where the output from the HOTSPOTS function is being written
    
    // The variables in this section should reflect way input data was generated and the parameters that the HOTSPOTS
    // function was called with.
-   var windowSize = 1000, // The window size used for hotspot detection.
-       minimumHeat = 20,  // A filter applied to returned hotspots before visualization.
-       xRange = [0, 10],  // The range of values to display on the x-axis.
-       yRange = [0, 10];  // The range of values to display on the y-axis.
+   var windowSize = 1000, // The window size used for hotspot detection
+       minimumDensity = 40,  // A filter applied to returned hotspots before visualization
+       xRange = [0, 10],  // The range of values to display on the x-axis
+       yRange = [0, 10];  // The range of values to display on the y-axis
    
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    // D3 setup
@@ -82,17 +82,17 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
        };
    }
    
-   // Helper functions to extract the x-value from a stream record and scale it for output.
+   // helper functions to extract the x-value from a stream record and scale it for output
    var xValue = function(r) { return r.x; },
        xScale = linearScale(xRange[0], xRange[1], 0, graphWidth),
        xMap = function(r) { return xScale(xValue(r)); };
    
-   // Helper functions to extract the y-value from a stream record and scale it for output.
+   // helper functions to extract the y-value from a stream record and scale it for output
    var yValue = function(r) { return r.y; },
        yScale = linearScale(yRange[0], yRange[1], 0, graphHeight),
        yMap = function(r) { return yScale(yValue(r)); };
    
-   // A helper function that assigns a CSS class to a point based on whether it was generated as part of a hotspot.
+   // a helper function that assigns a CSS class to a point based on whether it was generated as part of a hotspot
    var classMap = function(r) { return r.is_hot == "Y" ? "point hot" : "point cold"; };
    
    var g = svg.append("g")
@@ -127,7 +127,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    }
    
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   // Use the AWS SDK to pull output records from Kinesis and update the visualization.
+   // Use the AWS SDK to pull output records from Kinesis and update the visualization
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
    var kinesis = new AWS.Kinesis({
@@ -138,17 +138,17 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    
    var textDecoder = new TextDecoder("utf-8");
    
-   // Decode an output record into an object and assign it an index value.
+   // Decode an output record into an object and assign it an index value
    function decodeRecord(record, recordIndex) {
        var record = JSON.parse(textDecoder.decode(record.Data));
-       var hotspots_result = JSON.parse(record.hotspots_result);
+       var hotspots_result = JSON.parse(record.HOTSPOTS_RESULT);
        record.hotspots = hotspots_result.hotspots
-           .filter(function(hotspot) { return hotspot.heat >= minimumHeat});
+           .filter(function(hotspot) { return hotspot.density >= minimumDensity});
        record.index = recordIndex
        return record;
    }
    
-   // Fetch new records from the shard iterator, append them to records, and update the visualization.
+   // Fetch a new records from the shard iterator, append them to records, and update the visualization
    function getRecordsAndUpdateVisualization(shardIterator, records, lastRecordIndex) {
        kinesis.getRecords({
            "ShardIterator": shardIterator
@@ -180,7 +180,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    // read records from the first shard in the stream.
    function init() {
        kinesis.describeStream({
-           "StreamName": hotspotsStream
+           "StreamName": outputStream
        }, function(err, data) {
            if (err) {
                console.log(err, err.stack);
@@ -190,7 +190,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
            var shardId = data.StreamDescription.Shards[0].ShardId;
    
            kinesis.getShardIterator({
-               "StreamName": hotspotsStream,
+               "StreamName": outputStream,
                "ShardId": shardId,
                "ShardIteratorType": "LATEST"
            }, function(err, data) {
@@ -203,7 +203,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
        });
    }
    
-   // Start the visualization.
+   // Start the visualization
    init();
    ```
 

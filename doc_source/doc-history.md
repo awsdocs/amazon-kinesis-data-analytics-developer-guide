@@ -2,13 +2,17 @@
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Data Analytics\.
 + **API version: 2015\-08\-14** 
-+ **Latest documentation update:** May 18, 2018
++ **Latest documentation update:** July 18, 2018
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Kinesis Data Analytics available in Frankfurt region | Kinesis Analytics is now available in the EU \(Frankfurt\) Region region\. For more information, see [AWS Regions and Endpoints: Kinesis Data Analytics](http://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\. | July 18, 2018 | 
+| Use reference data in the console | You can now work with application reference data in the console\. For more information, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md) \. | July 13, 2018 | 
+| Windowed query examples | Example applications for windows and aggregation\. For more information, see [Examples: Windows and Aggregation](examples-window.md) \. | July 9, 2018 | 
+| Testing applications | Guidance on testing changes to application schema and code\. For more information, see [Testing Applications](best-practices.md#bp-testing) \. | July 3, 2018 | 
 | Example applications for preprocessing data | Additional code samples for REGEX\_LOG\_PARSE, REGEX\_REPLACE, and DateTime operators\. For more information, see [Examples: Transforming Data](examples-transforming.md) \. | May 18, 2018 | 
 | Increase in size of returned rows and SQL code | The limit for the size for a returned row is increased to 512 KB, and the limit for the size of the SQL code in an application is increased to 100 KB\. For more information, see [Limits](limits.md)\. | May 2, 2018 | 
 | AWS Lambda function examples in Java and \.NET | Code samples for creating Lambda functions for preprocessing records and for application destinations\. For more information, see [Creating Lambda Functions for Preprocessing](lambda-preprocessing-functions.md) and [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md)\. | March 22, 2018 | 

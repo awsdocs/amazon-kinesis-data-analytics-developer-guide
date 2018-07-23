@@ -37,10 +37,10 @@ Create an Amazon Kinesis data stream, and populate the log records as follows:
 
    ```
    import json
-   from boto import kinesis
+   import boto3
    import random
    
-   kinesis = kinesis.connect_to_region("us-east-1")
+   kinesis = boto3.client('kinesis')
    def getHighHeartRate():
        data = {}
        data['log'] = '192.168.254.30 - John [24/May/2004:22:01:02 -0700] "GET /icons/apache_pb.gif HTTP/1.1" 304 0'
@@ -48,8 +48,11 @@ Create an Amazon Kinesis data stream, and populate the log records as follows:
    
    while True:
            data = json.dumps(getHighHeartRate())
-           print data
-           kinesis.put_record("stream-name", data, "partitionkey")
+           print(data)
+           kinesis.put_record(
+                   StreamName="teststreamforkinesisanalyticsapps",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-w3clogparse-2"></a>

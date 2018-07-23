@@ -22,6 +22,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
     FROM   "SOURCE_SQL_STREAM_001";
 ```
 
+**Note**  
 The identifiers that you specify for stream names and column names follow standard SQL conventions\. For example, if you put quotation marks around an identifier, it makes the identifier case sensitive\. If you don't, the identifier defaults to uppercase\. For more information about identifiers, see [Identifiers](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-identifiers.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 Your application code can consist of many SQL statements\. For example:

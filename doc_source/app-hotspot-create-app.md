@@ -26,7 +26,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you create
        SELECT "x", "y", "is_hot", "HOTSPOTS_RESULT" 
        FROM TABLE (
            HOTSPOTS(   
-               CURSOR(SELECT STREAM * FROM "SOURCE_SQL_STREAM_001"), 
+               CURSOR(SELECT STREAM "x", "y", "is_hot" FROM "SOURCE_SQL_STREAM_001"), 
                1000, 
                0.2, 
                17)

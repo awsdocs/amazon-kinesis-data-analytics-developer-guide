@@ -9,8 +9,6 @@ Using a Lambda function for preprocessing records is useful in the following sce
 + Applying complex string transformation to record fields\.
 + Data filtering for cleaning up the data\.
 
-[a](https://aws.amazon.com/blogs/big-data/preprocessing-data-in-amazon-kinesis-analytics-with-aws-lambda/)\.
-
 ## Using a Lambda Function for Preprocessing Records<a name="lambda-preprocessing-use"></a>
 
 When creating your Kinesis Data Analytics application, you enable Lambda preprocessing in the **Connect to a Source** page\.
@@ -25,7 +23,7 @@ When creating your Kinesis Data Analytics application, you enable Lambda preproc
 
 1. To create a new Lambda function from one of the Lambda preprocessing templates, choose the template from the drop\-down list\. Then choose **View <template name> in Lambda** to edit the function\.
 
-1. To create a new Lambda function, choose **Create new**\. For information about creating a Lambda function, see [Create a HelloWorld Lambda Function and Explore the Console](http://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html)\.
+1. To create a new Lambda function, choose **Create new**\. For information about creating a Lambda function, see [Create a HelloWorld Lambda Function and Explore the Console](http://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the *AWS Lambda Developer Guide*\.
 
 1. Choose the version of the Lambda function to use\. To use the latest version, choose **$LATEST**\.
 
@@ -53,7 +51,13 @@ For more information about adding permissions policies, see [Authentication and 
 
 You can monitor the number of Lambda invocations, bytes processed, successes and failures, and so on, using Amazon CloudWatch\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
-## Data Preprocessing Event Input Data Model/ Record Response Model<a name="lambda-preprocessing-data-model"></a>
+## Using AWS Lambda with the Kinesis Producer Library<a name="lambda-preprocessing-deaggregation"></a>
+
+The [Kinesis Producer Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) \(KPL\) aggregates small user\-formatted records into larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput\. Although the Kinesis Client Library \(KCL\) for Java supports deaggregating these records, you must use a special module to deaggregate the records when you use AWS Lambda as the consumer of your streams\. 
+
+To get the necessary project code and instructions, see the [Kinesis Producer Library Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggregation) on GitHub\. You can use the components in this project to process KPL serialized data within AWS Lambda in Java, Node\.js, and Python\. You can also use these components as part of a [multi\-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/src/main/java/com/amazonaws/services/kinesis/multilang/package-info.java)\.
+
+## Data Preprocessing Event Input Data Model/Record Response Model<a name="lambda-preprocessing-data-model"></a>
 
 To preprocess records, your Lambda function must be compliant with the required event input data and record response models\. 
 

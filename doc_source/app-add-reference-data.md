@@ -28,9 +28,6 @@ First, complete the steps in the [Getting Started](http://docs.aws.amazon.com/ki
 
    In your application code, you write a join query to join the in\-application stream with the in\-application reference table, to get the company name for each ticker symbol\.
 
-**Note**  
-The Kinesis Data Analytics console does not support managing reference data sources for your applications\. In this exercise, you use the AWS CLI to add a reference data source to your application\. If you haven't already done so, [set up the AWS CLI](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/setup-awscli.html)\.
-
 **Topics**
 + [Step 1: Prepare](#add-refdata-prepare)
 + [Step 2: Add the Reference Data Source to the Application Configuration](#add-refdata-create-iamrole)
@@ -108,73 +105,20 @@ Next, create an IAM role that Kinesis Data Analytics can assume and read the Ama
 ## Step 2: Add the Reference Data Source to the Application Configuration<a name="add-refdata-create-iamrole"></a>
 
 In this step, you add a reference data source to your application configuration\. To begin, you need the following information: 
-+ Your Amazon Kinesis data analytics application name and current application version ID
 + Your S3 bucket name and object key name
 + The IAM role Amazon Resource Name \(ARN\)
 
-Use the AWS CLI to complete the step:
+1. In the main page for the application, choose **Connect reference data**\.
 
-1. Run the `describe-application` operation to get the application description, as shown following:
+1. In the **Connect reference data source** page, choose the Amazon S3 bucket containing your reference data object, and enter the object's key name\.
 
-   ```
-   $  aws kinesisanalytics describe-application  \
-   --region us-east-1 \
-   --application-name application-name
-   ```
+1. Enter **CompanyName** for the **In\-application reference table name**\.
 
-1. Note the current application version ID\.
+1. In the **Access to chosen resources** section, choose **Choose from IAM roles that Kinesis Analytics can assume**, and choose the **KinesisAnalytics\-ReadS3Object** IAM role you created in the previous section\.
 
-   Each time you change your application, the current version is updated\. So ensure that you have the current application version ID\.
+1. Choose **Discover schema**\. The console detects two columns in the reference data\.
 
-1. Use the following JSON to add the reference data source:
-
-   ```
-   {
-      "TableName":"CompanyName",
-      "S3ReferenceDataSource":{
-         "BucketARN":"arn:aws:s3:::bucket-name",
-         "FileKey":"TickerReference.csv",
-         "ReferenceRoleARN":"arn:aws:iam::aws-account-id:role/IAM-role-name"
-      },
-      "ReferenceSchema":{
-         "RecordFormat":{
-            "RecordFormatType":"CSV",
-            "MappingParameters":{
-               "CSVMappingParameters":{
-                  "RecordRowDelimiter":"\n",
-                  "RecordColumnDelimiter":","
-               }
-            }
-         },
-         "RecordEncoding":"UTF-8",
-         "RecordColumns":[
-            {
-               "Name":"Ticker",
-               "SqlType":"VARCHAR(64)"
-            },
-            {
-               "Name":"Company",
-               "SqlType":"VARCHAR(64)"
-            }
-         ]
-      }
-   }
-   ```
-
-   Run the `add-application-reference-data-source` command using the preceding reference data configuration information\. Provide your bucket name, object key name, IAM role name, and AWS account ID\.
-
-   ```
-   $  aws kinesisanalytics add-application-reference-data-source  \
-   --endpoint https://kinesisanalytics.aws-region.amazonaws.com \
-   --region us-east-1 \
-   --application-name DemoStreamBasedGettingStarted \
-   --debug \
-   --reference-data-source '{"TableName":"CompanyName","S3ReferenceDataSource":{"BucketARN":"arn:aws:s3:::bucket-name","FileKey":"TickerReference.csv",
-   "ReferenceRoleARN":"arn:aws:iam::aws-account-id:role/IAM-role-name"},"ReferenceSchema":{ "RecordFormat":{"RecordFormatType":"CSV", "MappingParameters":{"CSVMappingParameters":{"RecordRowDelimiter":"\n","RecordColumnDelimiter":","} }},"RecordEncoding":"UTF-8","RecordColumns":[{"Name":"Ticker","SqlType":"VARCHAR(64)"},{ "Name":"Company","SqlType":"VARCHAR(64)"}]}}' \
-   --current-application-version-id 10
-   ```
-
-1. Verify that the reference data was added to the application by using the `describe-application` operation to get the application description\.
+1. Choose **Save and close**\.
 
 ## Step 3: Test: Query the In\-Application Reference Table<a name="add-refdata-test"></a>
 

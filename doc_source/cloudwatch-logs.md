@@ -15,7 +15,7 @@ For more information on Amazon CloudWatch, see the [CloudWatch User Guide](http:
 
 ## Adding the PutLogEvents Policy Action<a name="enable_putlogevents"></a>
 
-Amazon Kinesis Data Analytics needs permissions to write misconfiguration errors to CloudWatch\. You can add these permissions to the IAM role that Amazon Kinesis Data Analytics assumes, as described following\. For more information on using an IAM role for Amazon Kinesis Data Analytics, see [Granting Amazon Kinesis Data Analytics Permissions to Access Streaming Sources \(Creating an IAM Role\)](iam-role.md)\.
+Amazon Kinesis Data Analytics needs permissions to write misconfiguration errors to CloudWatch\. You can add these permissions to the IAM role that Amazon Kinesis Data Analytics assumes, as described following\. For more information on using an IAM role for Amazon Kinesis Data Analytics, see [Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources \(Creating an IAM Role\)](iam-role.md)\.
 
 ### Trust Policy<a name="enable_putlogevents_trust_policy"></a>
 

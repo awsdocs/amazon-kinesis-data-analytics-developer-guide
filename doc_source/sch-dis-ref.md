@@ -1,14 +1,27 @@
 # Using the Schema Discovery Feature on Static Data<a name="sch-dis-ref"></a>
 
-The schema discovery feature can generate a schema from either the data in a stream or data in a static file that is stored in an Amazon S3 bucket\. Suppose that you want to generate a schema for a Kinesis Data Analytics application for reference purposes or when live streaming data isn't available\. You can use the schema discovery feature on a static file that contains a sample of the data in the expected format of your streaming or reference data\. Kinesis Data Analytics can run schema discovery on sample data from a JSON or CSV file that's stored in an Amazon S3 bucket\. Using schema discovery on a data file uses the [DiscoverInputSchema](API_DiscoverInputSchema.md) API with the `S3Configuration` parameter specified\.
+The schema discovery feature can generate a schema from either the data in a stream or data in a static file that is stored in an Amazon S3 bucket\. Suppose that you want to generate a schema for a Kinesis Data Analytics application for reference purposes or when live streaming data isn't available\. You can use the schema discovery feature on a static file that contains a sample of the data in the expected format of your streaming or reference data\. Kinesis Data Analytics can run schema discovery on sample data from a JSON or CSV file that's stored in an Amazon S3 bucket\. Using schema discovery on a data file uses either the console, or the [DiscoverInputSchema](API_DiscoverInputSchema.md) API with the `S3Configuration` parameter specified\.
 
-To run discovery on a static file, you provide the API with an `S3Configuration` structure with the following information:
+## Running Schema Discovery Using the Console<a name="sch-dis-ref-console"></a>
+
+To run discovery on a static file using the console, do the following:
+
+1. Add a reference data object to an S3 bucket\.
+
+1. Choose **Connect reference data** in the application's main page in the Kinesis Data Analytics console\.
+
+1. Provide the bucket, path and IAM role data for accesing the Amazon S3 object containing the reference data\.
+
+1. Choose **Discover schema\.**
+
+For more information on how to add reference data and discover schema in the console, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
+
+## Running Schema Discovery Using the API<a name="sch-dis-ref-api"></a>
+
+To run discovery on a static file using the API, you provide the API with an `S3Configuration` structure with the following information:
 + **BucketARN:** The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
 + **RoleARN:** The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
 + **FileKey**: The file name of the object\.
-
-**Note**  
-Generating a schema from a data file is currently not available in the AWS Management Console\.
 
 **To generate a schema from an Amazon S3 object using the `DiscoverInputSchema` API**
 

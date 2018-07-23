@@ -6,6 +6,7 @@ This section provides examples of creating and working with applications in Amaz
 
 **Topics**
 + [Examples: Transforming Data](examples-transforming.md)
++ [Examples: Windows and Aggregation](examples-window.md)
 + [Examples: Joins](examples-joins.md)
 + [Examples: Machine Learning](examples-machine.md)
 + [Examples: Alerts and Errors](examples-alerts.md)

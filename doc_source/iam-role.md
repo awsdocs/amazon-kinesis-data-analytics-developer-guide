@@ -1,4 +1,4 @@
-# Granting Amazon Kinesis Data Analytics Permissions to Access Streaming Sources \(Creating an IAM Role\)<a name="iam-role"></a>
+# Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources \(Creating an IAM Role\)<a name="iam-role"></a>
 
 Amazon Kinesis Data Analytics needs permissions to read records from a streaming source that you specify in your application input configuration\. Amazon Kinesis Data Analytics also needs permissions to write your application output to streams that you specify in your application output configuration\. 
 
@@ -16,7 +16,7 @@ Each IAM role has two policies attached to it\. In the trust policy, you specify
 
 ## Trust Policy<a name="iam-role-trust-policy"></a>
 
-To grant Amazon Kinesis Data Analytics permissions to assume a role, you can attach the following trust policy to an IAM role:
+To grant Amazon Kinesis Data Analytics permissions to assume a role to access a streaming or reference source, you can attach the following trust policy to an IAM role:
 
 ```
 {
@@ -35,7 +35,7 @@ To grant Amazon Kinesis Data Analytics permissions to assume a role, you can att
 
 ## Permissions Policy<a name="iam-role-permissions-policy"></a>
 
-If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read from an application's streaming source, you must grant permissions for relevant read actions\. Depending on your streaming source \(for example, an Kinesis stream or a Kinesis Data Firehose delivery stream\), you can attach the following permissions policy\.
+If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read from an application's streaming source, you must grant permissions for relevant read actions\. Depending on your source \(for example, an Kinesis stream, a Kinesis Data Firehose delivery stream, or a reference source in an Amazon S3 bucket\), you can attach the following permissions policy\.
 
 ### Permissions Policy for Reading an Kinesis Stream<a name="iam-role-permissions-policy-stream"></a>
 
@@ -123,5 +123,23 @@ If you direct Amazon Kinesis Data Analytics to write output to external destinat
             ]
         }
     ]
+}
+```
+
+### Permissions Policy for Reading a Reference Data Source from an Amazon S3 Bucket<a name="iam-role-permissions-policy-reference"></a>
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```

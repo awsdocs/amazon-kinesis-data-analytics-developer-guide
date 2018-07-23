@@ -94,18 +94,17 @@ XYZ, SomeCompany
 ...
 ```
 
-Amazon Kinesis Data Analytics provides the following API actions to manage reference data sources:
+You can add an application reference data source either with the API or with the console\. Amazon Kinesis Data Analytics provides the following API actions to manage reference data sources:
 +  [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md)
 + [UpdateApplication](API_UpdateApplication.md)
 
-**Note**  
-The Kinesis Data Analytics console does not support managing reference data sources for your applications\. You can use the AWS Command Line Interface \(AWS CLI\) to add reference data source to your application\. For an example, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
+For information about adding reference data using the console, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
 
 Note the following:
 + If the application is running, Kinesis Data Analytics creates an in\-application reference table, and then loads the reference data immediately\.
 + If the application is not running \(for example, it's in the ready state\), Kinesis Data Analytics saves only the updated input configuration\. When the application starts running, Kinesis Data Analytics loads the reference data in your application as a table\.
 
-Suppose that you want to refresh the data after Kinesis Data Analytics creates the in\-application reference table\. Perhaps you updated the Amazon S3 object, or you want to use a different Amazon S3 object\. In this case, you must explicitly call the [UpdateApplication](API_UpdateApplication.md)\. Kinesis Data Analytics does not refresh the in\-application reference table automatically\. 
+Suppose that you want to refresh the data after Kinesis Data Analytics creates the in\-application reference table\. Perhaps you updated the Amazon S3 object, or you want to use a different Amazon S3 object\. In this case, you can either explicitly call [UpdateApplication](API_UpdateApplication.md), or choose **Actions**, **Synchronize reference data table** in the console\. Kinesis Data Analytics does not refresh the in\-application reference table automatically\. 
 
 There is a limit on the size of the Amazon S3 object that you can create as a reference data source\. For more information, see [Limits](limits.md)\. If the object size exceeds the limit, Kinesis Data Analytics can't load the data\. The application state appears as running, but the data is not being read\.
 
