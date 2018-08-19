@@ -39,7 +39,7 @@ In addition to these basic properties, each application consists of the followin
   + You can configure a Kinesis data delivery stream to write results to Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service \(Amazon ES\)\.
 
      
-  + You can also write application output to a custom destination, instead of Amazon S3 or Amazon Redshift\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
+  + You can also write application output to a custom destination, instead of Amazon S3, Amazon Redshift, or Amazon ES\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
 
   For more information, see [Configuring Application Output](how-it-works-output.md)\.
 
