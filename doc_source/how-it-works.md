@@ -36,10 +36,10 @@ In addition to these basic properties, each application consists of the followin
 
    
 + **Output** – In application code, query results go to in\-application streams\. In your application code, you can create one or more in\-application streams to hold intermediate results\. You can then optionally configure application output to persist data in the in\-application streams, that hold your application output \(also referred to as in\-application output streams\), to external destinations\. External destinations can be a Kinesis data delivery stream or a Kinesis data stream\. Note the following about these destinations:
-  + You can configure a Kinesis data delivery stream to write results to Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service \(Amazon ES\)\.
+  + You can configure a Kinesis data delivery stream to write results to Amazon S3, Amazon Redshift, Amazon Elasticsearch Service \(Amazon ES\) or [Splunk](https://aws.amazon.com/kinesis/data-firehose/splunk/)\.
 
      
-  + You can also write application output to a custom destination, instead of Amazon S3 or Amazon Redshift\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
+  + You can also write application output to a custom destination, instead of to one of those four Kinesis data delivery stream destinations\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
 
   For more information, see [Configuring Application Output](how-it-works-output.md)\.
 
