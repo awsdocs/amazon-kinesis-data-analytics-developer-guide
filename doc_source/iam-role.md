@@ -82,7 +82,7 @@ If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read f
 
 If you direct Amazon Kinesis Data Analytics to write output to external destinations in your application output configuration, you need to grant the following permission to the IAM role\. 
 
-### Permissions Policy for Writing to an Kinesis Stream<a name="iam-role-permissions-policy-ak-stream"></a>
+### Permissions Policy for Writing to a Kinesis Stream<a name="iam-role-permissions-policy-ak-stream"></a>
 
 ```
 {

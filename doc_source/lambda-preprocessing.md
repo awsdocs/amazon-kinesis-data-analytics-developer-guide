@@ -55,7 +55,7 @@ You can monitor the number of Lambda invocations, bytes processed, successes and
 
 The [Kinesis Producer Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) \(KPL\) aggregates small user\-formatted records into larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput\. Although the Kinesis Client Library \(KCL\) for Java supports deaggregating these records, you must use a special module to deaggregate the records when you use AWS Lambda as the consumer of your streams\. 
 
-To get the necessary project code and instructions, see the [Kinesis Producer Library Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggregation) on GitHub\. You can use the components in this project to process KPL serialized data within AWS Lambda in Java, Node\.js, and Python\. You can also use these components as part of a [multi\-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/src/main/java/com/amazonaws/services/kinesis/multilang/package-info.java)\.
+To get the necessary project code and instructions, see the [Kinesis Producer Library Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggregation) on GitHub\. You can use the components in this project to process KPL serialized data within AWS Lambda in Java, Node\.js, and Python\. You can also use these components as part of a [multi\-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client-multilang/src/main/java/com/amazonaws/services/kinesis/multilang/package-info.java)\.
 
 ## Data Preprocessing Event Input Data Model/Record Response Model<a name="lambda-preprocessing-data-model"></a>
 

@@ -3,14 +3,16 @@
 The following can help you troubleshoot problems that you might encounter with Amazon Kinesis Data Analytics\. 
 
 **Topics**
-+ [Get a SQL Statement to Work Correctly](#sql-statement)
++ [Unable to Run SQL Code](#sql-statement)
 + [Unable to Detect or Discover My Schema](#detect-schema)
 + [Reference Data is Out of Date](#reference-reload)
++ [Application Not Writing to Destination](#output)
 + [Important Application Health Parameters to Monitor](#parameters)
 + [Invalid Code Errors When Running an Application](#invalid-code)
++ [Application is Writing Errors to the Error Stream](#error-stream)
 + [Insufficient Throughput or High MillisBehindLatest](#insufficient-throughput)
 
-## Get a SQL Statement to Work Correctly<a name="sql-statement"></a>
+## Unable to Run SQL Code<a name="sql-statement"></a>
 
 If you need to figure out how to get a particular SQL statement to work correctly, you have several different resources when using Kinesis Data Analytics:
 + For more information about SQL statements, see [Example Applications](examples.md)\. This section provides a number of SQL examples that you can use\. 
@@ -41,6 +43,15 @@ If the reference data in the application is not up to date, you can reload the d
 
 1. Choose **Actions**, **Synchronize reference data table**\.
 
+## Application Not Writing to Destination<a name="output"></a>
+
+If data is not being written to the destination, check the following:
++ Verify that the application's role has sufficient permission to access the destination\. For more information, see [Permissions Policy for Writing to a Kinesis Stream](iam-role.md#iam-role-permissions-policy-ak-stream) or [Permissions Policy for Writing to a Firehose Delivery Stream](iam-role.md#iam-role-permissions-policy-af-delivery-stream)\.
++ Verify that the application destination is correctly configured and that the application is using the correct name for the output stream\.
++ Check the Amazon CloudWatch metrics for your output stream to see if data is being written\. For information about using CloudWatch metrics, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md)\.
+
+If the role and destination configuration look correct, try restarting the application, specifying `LAST_STOPPED_POINT` for the [InputStartingPositionConfiguration](API_InputStartingPositionConfiguration.md)\.
+
 ## Important Application Health Parameters to Monitor<a name="parameters"></a>
 
 To make sure that your application is running correctly, we recommend that you monitor certain important parameters\.
@@ -58,6 +69,10 @@ When you can't save and run the SQL code for your Amazon Kinesis Data Analytics 
 + **A GROUP BY clause uses multiple ROWTIME columns ** – You can specify only one ROWTIME column in the GROUP BY clause\. For more information, see [GROUP BY](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-group-by-clause.html) and [ROWTIME](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-rowtime.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 + **One or more data types have an invalid casting ** – In this case, your code has an invalid implicit cast\. For example, you might be casting a `timestamp` to a `bigint` in your code\.
 + **A stream has the same name as a service reserved stream name ** – A stream can't have the same name as the service\-reserved stream `error_stream`\. 
+
+## Application is Writing Errors to the Error Stream<a name="error-stream"></a>
+
+If your application is writing errors to the in\-application error stream, you can decode the value in the `DATA_ROW` field using standard libraries\. For more information about the error stream, see [Error Handling](error-handling.md)\.
 
 ## Insufficient Throughput or High MillisBehindLatest<a name="insufficient-throughput"></a>
 

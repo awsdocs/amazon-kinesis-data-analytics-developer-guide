@@ -6,6 +6,7 @@ For a time\-based windowed query, you specify the window size in terms of time \
 
 For a row\-based windowed query, you specify window size in terms of the number of rows\.
 
-You can specify a query to process records in a tumbling window or sliding window manner, depending on your application needs\. For more information, see the following topics:
-+ [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)
-+ [Sliding Windows](sliding-window-concepts.md)
+You can specify a query to process records in a tumbling window, sliding window, or stagger window manner, depending on your application needs\. Kinesis Data Analytics supports the following window types:
++ [Stagger Windows](stagger-window-concepts.md): A query that aggregates data using keyed time\-based windows that open as data arrives\. The keys allow for multiple overlapping windows\. This is the recommended way to aggregate data using time\-based windows, because Stagger Windows reduce late or out\-of\-order data compared to Tumbling windows\.
++ [Tumbling Windows](tumbling-window-concepts.md): A query that aggregates data using distinct time\-based windows that open and close at regular intervals\.
++ [Sliding Windows](sliding-window-concepts.md): A query that aggregates data continuously, using a fixed time or rowcount interval\.
