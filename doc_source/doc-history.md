@@ -9,7 +9,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| Kinesis Data Analytics available in Frankfurt region | Kinesis Analytics is now available in the EU \(Frankfurt\) Region region\. For more information, see [AWS Regions and Endpoints: Kinesis Data Analytics](http://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\. | July 18, 2018 | 
+| Kinesis Data Analytics available in Frankfurt region | Kinesis Analytics is now available in the EU \(Frankfurt\) Region region\. For more information, see [AWS Regions and Endpoints: Kinesis Data Analytics](https://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\. | July 18, 2018 | 
 | Use reference data in the console | You can now work with application reference data in the console\. For more information, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md) \. | July 13, 2018 | 
 | Windowed query examples | Example applications for windows and aggregation\. For more information, see [Examples: Windows and Aggregation](examples-window.md) \. | July 9, 2018 | 
 | Testing applications | Guidance on testing changes to application schema and code\. For more information, see [Testing Applications](best-practices.md#bp-testing) \. | July 3, 2018 | 

@@ -23,7 +23,7 @@ When creating your Kinesis Data Analytics application, you enable Lambda preproc
 
 1. To create a new Lambda function from one of the Lambda preprocessing templates, choose the template from the drop\-down list\. Then choose **View <template name> in Lambda** to edit the function\.
 
-1. To create a new Lambda function, choose **Create new**\. For information about creating a Lambda function, see [Create a HelloWorld Lambda Function and Explore the Console](http://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the *AWS Lambda Developer Guide*\.
+1. To create a new Lambda function, choose **Create new**\. For information about creating a Lambda function, see [Create a HelloWorld Lambda Function and Explore the Console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the *AWS Lambda Developer Guide*\.
 
 1. Choose the version of the Lambda function to use\. To use the latest version, choose **$LATEST**\.
 
@@ -49,7 +49,7 @@ For more information about adding permissions policies, see [Authentication and 
 
 ## Lambda Preprocessing Metrics<a name="lambda-preprocessing-metrics"></a>
 
-You can monitor the number of Lambda invocations, bytes processed, successes and failures, and so on, using Amazon CloudWatch\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
+You can monitor the number of Lambda invocations, bytes processed, successes and failures, and so on, using Amazon CloudWatch\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
 ## Using AWS Lambda with the Kinesis Producer Library<a name="lambda-preprocessing-deaggregation"></a>
 
@@ -134,5 +134,5 @@ The following are common reasons why preprocessing can fail\.
 
 In the case of data preprocessing failures, the Kinesis Data Analytics service continues to retry Lambda invocations on the same set of records until successful\. You can monitor the following CloudWatch metrics to gain insight into failures\.
 + Kinesis Data Analytics Application `MillisBehindLatest`: Indicates how far behind an application is reading from the streaming source\. 
-+ Kinesis Data Analytics Application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
++ Kinesis Data Analytics Application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 + AWS Lambda function CloudWatch metrics and logs\.

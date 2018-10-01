@@ -9,7 +9,7 @@ In this section, you create a Kinesis data stream, and then populate order and t
 ## Step 1\.1: Create a Streaming Source<a name="tworecordtypes-prepare-create-stream"></a>
 
 You can create a Kinesis data stream using the console or the AWS CLI\. The example assumes `OrdersAndTradesStream` as the stream name\. 
-+ **Using the console** – Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\. Choose **Data Streams**, and then create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
++ **Using the console** – Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\. Choose **Data Streams**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 + **Using the AWS CLI** – Use the following Kinesis `create-stream` AWS CLI command to create the stream:
 
   ```

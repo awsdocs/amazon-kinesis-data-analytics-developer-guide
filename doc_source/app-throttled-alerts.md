@@ -4,7 +4,7 @@ In this Amazon Kinesis data analytics application, the query runs continuously o
 
 **To create a throttled alerts application**
 
-1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
+1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
 
 1. In the SQL editor in Kinesis Data Analytics, replace the application code with the following: 
 

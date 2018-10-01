@@ -1,6 +1,6 @@
 # Example: Parsing Web Logs \(W3C\_LOG\_PARSE Function\)<a name="examples-transforming-strings-w3clogparse"></a>
 
-This example uses the `W3C_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. You can use `W3C_LOG_PARSE` to format Apache logs quickly\. For more information, see [W3C\_LOG\_PARSE](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-w3c-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
+This example uses the `W3C_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. You can use `W3C_LOG_PARSE` to format Apache logs quickly\. For more information, see [W3C\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-w3c-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write log records to an Amazon Kinesis data stream\. Example logs are shown following:
 
@@ -31,7 +31,7 @@ Create an Amazon Kinesis data stream, and populate the log records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
 1. Run the following Python code to populate the sample log records\. This simple code continuously writes the same log record to the stream\.
 

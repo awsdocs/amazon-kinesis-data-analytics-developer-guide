@@ -1,6 +1,6 @@
 # Example: Retrieving the Most Frequently Occurring Values \(TOP\_K\_ITEMS\_TUMBLING\)<a name="examples-window-topkitems"></a>
 
-This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING` function to retrieve the most frequently occurring values in a tumbling window\. For more information, see [TOP\_K\_ITEMS\_TUMBLING function](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/top-k.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING` function to retrieve the most frequently occurring values in a tumbling window\. For more information, see [TOP\_K\_ITEMS\_TUMBLING function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/top-k.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 The `TOP_K_ITEMS_TUMBLING` function is useful when aggregating over tens or hundreds of thousands of keys, and you want to reduce your resource usage\. The function produces the same result as aggregating with `GROUP BY` and `ORDER BY` clauses\.
 
@@ -36,9 +36,9 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
-1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Leave the script running so that you can generate the application schema in a later step\.
+1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Leave the script running so that you can generate the application schema in a later step\.
 
    ```
    import json

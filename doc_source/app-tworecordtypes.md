@@ -69,7 +69,7 @@ In the application code in this example, you first create two additional in\-app
             WHERE  recordtype = 'Trade';
       ```
 
-1. Now you can perform additional analytics on these streams\. In this example, you count the number of trades by the ticker in a one\-minute [tumbling window](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html) and save the results to yet another stream, `DESTINATION_SQL_STREAM`\. 
+1. Now you can perform additional analytics on these streams\. In this example, you count the number of trades by the ticker in a one\-minute [tumbling window](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html) and save the results to yet another stream, `DESTINATION_SQL_STREAM`\. 
 
    ```
    --do some analytics on the Trade_Stream and Order_Stream. 

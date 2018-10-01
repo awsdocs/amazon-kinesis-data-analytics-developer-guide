@@ -13,7 +13,7 @@ In this section, you create two Kinesis streams: `ExampleInputStream` and `Examp
 
   1. Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\.
 
-  1. Choose **Create data stream**\. Create a stream with one shard named `ExampleInputStream`\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+  1. Choose **Create data stream**\. Create a stream with one shard named `ExampleInputStream`\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
   1. Repeat the previous step, creating a stream with one shard named `ExampleOutputStream`\.
 + To use the AWS CLI:

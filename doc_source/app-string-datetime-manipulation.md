@@ -1,10 +1,10 @@
 # Example: Transforming DateTime Values<a name="app-string-datetime-manipulation"></a>
 
 Amazon Kinesis Data Analytics supports converting columns to time stamps\. For example, you might want to use your own time stamp as part of a `GROUP BY` clause as another time\-based window, in addition to the `ROWTIME` column\. Kinesis Data Analytics provides operations and SQL functions for working with date and time fields\. 
-+ **Date and time operators** – You can perform arithmetic operations on dates, times, and interval data types\. For more information, see [Date, Timestamp, and Interval Operators](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-timestamp-interval.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
++ **Date and time operators** – You can perform arithmetic operations on dates, times, and interval data types\. For more information, see [Date, Timestamp, and Interval Operators](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-timestamp-interval.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
    
-+ **SQL Functions** – These include the following\. For more information, see [Date and Time Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
++ **SQL Functions** – These include the following\. For more information, see [Date and Time Functions](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
   + `EXTRACT()` – Extracts one field from a date, time, time stamp, or interval expression\.
   + `CURRENT_TIME` – Returns the time when the query executes \(UTC\)\.
   + `CURRENT_DATE` – Returns the date when the query executes \(UTC\)\.
@@ -13,7 +13,7 @@ Amazon Kinesis Data Analytics supports converting columns to time stamps\. For e
   + `LOCALTIMESTAMP` – Returns the current time stamp as defined by the environment on which Kinesis Data Analytics is running \(UTC\)\.
 
      
-+ **SQL Extensions** – These include the following\. For more information, see [Date and Time Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) and [Datetime Conversion Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-datetime-conversion-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
++ **SQL Extensions** – These include the following\. For more information, see [Date and Time Functions](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-time-functions.html) and [Datetime Conversion Functions](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-datetime-conversion-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
   + `CURRENT_ROW_TIMESTAMP` – Returns a new time stamp for each row in the stream\. 
   + `TSDIFF` – Returns the difference of two time stamps in milliseconds\.
   + `CHAR_TO_DATE` – Converts a string to a date\.
@@ -23,7 +23,7 @@ Amazon Kinesis Data Analytics supports converting columns to time stamps\. For e
   + `TIME_TO_CHAR` – Converts a time to a string\.
   + `TIMESTAMP_TO_CHAR` – Converts a time stamp to a string\.
 
-Most of the preceding SQL functions use a format to convert the columns\. The format is flexible\. For example, you can specify the format `yyyy-MM-dd hh:mm:ss` to convert an input string `2009-09-16 03:15:24` into a time stamp\. For more information, [Char To Timestamp\(Sys\)](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-char-to-timestamp.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+Most of the preceding SQL functions use a format to convert the columns\. The format is flexible\. For example, you can specify the format `yyyy-MM-dd hh:mm:ss` to convert an input string `2009-09-16 03:15:24` into a time stamp\. For more information, [Char To Timestamp\(Sys\)](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-char-to-timestamp.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 ## Example: Transforming Dates<a name="examples-transforming-dates"></a>
 
@@ -78,6 +78,8 @@ Create an Amazon Kinesis data stream and populate it with event time and ticker 
            print(data)
            kinesis.put_record(
                    StreamName="teststreamforkinesisanalyticsapps",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
 
 ### Step 2: Create the Amazon Kinesis Data Analytics Application<a name="examples-transforming-dates-2"></a>

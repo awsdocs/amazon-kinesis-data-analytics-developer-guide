@@ -1,6 +1,6 @@
 # Example: Parsing Log Strings Based on Regular Expressions \(REGEX\_LOG\_PARSE Function\)<a name="examples-transforming-strings-regexlogparse"></a>
 
-This example uses the `REGEX_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. `REGEX_LOG_PARSE` parses a string based on default Java regular expression patterns\. For more information, see [REGEX\_LOG\_PARSE](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-regex-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
+This example uses the `REGEX_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. `REGEX_LOG_PARSE` parses a string based on default Java regular expression patterns\. For more information, see [REGEX\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-regex-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write the following records to an Amazon Kinesis stream: 
 
@@ -31,7 +31,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
 1. Run the following Python code to populate sample log records\. This simple code continuously writes the same log record to the stream\.
 

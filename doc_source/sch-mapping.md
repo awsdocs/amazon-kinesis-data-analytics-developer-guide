@@ -4,7 +4,7 @@ With Amazon Kinesis Data Analytics, you can process and analyze streaming data i
 + To process and analyze streaming CSV data, you assign column names and data types for the columns of the input stream\. Your application imports one column from the input stream per column definition, in order\. 
 
   You don't have to include all of the columns in the application input stream, but you cannot skip columns from the source stream\. For example, you can import the first three columns from an input stream containing five elements, but you cannot import only columns 1, 2, and 4\.
-+ To process and analyze streaming JSON data, you use JSONPath expressions to map JSON elements from a streaming source to SQL columns in an input stream\. For more information about using JSONPath with Amazon Kinesis Data Analytics, see [Working with JSONPath](about-json-path.md)\. The columns in the SQL table have data types that are mapped from JSON types\. For supported data types, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\. For details about converting JSON data to SQL data, see [Mapping JSON Data Types to SQL Data Types](#sch-mapping-datatypes)\.
++ To process and analyze streaming JSON data, you use JSONPath expressions to map JSON elements from a streaming source to SQL columns in an input stream\. For more information about using JSONPath with Amazon Kinesis Data Analytics, see [Working with JSONPath](about-json-path.md)\. The columns in the SQL table have data types that are mapped from JSON types\. For supported data types, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\. For details about converting JSON data to SQL data, see [Mapping JSON Data Types to SQL Data Types](#sch-mapping-datatypes)\.
 
 For more information about how to configure input steams, see [Configuring Application Input](how-it-works-input.md)\.
 
@@ -111,7 +111,7 @@ The following example demonstrates the format of the `InputSchema` value for a s
 
 ## Mapping JSON Data Types to SQL Data Types<a name="sch-mapping-datatypes"></a>
 
-JSON data types are converted to corresponding SQL data types according to the application's input schema\. For information about supported SQL data types, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\. Amazon Kinesis Data Analytics converts JSON data types to SQL data types according to the following rules\.
+JSON data types are converted to corresponding SQL data types according to the application's input schema\. For information about supported SQL data types, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\. Amazon Kinesis Data Analytics converts JSON data types to SQL data types according to the following rules\.
 
 ### Null Literal<a name="sch-mapping-datatypes-null"></a>
 
@@ -164,7 +164,7 @@ For an example of a JSON array, see [Working with JSONPath](about-json-path.md)\
 
 ## Related Topics<a name="sch-mapping.Related"></a>
 + [Configuring Application Input](how-it-works-input.md)
-+ [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)
++ [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)
 + [Working with the Schema Editor](console-summary-edit-schema.md)
 + [CreateApplication](API_CreateApplication.md)
 + [RecordColumn](API_RecordColumn.md)

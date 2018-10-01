@@ -1,6 +1,6 @@
 # Error Handling<a name="error-handling"></a>
 
-Amazon Kinesis Data Analytics returns API or SQL errors directly to you\. For more information about API operations, see [Actions](API_Operations.md)\. For more information about handling SQL errors, see [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
+Amazon Kinesis Data Analytics returns API or SQL errors directly to you\. For more information about API operations, see [Actions](API_Operations.md)\. For more information about handling SQL errors, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
 
 Amazon Kinesis Data Analytics reports runtime errors using an in\-application error stream called `error_stream`\. 
 

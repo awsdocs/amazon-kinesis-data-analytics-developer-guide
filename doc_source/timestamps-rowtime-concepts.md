@@ -38,7 +38,7 @@ We recommend a two\-window strategy that uses two time\-based, both `ROWTIME` an
 
 The advantage of this strategy is that it can use a time that represents when the event occurred, and it can gracefully handle when your application falls behind or when events arrive out of order\. If the application falls behind when bringing records into the in\-application stream, they are still grouped by the logical time in the second window\. The query uses `ROWTIME` to guarantee the order of processing\. Any records that are late \(ingest timestamp shows earlier value compared to the `ROWTIME` value\) are processed successfully too\. 
 
-Consider the following query against the demo stream used in the [Getting Started Exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\. The query uses the `GROUP BY` clause and emits ticker count in a one\-minute tumbling window\. 
+Consider the following query against the demo stream used in the [Getting Started Exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\. The query uses the `GROUP BY` clause and emits ticker count in a one\-minute tumbling window\. 
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" 

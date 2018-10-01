@@ -4,7 +4,7 @@ When a windowed query processes each window in a non\-overlapping manner, the wi
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/window-tumbling-20.png)
 
-For example, an aggregation query using a `GROUP BY` clause processes rows in a tumbling window\. The demo stream in the [getting started exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) receives stock price data that is mapped to the in\-application stream `SOURCE_SQL_STREAM_001` in your application\. This stream has the following schema\.
+For example, an aggregation query using a `GROUP BY` clause processes rows in a tumbling window\. The demo stream in the [getting started exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) receives stock price data that is mapped to the in\-application stream `SOURCE_SQL_STREAM_001` in your application\. This stream has the following schema\.
 
 ```
 (TICKER_SYMBOL VARCHAR(4), 
@@ -34,7 +34,7 @@ This query is an example of a nonoverlapping \(tumbling\) window\. The `GROUP BY
 
 **To test the query**
 
-1. Set up an application by following the [getting started exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.
+1. Set up an application by following the [getting started exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.
 
 1. Replace the `SELECT` statement in the application code by the preceding `SELECT` query\. The resulting application code is shown following:
 

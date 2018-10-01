@@ -37,7 +37,7 @@ In this case, *application* refers to any application that can read from the str
 ## Defining Input Schema<a name="bp-define-inputschema"></a>
 
 When configuring application input in the console, you first specify a streaming source\. The console then uses the discovery API \(see [DiscoverInputSchema](API_DiscoverInputSchema.md)\) to infer a schema by sampling records on the streaming source\. The schema, among other things, defines names and data types of the columns in the resulting in\-application stream\. The console displays the schema\. We recommend that you do the following with this inferred schema:
-+ Adequately test the inferred schema\. The discovery process uses only a sample of records on the streaming source to infer a schema\. If your streaming source has [many record types](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/app-tworecordtypes.html), the discovery API might have missed sampling one or more record types\. This situation can result in a schema that does not accurately reflect data on the streaming source\. 
++ Adequately test the inferred schema\. The discovery process uses only a sample of records on the streaming source to infer a schema\. If your streaming source has [many record types](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/app-tworecordtypes.html), the discovery API might have missed sampling one or more record types\. This situation can result in a schema that does not accurately reflect data on the streaming source\. 
 
   When your application starts, these missed record types might result in parsing errors\. Amazon Kinesis Data Analytics sends these records to the in\-application error stream\. To reduce these parsing errors, we recommend that you test the inferred schema interactively in the console and monitor the in\-application stream for missed records\. 
 
@@ -73,7 +73,7 @@ We recommend the following:
   + Kinesis Data Analytics must maintain everything related to the application's state, including relevant data, for the duration\. This consumes significant Kinesis Data Analytics processing units\. 
 + During development, keep the window size small in your SQL statements so that you can see the results faster\. When you deploy the application to your production environment, you can set the window size as appropriate\.
 + Instead of a single complex SQL statement, consider breaking it into multiple statements, in each step saving results in intermediate in\-application streams\. This might help you debug faster\.
-+ When you're using [tumbling windows](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html), we recommend that you use two windows, one for processing time and one for your logical time \(ingest time or event time\)\. For more information, see [Timestamps and the ROWTIME Column](timestamps-rowtime-concepts.md)\.
++ When you're using [tumbling windows](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html), we recommend that you use two windows, one for processing time and one for your logical time \(ingest time or event time\)\. For more information, see [Timestamps and the ROWTIME Column](timestamps-rowtime-concepts.md)\.
 
 ## Testing Applications<a name="bp-testing"></a>
 

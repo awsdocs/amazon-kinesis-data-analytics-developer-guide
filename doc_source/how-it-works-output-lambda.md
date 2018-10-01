@@ -11,16 +11,16 @@ Using AWS Lambda as a destination allows you to more easily perform post\-proces
 + Data encryption
 
 Lambda functions can deliver analytic information to a variety of AWS services and other destinations, including the following:
-+ [Amazon Simple Storage Service \(Amazon S3\)](http://docs.aws.amazon.com/AmazonS3/latest/dev/)
++ [Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/)
 + Custom APIs
-+ [Amazon DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/)
++ [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/)
 + [Apache Aurora](http://aurora.apache.org/)
-+ [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/)
-+ [Amazon Simple Notification Service \(Amazon SNS\)](http://docs.aws.amazon.com/sns/latest/dg/)
-+ [Amazon Simple Queue Service \(Amazon SQS\)](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)
-+ [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)
++ [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/)
++ [Amazon Simple Notification Service \(Amazon SNS\)](https://docs.aws.amazon.com/sns/latest/dg/)
++ [Amazon Simple Queue Service \(Amazon SQS\)](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)
++ [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)
 
-For more information about creating Lambda applications, see [Getting Started with AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\.
+For more information about creating Lambda applications, see [Getting Started with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\.
 
 **Topics**
 + [Lambda as Output Permissions](#how-it-works-output-lambda-perms)
@@ -49,7 +49,7 @@ To use Lambda as output, the application’s Lambda output IAM role requires the
 
 ## Lambda as Output Metrics<a name="how-it-works-output-lambda-metrics"></a>
 
-You use Amazon CloudWatch to monitor the number of bytes sent, successes and failures, and so on\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics using Lambda as output, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
+You use Amazon CloudWatch to monitor the number of bytes sent, successes and failures, and so on\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics using Lambda as output, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
 ## Lambda as Output Event Input Data Model and Record Response Model<a name="how-it-works-output-lambda-model"></a>
 
@@ -95,7 +95,7 @@ A Kinesis data analytics application buffers the output records and invokes the 
 + If records are emitted to the destination in\-application stream within the data analytics application as a continuous query or a sliding window, the AWS Lambda destination function is invoked approximately once per second\.
 
 **Note**  
-[Per\-Lambda function invoke request payload size limits](http://docs.aws.amazon.com/lambda/latest/dg/limits.html) apply\. Exceeding those limits results in output records being split and sent across multiple Lambda function calls\.
+[Per\-Lambda function invoke request payload size limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) apply\. Exceeding those limits results in output records being split and sent across multiple Lambda function calls\.
 
 ## Adding a Lambda Function for Use as an Output<a name="how-it-works-output-lambda-procedure"></a>
 
@@ -117,7 +117,7 @@ The following procedure demonstrates how to add a Lambda function as an output f
 
    1. The **Create Function** page opens in a new browser tab\. In the **Name** box, give the function a meaningful name \(for example, **myLambdaFunction**\)\.
 
-   1. Update the template with post\-processing functionality for your application\. For information about creating a Lambda function, see [Getting Started](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*\.
+   1. Update the template with post\-processing functionality for your application\. For information about creating a Lambda function, see [Getting Started](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*\.
 
    1. On the Kinesis Data Analytics console, in the **Lambda function** drop\-down list, choose the Lambda function that you just created\.
 
@@ -136,5 +136,5 @@ The following are common reasons why delivery to a Lambda function can fail\.
 + The business logic within the Lambda function does not catch all the errors, resulting in a timeout and backpressure due to unhandled exceptions\. These are often referred as “poison pill” messages\.
 
 In the case of data delivery failures, Kinesis Data Analytics continues to retry Lambda invocations on the same set of records until successful\. To gain insight into failures, you can monitor the following CloudWatch metrics: 
-+ Kinesis Data Analytics application Lambda as Output CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
++ Kinesis Data Analytics application Lambda as Output CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 + AWS Lambda function CloudWatch metrics and logs\.

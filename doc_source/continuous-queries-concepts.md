@@ -23,7 +23,7 @@ Use the following procedure to set up an Amazon Kinesis Data Analytics applicati
 
 **To test the query**
 
-1. Set up an application by following the [Getting Started Exercise](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.
+1. Set up an application by following the [Getting Started Exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)\.
 
 1. Replace the `SELECT` statement in the application code with the preceding `SELECT` query\. The resulting application code is shown following:
 

@@ -19,8 +19,8 @@ For more information on how to add reference data and discover schema in the con
 ## Running Schema Discovery Using the API<a name="sch-dis-ref-api"></a>
 
 To run discovery on a static file using the API, you provide the API with an `S3Configuration` structure with the following information:
-+ **BucketARN:** The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
-+ **RoleARN:** The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
++ **BucketARN:** The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
++ **RoleARN:** The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
 + **FileKey**: The file name of the object\.
 
 **To generate a schema from an Amazon S3 object using the `DiscoverInputSchema` API**
@@ -40,9 +40,9 @@ To run discovery on a static file using the API, you provide the API with an `S3
 
 1. Sign in to the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create an Amazon S3 bucket and upload the `data.csv` file you created\. Note the ARN of the created bucket\. For information about creating an Amazon S3 bucket and uploading a file, see [Getting Started with Amazon Simple Storage Service](http://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)\. 
+1. Create an Amazon S3 bucket and upload the `data.csv` file you created\. Note the ARN of the created bucket\. For information about creating an Amazon S3 bucket and uploading a file, see [Getting Started with Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)\. 
 
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. Create a role with the `AmazonS3ReadOnlyAccess` policy\. Note the ARN of the new role\. For information about creating a role, see [Creating a Role to Delegate Permissions to an AWS Service](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\. For information about how to add a policy to a role, see [Modifying a Role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. Create a role with the `AmazonS3ReadOnlyAccess` policy\. Note the ARN of the new role\. For information about creating a role, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
 
 1. Run the following `DiscoverInputSchema` command in the AWS CLI, substituting the ARNs for your Amazon S3 bucket and IAM role:
 

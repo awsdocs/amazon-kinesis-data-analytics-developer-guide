@@ -13,7 +13,7 @@ Amazon Kinesis Data Analytics enables you to quickly author SQL code that contin
 + **Feed real\-time dashboards** – You can send aggregated and processed streaming data results downstream to feed real\-time dashboards\.
 + **Create real\-time metrics** – You can create custom metrics and triggers for use in real\-time monitoring, notifications, and alarms\.
 
-For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
+For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
 
 ## Are You a First\-Time User of Amazon Kinesis Data Analytics?<a name="first-time-user"></a>
 

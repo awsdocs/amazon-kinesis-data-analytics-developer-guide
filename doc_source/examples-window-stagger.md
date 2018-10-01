@@ -42,9 +42,9 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
-1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a group of six records with the same random EVENT\_TIME and ticker symbol to the stream, over the course of one minute\. Leave the script running so that you can generate the application schema in a later step\.
+1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a group of six records with the same random EVENT\_TIME and ticker symbol to the stream, over the course of one minute\. Leave the script running so that you can generate the application schema in a later step\.
 
    ```
    import json

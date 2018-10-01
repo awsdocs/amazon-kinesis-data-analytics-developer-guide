@@ -1,6 +1,6 @@
 # Example: Split Strings into Multiple Fields \(VARIABLE\_COLUMN\_LOG\_PARSE Function\)<a name="examples-transforming-strings-variablecolumnlogparse"></a>
 
-This example uses the `VARIABLE_COLUMN_LOG_PARSE` function to manipulate strings in Kinesis Data Analytics\. `VARIABLE_COLUMN_LOG_PARSE` splits an input string into fields separated by a delimiter character or a delimiter string\. For more information, see [VARIABLE\_COLUMN\_LOG\_PARSE](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-variable-column-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
+This example uses the `VARIABLE_COLUMN_LOG_PARSE` function to manipulate strings in Kinesis Data Analytics\. `VARIABLE_COLUMN_LOG_PARSE` splits an input string into fields separated by a delimiter character or a delimiter string\. For more information, see [VARIABLE\_COLUMN\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-variable-column-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write semi\-structured records to an Amazon Kinesis data stream\. The example records are as follows:
 
@@ -35,7 +35,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
 1. Run the following Python code to populate the sample log records\. This simple code continuously writes the same log record to the stream\.
 

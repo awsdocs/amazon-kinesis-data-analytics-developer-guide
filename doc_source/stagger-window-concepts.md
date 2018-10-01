@@ -2,7 +2,7 @@
 
 This topic describes *Stagger Windows*, which is a windowing method that is suited for analyzing groups of data that arrive at inconsistent times\. This windowing method is well suited for any time\-series analytics use case, such as a set of related sales or log records\.
 
-For example, [VPC Flow Logs](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-logs-limitations) have a capture window of approximately 10 minutes, but can have a capture window of up to 15 minutes if you are aggregating data on the client\. Stagger Windows are ideal for aggregating these logs for analysis\.
+For example, [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-logs-limitations) have a capture window of approximately 10 minutes, but can have a capture window of up to 15 minutes if you are aggregating data on the client\. Stagger Windows are ideal for aggregating these logs for analysis\.
 
 Stagger Windows address the issue of related records not falling into the same time\-restricted window, such as if tumbling windows were used\.
 

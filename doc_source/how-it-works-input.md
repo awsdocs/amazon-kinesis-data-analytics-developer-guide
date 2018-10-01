@@ -18,6 +18,9 @@ At the time that you create an application, you specify a streaming source\. You
 + A Kinesis data stream 
 + A Kinesis Data Firehose delivery stream
 
+**Note**  
+If the Kinesis data stream is encrypted, Kinesis Data Analytics accesses the data in the encrypted stream seamlessly with no further configuration needed\. Kinesis Data Analytics does not store unencrypted data read from Kinesis Data Streams\. For more information, see [What Is Server\-Side Encryption For Kinesis Data Streams?](https://docs.aws.amazon.com/streams/latest/dev/what-is-sse.html)\.
+
 Kinesis Data Analytics continuously polls the streaming source for new data and ingests it in in\-application streams according to the input configuration\. Your application code can query the in\-application stream\. As part of input configuration you provide the following:
 + **Streaming source** – You provide the Amazon Resource Name \(ARN\) of the stream and an IAM role that Kinesis Data Analytics can assume to access the stream on your behalf\. 
 + **In\-application stream name prefix** – When you start the application, Kinesis Data Analytics creates the specified in\-application stream\. In your application code, you access the in\-application stream using this name\. 
@@ -28,7 +31,7 @@ Kinesis Data Analytics continuously polls the streaming source for new data and 
 + **Mapping schema** – You describe the record format \(JSON, CSV\) on the streaming source\. You also describe how each record on the stream maps to columns in the in\-application stream that is created\. This is where you provide column names and data types\. 
 
 **Note**  
-Kinesis Data Analytics adds quotation marks around the identifiers \(stream name and column names\) when creating the input in\-application stream\. When querying this stream and the columns, you must specify them in quotation marks using the same casing \(matching lowercase and uppercase letters exactly\)\. For more information about identifiers, see [Identifiers](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-identifiers.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
+Kinesis Data Analytics adds quotation marks around the identifiers \(stream name and column names\) when creating the input in\-application stream\. When querying this stream and the columns, you must specify them in quotation marks using the same casing \(matching lowercase and uppercase letters exactly\)\. For more information about identifiers, see [Identifiers](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-identifiers.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 You can create an application and configure inputs in the Amazon Kinesis Data Analytics console\. The console then makes the necessary API calls\. You can configure application input when you create a new application API or add input configuration to an existing application\. For more information, see [CreateApplication](API_CreateApplication.md) and [AddApplicationInput](API_AddApplicationInput.md)\. The following is the input configuration part of the `Createapplication` API request body:
 

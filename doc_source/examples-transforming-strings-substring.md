@@ -1,6 +1,6 @@
 # Example: Extracting a Portion of a String \(SUBSTRING Function\)<a name="examples-transforming-strings-substring"></a>
 
-This example uses the `SUBSTRING` function to transform a string in Amazon Kinesis Data Analytics\. The `SUBSTRING` function extracts a portion of a source string starting at a specific position\. For more information, see [SUBSTRING](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-substring.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+This example uses the `SUBSTRING` function to transform a string in Amazon Kinesis Data Analytics\. The `SUBSTRING` function extracts a portion of a source string starting at a specific position\. For more information, see [SUBSTRING](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-substring.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 In this example, you write the following records to an Amazon Kinesis data stream\. 
 
@@ -31,7 +31,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 
 1. Choose **Data Streams** in the navigation pane\.
 
-1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](http://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
+1. Choose **Create Kinesis stream**, and create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
 1. Run the following Python code to populate sample log records\. This simple code continuously writes the same log record to the stream\.
 

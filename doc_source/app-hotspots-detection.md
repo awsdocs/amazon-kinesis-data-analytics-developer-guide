@@ -1,6 +1,6 @@
 # Example: Detecting Hotspots on a Stream \(HOTSPOTS Function\)<a name="app-hotspots-detection"></a>
 
-Amazon Kinesis Data Analytics provides the `HOTSPOTS` function, which can locate and return information about relatively dense regions in your data\. For more information, see [HOTSPOTS](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf-hotspots.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+Amazon Kinesis Data Analytics provides the `HOTSPOTS` function, which can locate and return information about relatively dense regions in your data\. For more information, see [HOTSPOTS](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf-hotspots.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 In this exercise, you write application code to locate hotspots on your application's streaming source\. To set up the application, you do the following steps:
 

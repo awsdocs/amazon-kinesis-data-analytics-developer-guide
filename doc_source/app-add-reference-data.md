@@ -4,7 +4,7 @@ In this exercise, you add reference data to an existing Amazon Kinesis data anal
 + [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)
 + [Configuring Application Input](how-it-works-input.md)
 
-In this exercise, you add reference data to the application you created in the Kinesis Data Analytics [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\. The reference data provides the company name for each ticker symbol; for example:
+In this exercise, you add reference data to the application you created in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\. The reference data provides the company name for each ticker symbol; for example:
 
 ```
 Ticker, Company
@@ -14,7 +14,7 @@ MMB, SomeCompanyB
 WAS,  SomeCompanyC
 ```
 
-First, complete the steps in the [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise to create a starter application\. Then follow these steps to set up and add reference data to your application:
+First, complete the steps in the [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise to create a starter application\. Then follow these steps to set up and add reference data to your application:
 
 1. **Prepare the data**
    + Store the preceding reference data as an object in Amazon Simple Storage Service \(Amazon S3\)\.
@@ -51,13 +51,13 @@ In this step, you store the sample reference data as an Amazon S3 object\.
    WAS,  SomeCompanyC
    ```
 
-1. Upload the `TickerReference.csv` file to your S3 bucket\. For instructions, see [Uploading Objects into Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service Console User Guide*\.
+1. Upload the `TickerReference.csv` file to your S3 bucket\. For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
 ### Create an IAM Role<a name="prepare-create-iamrole"></a>
 
 Next, create an IAM role that Kinesis Data Analytics can assume and read the Amazon S3 object\.
 
-1. In AWS Identity and Access Management \(IAM\), create an IAM role named **KinesisAnalytics\-ReadS3Object**\. To create the role, follow the instructions in [Creating a Role for an AWS Service \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*\.
+1. In AWS Identity and Access Management \(IAM\), create an IAM role named **KinesisAnalytics\-ReadS3Object**\. To create the role, follow the instructions in [Creating a Role for an AWS Service \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*\.
 
    On the IAM console, specify the following:
    + For **Select Role Type**, choose **AWS Lambda**\. After creating the role, you will change the trust policy to allow Kinesis Data Analytics \(not AWS Lambda\) to assume the role\.

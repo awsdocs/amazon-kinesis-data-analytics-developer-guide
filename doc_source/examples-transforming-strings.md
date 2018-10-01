@@ -45,8 +45,8 @@ In such cases, the following two\-step process generally works for creating in\-
 1. In your application code, use string functions to split this single column into multiple columns and then save the rows in another in\-application stream\. This in\-application stream that your application code creates will have normalized data\. You can then perform analytics on this in\-application stream\.
 
 Amazon Kinesis Data Analytics provides the following string operations, standard SQL functions, and extensions to the SQL standard for working with string columns: 
-+ **String operators** – Operators such as `LIKE` and `SIMILAR` are useful in comparing strings\. For more information, see [String Operators](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-string-operators.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
-+ **SQL functions** – The following functions are useful when manipulating individual strings\. For more information, see [String and Search Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-string-and-search-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
++ **String operators** – Operators such as `LIKE` and `SIMILAR` are useful in comparing strings\. For more information, see [String Operators](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-string-operators.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
++ **SQL functions** – The following functions are useful when manipulating individual strings\. For more information, see [String and Search Functions](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-string-and-search-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
   + `CHAR_LENGTH` – Provides the length of a string\. 
   + `INITCAP` – Returns a converted version of the input string such that the first character of each space\-delimited word is uppercase, and all other characters are lowercase\. 
   + `LOWER/UPPER` – Converts a string to lowercase or uppercase\. 
@@ -55,7 +55,7 @@ Amazon Kinesis Data Analytics provides the following string operations, standard
   + `REGEX_REPLACE` – Replaces a substring with an alternative substring\.
   + `SUBSTRING` – Extracts a portion of a source string starting at a specific position\. 
   + `TRIM` – Removes instances of the specified character from the beginning or end of the source string\. 
-+ **SQL extensions** – These are useful for working with unstructured strings such as logs and URIs\. For more information, see [Log Parsing Functions](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-pattern-matching-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
++ **SQL extensions** – These are useful for working with unstructured strings such as logs and URIs\. For more information, see [Log Parsing Functions](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-pattern-matching-functions.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
   + `FAST_REGEX_LOG_PARSER` – Works similar to the regex parser, but it takes several shortcuts to ensure faster results\. For example, the fast regex parser stops at the first match it finds \(known as *lazy semantics*\)\.
   + `FIXED_COLUMN_LOG_PARSE` – Parses fixed\-width fields and automatically converts them to the given SQL types\.
   + `REGEX_LOG_PARSE` – Parses a string based on default Java regular expression patterns\.

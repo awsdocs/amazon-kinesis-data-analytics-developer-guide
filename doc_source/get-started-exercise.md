@@ -48,7 +48,7 @@ You use these features to quickly set up your first application as follows:
 
    The application code queries the in\-application stream `SOURCE_SQL_STREAM_001`\. The code then inserts the resulting rows in another in\-application stream `DESTINATION_SQL_STREAM`, using pumps\. For more information about this coding pattern, see [Application Code](how-it-works-app-code.md)\. 
 
-   For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
+   For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
 
     
 

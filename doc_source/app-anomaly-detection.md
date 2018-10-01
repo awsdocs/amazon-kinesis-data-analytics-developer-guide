@@ -1,6 +1,6 @@
 # Example: Detecting Data Anomalies on a Stream \(RANDOM\_CUT\_FOREST Function\)<a name="app-anomaly-detection"></a>
 
-Amazon Kinesis Data Analytics provides a function \(`RANDOM_CUT_FOREST`\) that can assign an anomaly score to each record based on values in the numeric columns\. For more information, see [RANDOM\_CUT\_FOREST Function](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
+Amazon Kinesis Data Analytics provides a function \(`RANDOM_CUT_FOREST`\) that can assign an anomaly score to each record based on values in the numeric columns\. For more information, see [RANDOM\_CUT\_FOREST Function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 In this exercise, you write application code to assign an anomaly score to records on your application's streaming source\. To set up the application, you do the following:
 

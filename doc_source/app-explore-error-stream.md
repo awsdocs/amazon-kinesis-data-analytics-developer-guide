@@ -12,7 +12,7 @@ You perform the following exercises on the console\. In these examples, you intr
 
 In this exercise, you introduce a parse error\.
 
-1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\. 
+1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\. 
 
 1. On the application details page, choose **Connect streaming data**\.
 
@@ -38,7 +38,7 @@ In this exercise, you introduce a parse error\.
 
 In this exercise, you update the application code to introduce a runtime error \(division by zero\)\. Notice that Amazon Kinesis Data Analytics sends the resulting rows to the in\-application error stream, not to the in\-application error stream where the results are supposed to be written\.
 
-1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
+1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
 
    Verify the results on the **Real\-time analytics** tab as follows:
 

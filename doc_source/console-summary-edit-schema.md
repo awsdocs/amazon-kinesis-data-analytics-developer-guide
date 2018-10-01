@@ -56,17 +56,17 @@ You can edit a JSON schema by using the following steps\.
      A column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
    + For **Column type**, type an SQL data type\. 
 
-     A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
+     A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
    + For **Row path**, provide a row path\. A row path is a valid JSONPath expression that maps to a JSON element\. 
 **Note**  
-The base **Row path** value is the path to the top\-level parent that contains the data to be imported\. This value is **$** by default\. For more information, see `RecordRowPath` in [JSONMappingParameters](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_JSONMappingParameters.html)\.
+The base **Row path** value is the path to the top\-level parent that contains the data to be imported\. This value is **$** by default\. For more information, see `RecordRowPath` in [JSONMappingParameters](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_JSONMappingParameters.html)\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
 ![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
 1. To rename a column, type a new name for **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
-1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
+1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. Choose **Save schema and update stream** to save your changes\.
 
@@ -96,14 +96,14 @@ You can edit a CSV schema by using the following steps\.
      A column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
    + For **Column type**, type a SQL data type\. 
 
-     A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
+     A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
 ![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
 1. To rename a column, type a new name in **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
-1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
+1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. Choose **Save schema and update stream** to save your changes\.
 

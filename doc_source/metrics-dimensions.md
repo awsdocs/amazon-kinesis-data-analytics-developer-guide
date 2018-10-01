@@ -4,7 +4,7 @@ When your Amazon Kinesis Data Analytics application processes data streams, Kine
 
 In the console, metrics are grouped first by service namespace, and then by the dimension combinations within each namespace\.
 
-For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesis Data Analytics Metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
+For a list of metrics Amazon Kinesis Data Analytics supports, see [Amazon Kinesis Data Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
 **To view metrics using the CloudWatch console**
 

@@ -1,6 +1,6 @@
 # In\-Application Streams and Pumps<a name="streams-pumps"></a>
 
-When you configure [application input](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html), you map a streaming source to an in\-application stream that is created\. Data continuously flows from the streaming source into the in\-application stream\. An in\-application stream works like a table that you can query using SQL statements, but it's called a stream because it represents continuous data flow\. 
+When you configure [application input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html), you map a streaming source to an in\-application stream that is created\. Data continuously flows from the streaming source into the in\-application stream\. An in\-application stream works like a table that you can query using SQL statements, but it's called a stream because it represents continuous data flow\. 
 
 **Note**  
 Do not confuse in\-application streams with the Amazon Kinesis streams and Kinesis Data Firehose delivery streams\. In\-application streams exist only in the context of an Amazon Kinesis Data Analytics application\. Amazon Kinesis streams and Kinesis Data Firehose delivery streams exist independent of your application, and you can configure them as a streaming source in your application input configuration or as a destination in output configuration\.
@@ -16,7 +16,7 @@ You can also create additional in\-application streams as needed to store interm
       "column3" VARCHAR(64));
    ```
 
-   The column names are specified in quotes, making them case\-sensitive\. For more information, see [Identifiers](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-identifiers.html) in the Amazon Kinesis Data Analytics SQL Reference\.
+   The column names are specified in quotes, making them case\-sensitive\. For more information, see [Identifiers](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-identifiers.html) in the Amazon Kinesis Data Analytics SQL Reference\.
 
 1. Insert data into the stream using a pump\. A pump is a continuous insert query running that inserts data from one in\-application stream to another in\-application stream\. The following statement creates a pump \(`SAMPLEPUMP`\) and inserts data into the `TEMPSTREAM` by selecting records from another stream \(`INPUTSTREAM`\)\.
 

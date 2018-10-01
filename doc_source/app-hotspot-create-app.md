@@ -6,7 +6,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you create
 
 **To create an application**
 
-1. Create a Kinesis data analytics application by following steps 1, 2, and 3 in the [Getting Started](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise \(see [Step 3\.1: Create an Application](get-started-create-app.md)\)\.
+1. Create a Kinesis data analytics application by following steps 1, 2, and 3 in the [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise \(see [Step 3\.1: Create an Application](get-started-create-app.md)\)\.
 
    In the source configuration, do the following:
    + Specify the streaming source you created in [Step 1: Create the Input and Output Streams](app-hotspots-prepare.md)\.
