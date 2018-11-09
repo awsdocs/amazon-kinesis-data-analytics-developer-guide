@@ -41,7 +41,6 @@ You can create an application and configure inputs in the Amazon Kinesis Data An
             "InputSchema": {
                 "RecordColumns": [
                     {
-                        "IsDropped": boolean,
                         "Mapping": "string",
                         "Name": "string",
                         "SqlType": "string"

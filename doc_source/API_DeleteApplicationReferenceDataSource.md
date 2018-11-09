@@ -62,6 +62,9 @@ HTTP Status Code: 400
 Specified application can't be found\.  
 HTTP Status Code: 400
 
+ **UnsupportedOperationException**   
+HTTP Status Code: 400
+
 ## See Also<a name="API_DeleteApplicationReferenceDataSource_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

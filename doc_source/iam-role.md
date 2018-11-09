@@ -80,6 +80,9 @@ If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read f
 }
 ```
 
+**Note**  
+The `firehose:Get*` permission refers to an internal accessor that Kinesis Data Analytics uses to access the stream\. There is no public accessor for a Kinesis Data Firehose delivery stream\.
+
 If you direct Amazon Kinesis Data Analytics to write output to external destinations in your application output configuration, you need to grant the following permission to the IAM role\. 
 
 ### Permissions Policy for Writing to a Kinesis Stream<a name="iam-role-permissions-policy-ak-stream"></a>
