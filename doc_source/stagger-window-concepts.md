@@ -114,7 +114,7 @@ The result set from the stagger window application looks similar to the followin
 | 11:01:20 | 11:00:00 | AMZN | 3 | 
 | 11:02:15 | 11:01:00 | AMZN | 1 | 
 
-The returned record aggregates the first three input records\. The records are grouped by 1\-minute stagger windows\. The stagger window starts when the application receives the first AMZN record \(with a ROWTIME of 11:00:20\)\. When the 1\-minute stagger window expires \(at 11:00:20\), a record with the results that fall within the stagger window \(based on ROWTIME and EVENT\_TIME\) is written to the output stream\. Using a stagger window, all of the records with a ROWTIME and EVENT\_TIME within a one\-minute window are emitted in a single result\.
+The returned record aggregates the first three input records\. The records are grouped by 1\-minute stagger windows\. The stagger window starts when the application receives the first AMZN record \(with a ROWTIME of 11:00:20\)\. When the 1\-minute stagger window expires \(at 11:01:20\), a record with the results that fall within the stagger window \(based on ROWTIME and EVENT\_TIME\) is written to the output stream\. Using a stagger window, all of the records with a ROWTIME and EVENT\_TIME within a one\-minute window are emitted in a single result\.
 
 The last record \(with an EVENT\_TIME outside the one\-minute aggregation\) is aggregated separately, since EVENT\_TIME is one of the partition keys that is used to separate the records into result sets, and the partition key for EVENT\_TIME for the first window is `11:00`\.
 
