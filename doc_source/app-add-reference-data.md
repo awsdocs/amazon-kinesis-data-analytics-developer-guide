@@ -1,7 +1,7 @@
 # Example: Adding Reference Data to a Kinesis Data Analytics Application<a name="app-add-reference-data"></a>
 
 In this exercise, you add reference data to an existing Amazon Kinesis data analytics application\. For information about reference data, see the following topics:
-+ [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)
++ [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)
 + [Configuring Application Input](how-it-works-input.md)
 
 In this exercise, you add reference data to the application you created in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\. The reference data provides the company name for each ticker symbol; for example:

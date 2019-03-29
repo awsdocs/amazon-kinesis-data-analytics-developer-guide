@@ -4,16 +4,16 @@ Instead of grouping records using `GROUP BY`, you can define a time\-based or ro
 
 In this case, as the window slides with time, Amazon Kinesis Data Analytics emits an output when new records appear on the stream\. Kinesis Data Analytics emits this output by processing rows in the window\. Windows can overlap in this type of processing, and a record can be part of multiple windows and be processed with each window\. The following example illustrates a sliding window\.
 
-Consider a simple query that counts records on the stream\. We assume a 5\-second window\. In the following example stream, new records arrive at time t1, t2, t6, and t7, and three records arrive at time t8 seconds\.
+Consider a simple query that counts records on the stream\. This example assumes a 5\-second window\. In the following example stream, new records arrive at time t1, t2, t6, and t7, and three records arrive at time t8 seconds\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/sliding-10.png)
 
 Keep the following in mind:
-+ We assume a 5\-second window\. The 5\-second window slides continuously with time\. 
++ The example assumes a 5\-second window\. The 5\-second window slides continuously with time\. 
 + For every row that enters a window, an output row is emitted by the sliding window\. Soon after the application starts, you see the query emit output for every new record that appears on the stream, even though a 5\-second window hasn't passed yet\. For example, the query emits output when a record appears in the first second and second second\. Later, the query processes records in the 5\-second window\.
 + The windows slide with time\. If an old record on the stream falls out of the window, the query doesn't emit output unless there is also a new record on the stream that falls within that 5\-second window\.
 
-Suppose the query starts executing at t0\. If so, the following occurs:
+Suppose that the query starts executing at t0\. Then the following occurs:
 
 1. At the time t0, the query starts\. The query doesn't emit output \(count value\) because there are no records at this time\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/sliding-t0.png)
@@ -44,11 +44,11 @@ Suppose the query starts executing at t0\. If so, the following occurs:
 In summary, the window is a fixed size and slides with time\. The query emits output when new records appear\. 
 
 **Note**  
-We recommend that you use a sliding window no longer than one hour\. If you use a longer window, the application takes longer to restart after regular system maintenance, because the source data needs to be read from the stream again\.
+We recommend that you use a sliding window no longer than one hour\. If you use a longer window, the application takes longer to restart after regular system maintenance\. This is because the source data must be read from the stream again\.
 
-The following are example queries that use the `WINDOW` clause to define windows and perform aggregates\. Because the queries don't specify `GROUP BY`, the query uses the sliding window approach to process records on the stream\. 
+The following example queries use the `WINDOW` clause to define windows and perform aggregates\. Because the queries don't specify `GROUP BY`, the query uses the sliding window approach to process records on the stream\. 
 
-## Example 1: Process a Stream Using a 1\-minute Sliding Window<a name="sliding-ex1"></a>
+## Example 1: Process a Stream Using a 1\-Minute Sliding Window<a name="sliding-ex1"></a>
 
 Consider the demo stream in the Getting Started exercise that populates the in\-application stream, `SOURCE_SQL_STREAM_001`\. The following is the schema\.
 

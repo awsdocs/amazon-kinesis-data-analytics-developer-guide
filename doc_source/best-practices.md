@@ -4,6 +4,7 @@ This section describes best practices when working with Amazon Kinesis Data Anal
 
 **Topics**
 + [Managing Applications](#bp-manage-apps)
++ [Scaling Applications](#bp-scale-apps)
 + [Defining Input Schema](#bp-define-inputschema)
 + [Connecting to Outputs](#bp-connect-to-outputs)
 + [Authoring Application Code](#bp-authoring-sqlcode)
@@ -33,6 +34,12 @@ In this case, *application* refers to any application that can read from the str
 + Limit the number of production applications reading from the same Kinesis Data Firehose delivery stream to one application\.
 
   A Kinesis Data Firehose delivery stream can write to destinations such as Amazon S3 and Amazon Redshift\. It can also be a streaming source for your Kinesis Data Analytics application\. Therefore, we recommend that you do not configure more than one Kinesis Data Analytics application per Kinesis Data Firehose delivery stream\. This helps ensure that the delivery stream can also deliver to other destinations\.
+
+## Scaling Applications<a name="bp-scale-apps"></a>
+
+Set up your application for your future scaling needs by proactively increasing the number of input in\-application streams from the default \(one\)\. We recommend the following language choices based on the throughput of your application: 
++ Use multiple streams and Kinesis Data Analytics for SQL applications if your application has scaling needs beyond 100 MB/second\.
++ Use [Kinesis Data Analytics for Java Applications](/kinesisanalytics/latest/java/what-is.html) if you want to use a single stream and application\.
 
 ## Defining Input Schema<a name="bp-define-inputschema"></a>
 
@@ -98,4 +105,4 @@ When changing an application's input stream schema, use your test application to
 
 ### Testing Code Changes<a name="bp-testing-code"></a>
 
-Testing changes to your SQL code requires some domain knowledge of your application\. You must be able to determine what output needs to be tested and what the correct output should be\. For potential problem areas to verify when modifying your application's SQL code, see [Troubleshooting Amazon Kinesis Data Analytics](troubleshooting.md)\.
+Testing changes to your SQL code requires some domain knowledge of your application\. You must be able to determine what output needs to be tested and what the correct output should be\. For potential problem areas to verify when modifying your application's SQL code, see [Troubleshooting Amazon Kinesis Data Analytics for SQL Applications](troubleshooting.md)\.

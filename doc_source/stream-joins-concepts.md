@@ -1,6 +1,6 @@
 # Streaming Data Operations: Stream Joins<a name="stream-joins-concepts"></a>
 
-You can have multiple in\-application streams in your application\. You can write `JOIN` queries to correlate data arriving on these streams\. For example, suppose you have the following in\-application streams:
+You can have multiple in\-application streams in your application\. You can write `JOIN` queries to correlate data arriving on these streams\. For example, suppose that you have the following in\-application streams:
 + **OrderStream** – Receives stock orders being placed\.
 
   ```
@@ -44,7 +44,7 @@ WINDOW t AS
 
 When you include this query in your application code, the application code runs continuously\. For each arriving record on the `OrderStream`, the application emits an output if there are trades within the 1\-minute window following the order being placed\. 
 
-The join in the preceding query is an inner join where the query emits records in `OrderStream` for which there is a matching record in `TradeStream` \(and vice versa\)\. Using an outer join you can create another interesting scenario\. Suppose you want stock orders for which there are no trades within one minute of stock order being placed, and trades reported within the same window but for some other orders\. This is example of an *outer join*\. 
+The join in the preceding query is an inner join where the query emits records in `OrderStream` for which there is a matching record in `TradeStream` \(and vice versa\)\. Using an outer join you can create another interesting scenario\. Suppose that you want stock orders for which there are no trades within one minute of stock order being placed, and trades reported within the same window but for some other orders\. This is example of an *outer join*\. 
 
 ```
 SELECT STREAM

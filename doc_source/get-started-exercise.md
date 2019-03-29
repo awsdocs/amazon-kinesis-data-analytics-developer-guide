@@ -1,9 +1,9 @@
 # Step 3: Create Your Starter Amazon Kinesis Data Analytics Application<a name="get-started-exercise"></a>
 
-By following the steps in this section, you can create your first Amazon Kinesis data analytics application using the console\. 
+By following the steps in this section, you can create your first Kinesis Data Analytics application using the console\. 
 
 **Note**  
-We suggest that you review [Amazon Kinesis Data Analytics: How It Works](how-it-works.md) before trying the Getting Started exercise\.
+We suggest that you review [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md) before trying the Getting Started exercise\.
 
 For this Getting Started exercise, you can use the console to work with either the demo stream or templates with application code\.
 + If you choose to use the demo stream, the console creates a Kinesis data stream in your account that is called `kinesis-analytics-demo-stream`\.

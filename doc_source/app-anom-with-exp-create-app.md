@@ -1,6 +1,6 @@
 # Step 2: Create an Analytics Application<a name="app-anom-with-exp-create-app"></a>
 
-In this section, you create an Amazon Kinesis data analytics application and configure it to use the Kinesis data stream that you created as the streaming source in [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md)\. You then run application code that uses the `RANDOM_CUT_FOREST_WITH_EXPLANATION` function\.
+In this section, you create an Amazon Kinesis Data Analytics application and configure it to use the Kinesis data stream that you created as the streaming source in [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md)\. You then run application code that uses the `RANDOM_CUT_FOREST_WITH_EXPLANATION` function\.
 
 **To create an application**
 

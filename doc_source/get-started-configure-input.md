@@ -4,8 +4,8 @@ Your application needs a streaming source\. To help you get started, the console
 
 **To add a streaming source to your application**
 
-1. On the application hub page in the console, choose **Connect to a source**\.  
-![\[Screenshot of the example app and the connect to a source button.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-20.png)
+1. On the application hub page in the console, choose **Connect streaming data**\.  
+![\[Screenshot of the example app and the connect to a sourceGS button.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-20.png)
 
 1. On the page that appears, review the following:
    + **Source** section, where you specify a streaming source for your application\. You can select an existing stream source or create one\. In this exercise, you create a new stream, the demo stream\. 
@@ -35,7 +35,7 @@ Your application needs a streaming source\. To help you get started, the console
    + The console shows the inferred schema and the sample data it read from the streaming source to infer the schema\.
 
    The console displays the sample records on the streaming source\.  
-![\[Formatted stream sample tab showing stock symbols, sectors, and prices in tablular format.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-30.png)
+![\[Formatted stream sample tab showing stock symbols, sectors, and prices in tabular format.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-30.png)
 
    The following appear on the **Stream sample** console page:
    + The **Raw stream sample** tab shows the raw stream records sampled by the [DiscoverInputSchema](API_DiscoverInputSchema.md) API action to infer the schema\.

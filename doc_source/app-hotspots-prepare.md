@@ -60,6 +60,7 @@ In this step, you run Python code to continuously generate sample records and wr
 Do not upload this file to a web server because it contains your AWS credentials\.
 
    ```
+    
    import boto3
    import json
    import time
@@ -126,17 +127,15 @@ Do not upload this file to a web server because it contains your AWS credentials
    
    
    def main():
-       kinesis = boto3.client("kinesis",
-                              region_name=awsRegion,
-                              aws_access_key_id=accessKeyId,
-                              aws_secret_access_key=secretAccessKey)
+       kinesis = boto3.client('kinesis')
    
        generator = RecordGenerator()
        batch_size = 10
    
        while True:
            records = generator.get_records(batch_size)
-           kinesis.put_records(StreamName=inputStream, Records=records, PartitionKey="partitionkey")
+           print(records)
+           kinesis.put_records(StreamName="ExampleInputStream", Records=records)
    
            time.sleep(0.1)
    

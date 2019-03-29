@@ -32,7 +32,7 @@ Amazon Kinesis Data Analytics provides a set of operations to work with Amazon K
 ## Understanding Resource Ownership<a name="access-control-resource-ownership"></a>
 
 The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
-+ If you use the root account credentials of your AWS account to create an application, your AWS account is the owner of the resource \(in Amazon Kinesis Data Analytics, the resource is an application\)\.
++ If you use the root account credentials of your AWS account to create an application, your AWS account is the owner of the resource\. \(In Amazon Kinesis Data Analytics, the resource is an application\.\)
 + If you create an IAM user in your AWS account and grant permissions to create an application to that user, the user can create an application\. However, your AWS account, to which the user belongs, owns the application resource\.
 + If you create an IAM role in your AWS account with permissions to create an application, anyone who can assume the role can create an application\. Your AWS account, to which the user belongs, owns the application resource\. 
 
@@ -41,9 +41,9 @@ The AWS account owns the resources that are created in the account, regardless o
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
 **Note**  
-This section discusses using IAM in the context of Amazon Kinesis Data Analytics\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+This section discusses using IAM in the context of Amazon Kinesis Data Analytics\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
-Policies attached to an IAM identity are referred to as *identity\-based* policies \(IAM polices\) and policies attached to a resource are referred to as *resource\-based* policies\. Amazon Kinesis Data Analytics supports only identity\-based policies \(IAM policies\)\. 
+Policies that are attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies that are attached to a resource are referred to as *resource\-based* policies\. Amazon Kinesis Data Analytics supports only identity\-based policies \(IAM policies\)\. 
 
 **Topics**
 + [Identity\-Based Policies \(IAM Policies\)](#manage-access-iam-policies)
@@ -64,8 +64,6 @@ You can attach policies to IAM identities\. For example, you can do the followin
   For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
 The following is an example policy that grants permission for the `kinesisanalytics:CreateApplication `action, which is required to create an Amazon Kinesis Data Analytics application\.
-
-Note that:
 
 **Note**  
 This is an introductory example policy\. When you attach the policy to the user, the user will be able to create an application using the AWS CLI or AWS SDK\. But the user will need more permissions to configure input and output\. In addition, the user will need more permissions when using the console\. The later sections provide more information\.
@@ -104,7 +102,7 @@ The following are the most basic policy elements:
 + **Effect** – You specify the effect, either allow or deny, when the user requests the specific action\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource, which you might do to make sure that a user cannot access it, even if a different policy grants access\.
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. Amazon Kinesis Data Analytics doesn't support resource\-based policies\.
 
-To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table showing all of the Amazon Kinesis Data Analytics API operations and the resources that they apply to, see [Amazon Kinesis Data Analytics API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md)\.
 

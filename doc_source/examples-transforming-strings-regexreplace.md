@@ -36,6 +36,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 1. Run the following Python code to populate the sample log records\. This simple code continuously writes the same log record to the stream\.
 
    ```
+    
    import json
    import boto3
    import random
@@ -50,7 +51,7 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
            data = json.dumps(getReferrer())
            print(data)
            kinesis.put_record(
-                   StreamName="teststreamforkinesisanalyticsapps",
+                   StreamName="ExampleInputStream",
                    Data=data,
                    PartitionKey="partitionkey")
    ```

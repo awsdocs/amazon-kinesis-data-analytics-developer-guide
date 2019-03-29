@@ -1,20 +1,26 @@
 # Parallelizing Input Streams for Increased Throughput<a name="input-parallelism"></a>
 
-Amazon Kinesis Data Analytics applications can support multiple in\-application input streams, to scale an application beyond the throughput of a single in\-application input stream\. For more information on in\-application input streams, see [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)\.
+Amazon Kinesis Data Analytics applications can support multiple in\-application input streams, to scale an application beyond the throughput of a single in\-application input stream\. For more information on in\-application input streams, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\.
 
-In almost all cases, Amazon Kinesis Data Analytics scales your application to handle the capacity of the Amazon Kinesis streams or Amazon Kinesis Data Firehose source streams that feed into your application\. However, if your source stream's throughput exceeds the throughput of a single in\-application input stream, you can explicitly increase the number of in\-application input streams that your application uses\. You do so with the `InputParallelism` parameter\.
+In almost all cases, Amazon Kinesis Data Analytics scales your application to handle the capacity of the Kinesis streams or Kinesis Data Firehose source streams that feed into your application\. However, if your source stream's throughput exceeds the throughput of a single in\-application input stream, you can explicitly increase the number of in\-application input streams that your application uses\. You do so with the `InputParallelism` parameter\.
 
-When the `InputParallelism` parameter is greater than one, Amazon Kinesis Data Analytics evenly splits the partitions of your source stream among the in\-application streams\. For instance, if your source stream has 50 shards, and you have set `InputParallelism` to `2`, each in\-application input stream receives the input from 25 source stream shards\. 
+When the `InputParallelism` parameter is greater than one, Amazon Kinesis Data Analytics evenly splits the partitions of your source stream among the in\-application streams\. For instance, if your source stream has 50 shards, and you set `InputParallelism` to `2`, each in\-application input stream receives the input from 25 source stream shards\. 
 
-When you increase the number of in\-application streams, your application must access the data in each stream explicitly\. For information on accessing multiple in\-application streams in your code, see [Accessing Separate In\-Application Streams in Your Amazon Kinesis Data Analytics Application](#input-parallelism-code-example)\.
+When you increase the number of in\-application streams, your application must access the data in each stream explicitly\. For information about accessing multiple in\-application streams in your code, see [Accessing Separate In\-Application Streams in Your Amazon Kinesis Data Analytics Application](#input-parallelism-code-example)\.
 
-Although Kinesis Data Analytics and Kinesis Data Firehose stream shards are both divided among in\-application streams in the same way, they differ in the way they appear to your application:
-+ The records from a Kinesis Data Analytics stream include a `shard_id` field that can be used to identify the source shard for the record\.
-+ The records from a Kinesis Data Firehose stream don't include a field that identifies the record's source shard or partition, because Kinesis Data Firehose abstracts this information away from your application\.
+Although Kinesis Data Streams and Kinesis Data Firehose stream shards are both divided among in\-application streams in the same way, they differ in the way they appear to your application:
++ The records from a Kinesis data stream include a `shard_id` field that can be used to identify the source shard for the record\.
++ The records from a Kinesis Data Firehose delivery stream don't include a field that identifies the record's source shard or partition\. This is because Kinesis Data Firehose abstracts this information away from your application\.
 
 ## Evaluating Whether to Increase Your Number of In\-Application Input Streams<a name="input-parallelism-evaluating"></a>
 
-In most cases, a single in\-application input stream can handle the throughput of a single source stream, depending on the complexity and data size of the input streams\. To determine if you need to increase the number of in\-application input streams, you can monitor the `MillisBehindLatest` metric in Amazon CloudWatch\. If the `MillisBehindLatest` metric has either of the following characteristics, you should increase your application's `InputParallelism` setting:
+In most cases, a single in\-application input stream can handle the throughput of a single source stream, depending on the complexity and data size of the input streams\. To determine if you need to increase the number of in\-application input streams, you can monitor the `InputBytes` and `MillisBehindLatest` metrics in Amazon CloudWatch\. 
+
+If the `InputBytes` metric is greater that 100 MB/sec \(or you anticipate that it will be greater than this rate\), this can cause an increase in `MillisBehindLatest` and increase the impact of application issues\. To address this, we recommend making the following language choices for your application:
++ Use multiple streams and Kinesis Data Analytics for SQL applications if your application has scaling needs beyond 100 MB/second\.
++ Use [Kinesis Data Analytics for Java Applications](/kinesisanalytics/latest/java/what-is.html) if you want to use a single stream and application\.
+
+If the `MillisBehindLatest` metric has either of the following characteristics, you should increase your application's `InputParallelism` setting:
 + The `MillisBehindLatest` metric is gradually increasing, indicating that your application is falling behind the latest data in the stream\.
 + The `MillisBehindLatest` metric is consistently above 1000 \(one second\)\.
 
@@ -29,13 +35,13 @@ For more information on using CloudWatch, see the [CloudWatch User Guide](http:/
 You can set the number of in\-application input streams when an application is created using [CreateApplication](API_CreateApplication.md)\. You set this number after an application is created using [UpdateApplication](API_UpdateApplication.md)\. 
 
 **Note**  
-You can only set the `InputParallelism` setting using the Amazon Kinesis Data Analytics API or the AWS CLI\. You cannot set this setting using the AWS Management Console\. For information on setting up the CLI, see [Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)\.
+You can only set the `InputParallelism` setting using the Amazon Kinesis Data Analytics API or the AWS CLI\. You cannot set this setting using the AWS Management Console\. For information on setting up the AWS CLI, see [Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)\.
 
 ### Setting a New Application's Input Stream Count<a name="input-parallelism-implementing-create"></a>
 
 The following example demonstrates how to use the `CreateApplication` API action to set a new application's input stream count to 2\. 
 
-For more information on `CreateApplication`, see [CreateApplication](API_CreateApplication.md)\.
+For more information about `CreateApplication`, see [CreateApplication](API_CreateApplication.md)\.
 
 ```
 {
@@ -57,7 +63,7 @@ For more information on `CreateApplication`, see [CreateApplication](API_CreateA
 
 The following example demonstrates how to use the `UpdateApplication` API action to set an existing application's input stream count to 2\.
 
-For more information on `Update_Application`, see [UpdateApplication](API_UpdateApplication.md)\.
+For more information about `Update_Application`, see [UpdateApplication](API_UpdateApplication.md)\.
 
 ```
 {
@@ -79,7 +85,7 @@ To use multiple in\-application input streams in your application, you must expl
 In the following example, each source stream is first aggregated using [COUNT](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-count.html) before being combined into a single in\-application stream called `in_application_stream001`\. Aggregating the source streams beforehand helps make sure that the combined in\-application stream can handle the traffic from multiple streams without being overloaded\. 
 
 **Note**  
-To run this example and get results from both in\-application input streams, you need to update both the number of shards in your source stream and the `InputParallelism` parameter in your application\.
+To run this example and get results from both in\-application input streams, update both the number of shards in your source stream and the `InputParallelism` parameter in your application\.
 
 ```
 CREATE OR REPLACE STREAM in_application_stream_001 (

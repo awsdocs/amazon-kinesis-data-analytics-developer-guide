@@ -1,6 +1,6 @@
 # Step 1: Prepare<a name="app-anomaly-prepare"></a>
 
-Before you create an Amazon Kinesis data analytics application for this exercise, you must create two Kinesis data streams\. Configure one of the streams as the streaming source for your application, and the other stream as the destination where Kinesis Data Analytics persists your application output\. 
+Before you create an Amazon Kinesis Data Analytics application for this exercise, you must create two Kinesis data streams\. Configure one of the streams as the streaming source for your application, and the other stream as the destination where Kinesis Data Analytics persists your application output\. 
 
 **Topics**
 + [Step 1\.1: Create the Input and Output Data Streams](#app-anomaly-create-two-streams)
@@ -9,14 +9,18 @@ Before you create an Amazon Kinesis data analytics application for this exercise
 ## Step 1\.1: Create the Input and Output Data Streams<a name="app-anomaly-create-two-streams"></a>
 
 In this section, you create two Kinesis streams: `ExampleInputStream` and `ExampleOutputStream`\. You can create these streams using the AWS Management Console or the AWS CLI\.
-+ To use the console:
++ 
+
+**To use the console**
 
   1. Sign in to the AWS Management Console and open the Kinesis console at [https://console\.aws\.amazon\.com/kinesis](https://console.aws.amazon.com/kinesis)\.
 
   1. Choose **Create data stream**\. Create a stream with one shard named `ExampleInputStream`\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
   1. Repeat the previous step, creating a stream with one shard named `ExampleOutputStream`\.
-+ To use the AWS CLI:
++ 
+
+**To use the AWS CLI**
 
   1. Use the following Kinesis `create-stream` AWS CLI command to create the first stream \(`ExampleInputStream`\)\.
 
@@ -28,7 +32,7 @@ In this section, you create two Kinesis streams: `ExampleInputStream` and `Examp
      --profile adminuser
      ```
 
-  1. Run the same command, changing the stream name to `ExampleOutputStream`\. This command creates the second stream that the application will use to write output\.
+  1. Run the same command, changing the stream name to `ExampleOutputStream`\. This command creates the second stream that the application uses to write output\.
 
 ## Step 1\.2: Write Sample Records to the Input Stream<a name="app-anomaly-write-sample-records-inputstream"></a>
 
@@ -49,11 +53,13 @@ In this step, you run Python code to continuously generate sample records and wr
 1. Run the following Python code\. The `put-record` command in the code writes the JSON records to the stream\.
 
    ```
+    
    import json
-   from boto import kinesis
+   import boto3
    import random
    
-   kinesis = kinesis.connect_to_region("us-east-1")
+   kinesis = boto3.client('kinesis')
+   
    # generate normal heart rate with probability .99
    def getNormalHeartRate():
        data = {}
@@ -71,12 +77,18 @@ In this step, you run Python code to continuously generate sample records and wr
        rnd = random.random()
        if (rnd < 0.01):
            data = json.dumps(getHighHeartRate())
-           print data
-           kinesis.put_record("ExampleInputStream", data, "partitionkey")
+           print(data)
+           kinesis.put_record(
+                   StreamName="ExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
        else:
            data = json.dumps(getNormalHeartRate())
-           print data
-           kinesis.put_record("ExampleInputStream", data, "partitionkey")
+           print(data)
+           kinesis.put_record(
+                   StreamName="ExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
 
 **Next Step**  

@@ -54,7 +54,7 @@ In this step, you explore how to update the application code\.
 
    Save and run the code\. Notice additional in\-application streams on the **Real\-time analytics** tab\.
 
-You now have your first working Amazon Kinesis data analytics application\. In this exercise, you did the following: 
+You now have your first working Amazon Kinesis Data Analytics application\. In this exercise, you did the following: 
 + Created your first Kinesis data analytics application\.
 
    

@@ -1,7 +1,7 @@
-# Amazon Kinesis Data Analytics Developer Guide
+# Amazon Kinesis Data Analytics for SQL Applications Developer Guide SQL Developer Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -14,8 +14,8 @@ Amazon's trademarks and trade dress may not be used in
 
 -----
 ## Contents
-+ [What Is Amazon Kinesis Data Analytics?](what-is.md)
-+ [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)
++ [What Is Amazon Kinesis Data Analytics for SQL Applications?](what-is.md)
++ [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)
    + [Configuring Application Input](how-it-works-input.md)
       + [Working with JSONPath](about-json-path.md)
       + [Mapping Streaming Source Elements to SQL Input Columns](sch-mapping.md)
@@ -32,7 +32,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Error Handling](error-handling.md)
    + [Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources (Creating an IAM Role)](iam-role.md)
    + [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)
-+ [Getting Started with Amazon Kinesis Data Analytics](getting-started.md)
++ [Getting Started with Amazon Kinesis Data Analytics for SQL Applications](getting-started.md)
    + [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up.md)
    + [Step 2: Set Up the AWS Command Line Interface (AWS CLI)](setup-awscli.md)
    + [Step 3: Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md)
@@ -67,7 +67,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Examples: Windows and Aggregation](examples-window.md)
       + [Example: Stagger Window](examples-window-stagger.md)
       + [Example: Tumbling Window Using ROWTIME](examples-window-tumbling-rowtime.md)
-      + [Example: Tumbling Window Using an Event Time Stamp](examples-window-tumbling-event.md)
+      + [Example: Tumbling Window Using an Event Timestamp](examples-window-tumbling-event.md)
       + [Example: Retrieving the Most Frequently Occurring Values (TOP_K_ITEMS_TUMBLING)](examples-window-topkitems.md)
       + [Example: Aggregating Partial Results from a Query](examples-window-partialresults.md)
    + [Examples: Joins](examples-joins.md)
@@ -92,17 +92,18 @@ Amazon's trademarks and trade dress may not be used in
       + [Example: Creating Throttled Alerts](app-throttled-alerts.md)
       + [Example: Exploring the In-Application Error Stream](app-explore-error-stream.md)
    + [Examples: Solution Accelerators](examples_solution.md)
-+ [Monitoring Amazon Kinesis Data Analytics](monitoring-overview.md)
++ [Monitoring Amazon Kinesis Data Analytics for SQL Applications](monitoring-overview.md)
    + [Monitoring Tools](monitoring-automated-manual.md)
    + [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md)
       + [Kinesis Data Analytics Metrics and Dimensions](monitoring-metrics.md)
       + [Viewing Amazon Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)
       + [Creating CloudWatch Alarms to Monitor Amazon Kinesis Data Analytics](creating-alarms.md)
       + [Working with Amazon CloudWatch Logs](cloudwatch-logs.md)
+   + [Logging Kinesis Data Analytics API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Limits](limits.md)
 + [Best Practices](best-practices.md)
-+ [Troubleshooting Amazon Kinesis Data Analytics](troubleshooting.md)
-+ [Authentication and Access Control for Amazon Kinesis Data Analytics](authentication-and-access-control.md)
++ [Troubleshooting Amazon Kinesis Data Analytics for SQL Applications](troubleshooting.md)
++ [Authentication and Access Control for Amazon Kinesis Data Analytics for SQL Applications](authentication-and-access-control.md)
    + [Overview of Managing Access Permissions to Your Amazon Kinesis Data Analytics Resources](access-control-overview.md)
    + [Using Identity-Based Policies (IAM Policies) for Amazon Kinesis Data Analytics](using-identity-based-policies.md)
    + [Amazon Kinesis Data Analytics API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md)

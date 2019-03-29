@@ -1,6 +1,6 @@
-# Example: Tumbling Window Using an Event Time Stamp<a name="examples-window-tumbling-event"></a>
+# Example: Tumbling Window Using an Event Timestamp<a name="examples-window-tumbling-event"></a>
 
-When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. For details, see [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)\. This Amazon Kinesis Data Analytics example demonstrates a tumbling window that uses an event time stamp, which is a user\-created time stamp that is included in the streaming data\. It uses this approach rather than just using ROWTIME, which is a time stamp that Kinesis Data Analytics creates when the application receives the record\. You would use an event time stamp in the streaming data if you want to create an aggregation based on when an event occured, rather than when it was received by the application\. In this example, the ROWTIME value triggers the aggregation every minute, and the records are aggregated by both ROWTIME and the included event time\. 
+When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. For details, see [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)\. This Amazon Kinesis Data Analytics example demonstrates a tumbling window that uses an event timestamp, which is a user\-created timestamp that is included in the streaming data\. It uses this approach rather than just using ROWTIME, which is a timestamp that Kinesis Data Analytics creates when the application receives the record\. You would use an event timestamp in the streaming data if you want to create an aggregation based on when an event occurred, rather than when it was received by the application\. In this example, the `ROWTIME` value triggers the aggregation every minute, and the records are aggregated by both `ROWTIME` and the included event time\. 
 
 In this example, you write the following records to an Amazon Kinesis stream\. The `EVENT_TIME` value is set to 5 seconds in the past, to simulate processing and transmission lag that might create a delay from when the event occurred, to when the record is ingested into Kinesis Data Analytics\.
 
@@ -36,18 +36,19 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
-1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Leave the script running so that you can generate the application schema in a later step\.
+1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Keep the script running so that you can generate the application schema in a later step\.
 
    ```
+    
    import json
    import boto3
    import random
    import datetime
    
    kinesis = boto3.client('kinesis')
-   def getTicker():
+   def getReferrer():
        data = {}
-       now = datetime.datetime.utcnow() - datetime.timedelta(0, 5)
+       now = datetime.datetime.now()
        str_now = now.isoformat()
        data['EVENT_TIME'] = str_now
        data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
@@ -56,10 +57,10 @@ Create an Amazon Kinesis data stream and populate the records as follows:
        return data
    
    while True:
-           data = json.dumps(getTicker())
+           data = json.dumps(getReferrer())
            print(data)
            kinesis.put_record(
-                   StreamName="teststreamforkinesisanalyticsapps",
+                   StreamName="ExampleInputStream",
                    Data=data,
                    PartitionKey="partitionkey")
    ```
@@ -70,7 +71,7 @@ Create a Kinesis Data Analytics application as follows:
 
 1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
 
-1. Choose **Create application**, type an application name, and choose **Create application**\.
+1. Choose **Create application**, enter an application name, and choose **Create application**\.
 
 1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 

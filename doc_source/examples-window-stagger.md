@@ -1,8 +1,8 @@
 # Example: Stagger Window<a name="examples-window-stagger"></a>
 
-When a windowed query processes separate windows for each unique partition key, starting when data with the matching key arrives, the window is referred to as a *stagger window*\. For details, see [Stagger Windows](stagger-window-concepts.md)\. This Amazon Kinesis Data Analytics example uses the EVENT\_TIME and TICKER columns to create stagger windows\. The source stream contains groups of six records with identical EVENT\_TIME and TICKER values that arrive within in a one\-minute period, but not necessarily with the same minute value \(e\.g\. 18:41:xx\)\.
+When a windowed query processes separate windows for each unique partition key, starting when data with the matching key arrives, the window is referred to as a *stagger window*\. For details, see [Stagger Windows](stagger-window-concepts.md)\. This Amazon Kinesis Data Analytics example uses the EVENT\_TIME and TICKER columns to create stagger windows\. The source stream contains groups of six records with identical EVENT\_TIME and TICKER values that arrive within in a one\-minute period, but not necessarily with the same minute value \(for example, `18:41:xx`\)\.
 
-In this example, you write the following records to a Kinesis data stream at the following times \(the script does not write the times to the stream, but the time that the record is ingested by the application will be written to the ROWTIME field\):
+In this example, you write the following records to a Kinesis data stream at the following times\. The script does not write the times to the stream, but the time that the record is ingested by the application is written to the `ROWTIME` field:
 
 ```
 {"EVENT_TIME": "2018-08-01T20:17:20.797945", "TICKER": "AMZN"}   20:17:30
@@ -44,9 +44,10 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
-1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a group of six records with the same random EVENT\_TIME and ticker symbol to the stream, over the course of one minute\. Leave the script running so that you can generate the application schema in a later step\.
+1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Producer Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a group of six records with the same random `EVENT_TIME` and ticker symbol to the stream, over the course of one minute\. Keep the script running so that you can generate the application schema in a later step\.
 
    ```
+    
    import json
    import boto3
    import random
@@ -68,7 +69,7 @@ Create an Amazon Kinesis data stream and populate the records as follows:
        for x in range(0, 6):
            print(data)
            kinesis.put_record(
-                   StreamName="teststreamforkinesisanalyticsapps",
+                   StreamName="ExampleInputStream",
                    Data=data,
                    PartitionKey="partitionkey")
            time.sleep(10)

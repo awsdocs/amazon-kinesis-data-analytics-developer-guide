@@ -33,12 +33,13 @@ Run the following Python script to populate sample records on the `OrdersAndTrad
 1. Run the following Python code\. The `put-record` command in the code writes the JSON records to the stream\.
 
    ```
-   import testdata
+    
+   
    import json
-   from boto import kinesis
+   import boto3
    import random
    
-   kinesis = kinesis.connect_to_region("us-east-1")
+   kinesis = boto3.client('kinesis')
    
    def getOrderData(orderId, ticker):
        data = {}
@@ -69,15 +70,15 @@ Run the following Python script to populate sample records on the `OrdersAndTrad
        else:
            ticker = "CCCC"
        data = json.dumps(getOrderData(x, ticker))
-       kinesis.put_record("OrdersAndTradesStream", data, "partitionkey")
-       print data
+       kinesis.put_record(StreamName="OrdersAndTradesStream", Data=data, PartitionKey="partitionkey")
+       print(data)
        tId = 1
        for y in range (0, random.randint(0,6)):
            tradeId = tId
            tradePrice = random.randint(0, 3000)
            data2 = json.dumps(getTradeData(x, tradeId, ticker, tradePrice));
-           kinesis.put_record("OrdersAndTradesStream", data2, "partitionkey")
-           print data2
+           kinesis.put_record(StreamName="OrdersAndTradesStream", Data=data2, PartitionKey="partitionkey")
+           print(data2)
            tId+=1
            
        x+=1

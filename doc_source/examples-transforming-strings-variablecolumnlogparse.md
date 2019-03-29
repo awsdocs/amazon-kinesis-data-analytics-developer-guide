@@ -40,11 +40,13 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
 1. Run the following Python code to populate the sample log records\. This simple code continuously writes the same log record to the stream\.
 
    ```
+    
    import json
-   from boto import kinesis
+   import boto3
    import random
    
-   kinesis = kinesis.connect_to_region("us-east-1")
+   kinesis = boto3.client('kinesis')
+   
    def getHighHeartRate():
        data = {}
        data['Col_A'] = 'a'
@@ -55,8 +57,11 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
    
    while True:
            data = json.dumps(getHighHeartRate())
-           print data
-           kinesis.put_record("teststreamforkinesisanalyticsapps", data, "partitionkey")
+           print(data)
+           kinesis.put_record(
+                   StreamName="ExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-variablecolumnlogparse-2"></a>

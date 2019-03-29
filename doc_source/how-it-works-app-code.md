@@ -1,6 +1,6 @@
 # Application Code<a name="how-it-works-app-code"></a>
 
-Application code is a series of SQL statements that process input and produce output\. These SQL statements operate on in\-application streams and reference tables\. For more information, see [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)\. 
+Application code is a series of SQL statements that process input and produce output\. These SQL statements operate on in\-application streams and reference tables\. For more information, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\. 
 
 For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
 

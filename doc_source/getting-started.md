@@ -1,6 +1,6 @@
-# Getting Started with Amazon Kinesis Data Analytics<a name="getting-started"></a>
+# Getting Started with Amazon Kinesis Data Analytics for SQL Applications<a name="getting-started"></a>
 
-Following, you can find topics to help get you started using Amazon Kinesis Data Analytics\. If you are new to Kinesis Data Analytics, we recommend that you review the concepts and terminology presented in [Amazon Kinesis Data Analytics: How It Works](how-it-works.md) before performing the steps in the Getting Started section\.
+Following, you can find topics to help get you started using Amazon Kinesis Data Analytics for SQL Applications\. If you are new to Kinesis Data Analytics for SQL Applications, we recommend that you review the concepts and terminology presented in [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md) before performing the steps in the Getting Started section\.
 
 **Topics**
 + [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up.md)

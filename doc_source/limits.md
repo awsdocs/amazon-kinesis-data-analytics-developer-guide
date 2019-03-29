@@ -1,6 +1,6 @@
 # Limits<a name="limits"></a>
 
-When working with Amazon Kinesis Data Analytics, note the following limits:
+When working with Amazon Kinesis Data Analytics for SQL Applications, note the following limits:
 + The size of a row in an in\-application stream is limited to 512 KB\. Kinesis Data Analytics uses up to 1 KB to store metadata\. This metadata counts against the row limit\. 
 
    
@@ -13,7 +13,9 @@ When working with Amazon Kinesis Data Analytics, note the following limits:
 + You can create up to 50 Kinesis Data Analytics applications per AWS Region in your account\. You can create a case to request additional applications via the service limit increase form\. For more information, see the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\.
 
    
-+ The maximum amount of source parallelism is 64\. That is, in your application input configuration, you can request the mapping of a streaming source to up to 64 in\-application streams\.
++ The maximum streaming throughput a single Kinesis Data Analytics for SQL application can process is approximately 100 MB/sec\. This assumes that you have increased the number of in\-application streams to the maximum value of 64, and you have increased your KPU limit beyond 8 \(see the following limit for details\)\. If your application needs to process more than 100 MB/sec of input, do one of the following:
+  + Use multiple Kinesis Data Analytics for SQL applications to process input
+  + Use [Kinesis Data Analytics for Java Applications](/kinesisanalytics/latest/java/what-is.html) if you want to continue to use a single stream and application\.
 
    
 + The number of Kinesis processing units \(KPU\) is limited to eight\. For instructions on how to request an increase to this limit, see **To request a limit increase** in [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.

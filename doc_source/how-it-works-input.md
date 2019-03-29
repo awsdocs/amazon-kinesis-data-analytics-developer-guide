@@ -1,6 +1,6 @@
 # Configuring Application Input<a name="how-it-works-input"></a>
 
-Your Amazon Kinesis Data Analytics application can receive input from a single streaming source and, optionally, use one reference data source\. For more information, see [Amazon Kinesis Data Analytics: How It Works](how-it-works.md)\. The sections in this topic describe the application input sources\.
+Your Amazon Kinesis Data Analytics application can receive input from a single streaming source and, optionally, use one reference data source\. For more information, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\. The sections in this topic describe the application input sources\.
 
 **Topics**
 + [Configuring a Streaming Source](#source-streaming)

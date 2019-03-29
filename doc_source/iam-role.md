@@ -49,7 +49,8 @@ If you are creating an IAM role to allow Amazon Kinesis Data Analytics to read f
             "Action": [
                 "kinesis:DescribeStream",
                 "kinesis:GetShardIterator",
-                "kinesis:GetRecords"
+                "kinesis:GetRecords",
+                "kinesis:ListShards"
             ],
             "Resource": [
                 "arn:aws:kinesis:aws-region:aws-account-id:stream/inputStreamName"

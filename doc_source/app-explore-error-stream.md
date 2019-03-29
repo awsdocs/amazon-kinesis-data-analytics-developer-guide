@@ -16,7 +16,7 @@ In this exercise, you introduce a parse error\.
 
 1. On the application details page, choose **Connect streaming data**\.
 
-1. If you followed the Getting Started exercise, you have a demo stream \(`kinesis-anlaytics-demo-stream`\) in your account\. On the **Connect to source** page, choose this demo stream\.
+1. If you followed the Getting Started exercise, you have a demo stream \(`kinesis-analytics-demo-stream`\) in your account\. On the **Connect to source** page, choose this demo stream\.
 
 1. Kinesis Data Analytics takes a sample from the demo stream to infer a schema for the in\-application input stream it creates\. The console shows the inferred schema and sample data in the **Formatted stream sample** tab\.
 

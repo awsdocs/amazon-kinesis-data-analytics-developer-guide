@@ -10,18 +10,18 @@ To run discovery on a static file using the console, do the following:
 
 1. Choose **Connect reference data** in the application's main page in the Kinesis Data Analytics console\.
 
-1. Provide the bucket, path and IAM role data for accesing the Amazon S3 object containing the reference data\.
+1. Provide the bucket, path and IAM role data for accessing the Amazon S3 object containing the reference data\.
 
-1. Choose **Discover schema\.**
+1. Choose **Discover schema**\.
 
 For more information on how to add reference data and discover schema in the console, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md)\.
 
 ## Running Schema Discovery Using the API<a name="sch-dis-ref-api"></a>
 
 To run discovery on a static file using the API, you provide the API with an `S3Configuration` structure with the following information:
-+ **BucketARN:** The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
-+ **RoleARN:** The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
-+ **FileKey**: The file name of the object\.
++ `BucketARN`: The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
++ `RoleARN`: The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
++ `FileKey`: The file name of the object\.
 
 **To generate a schema from an Amazon S3 object using the `DiscoverInputSchema` API**
 
@@ -50,7 +50,7 @@ To run discovery on a static file using the API, you provide the API with an `S3
    $aws kinesisanalytics discover-input-schema --s3-configuration '{ "RoleARN": "arn:aws:iam::123456789012:role/service-role/your-IAM-role", "BucketARN": "arn:aws:s3:::your-bucket-name", "FileKey": "data.csv" }' 
    ```
 
-1. The response will look similar to the following:
+1. The response looks similar to the following:
 
    ```
    {

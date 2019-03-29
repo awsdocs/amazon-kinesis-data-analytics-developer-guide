@@ -6,7 +6,7 @@ With Amazon Kinesis Data Analytics, you can process and analyze streaming data i
   You don't have to include all of the columns in the application input stream, but you cannot skip columns from the source stream\. For example, you can import the first three columns from an input stream containing five elements, but you cannot import only columns 1, 2, and 4\.
 + To process and analyze streaming JSON data, you use JSONPath expressions to map JSON elements from a streaming source to SQL columns in an input stream\. For more information about using JSONPath with Amazon Kinesis Data Analytics, see [Working with JSONPath](about-json-path.md)\. The columns in the SQL table have data types that are mapped from JSON types\. For supported data types, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\. For details about converting JSON data to SQL data, see [Mapping JSON Data Types to SQL Data Types](#sch-mapping-datatypes)\.
 
-For more information about how to configure input steams, see [Configuring Application Input](how-it-works-input.md)\.
+For more information about how to configure input streams, see [Configuring Application Input](how-it-works-input.md)\.
 
 ## Mapping JSON Data to SQL Columns<a name="sch-mapping-json"></a>
 

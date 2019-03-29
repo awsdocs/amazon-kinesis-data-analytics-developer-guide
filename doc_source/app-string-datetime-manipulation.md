@@ -59,6 +59,7 @@ Create an Amazon Kinesis data stream and populate it with event time and ticker 
 1. Run the following Python code to populate the stream with sample data\. This simple code continuously writes a record with a random ticker symbol and the current time stamp to the stream\.
 
    ```
+    
    import json
    import boto3
    import random
@@ -71,13 +72,15 @@ Create an Amazon Kinesis data stream and populate it with event time and ticker 
        str_now = now.isoformat()
        data['EVENT_TIME'] = str_now
        data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
+       price = random.random() * 100
+       data['PRICE'] = round(price, 2)
        return data
    
    while True:
            data = json.dumps(getReferrer())
            print(data)
            kinesis.put_record(
-                   StreamName="teststreamforkinesisanalyticsapps",
+                   StreamName="ExampleInputStream",
                    Data=data,
                    PartitionKey="partitionkey")
    ```

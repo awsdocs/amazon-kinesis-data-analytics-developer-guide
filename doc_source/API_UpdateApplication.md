@@ -1,5 +1,8 @@
 # UpdateApplication<a name="API_UpdateApplication"></a>
 
+**Note**  
+This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications\. Version 2 of the API supports SQL and Java applications\. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html)\.
+
 Updates an existing Amazon Kinesis Analytics application\. Using this API, you can update application code, input configuration, and output configuration\. 
 
 Note that Amazon Kinesis Analytics updates the `CurrentApplicationVersionId` each time you update your application\. 
@@ -173,6 +176,7 @@ Specified application can't be found\.
 HTTP Status Code: 400
 
  **UnsupportedOperationException**   
+The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_UpdateApplication_SeeAlso"></a>
@@ -182,6 +186,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/UpdateApplication) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/UpdateApplication) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/UpdateApplication) 
++  [AWS SDK for Go \- Pilot](https://docs.aws.amazon.com/goto/SdkForGoPilot/kinesisanalytics-2015-08-14/UpdateApplication) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/UpdateApplication) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/UpdateApplication) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/UpdateApplication) 

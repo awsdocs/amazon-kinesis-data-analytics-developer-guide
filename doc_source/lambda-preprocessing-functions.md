@@ -103,4 +103,4 @@ public class Function
     }
 ```
 
-For more information about creating Lambda functions for preprocessing and destinations in \.NET, see [Amazon\.Lambda\.KinesisAnalyticsEvents](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents)\.
+For more information about creating Lambda functions for preprocessing and destinations in \.NET, see [https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents)\.

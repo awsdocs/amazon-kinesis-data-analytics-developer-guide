@@ -1,6 +1,6 @@
 # Example: Tumbling Window Using ROWTIME<a name="examples-window-tumbling-rowtime"></a>
 
-When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. For details, see [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)\. This Amazon Kinesis Data Analytics example uses the ROWTIME column to create tumbling windows\. The ROWTIME column represents the time the record was read by the application\.
+When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. For details, see [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)\. This Amazon Kinesis Data Analytics example uses the `ROWTIME` column to create tumbling windows\. The `ROWTIME` column represents the time the record was read by the application\.
 
 In this example, you write the following records to a Kinesis data stream\. 
 
@@ -36,28 +36,33 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
 1. Choose **Create Kinesis stream**, and then create a stream with one shard\. For more information, see [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/learning-kinesis-module-one-create-stream.html) in the *Amazon Kinesis Data Streams Developer Guide*\.
 
-1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Leave the script running so that you can generate the application schema in a later step\.
+1. To write records to a Kinesis data stream in a production environment, we recommend using either the [Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) or [Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-sdk.html)\. For simplicity, this example uses the following Python script to generate records\. Run the code to populate the sample ticker records\. This simple code continuously writes a random ticker record to the stream\. Keep the script running so that you can generate the application schema in a later step\.
 
    ```
+    
    import json
    import boto3
    import random
-                           
+   import datetime
+   
    kinesis = boto3.client('kinesis')
-   def getTicker():
+   def getReferrer():
        data = {}
+       now = datetime.datetime.now()
+       str_now = now.isoformat()
+       data['EVENT_TIME'] = str_now
        data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
        price = random.random() * 100
        data['PRICE'] = round(price, 2)
        return data
-                           
+   
    while True:
-       data = json.dumps(getTicker())
-       print(data)
-       kinesis.put_record(
-           StreamName="teststreamforkinesisanalyticsapps",
-           Data=data,
-           PartitionKey="partitionkey")
+           data = json.dumps(getReferrer())
+           print(data)
+           kinesis.put_record(
+                   StreamName="ExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-tumbling-window-2"></a>
@@ -66,7 +71,7 @@ Create a Kinesis Data Analytics application as follows:
 
 1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
 
-1. Choose **Create application**, type an application name, and choose **Create application**\.
+1. Choose **Create application**, enter an application name, and choose **Create application**\.
 
 1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 

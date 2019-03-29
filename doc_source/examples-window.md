@@ -5,6 +5,6 @@ This section provides examples of Amazon Kinesis Data Analytics applications tha
 **Topics**
 + [Example: Stagger Window](examples-window-stagger.md)
 + [Example: Tumbling Window Using ROWTIME](examples-window-tumbling-rowtime.md)
-+ [Example: Tumbling Window Using an Event Time Stamp](examples-window-tumbling-event.md)
++ [Example: Tumbling Window Using an Event Timestamp](examples-window-tumbling-event.md)
 + [Example: Retrieving the Most Frequently Occurring Values \(TOP\_K\_ITEMS\_TUMBLING\)](examples-window-topkitems.md)
 + [Example: Aggregating Partial Results from a Query](examples-window-partialresults.md)

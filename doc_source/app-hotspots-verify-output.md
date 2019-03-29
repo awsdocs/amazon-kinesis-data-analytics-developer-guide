@@ -207,5 +207,5 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    init();
    ```
 
-1. With the Python code from the first section running, open `index.html` in a web browser\. The hotspot information will display in the page\.  
+1. With the Python code from the first section running, open `index.html` in a web browser\. The hotspot information appears on the page, as shown following\.  
 ![\[Scalable Vector Graphics diagram displaying hotspot information.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/hotspots_visualizer.png)

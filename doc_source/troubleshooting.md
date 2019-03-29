@@ -1,6 +1,6 @@
-# Troubleshooting Amazon Kinesis Data Analytics<a name="troubleshooting"></a>
+# Troubleshooting Amazon Kinesis Data Analytics for SQL Applications<a name="troubleshooting"></a>
 
-The following can help you troubleshoot problems that you might encounter with Amazon Kinesis Data Analytics\. 
+The following can help you troubleshoot problems that you might encounter with Amazon Kinesis Data Analytics for SQL Applications\. 
 
 **Topics**
 + [Unable to Run SQL Code](#sql-statement)

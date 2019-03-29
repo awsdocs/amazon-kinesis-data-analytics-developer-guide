@@ -45,17 +45,17 @@ To use Lambda preprocessing, the application's IAM role requires the following p
    }
 ```
 
-For more information about adding permissions policies, see [Authentication and Access Control for Amazon Kinesis Data Analytics](authentication-and-access-control.md)\.
+For more information about adding permissions policies, see [Authentication and Access Control for Amazon Kinesis Data Analytics for SQL Applications](authentication-and-access-control.md)\.
 
 ## Lambda Preprocessing Metrics<a name="lambda-preprocessing-metrics"></a>
 
-You can monitor the number of Lambda invocations, bytes processed, successes and failures, and so on, using Amazon CloudWatch\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
+You can use Amazon CloudWatch to monitor the number of Lambda invocations, bytes processed, successes and failures, and so on\. For information about CloudWatch metrics that are emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 
 ## Using AWS Lambda with the Kinesis Producer Library<a name="lambda-preprocessing-deaggregation"></a>
 
-The [Kinesis Producer Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) \(KPL\) aggregates small user\-formatted records into larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput\. Although the Kinesis Client Library \(KCL\) for Java supports deaggregating these records, you must use a special module to deaggregate the records when you use AWS Lambda as the consumer of your streams\. 
+The [Kinesis Producer Library](http://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html) \(KPL\) aggregates small user\-formatted records into larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput\. The Kinesis Client Library \(KCL\) for Java supports deaggregating these records\. However, you must use a special module to deaggregate the records when you use AWS Lambda as the consumer of your streams\. 
 
-To get the necessary project code and instructions, see the [Kinesis Producer Library Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggregation) on GitHub\. You can use the components in this project to process KPL serialized data within AWS Lambda in Java, Node\.js, and Python\. You can also use these components as part of a [multi\-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client-multilang/src/main/java/com/amazonaws/services/kinesis/multilang/package-info.java)\.
+To get the necessary project code and instructions, see the [Kinesis Producer Library Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggregation) on GitHub\. You can use the components in this project to process KPL serialized data within AWS Lambda in Java, Node\.js, and Python\. You can also use these components as part of a [multi\-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client-multilang/src/main/java/software/amazon/kinesis/multilang/package-info.java)\.
 
 ## Data Preprocessing Event Input Data Model/Record Response Model<a name="lambda-preprocessing-data-model"></a>
 
@@ -132,7 +132,7 @@ The following are common reasons why preprocessing can fail\.
 + The Lambda function timeouts are not sufficient to preprocess the data\.
 + The Lambda function response exceeds the response limits imposed by the AWS Lambda service\.
 
-In the case of data preprocessing failures, the Kinesis Data Analytics service continues to retry Lambda invocations on the same set of records until successful\. You can monitor the following CloudWatch metrics to gain insight into failures\.
-+ Kinesis Data Analytics Application `MillisBehindLatest`: Indicates how far behind an application is reading from the streaming source\. 
-+ Kinesis Data Analytics Application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
+For data preprocessing failures, Kinesis Data Analytics continues to retry Lambda invocations on the same set of records until successful\. You can monitor the following CloudWatch metrics to gain insight into failures\.
++ Kinesis Data Analytics application `MillisBehindLatest`: Indicates how far behind an application is reading from the streaming source\. 
++ Kinesis Data Analytics application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics\. For more information, see [Amazon Kinesis Analytics Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aka-metricscollected.html)\.
 + AWS Lambda function CloudWatch metrics and logs\.

@@ -1,6 +1,6 @@
 # Working with the Schema Editor<a name="console-summary-edit-schema"></a>
 
-The schema for an Amazon Kinesis data analytics application's input stream defines how data from the stream is made available to SQL queries in the application\. 
+The schema for an Amazon Kinesis Data Analytics application's input stream defines how data from the stream is made available to SQL queries in the application\. 
 
 ![\[Diagram showing relationship between streaming input, source schema configuration, and in-application input streams\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-diagram.png)
 
@@ -22,7 +22,7 @@ You can apply the following edits to the schema:
 + Delete a column \(2\): You can exclude data from the source stream if your application doesn't require it\. This exclusion doesn't affect the data in the source stream\. If data is excluded, that data simply isn't made available to the application\.
 + Rename a column \(3\)\. A column name can't be blank, must be longer than a single character, and must not contain reserved SQL keywords\. The name must also meet naming criteria for SQL ordinary identifiers: The name must start with a letter and contain only letters, underscore characters, and digits\.
 + Change the data type \(4\) or length \(5\) of a column: You can specify a compatible data type for a column\. If you specify an incompatible data type, the column is either populated with NULL or the in\-application stream is not populated at all\. In the latter case, errors are written to the error stream\. If you specify a length for a column that is too small, the incoming data is truncated\.
-+ Change the selection criteria of a column \(6\): You can edit the JSONPath expression or CSV column order used to determine the source of the data in a column\. To change the selection criteria for a JSON schema, type a new value for the row path expression\. A CSV schema uses the column order as selection criteria\. To change the selection criteria for a CSV schema, change the order of the columns\.
++ Change the selection criteria of a column \(6\): You can edit the JSONPath expression or CSV column order used to determine the source of the data in a column\. To change the selection criteria for a JSON schema, enter a new value for the row path expression\. A CSV schema uses the column order as selection criteria\. To change the selection criteria for a CSV schema, change the order of the columns\.
 
 ## Editing the Schema for a Streaming Source<a name="editing_schema"></a>
 
@@ -48,7 +48,7 @@ You can edit a JSON schema by using the following steps\.
 
 1. In the schema editor, choose **Add column** to add a column\. 
 
-   A new column appears in the first column position\. To change column order, choose the up and down arrows next to the column name\. 
+   A new column appears in the first column position\. To change the column order, choose the up and down arrows next to the column name\. 
 
    For a new column, provide the following information:
    + For **Column name**, type a name\. 
@@ -59,14 +59,14 @@ You can edit a JSON schema by using the following steps\.
      A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
    + For **Row path**, provide a row path\. A row path is a valid JSONPath expression that maps to a JSON element\. 
 **Note**  
-The base **Row path** value is the path to the top\-level parent that contains the data to be imported\. This value is **$** by default\. For more information, see `RecordRowPath` in [JSONMappingParameters](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_JSONMappingParameters.html)\.
+The base **Row path** value is the path to the top\-level parent that contains the data to be imported\. This value is **$** by default\. For more information, see `RecordRowPath` in `[JSONMappingParameters](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_JSONMappingParameters.html)`\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
 ![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
-1. To rename a column, type a new name for **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
+1. To rename a column, enter a new name for **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
-1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
+1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is `CHAR`, `VARBINARY`, or `VARCHAR`, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. Choose **Save schema and update stream** to save your changes\.
 
@@ -74,7 +74,7 @@ The modified schema appears in the editor and looks similar to the following\.
 
 ![\[Screenshot of schema editor showing the modified schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-2.png)
 
-If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, type `P` in the **Filter by column name** box\.
+If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, enter `P` in the **Filter by column name** box\.
 
 ### Editing a CSV Schema<a name="edit_csv_schema"></a>
 
@@ -88,20 +88,20 @@ You can edit a CSV schema by using the following steps\.
 
 1. To add a column, choose **Add column**\. 
 
-   A new column appears in the first column position\. To change column order, choose the up and down arrows next to the column name\. 
+   A new column appears in the first column position\. To change the column order, choose the up and down arrows next to the column name\. 
 
    For a new column, provide the following information:
-   + For **Column name**, type a name\. 
+   + For **Column name**, enter a name\. 
 
      A column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
-   + For **Column type**, type a SQL data type\. 
+   + For **Column type**, enter a SQL data type\. 
 
      A column type can be any supported SQL data type\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
 1. To delete a column, choose the **x** icon next to the column number\.  
 ![\[Screenshot of schema editor showing the x icon next to the column number.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-delete.png)
 
-1. To rename a column, type a new name in **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
+1. To rename a column, enter a new name in **Column name**\. The new column name cannot be blank, must be longer than a single character, and must not contain reserved SQL keywords\. It must also meet naming criteria for SQL ordinary identifiers: It must start with a letter and contain only letters, underscore characters, and digits\.
 
 1. To change the data type of a column, choose a new data type for **Column type**\. If the new data type is CHAR, VARBINARY, or VARCHAR, specify a data length for **Length**\. For more information, see [Data Types](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-data-types.html)\.
 
@@ -111,4 +111,4 @@ The modified schema appears in the editor and looks similar to the following\.
 
 ![\[Screenshot of schema editor showing the modified schema.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-3.png)
 
-If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, type `P` in the **Filter by column name** box\.
+If your schema has many rows, you can filter the rows using **Filter by column name**\. For example, to edit column names that start with `P`, such as a `Price` column, enter `P` in the **Filter by column name** box\.

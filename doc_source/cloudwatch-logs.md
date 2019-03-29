@@ -1,9 +1,9 @@
 # Working with Amazon CloudWatch Logs<a name="cloudwatch-logs"></a>
 
-If an Amazon Kinesis Data Analytics application is misconfigured, it can transition to a running state during application start or update but not process any data into the in\-application input stream\. By adding a CloudWatch log option to the application, you can monitor for application configuration problems\.
+If an Amazon Kinesis Data Analytics application is misconfigured, it can transition to a running state during application start\. Or it can update but not process any data into the in\-application input stream\. By adding a CloudWatch log option to the application, you can monitor for application configuration problems\.
 
 Amazon Kinesis Data Analytics can generate configuration errors under the following conditions:
-+ The Kinesis Stream used for input doesn't exist\.
++ The Kinesis data stream used for input doesn't exist\.
 + The Amazon Kinesis Data Firehose delivery stream used for input doesn't exist\.
 + The Amazon S3 bucket used as a reference data source doesn't exist\.
 + The specified file in the reference data source in the S3 bucket doesn't exist\.
@@ -11,7 +11,7 @@ Amazon Kinesis Data Analytics can generate configuration errors under the follow
 + The correct permission is not defined in the IAM role that manages related permissions\.
 + Kinesis Data Analytics doesn't have permission to assume the IAM role that manages related permissions\.
 
-For more information on Amazon CloudWatch, see the [CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
+For more information about Amazon CloudWatch, see the [http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
 ## Adding the PutLogEvents Policy Action<a name="enable_putlogevents"></a>
 
@@ -38,7 +38,7 @@ To grant Kinesis Data Analytics permissions to assume an IAM role, you can attac
 
 ### Permissions Policy<a name="enable_putlogevents_permissions_policy"></a>
 
-To grant an application permissions to write log events to CloudWatch from an Kinesis Data Analytics resource, you can use the following IAM permissions policy\.
+To grant an application permissions to write log events to CloudWatch from a Kinesis Data Analytics resource, you can use the following IAM permissions policy\.
 
 ```
 {
@@ -85,7 +85,7 @@ The following code example demonstrates how to use the `CreateApplication` actio
 
 ### Adding a CloudWatch Log Option to an Existing Application<a name="add_to_existing_app"></a>
 
-The following code example demonstrates how to use the `AddApplicationCloudWatchLoggingOption` action to add a CloudWatch log option to an existing application\. For more information on `AddApplicationCloudWatchLoggingOption`, see [AddApplicationCloudWatchLoggingOption](API_AddApplicationCloudWatchLoggingOption.md)\.
+The following code example demonstrates how to use the `AddApplicationCloudWatchLoggingOption` action to add a CloudWatch log option to an existing application\. For more information about `AddApplicationCloudWatchLoggingOption`, see [AddApplicationCloudWatchLoggingOption](API_AddApplicationCloudWatchLoggingOption.md)\.
 
 ```
 {
@@ -100,7 +100,7 @@ The following code example demonstrates how to use the `AddApplicationCloudWatch
 
 ### Updating an Existing CloudWatch Log Option<a name="update_existing"></a>
 
-The following code example demonstrates how to use the `UpdateApplication` action to modify an existing CloudWatch log option\. For more information on `UpdateApplication`, see [UpdateApplication](API_UpdateApplication.md)\.
+The following code example demonstrates how to use the `UpdateApplication` action to modify an existing CloudWatch log option\. For more information about `UpdateApplication`, see [UpdateApplication](API_UpdateApplication.md)\.
 
 ```
 {
@@ -120,7 +120,7 @@ The following code example demonstrates how to use the `UpdateApplication` actio
 
 ### Deleting a CloudWatch Log Option from an Application<a name="delete-log"></a>
 
-The following code example demonstrates how to use the `DeleteApplicationCloudWatchLoggingOption` action to delete an existing CloudWatch log option\. For more information on `DeleteApplicationCloudWatchLoggingOption`, see [DeleteApplicationCloudWatchLoggingOption](API_DeleteApplicationCloudWatchLoggingOption.md)\.
+The following code example demonstrates how to use the `DeleteApplicationCloudWatchLoggingOption` action to delete an existing CloudWatch log option\. For more information about `DeleteApplicationCloudWatchLoggingOption`, see [DeleteApplicationCloudWatchLoggingOption](API_DeleteApplicationCloudWatchLoggingOption.md)\.
 
 ```
 {
@@ -132,7 +132,7 @@ The following code example demonstrates how to use the `DeleteApplicationCloudWa
 
 ## Configuration Errors<a name="cloudwatch_errors"></a>
 
-Following, you can learn details about errors that you might see in CloudWatch logs from a misconfigured application\.
+The following sections contain details about errors that you might see in Amazon CloudWatch Logs from a misconfigured application\.
 
 ### Error Message Format<a name="cloudwatch_errors_format"></a>
 
@@ -152,26 +152,26 @@ Error messages generated by application misconfiguration appear in the following
 ```
 
 The fields in an error message contain the following information:
-+ *applicationARN:* The Amazon Resource Name \(ARN\) of the generating application, for example: `arn:aws:kinesisanalytics:us-east-1:112233445566:application/sampleApp`
-+ *applicationVersionId:* The version of the application at the time the error was encountered\. For more information, see [ApplicationDetail](API_ApplicationDetail.md)\.
-+ *messageType:* The message type\. Currently, this type can be only `ERROR`\. 
-+ *message:* The details of the error, for example:
++ `applicationARN`: The Amazon Resource Name \(ARN\) of the generating application, for example: `arn:aws:kinesisanalytics:us-east-1:112233445566:application/sampleApp`
++ `applicationVersionId`: The version of the application at the time the error was encountered\. For more information, see [ApplicationDetail](API_ApplicationDetail.md)\.
++ `messageType`: The message type\. Currently, this type can be only `ERROR`\. 
++ `message`: The details of the error, for example:
 
   ```
   There is a problem related to the configuration of your input. Please check that the resource exists, the role has the correct permissions to access the resource and that Kinesis Analytics can assume the role provided.
   ```
-+ *inputId:* ID associated with the application input\. This value is only present if this input is the cause of the error\. This value is not present if *referenceId* is present\. For more information, see [DescribeApplication](API_DescribeApplication.md)\. 
-+ *referenceId:* ID associated with the application reference data source\. This value is only present if this source is the cause of the error\. This value is not present if *inputId* is present\. For more information, see [DescribeApplication](API_DescribeApplication.md)\. 
-+ *errorCode:* The identifier for the error\. This ID is either `InputError` or `ReferenceDataError`\.
-+ *messageSchemaVersion:* A value that specifies the current message schema version, currently `1`\. You can check this value to see if the error message schema has been updated\.
++ `inputId`: The ID associated with the application input\. This value is only present if this input is the cause of the error\. This value is not present if `referenceId` is present\. For more information, see [DescribeApplication](API_DescribeApplication.md)\. 
++ `referenceId`: The ID associated with the application reference data source\. This value is only present if this source is the cause of the error\. This value is not present if `inputId` is present\. For more information, see [DescribeApplication](API_DescribeApplication.md)\. 
++ `errorCode`: The identifier for the error\. This ID is either `InputError` or `ReferenceDataError`\.
++ `messageSchemaVersion`: A value that specifies the current message schema version, currently `1`\. You can check this value to see if the error message schema has been updated\.
 
 ### Errors<a name="cloudwatch_errors_list"></a>
 
-The errors that might appear in CloudWatch logs for Amazon Kinesis Data Analytics include the following\. 
+The errors that might appear in CloudWatch Logs for Amazon Kinesis Data Analytics include the following\. 
 
 #### Resource Does Not Exist<a name="resource_does_not_exist"></a>
 
-If an ARN is specified for an Kinesis input stream that doesn't exist, but the ARN is syntactically correct, an error like the following is generated\.
+If an ARN is specified for a Kinesis input stream that doesn't exist, but the ARN is syntactically correct, an error like the following is generated\.
 
 ```
 {
@@ -217,7 +217,7 @@ If an ARN is specified for an IAM input role that doesn't exist, but the ARN is 
 
 #### Role Does Not Have Permissions to Access the Resource<a name="role_does_not_have_permissions"></a>
 
-If an input role is used that doesn't have permission to access the input resources, such as an Kinesis source stream, an error like the following is generated\.
+If an input role is used that doesn't have permission to access the input resources, such as a Kinesis source stream, an error like the following is generated\.
 
 ```
 {

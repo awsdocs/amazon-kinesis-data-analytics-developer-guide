@@ -2,7 +2,7 @@
 
 When your Amazon Kinesis Data Analytics application processes data streams, Kinesis Data Analytics sends the following metrics and dimensions to CloudWatch\. You can use the following procedures to view the metrics for Kinesis Data Analytics\.
 
-In the console, metrics are grouped first by service namespace, and then by the dimension combinations within each namespace\.
+On the console, metrics are grouped first by service namespace, and then by the dimension combinations within each namespace\.
 
 **To view metrics using the CloudWatch console**
 
@@ -10,7 +10,7 @@ In the console, metrics are grouped first by service namespace, and then by the 
 
 1. In the navigation pane, choose **Metrics**\.
 
-1. In the **CloudWatch Metrics by Category** pane for Amazon Kinesis Data Analytics, select a metrics category\.
+1. In the **CloudWatch Metrics by Category** pane for Kinesis Data Analytics, choose a metrics category\.
 
 1. In the upper pane, scroll to view the full list of metrics\.
 
@@ -21,7 +21,7 @@ In the console, metrics are grouped first by service namespace, and then by the 
   1. aws cloudwatch list-metrics --namespace "AWS/KinesisAnalytics" --region region
   ```
 
- Amazon Kinesis Data Analytics metrics are collected at the following levels:
+ Kinesis Data Analytics metrics are collected at the following levels:
 + Application 
 + Input stream
 + Output stream

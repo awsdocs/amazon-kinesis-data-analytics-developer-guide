@@ -1,6 +1,6 @@
 # Step 1: Prepare the Data<a name="app-anomaly-with-ex-prepare"></a>
 
-Before you create an Amazon Kinesis data analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
+Before you create an Amazon Kinesis Data Analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
 
 **Topics**
 + [Step 1\.1: Create a Kinesis Data Stream](#app-anomaly-create-two-streams)
@@ -35,11 +35,12 @@ In this step, you run Python code to continuously generate sample records and wr
 1. Run the following Python code\. You can change the Region to the one you want to use for this example\. The `put-record` command in the code writes the JSON records to the stream\.
 
    ```
+    
    import json
-   from boto import kinesis
+   import boto3
    import random
    
-   kinesis = kinesis.connect_to_region("us-east-1")
+   kinesis = boto3.client('kinesis')
    
    # Generate normal blood pressure with a 0.995 probability
    def getNormalBloodPressure():
@@ -70,32 +71,25 @@ In this step, you run Python code to continuously generate sample records and wr
        if (rnd < 0.005):
            data = json.dumps(getLowBloodPressure())
            print(data)
-           kinesis.put_record("BloodPressureExampleInputStream", data, "partitionkey")
+           kinesis.put_record(
+                   StreamName="BloodPressureExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
        elif (rnd > 0.995):
            data = json.dumps(getHighBloodPressure())
            print(data)
-           kinesis.put_record("BloodPressureExampleInputStream", data, "partitionkey")
+           kinesis.put_record(
+                   StreamName="BloodPressureExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
        else:
            data = json.dumps(getNormalBloodPressure())
            print(data)
-           kinesis.put_record("BloodPressureExampleInputStream", data, "partitionkey")
+           kinesis.put_record(
+                   StreamName="BloodPressureExampleInputStream",
+                   Data=data,
+                   PartitionKey="partitionkey")
    ```
-
-The previous code writes to `ExampleInputStream` records similar to the following examples:
-
-```
-{"Systolic": 109, "Diastolic": 64, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 99, "Diastolic": 72, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 159, "Diastolic": 100, "BloodPressureLevel": "HIGH"}
-{"Systolic": 94, "Diastolic": 75, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 91, "Diastolic": 78, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 91, "Diastolic": 74, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 102, "Diastolic": 75, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 50, "Diastolic": 31, "BloodPressureLevel": "LOW"}
-{"Systolic": 100, "Diastolic": 66, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 115, "Diastolic": 65, "BloodPressureLevel": "NORMAL"}
-{"Systolic": 99, "Diastolic": 74, "BloodPressureLevel": "NORMAL"}
-```
 
 **Next Step**  
 [Step 2: Create an Analytics Application](app-anom-with-exp-create-app.md)
