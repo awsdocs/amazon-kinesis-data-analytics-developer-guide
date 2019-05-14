@@ -1,6 +1,6 @@
 # KinesisStreamsOutputUpdate<a name="API_KinesisStreamsOutputUpdate"></a>
 
- When updating an output configuration using the [UpdateApplication](API_UpdateApplication.md) operation, provides information about an Amazon Kinesis stream configured as the destination\. 
+ When updating an output configuration using the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html) operation, provides information about an Amazon Kinesis stream configured as the destination\. 
 
 ## Contents<a name="API_KinesisStreamsOutputUpdate_Contents"></a>
 

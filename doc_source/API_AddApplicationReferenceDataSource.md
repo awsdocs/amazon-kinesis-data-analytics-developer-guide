@@ -62,7 +62,7 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_AddApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-AddApplicationReferenceDataSource-request-CurrentApplicationVersionId"></a>
-Version of the application for which you are adding the reference data source\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
+Version of the application for which you are adding the reference data source\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes

@@ -5,7 +5,7 @@ When you update a reference data source configuration for an application, this o
 ## Contents<a name="API_ReferenceDataSourceUpdate_Contents"></a>
 
  **ReferenceId**   <a name="analytics-Type-ReferenceDataSourceUpdate-ReferenceId"></a>
-ID of the reference data source being updated\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get this value\.  
+ID of the reference data source being updated\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get this value\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
@@ -25,7 +25,6 @@ Required: No
 In\-application table name that is created by this update\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
 ## See Also<a name="API_ReferenceDataSourceUpdate_SeeAlso"></a>

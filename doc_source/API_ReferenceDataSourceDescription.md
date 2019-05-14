@@ -5,7 +5,7 @@ Describes the reference data source configured for an application\.
 ## Contents<a name="API_ReferenceDataSourceDescription_Contents"></a>
 
  **ReferenceId**   <a name="analytics-Type-ReferenceDataSourceDescription-ReferenceId"></a>
-ID of the reference data source\. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md) operation\.  
+ID of the reference data source\. This is the ID that Amazon Kinesis Analytics assigns when you add the reference data source to your application using the [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
@@ -25,7 +25,6 @@ Required: Yes
 The in\-application table name created by the specific reference data source configuration\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: Yes
 
 ## See Also<a name="API_ReferenceDataSourceDescription_SeeAlso"></a>

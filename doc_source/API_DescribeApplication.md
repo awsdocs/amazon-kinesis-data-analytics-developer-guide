@@ -5,7 +5,7 @@ This documentation is for version 1 of the Amazon Kinesis Data Analytics API, wh
 
 Returns information about a specific Amazon Kinesis Analytics application\.
 
-If you want to retrieve a list of all applications in your account, use the [ListApplications](API_ListApplications.md) operation\.
+If you want to retrieve a list of all applications in your account, use the [ListApplications](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListApplications.html) operation\.
 
 This operation requires permissions to perform the `kinesisanalytics:DescribeApplication` action\. You can use `DescribeApplication` to get the current application versionId, which you need to call other operations such as `Update`\. 
 

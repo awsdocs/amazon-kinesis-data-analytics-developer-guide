@@ -2,13 +2,14 @@
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Data Analytics\.
 + **API version: 2015\-08\-14** 
-+ **Latest documentation update:** March 22, 2019
++ **Latest documentation update:** May 8, 2019
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Tagging Kinesis Data Analytics Applications | Use application tagging to determine per\-application costs, control access, or for user\-defined purposes\. For more information, see [Using Tagging](how-tagging.md)\.  | May 8, 2019 | 
 | Logging Kinesis Data Analytics API Calls with AWS CloudTrail | Amazon Kinesis Data Analytics is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Kinesis Data Analytics\. For more information, see [Using AWS CloudTrail](logging-using-cloudtrail.md)\.  | March 22, 2019 | 
 | Kinesis Data Analytics available in Frankfurt region | Kinesis Analytics is now available in the EU \(Frankfurt\) Region region\. For more information, see [AWS Regions and Endpoints: Kinesis Data Analytics](https://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\. | July 18, 2018 | 
 | Use reference data in the console | You can now work with application reference data in the console\. For more information, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md) \. | July 13, 2018 | 

@@ -3,7 +3,7 @@
 **Note**  
 This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications\. Version 2 of the API supports SQL and Java applications\. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html)\.
 
-Adds an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to an application\. An input processor preprocesses records on the input stream before the application's SQL code executes\. Currently, the only input processor available is [AWS Lambda](https://aws.amazon.com/documentation/lambda/)\.
+Adds an [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html) to an application\. An input processor preprocesses records on the input stream before the application's SQL code executes\. Currently, the only input processor available is [AWS Lambda](https://docs.aws.amazon.com/lambda/)\.
 
 ## Request Syntax<a name="API_AddApplicationInputProcessingConfiguration_RequestSyntax"></a>
 
@@ -33,20 +33,20 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-CurrentApplicationVersionId"></a>
-Version of the application to which you want to add the input processing configuration\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
+Version of the application to which you want to add the input processing configuration\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
  ** [InputId](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-InputId"></a>
-The ID of the input configuration to add the input processing configuration to\. You can get a list of the input IDs for an application using the [DescribeApplication](API_DescribeApplication.md) operation\.  
+The ID of the input configuration to add the input processing configuration to\. You can get a list of the input IDs for an application using the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
 Required: Yes
 
  ** [InputProcessingConfiguration](#API_AddApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-AddApplicationInputProcessingConfiguration-request-InputProcessingConfiguration"></a>
-The [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to add to the application\.  
+The [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html) to add to the application\.  
 Type: [InputProcessingConfiguration](API_InputProcessingConfiguration.md) object  
 Required: Yes
 

@@ -8,7 +8,6 @@ Describes the application input configuration\. For more information, see [Confi
 Returns the in\-application stream names that are mapped to the stream source\.  
 Type: Array of strings  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
  **InputId**   <a name="analytics-Type-InputDescription-InputId"></a>
@@ -52,7 +51,6 @@ Required: No
 In\-application name prefix\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
 ## See Also<a name="API_InputDescription_SeeAlso"></a>

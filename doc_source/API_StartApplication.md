@@ -7,9 +7,9 @@ Starts the specified Amazon Kinesis Analytics application\. After creating an ap
 
 After the application starts, it begins consuming the input data, processes it, and writes the output to the configured destination\.
 
- The application status must be `READY` for you to start an application\. You can get the application status in the console or using the [DescribeApplication](API_DescribeApplication.md) operation\.
+ The application status must be `READY` for you to start an application\. You can get the application status in the console or using the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation\.
 
-After you start the application, you can stop the application from processing the input by calling the [StopApplication](API_StopApplication.md) operation\.
+After you start the application, you can stop the application from processing the input by calling the [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_StopApplication.html) operation\.
 
 This operation requires permissions to perform the `kinesisanalytics:StartApplication` action\.
 

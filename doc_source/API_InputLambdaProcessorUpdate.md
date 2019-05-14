@@ -1,11 +1,11 @@
 # InputLambdaProcessorUpdate<a name="API_InputLambdaProcessorUpdate"></a>
 
-Represents an update to the [InputLambdaProcessor](API_InputLambdaProcessor.md) that is used to preprocess the records in the stream\.
+Represents an update to the [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html) that is used to preprocess the records in the stream\.
 
 ## Contents<a name="API_InputLambdaProcessorUpdate_Contents"></a>
 
  **ResourceARNUpdate**   <a name="analytics-Type-InputLambdaProcessorUpdate-ResourceARNUpdate"></a>
-The Amazon Resource Name \(ARN\) of the new [AWS Lambda](https://aws.amazon.com/documentation/lambda/) function that is used to preprocess the records in the stream\.  
+The Amazon Resource Name \(ARN\) of the new [AWS Lambda](https://docs.aws.amazon.com/ambda/) function that is used to preprocess the records in the stream\.  
 To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN\. For more information about Lambda ARNs, see [Example ARNs: AWS Lambda](/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda) 
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  

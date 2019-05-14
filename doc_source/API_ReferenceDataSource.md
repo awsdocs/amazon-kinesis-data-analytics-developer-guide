@@ -10,7 +10,7 @@ Type: [SourceSchema](API_SourceSchema.md) object
 Required: Yes
 
  **S3ReferenceDataSource**   <a name="analytics-Type-ReferenceDataSource-S3ReferenceDataSource"></a>
-Identifies the S3 bucket and object that contains the reference data\. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf\. An Amazon Kinesis Analytics application loads reference data only once\. If the data changes, you call the [UpdateApplication](API_UpdateApplication.md) operation to trigger reloading of data into your application\.   
+Identifies the S3 bucket and object that contains the reference data\. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf\. An Amazon Kinesis Analytics application loads reference data only once\. If the data changes, you call the `UpdateApplication` operation to trigger reloading of data into your application\.   
 Type: [S3ReferenceDataSource](API_S3ReferenceDataSource.md) object  
 Required: No
 
@@ -18,7 +18,6 @@ Required: No
 Name of the in\-application table to create\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: Yes
 
 ## See Also<a name="API_ReferenceDataSource_SeeAlso"></a>

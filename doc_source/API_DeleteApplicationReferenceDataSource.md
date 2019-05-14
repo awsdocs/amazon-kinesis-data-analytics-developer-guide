@@ -5,7 +5,7 @@ This documentation is for version 1 of the Amazon Kinesis Data Analytics API, wh
 
 Deletes a reference data source configuration from the specified application configuration\.
 
-If the application is running, Amazon Kinesis Analytics immediately removes the in\-application table that you created using the [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md) operation\. 
+If the application is running, Amazon Kinesis Analytics immediately removes the in\-application table that you created using the [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html) operation\. 
 
 This operation requires permissions to perform the `kinesisanalytics.DeleteApplicationReferenceDataSource` action\.
 
@@ -31,13 +31,13 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_DeleteApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-DeleteApplicationReferenceDataSource-request-CurrentApplicationVersionId"></a>
-Version of the application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
+Version of the application\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
  ** [ReferenceId](#API_DeleteApplicationReferenceDataSource_RequestSyntax) **   <a name="analytics-DeleteApplicationReferenceDataSource-request-ReferenceId"></a>
-ID of the reference data source\. When you add a reference data source to your application using the [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md), Amazon Kinesis Analytics assigns an ID\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the reference ID\.   
+ID of the reference data source\. When you add a reference data source to your application using the [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html), Amazon Kinesis Analytics assigns an ID\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the reference ID\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   

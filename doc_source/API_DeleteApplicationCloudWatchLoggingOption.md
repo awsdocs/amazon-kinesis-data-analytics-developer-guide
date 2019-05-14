@@ -27,7 +27,7 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CloudWatchLoggingOptionId](#API_DeleteApplicationCloudWatchLoggingOption_RequestSyntax) **   <a name="analytics-DeleteApplicationCloudWatchLoggingOption-request-CloudWatchLoggingOptionId"></a>
-The `CloudWatchLoggingOptionId` of the CloudWatch logging option to delete\. You can get the `CloudWatchLoggingOptionId` by using the [DescribeApplication](API_DescribeApplication.md) operation\.   
+The `CloudWatchLoggingOptionId` of the CloudWatch logging option to delete\. You can get the `CloudWatchLoggingOptionId` by using the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   

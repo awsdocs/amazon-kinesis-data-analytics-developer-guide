@@ -40,7 +40,6 @@ Required: No
 Name prefix for in\-application streams that Amazon Kinesis Analytics creates for the specific streaming source\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
 ## See Also<a name="API_InputUpdate_SeeAlso"></a>

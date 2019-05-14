@@ -144,7 +144,7 @@ Type: [ApplicationUpdate](API_ApplicationUpdate.md) object
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_UpdateApplication_RequestSyntax) **   <a name="analytics-UpdateApplication-request-CurrentApplicationVersionId"></a>
-The current application version ID\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get this value\.  
+The current application version ID\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get this value\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes

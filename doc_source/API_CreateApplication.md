@@ -91,6 +91,12 @@ In the output configuration, you can configure the application to write data fro
          },
          "[Name](API_Output.md#analytics-Type-Output-Name)": "string"
       }
+   ],
+   "[Tags](#analytics-CreateApplication-request-Tags)": [ 
+      { 
+         "[Key](API_Tag.md#analytics-Type-Tag-Key)": "string",
+         "[Value](API_Tag.md#analytics-Type-Tag-Value)": "string"
+      }
    ]
 }
 ```
@@ -141,6 +147,12 @@ In the output configuration, you also provide the output stream or Lambda functi
 Type: Array of [Output](API_Output.md) objects  
 Required: No
 
+ ** [Tags](#API_CreateApplication_RequestSyntax) **   <a name="analytics-CreateApplication-request-Tags"></a>
+A list of one or more tags to assign to the application\. A tag is a key\-value pair that identifies an application\. Note that the maximum number of application tags includes system tags\. The maximum number of user\-defined application tags is 50\. For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html)\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateApplication_ResponseSyntax"></a>
 
 ```
@@ -169,6 +181,10 @@ Type: [ApplicationSummary](API_ApplicationSummary.md) object
 User\-provided application code \(query\) is invalid\. This can be a simple syntax error\.  
 HTTP Status Code: 400
 
+ **ConcurrentModificationException**   
+Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
+HTTP Status Code: 400
+
  **InvalidArgumentException**   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
@@ -179,6 +195,10 @@ HTTP Status Code: 400
 
  **ResourceInUseException**   
 Application is not available for this operation\.  
+HTTP Status Code: 400
+
+ **TooManyTagsException**   
+Application created with too many tags, or too many tags added to an application\. Note that the maximum number of application tags includes system tags\. The maximum number of user\-defined application tags is 50\.  
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateApplication_SeeAlso"></a>

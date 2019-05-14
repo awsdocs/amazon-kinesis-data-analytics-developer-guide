@@ -9,7 +9,7 @@ If you want Amazon Kinesis Analytics to deliver data from an in\-application str
 
  You can use one of the output configurations to deliver data from your in\-application error stream to an external destination so that you can analyze the errors\. For more information, see [Understanding Application Output \(Destination\)](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html)\. 
 
- Any configuration update, including adding a streaming source using this operation, results in a new version of the application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to find the current application version\.
+ Any configuration update, including adding a streaming source using this operation, results in a new version of the application\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to find the current application version\.
 
 For the limits on the number of application inputs and outputs you can configure, see [Limits](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html)\.
 
@@ -54,7 +54,7 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_AddApplicationOutput_RequestSyntax) **   <a name="analytics-AddApplicationOutput-request-CurrentApplicationVersionId"></a>
-Version of the application to which you want to add the output configuration\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.   
+Version of the application to which you want to add the output configuration\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.   
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes

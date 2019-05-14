@@ -59,3 +59,4 @@ In addition, note the following:
 + [Error Handling](error-handling.md)
 + [Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources \(Creating an IAM Role\)](iam-role.md)
 + [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)
++ [Using Tagging](how-tagging.md)

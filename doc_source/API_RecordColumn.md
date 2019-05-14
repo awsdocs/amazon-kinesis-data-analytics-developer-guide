@@ -7,14 +7,13 @@ Also used to describe the format of the reference data source\.
 ## Contents<a name="API_RecordColumn_Contents"></a>
 
  **Mapping**   <a name="analytics-Type-RecordColumn-Mapping"></a>
-Reference to the data element in the streaming input or the reference data source\. This element is required if the [RecordFormat:RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType) is `JSON`\.  
+Reference to the data element in the streaming input or the reference data source\. This element is required if the [RecordFormatType](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel) is `JSON`\.  
 Type: String  
 Required: No
 
  **Name**   <a name="analytics-Type-RecordColumn-Name"></a>
 Name of the column created in the in\-application input stream or reference table\.  
 Type: String  
-Pattern: `[a-zA-Z_][a-zA-Z0-9_]*`   
 Required: Yes
 
  **SqlType**   <a name="analytics-Type-RecordColumn-SqlType"></a>

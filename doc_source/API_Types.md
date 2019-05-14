@@ -53,3 +53,4 @@ The following data types are supported:
 +  [S3ReferenceDataSourceDescription](API_S3ReferenceDataSourceDescription.md) 
 +  [S3ReferenceDataSourceUpdate](API_S3ReferenceDataSourceUpdate.md) 
 +  [SourceSchema](API_SourceSchema.md) 
++  [Tag](API_Tag.md) 

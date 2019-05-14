@@ -28,7 +28,6 @@ Required: No
 If you want to specify a different in\-application stream for this output configuration, use this field to specify the new in\-application stream name\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: No
 
  **OutputId**   <a name="analytics-Type-OutputUpdate-OutputId"></a>

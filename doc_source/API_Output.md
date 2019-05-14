@@ -2,8 +2,6 @@
 
  Describes application output configuration in which you identify an in\-application stream and a destination where you want the in\-application stream data to be written\. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream\. 
 
-
-
 For limits on how many destinations an application can write and other limitations, see [Limits](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html)\. 
 
 ## Contents<a name="API_Output_Contents"></a>
@@ -32,7 +30,6 @@ Required: No
 Name of the in\-application stream\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: Yes
 
 ## See Also<a name="API_Output_SeeAlso"></a>

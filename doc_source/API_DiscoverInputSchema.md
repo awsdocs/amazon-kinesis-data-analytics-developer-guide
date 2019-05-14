@@ -37,7 +37,7 @@ Infers a schema by evaluating sample records on the specified streaming source \
 The request accepts the following data in JSON format\.
 
  ** [InputProcessingConfiguration](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-InputProcessingConfiguration"></a>
-The [InputProcessingConfiguration](API_InputProcessingConfiguration.md) to use to preprocess the records before discovering the schema of the records\.  
+The [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html) to use to preprocess the records before discovering the schema of the records\.  
 Type: [InputProcessingConfiguration](API_InputProcessingConfiguration.md) object  
 Required: No
 
@@ -128,7 +128,7 @@ Specified input parameter value is invalid\.
 HTTP Status Code: 400
 
  **ResourceProvisionedThroughputExceededException**   
-Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException\. For more information, see [GetRecords](http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference\.  
+Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException\. For more information, see [GetRecords](kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference\.  
 HTTP Status Code: 400
 
  **ServiceUnavailableException**   

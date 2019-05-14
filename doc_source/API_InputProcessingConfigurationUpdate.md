@@ -1,11 +1,11 @@
 # InputProcessingConfigurationUpdate<a name="API_InputProcessingConfigurationUpdate"></a>
 
-Describes updates to an [InputProcessingConfiguration](API_InputProcessingConfiguration.md)\. 
+Describes updates to an [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html)\. 
 
 ## Contents<a name="API_InputProcessingConfigurationUpdate_Contents"></a>
 
  **InputLambdaProcessorUpdate**   <a name="analytics-Type-InputProcessingConfigurationUpdate-InputLambdaProcessorUpdate"></a>
-Provides update information for an [InputLambdaProcessor](API_InputLambdaProcessor.md)\.  
+Provides update information for an [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html)\.  
 Type: [InputLambdaProcessorUpdate](API_InputLambdaProcessorUpdate.md) object  
 Required: Yes
 

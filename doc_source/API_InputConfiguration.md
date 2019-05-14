@@ -5,7 +5,7 @@ When you start your application, you provide this configuration, which identifie
 ## Contents<a name="API_InputConfiguration_Contents"></a>
 
  **Id**   <a name="analytics-Type-InputConfiguration-Id"></a>
-Input source ID\. You can get this ID by calling the [DescribeApplication](API_DescribeApplication.md) operation\.  
+Input source ID\. You can get this ID by calling the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   

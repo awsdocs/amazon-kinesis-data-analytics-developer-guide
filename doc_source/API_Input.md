@@ -12,7 +12,7 @@ Type: [InputParallelism](API_InputParallelism.md) object
 Required: No
 
  **InputProcessingConfiguration**   <a name="analytics-Type-Input-InputProcessingConfiguration"></a>
-The [InputProcessingConfiguration](API_InputProcessingConfiguration.md) for the input\. An input processor transforms records as they are received from the stream, before the application's SQL code executes\. Currently, the only input processing configuration available is [InputLambdaProcessor](API_InputLambdaProcessor.md)\.  
+The [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html) for the input\. An input processor transforms records as they are received from the stream, before the application's SQL code executes\. Currently, the only input processing configuration available is [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html)\.  
 Type: [InputProcessingConfiguration](API_InputProcessingConfiguration.md) object  
 Required: No
 
@@ -38,7 +38,6 @@ Required: No
 Name prefix to use when creating an in\-application stream\. Suppose that you specify a prefix "MyInApplicationStream\." Amazon Kinesis Analytics then creates one or more \(as per the `InputParallelism` count you specified\) in\-application streams with names "MyInApplicationStream\_001," "MyInApplicationStream\_002," and so on\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 32\.  
-Pattern: `[a-zA-Z][a-zA-Z0-9_]+`   
 Required: Yes
 
 ## See Also<a name="API_Input_SeeAlso"></a>

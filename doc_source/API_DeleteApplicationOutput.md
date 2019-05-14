@@ -29,13 +29,13 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_DeleteApplicationOutput_RequestSyntax) **   <a name="analytics-DeleteApplicationOutput-request-CurrentApplicationVersionId"></a>
-Amazon Kinesis Analytics application version\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.   
+Amazon Kinesis Analytics application version\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the current application version\. If the version specified is not the current version, the `ConcurrentModificationException` is returned\.   
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
  ** [OutputId](#API_DeleteApplicationOutput_RequestSyntax) **   <a name="analytics-DeleteApplicationOutput-request-OutputId"></a>
-The ID of the configuration to delete\. Each output configuration that is added to the application, either when the application is created or later using the [AddApplicationOutput](API_AddApplicationOutput.md) operation, has a unique ID\. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to get the specific `OutputId`\.   
+The ID of the configuration to delete\. Each output configuration that is added to the application, either when the application is created or later using the [AddApplicationOutput](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html) operation, has a unique ID\. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to get the specific `OutputId`\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   

@@ -5,9 +5,9 @@ This documentation is for version 1 of the Amazon Kinesis Data Analytics API, wh
 
  Adds a streaming source to your Amazon Kinesis application\. For conceptual information, see [Configuring Application Input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html)\. 
 
-You can add a streaming source either when you create an application or you can use this operation to add a streaming source after you create an application\. For more information, see [CreateApplication](API_CreateApplication.md)\.
+You can add a streaming source either when you create an application or you can use this operation to add a streaming source after you create an application\. For more information, see [CreateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html)\.
 
-Any configuration update, including adding a streaming source using this operation, results in a new version of the application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to find the current application version\. 
+Any configuration update, including adding a streaming source using this operation, results in a new version of the application\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to find the current application version\. 
 
 This operation requires permissions to perform the `kinesisanalytics:AddApplicationInput` action\.
 
@@ -74,13 +74,13 @@ Pattern: `[a-zA-Z0-9_.-]+`
 Required: Yes
 
  ** [CurrentApplicationVersionId](#API_AddApplicationInput_RequestSyntax) **   <a name="analytics-AddApplicationInput-request-CurrentApplicationVersionId"></a>
-Current version of your Amazon Kinesis Analytics application\. You can use the [DescribeApplication](API_DescribeApplication.md) operation to find the current application version\.  
+Current version of your Amazon Kinesis Analytics application\. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to find the current application version\.  
 Type: Long  
 Valid Range: Minimum value of 1\. Maximum value of 999999999\.  
 Required: Yes
 
  ** [Input](#API_AddApplicationInput_RequestSyntax) **   <a name="analytics-AddApplicationInput-request-Input"></a>
-The [Input](API_Input.md) to add\.  
+The [Input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html) to add\.  
 Type: [Input](API_Input.md) object  
 Required: Yes
 

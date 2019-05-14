@@ -3,7 +3,7 @@
 **Note**  
 This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications\. Version 2 of the API supports SQL and Java applications\. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html)\.
 
-Deletes an [InputProcessingConfiguration](API_InputProcessingConfiguration.md) from an input\.
+Deletes an [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html) from an input\.
 
 ## Request Syntax<a name="API_DeleteApplicationInputProcessingConfiguration_RequestSyntax"></a>
 
@@ -33,7 +33,7 @@ Valid Range: Minimum value of 1\. Maximum value of 999999999\.
 Required: Yes
 
  ** [InputId](#API_DeleteApplicationInputProcessingConfiguration_RequestSyntax) **   <a name="analytics-DeleteApplicationInputProcessingConfiguration-request-InputId"></a>
-The ID of the input configuration from which to delete the input processing configuration\. You can get a list of the input IDs for an application by using the [DescribeApplication](API_DescribeApplication.md) operation\.  
+The ID of the input configuration from which to delete the input processing configuration\. You can get a list of the input IDs for an application by using the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 50\.  
 Pattern: `[a-zA-Z0-9_.-]+`   
