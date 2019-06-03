@@ -27,3 +27,4 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 |  [StartApplication](API_StartApplication.md)   |  kinesisanalytics:StartApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [StopApplication](API_StopApplication.md)   |  kinesisanalytics:StopApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [UpdateApplication](API_UpdateApplication.md)   |  kinesisanalytics:UpdateApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
+|  Access or sample data in the console   |  kinesisanalytics:GetApplicationState  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 

@@ -1,4 +1,4 @@
-# Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources \(Creating an IAM Role\)<a name="iam-role"></a>
+# Identity and Access Management in Kinesis Data Analytics<a name="iam-role"></a>
 
 Amazon Kinesis Data Analytics needs permissions to read records from a streaming source that you specify in your application input configuration\. Amazon Kinesis Data Analytics also needs permissions to write your application output to streams that you specify in your application output configuration\. 
 

@@ -128,7 +128,7 @@ Specified input parameter value is invalid\.
 HTTP Status Code: 400
 
  **ResourceProvisionedThroughputExceededException**   
-Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException\. For more information, see [GetRecords](kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference\.  
+Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException\. For more information, see [GetRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference\.  
 HTTP Status Code: 400
 
  **ServiceUnavailableException**   

@@ -57,6 +57,5 @@ In addition, note the following:
 + [Application Code](how-it-works-app-code.md)
 + [Configuring Application Output](how-it-works-output.md)
 + [Error Handling](error-handling.md)
-+ [Granting Amazon Kinesis Data Analytics Permissions to Access Streaming and Reference Sources \(Creating an IAM Role\)](iam-role.md)
 + [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)
 + [Using Tagging](how-tagging.md)
