@@ -42,15 +42,16 @@ Consider the following query against the demo stream used in the [Getting Starte
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" 
-    ("ingest_time"    timestamp,
-    "APPROXIMATE_ARRIVAL_TIME" timestamp,
-    "ticker_symbol"  VARCHAR(12), 
-    "symbol_count"        integer);
+    ("ingest_time" TIMESTAMP,
+    "APPROXIMATE_ARRIVAL_TIME" TIMESTAMP,
+    "ticker_symbol" VARCHAR(12), 
+    "symbol_count" INTEGER);
             
             
 CREATE OR REPLACE PUMP "STREAM_PUMP" AS
     INSERT INTO "DESTINATION_SQL_STREAM"
-    SELECT STREAM STEP("SOURCE_SQL_STREAM_001".ROWTIME BY INTERVAL '60' SECOND) AS "ingest_time",
+    SELECT 
+        STREAM STEP("SOURCE_SQL_STREAM_001".ROWTIME BY INTERVAL '60' SECOND) AS "ingest_time",
         STEP("SOURCE_SQL_STREAM_001".APPROXIMATE_ARRIVAL_TIME BY INTERVAL '60' SECOND) AS "APPROXIMATE_ARRIVAL_TIME",
         "TICKER_SYMBOL",
         COUNT(*) AS "symbol_count"
