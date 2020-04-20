@@ -11,7 +11,7 @@ This documentation helps you understand how to apply the shared responsibility m
 **Topics**
 + [Data Protection in Amazon Kinesis Data Analytics for SQL Applications](data-protection.md)
 + [Identity and Access Management in Kinesis Data Analytics](iam-role.md)
-+ [Monitoring Amazon Kinesis Data Analytics for SQL Applications](monitoring-overview.md)
++ [Monitoring Amazon Kinesis Data Analytics](security-monitoring.md)
 + [Compliance Validation for Amazon Kinesis Data Analytics for SQL Applications](akda-java-compliance.md)
 + [Resilience in Amazon Kinesis Data Analytics](disaster-recovery-resiliency.md)
 + [Infrastructure Security in Kinesis Data Analytics for SQL Applications](infrastructure-security.md)

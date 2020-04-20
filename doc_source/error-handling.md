@@ -32,5 +32,5 @@ The error stream has the following schema:
 | ERROR\_NAME | VARCHAR\(32\) |  | 
 | MESSAGE | VARCHAR\(4096\) |  | 
 | DATA\_ROWTIME | TIMESTAMP | The row time of the incoming record | 
-| DATA\_ROW | VARCHAR\(49152\) | The hex\-encoded data in the original row\. You can use standard libraries to hex decode this value\.  | 
+| DATA\_ROW | VARCHAR\(49152\) | The hex\-encoded data in the original row\. You can use standard libraries to hex decode this value, or use web resources such as this [Hex to String Converter](http://string-functions.com/hex-string.aspx)\.  | 
 | PUMP\_NAME | VARCHAR\(128\) | The originating pump, as defined with `CREATE PUMP` | 

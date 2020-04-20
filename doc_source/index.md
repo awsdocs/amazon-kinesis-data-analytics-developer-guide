@@ -1,7 +1,7 @@
 # Amazon Kinesis Data Analytics for SQL Applications Developer Guide SQL Developer Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -95,18 +95,19 @@ Amazon's trademarks and trade dress may not be used in
 + [Security in Amazon Kinesis Data Analytics](security.md)
    + [Data Protection in Amazon Kinesis Data Analytics for SQL Applications](data-protection.md)
    + [Identity and Access Management in Kinesis Data Analytics](iam-role.md)
-   + [Monitoring Amazon Kinesis Data Analytics for SQL Applications](monitoring-overview.md)
-      + [Monitoring Tools](monitoring-automated-manual.md)
-      + [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md)
-         + [Kinesis Data Analytics Metrics and Dimensions](monitoring-metrics.md)
-         + [Viewing Amazon Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)
-         + [Creating CloudWatch Alarms to Monitor Amazon Kinesis Data Analytics](creating-alarms.md)
-         + [Working with Amazon CloudWatch Logs](cloudwatch-logs.md)
-      + [Logging Kinesis Data Analytics API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
+   + [Monitoring Amazon Kinesis Data Analytics](security-monitoring.md)
    + [Compliance Validation for Amazon Kinesis Data Analytics for SQL Applications](akda-java-compliance.md)
    + [Resilience in Amazon Kinesis Data Analytics](disaster-recovery-resiliency.md)
    + [Infrastructure Security in Kinesis Data Analytics for SQL Applications](infrastructure-security.md)
    + [Security Best Practices for Kinesis Data Analytics](security-best-practices.md)
++ [Monitoring Amazon Kinesis Data Analytics for SQL Applications](monitoring-overview.md)
+   + [Monitoring Tools](monitoring-automated-manual.md)
+   + [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md)
+      + [Kinesis Data Analytics Metrics and Dimensions](monitoring-metrics.md)
+      + [Viewing Amazon Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)
+      + [Creating CloudWatch Alarms to Monitor Amazon Kinesis Data Analytics](creating-alarms.md)
+      + [Working with Amazon CloudWatch Logs](cloudwatch-logs.md)
+   + [Logging Kinesis Data Analytics API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Limits](limits.md)
 + [Best Practices](best-practices.md)
 + [Troubleshooting Amazon Kinesis Data Analytics for SQL Applications](troubleshooting.md)

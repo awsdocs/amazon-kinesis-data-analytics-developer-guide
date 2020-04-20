@@ -1,6 +1,6 @@
 # Examples: Solution Accelerators<a name="examples_solution"></a>
 
-The [AWS Answers Site](https://aws.amazon.com/answers/) has AWS CloudFormation templates available that you can use to create complete streaming data solutions quickly\. 
+The [AWS Solutions Site](https://aws.amazon.com/solutions/) has AWS CloudFormation templates available that you can use to create complete streaming data solutions quickly\. 
 
 The following templates are available:
 

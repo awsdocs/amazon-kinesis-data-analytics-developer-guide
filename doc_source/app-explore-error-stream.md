@@ -36,7 +36,7 @@ In this exercise, you introduce a parse error\.
 
 ## Introducing a Divide by Zero Error<a name="intro-error-divide-zero"></a>
 
-In this exercise, you update the application code to introduce a runtime error \(division by zero\)\. Notice that Amazon Kinesis Data Analytics sends the resulting rows to the in\-application error stream, not to the in\-application error stream where the results are supposed to be written\.
+In this exercise, you update the application code to introduce a runtime error \(division by zero\)\. Notice that Amazon Kinesis Data Analytics sends the resulting rows to the in\-application error stream, not to the `DESTINATION_SQL_STREAM` in\-application stream where the results are supposed to be written\.
 
 1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
 

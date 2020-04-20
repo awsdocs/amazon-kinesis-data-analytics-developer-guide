@@ -11,12 +11,12 @@ In the Getting Started exercise, you have an in\-application stream named `SOURC
  PRICE REAL)
 ```
 
-Suppose that you are interested in stock price changes greater than 15 percent\. You can use the following query in your application code\. This query runs continuously and emits records when a stock price change greater than 1 percent is detected\.
+Suppose that you are interested in stock price changes greater than 15 percent\. You can use the following query in your application code\. This query runs continuously and emits records when a stock price change greater than 15 percent is detected\.
 
 ```
 SELECT STREAM TICKER_SYMBOL, PRICE 
       FROM   "SOURCE_SQL_STREAM_001"
-      WHERE  (ABS((CHANGE / (PRICE-CHANGE)) * 100)) > 1
+      WHERE  (ABS((CHANGE / (PRICE-CHANGE)) * 100)) > 15
 ```
 
 Use the following procedure to set up an Amazon Kinesis Data Analytics application and test this query\.
@@ -36,5 +36,5 @@ Use the following procedure to set up an Amazon Kinesis Data Analytics applicati
          SELECT STREAM TICKER_SYMBOL, 
                        PRICE 
          FROM   "SOURCE_SQL_STREAM_001"
-         WHERE  (ABS((CHANGE / (PRICE-CHANGE)) * 100)) > 1;
+         WHERE  (ABS((CHANGE / (PRICE-CHANGE)) * 100)) > 15;
    ```

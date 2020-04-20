@@ -27,4 +27,8 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 |  [StartApplication](API_StartApplication.md)   |  kinesisanalytics:StartApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [StopApplication](API_StopApplication.md)   |  kinesisanalytics:StopApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [UpdateApplication](API_UpdateApplication.md)   |  kinesisanalytics:UpdateApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
-|  Access or sample data in the console   |  kinesisanalytics:GetApplicationState  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
+|  Access or sample data in the console   |  kinesisanalytics:[GetApplicationState](#api-permissions-reference-gas)  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
+
+## GetApplicationState<a name="api-permissions-reference-gas"></a>
+
+The console uses an internal method called `GetApplicationState` to sample or access application data\. Your Kinesis Data Analytics service application needs to have permissions for the internal `kinesisanalytics:GetApplicationState` API to sample or access application data through the AWS Management Console\.

@@ -50,7 +50,7 @@ public class LambdaFunctionHandler
             context.getLogger().log("recordId is : " + record.recordId);
             context.getLogger().log("record retryHint is :" + record.lambdaDeliveryRecordMetadata.retryHint);
             // Add logic here to transform and send the record to final destination of your choice.
-            response.records.add(new Record(record.recordId, KinesisAnalyticsOutputDeliveryResult.Ok));
+            response.records.add(new Record(record.recordId, KinesisAnalyticsOutputDeliveryResponse.Result.Ok));
         });
         return response;
     }

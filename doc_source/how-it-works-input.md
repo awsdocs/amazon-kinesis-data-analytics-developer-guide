@@ -21,7 +21,12 @@ At the time that you create an application, you specify a streaming source\. You
 **Note**  
 If the Kinesis data stream is encrypted, Kinesis Data Analytics accesses the data in the encrypted stream seamlessly with no further configuration needed\. Kinesis Data Analytics does not store unencrypted data read from Kinesis Data Streams\. For more information, see [What Is Server\-Side Encryption For Kinesis Data Streams?](https://docs.aws.amazon.com/streams/latest/dev/what-is-sse.html)\.
 
-Kinesis Data Analytics continuously polls the streaming source for new data and ingests it in in\-application streams according to the input configuration\. Your application code can query the in\-application stream\. As part of input configuration you provide the following:
+Kinesis Data Analytics continuously polls the streaming source for new data and ingests it in in\-application streams according to the input configuration\. 
+
+**Note**  
+Adding a Kinesis Stream as your application's input does not affect the data in the stream\. If another resource such as a Kinesis Data Firehose delivery stream also accessed the same Kinesis stream, both the Kinesis Data Firehose delivery stream and the Kinesis Data Analytics application would receive the same data\. Throughput and throttling might be affected, however\.
+
+Your application code can query the in\-application stream\. As part of input configuration you provide the following:
 + **Streaming source** – You provide the Amazon Resource Name \(ARN\) of the stream and an IAM role that Kinesis Data Analytics can assume to access the stream on your behalf\. 
 + **In\-application stream name prefix** – When you start the application, Kinesis Data Analytics creates the specified in\-application stream\. In your application code, you access the in\-application stream using this name\. 
 
