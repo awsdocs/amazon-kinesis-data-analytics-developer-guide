@@ -135,7 +135,7 @@ Do not upload this file to a web server because it contains your AWS credentials
        while True:
            records = generator.get_records(batch_size)
            print(records)
-           kinesis.put_records(StreamName="ExampleInputStream", Records=records)
+           kinesis.put_records(StreamName=inputStream, Records=records)
    
            time.sleep(0.1)
    
