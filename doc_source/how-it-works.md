@@ -35,12 +35,10 @@ In addition to these basic properties, each application consists of the followin
   In its simplest form, application code can be a single SQL statement that selects from a streaming input and inserts results into a streaming output\. It can also be a series of SQL statements where output of one feeds into the input of the next SQL statement\. Further, you can write application code to split an input stream into multiple streams\. You can then apply additional queries to process these streams\. For more information, see [Application Code](how-it-works-app-code.md)\.
 
    
-+ **Output** – In application code, query results go to in\-application streams\. In your application code, you can create one or more in\-application streams to hold intermediate results\. You can then optionally configure the application output to persist data in the in\-application streams that hold your application output \(also referred to as in\-application output streams\) to external destinations\. External destinations can be a Kinesis Data Firehose delivery stream or a Kinesis data stream\. Note the following about these destinations:
++ **Output** – In application code, query results go to in\-application streams\. In your application code, you can create one or more in\-application streams to hold intermediate results\. You can then optionally configure the application output to persist data in the in\-application streams that hold your application output \(also referred to as in\-application output streams\) to external destinations\. External destinations can be a Kinesis Data Firehose delivery stream, a Kinesis data stream or a AWS Lambda function\. Note the following about these destinations:
   + You can configure a Kinesis Data Firehose delivery stream to write results to Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service \(Amazon ES\)\.
 
      
-  + You can also write application output to a custom destination instead of Amazon S3 or Amazon Redshift\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
-
   For more information, see [Configuring Application Output](how-it-works-output.md)\.
 
 In addition, note the following:
