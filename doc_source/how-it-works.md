@@ -1,61 +1,63 @@
-# Amazon Kinesis Data Analytics for SQL Applications: How It Works<a name="how-it-works"></a>
+# Kinesis Data Analytics for Apache Flink: How It Works<a name="how-it-works"></a>
 
-An *application* is the primary resource in Amazon Kinesis Data Analytics that you can create in your account\. You can create and manage applications using the AWS Management Console or the Kinesis Data Analytics API\. Kinesis Data Analytics provides API operations to manage applications\. For a list of API operations, see [Actions](API_Operations.md)\. 
+Kinesis Data Analytics for Apache Flink is a fully managed Amazon service that enables you to use an Apache Flink application to process streaming data\. 
 
-Kinesis Data Analytics applications continuously read and process streaming data in real time\. You write application code using SQL to process the incoming streaming data and produce output\. Then, Kinesis Data Analytics writes the output to a configured destination\. The following diagram illustrates a typical application architecture\.
+## Programming Your Apache Flink Application<a name="how-it-works-programming"></a>
 
-![\[Diagram showing a data analytics application, streaming input sources, reference data, and application output.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kinesis-app.png)
+An Apache Flink application is a Java or Scala application that is created with the Apache Flink framework\. You author and build your Apache Flink application locally\. 
 
-Each application has a name, description, version ID, and status\. Amazon Kinesis Data Analytics assigns a version ID when you first create an application\. This version ID is updated when you update any application configuration\. For example, if you add an input configuration, add or delete a reference data source, add or delete an output configuration, or update application code, Kinesis Data Analytics updates the current application version ID\. Kinesis Data Analytics also maintains timestamps for when an application was created and last updated\. 
+Applications primarily use either the [DataStream API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/datastream_api.html) or the [ Table API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/)\. The other Apache Flink APIs are also available for you to use, but they are less commonly used in building streaming applications\.
 
-In addition to these basic properties, each application consists of the following:
-+ **Input** – The streaming source for your application\. You can select either a Kinesis data stream or a Kinesis Data Firehose data delivery stream as the streaming source\. In the input configuration, you map the streaming source to an in\-application input stream\. The in\-application stream is like a continuously updating table upon which you can perform the `SELECT` and `INSERT SQL` operations\. In your application code, you can create additional in\-application streams to store intermediate query results\. 
+The features of the two APIs are as follows:
 
-   
+### DataStream API<a name="how-it-works-prog-datastream"></a>
 
-  You can optionally partition a single streaming source in multiple in\-application input streams to improve the throughput\. For more information, see [Limits](limits.md) and [Configuring Application Input](how-it-works-input.md)\.
+The Apache Flink DataStream API programming model is based on two components:
++ **Data stream:** The structured representation of a continuous flow of data records\.
++ **Transformation operator:** Takes one or more data streams as input, and produces one or more data streams as output\.
 
-   
+Applications created with the DataStream API do the following:
++ Read data from a Data Source \(such as a Kinesis stream or Amazon MSK topic\)\.
++ Apply transformations to the data, such as filtering, aggregation, or enrichment\.
++ Write the transformed data to a Data Sink\.
 
-  Amazon Kinesis Data Analytics provides a timestamp column in each application stream called [Timestamps and the ROWTIME Column](timestamps-rowtime-concepts.md)\. You can use this column in time\-based windowed queries\. For more information, see [Windowed Queries](windowed-sql.md)\. 
+Applications that use the DataStream API can be written in Java or Scala, and can read from a Kinesis data stream, a Amazon MSK topic, or a custom source\.
 
-   
+Your application processes data by using a *connector*\. Apache Flink uses the following types of connectors: 
++ **Source**: A connector used to read external data\.
++ **Sink**: A connector used to write to external locations\. 
++ **Operator**: A connector used to process data within the application\.
 
-  You can optionally configure a reference data source to enrich your input data stream within the application\. It results in an in\-application reference table\. You must store your reference data as an object in your S3 bucket\. When the application starts, Amazon Kinesis Data Analytics reads the Amazon S3 object and creates an in\-application table\. For more information, see [Configuring Application Input](how-it-works-input.md)\.
+A typical application consists of at least one data stream with a source, a data stream with one or more operators, and at least one data sink\.
 
-   
-+ **Application code** – A series of SQL statements that process input and produce output\. You can write SQL statements against in\-application streams and reference tables\. You can also write JOIN queries to combine data from both of these sources\. 
+For more information about using the DataStream API, see [DataStream API](how-datastream.md)\.
 
-   
+### Table API<a name="how-it-works-prog-table"></a>
 
-  For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
+The Apache Flink Table API programming model is based on the following components:
++ **Table Environment:** An interface to underlying data that you use to create and host one or more tables\. 
++ **Table:** An object providing access to a SQL table or view\.
++ **Table Source:** Used to read data from an external source, such as an Amazon MSK topic\.
++ **Table Function:** A SQL query or API call used to transform data\.
++ **Table Sink:** Used to write data to an external location, such as an Amazon S3 bucket\.
 
-   
+Applications created with the Table API do the following:
++ Create a `TableEnvironment` by connecting to a `Table Source`\. 
++ Create a table in the `TableEnvironment` using either SQL queries or Table API functions\.
++ Run a query on the table using either Table API or SQL
++ Apply transformations on the results of the query using Table Functions or SQL queries\.
++ Write the query or function results to a `Table Sink`\.
 
-  In its simplest form, application code can be a single SQL statement that selects from a streaming input and inserts results into a streaming output\. It can also be a series of SQL statements where output of one feeds into the input of the next SQL statement\. Further, you can write application code to split an input stream into multiple streams\. You can then apply additional queries to process these streams\. For more information, see [Application Code](how-it-works-app-code.md)\.
+Applications that use the Table API can be written in Java or Scala, and can query data using either API calls or SQL queries\. 
 
-   
-+ **Output** – In application code, query results go to in\-application streams\. In your application code, you can create one or more in\-application streams to hold intermediate results\. You can then optionally configure the application output to persist data in the in\-application streams that hold your application output \(also referred to as in\-application output streams\) to external destinations\. External destinations can be a Kinesis Data Firehose delivery stream or a Kinesis data stream\. Note the following about these destinations:
-  + You can configure a Kinesis Data Firehose delivery stream to write results to Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service \(Amazon ES\)\.
+For more information about using the Table API, see [Table API](how-table.md)\.
 
-     
-  + You can also write application output to a custom destination instead of Amazon S3 or Amazon Redshift\. To do that, you specify a Kinesis data stream as the destination in your output configuration\. Then, you configure AWS Lambda to poll the stream and invoke your Lambda function\. Your Lambda function code receives stream data as input\. In your Lambda function code, you can write the incoming data to your custom destination\. For more information, see [Using AWS Lambda with Amazon Kinesis Data Analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\. 
+## Creating Your Kinesis Data Analytics Application<a name="how-it-works-app"></a>
 
-  For more information, see [Configuring Application Output](how-it-works-output.md)\.
+A Kinesis Data Analytics application is an AWS resource that is hosted by the Kinesis Data Analytics service\. Your Kinesis Data Analytics application hosts your Apache Flink application and provides it with the following settings:
++ **[Runtime Properties](how-properties.md): ** Parameters that you can provide to your application\. You can change these parameters without recompiling your application code\.
++ **[Fault Tolerance](how-fault.md)**: How your application recovers from interrupts and restarts\.
++ **[Logging and Monitoring](monitoring-overview.md)**: How your application logs events to CloudWatch Logs\. 
++ **[Scaling](how-scaling.md)**: How your application provisions computing resources\.
 
-In addition, note the following:
-+ Amazon Kinesis Data Analytics needs permissions to read records from a streaming source and write application output to the external destinations\. You use IAM roles to grant these permissions\.
-
-   
-+ Kinesis Data Analytics automatically provides an in\-application error stream for each application\. If your application has issues while processing certain records \(for example, because of a type mismatch or late arrival\), that record is written to the error stream\. You can configure application output to direct Kinesis Data Analytics to persist the error stream data to an external destination for further evaluation\. For more information, see [Error Handling](error-handling.md)\. 
-
-   
-+ Amazon Kinesis Data Analytics ensures that your application output records are written to the configured destination\. It uses an "at least once" processing and delivery model, even if you experience an application interruption\. For more information, see [Delivery Model for Persisting Application Output to an External Destination](failover-checkpoint.md)\.
-
-**Topics**
-+ [Configuring Application Input](how-it-works-input.md)
-+ [Application Code](how-it-works-app-code.md)
-+ [Configuring Application Output](how-it-works-output.md)
-+ [Error Handling](error-handling.md)
-+ [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md)
-+ [Using Tagging](how-tagging.md)
+You create your Kinesis Data Analytics application using either the console or the AWS CLI\. To get started creating a Kinesis Data Analytics application, see [Getting Started \(DataStream API\)](getting-started.md)\.
