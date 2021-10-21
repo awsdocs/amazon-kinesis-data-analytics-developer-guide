@@ -54,7 +54,7 @@ Properties inputProperties = new Properties();
 inputProperties.setProperty(ConsumerConfigConstants.AWS_REGION, region);
 inputProperties.setProperty("bootstrap.servers", "Cluster Bootstrap Broker String");
 inputProperties.setProperty("security.protocol", "SSL");
-inputProperties.setProperty("ssl.truststore.location", "/usr/local/openjdk-8/jre/lib/security/cacerts");
+inputProperties.setProperty("ssl.truststore.location", "/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts");
 inputProperties.setProperty("ssl.truststore.password", "changeit");
 
 DataStream<string> input = env.addSource(new FlinkKafkaConsumer<>("MyMSKTopic", new SimpleStringSchema(), inputProperties));

@@ -11,8 +11,8 @@ For a tutorial about how to use Apache Beam in a Kinesis Data Analytics applicat
 ## Using Apache Beam with Kinesis Data Analytics<a name="how-creating-apps-beam-using"></a>
 
 Note the following about using the Apache Flink runner with Kinesis Data Analytics:
-+ Apache Beam metrics are not viewable in the Kinesis Data Analytics console\. You can view Apache Beam metrics in the CloudWatch console\.
-+ **Apache Beam is only supported with Kinesis Data Analytics applications that use Apache Flink version 1\.8\. Apache Beam is not supported with Kinesis Data Analytics applications that use Apache Flink version 1\.6\.**
++ Apache Beam metrics are not viewable in the Kinesis Data Analytics console\.
++ **Apache Beam is only supported with Kinesis Data Analytics applications that use Apache Flink version 1\.8 and above\. Apache Beam is not supported with Kinesis Data Analytics applications that use Apache Flink version 1\.6\.**
 
 ## Beam Capabilities<a name="how-creating-apps-beam-capabilities"></a>
 

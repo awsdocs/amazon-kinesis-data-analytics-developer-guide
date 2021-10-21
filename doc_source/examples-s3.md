@@ -100,6 +100,11 @@ The application code is located in the `S3StreamingSinkJob.java` file\. Note the
   return env.addSource(new FlinkKinesisConsumer<>(inputStreamName,
                   new SimpleStringSchema(), inputProperties));
   ```
++ You need to add the following import statement:
+
+  ```
+  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
+  ```
 + The application uses an Apache Flink S3 sink to write to Amazon S3\. 
 
   The sink reads messages in a tumbling window, encodes messages into S3 bucket objects, and sends the encoded objects to the S3 sink\. The following code encodes objects for sending to Amazon S3:
@@ -107,7 +112,7 @@ The application code is located in the `S3StreamingSinkJob.java` file\. Note the
   ```
   input.flatMap(new Tokenizer()) // Tokenizer for generating words
       .keyBy(0) // Logically partition the stream for each word
-      .timeWindow(Time.minutes(1)) // Tumbling window definition
+      .window(TumblingProcessingTimeWindows.of(Time.minutes(1)))
       .sum(1) // Sum the number of words per partition
       .map(value -> value.f0 + " count: " + value.f1.toString() + "\n")
       .addSink(createS3SinkFromStaticConfig());

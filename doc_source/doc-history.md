@@ -9,7 +9,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| Support for Apache Flink version 1\.13\.2 | Kinesis Data Analytics now supports applications that use Apache Flink version 1\.13\.2\. Create Kinesis Data Analytics applications using the Apache Flink Table API\. For more information, see [Creating Applications](how-creating-apps.md)\.  | October 5, 2021 | 
+| Support for Apache Flink version 1\.13\.2 | Kinesis Data Analytics now supports applications that use Apache Flink version 1\.13\.2\. Create Kinesis Data Analytics applications using the Apache Flink Table API\. For more information, see [Creating Applications](how-creating-apps.md)\.  | October 13, 2021 | 
 | Support for Python | Kinesis Data Analytics now supports applications that use Python with the Apache Flink Table API & SQL\. For more information, see [Using Python](how-python.md)\.  | March 25, 2021 | 
 | Support for Apache Flink 1\.11\.1 | Kinesis Data Analytics now supports applications that use Apache Flink 1\.11\.1\. Create Kinesis Data Analytics applications using the Apache Flink Table API\. For more information, see [Creating Applications](how-creating-apps.md)\.  | November 19, 2020 | 
 | Apache Flink Dashboard | Use the Apache Flink Dashboard to monitor application health and performance\. For more information, see [Apache Flink Dashboard](how-dashboard.md)\.  | November 19, 2020 | 

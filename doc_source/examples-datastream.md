@@ -9,7 +9,6 @@ The following examples demonstrate how to create applications using the Apache F
 + [Tutorial: Using a Kinesis Data Analytics application to Replicate Data from One MSK Cluster to Another in a VPC](example-msk.md)
 + [Example: Use an EFO Consumer with a Kinesis Data Stream](examples-efo.md)
 + [Example: Writing to Kinesis Data Firehose](get-started-exercise-fh.md)
-+ [Example: Using a Custom Sink to Write to CloudWatch Logs](examples-cloudwatch.md)
 + [Example: Read From a Kinesis Stream in a Different Account](examples-cross.md)
 + [Tutorial: Using a Custom Keystore with Amazon MSK](example-keystore.md)
 + [Example: Using Apache Beam](examples-beam.md)

@@ -86,5 +86,5 @@ If you encounter this error during a snapshot operation or an operation that cre
 The location of the SSL truststore was updated in a previous deployment\. Use the following value for the `ssl.truststore.location` parameter instead:
 
 ```
-/usr/local/openjdk-8/jre/lib/security/cacerts
+/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts
 ```
