@@ -94,18 +94,21 @@ The application code is located in the `SlidingWindowStreamingJobWithParallelism
                   new SimpleStringSchema(), inputProperties));
   ```
 + The application uses the `timeWindow` operator to find the minimum value for each stock symbol over a 10\-second window that slides by 5 seconds\. The following code creates the operator and sends the aggregated data to a new Kinesis Data Streams sink:
++ Add the following import statement:
 
   ```
-  input.map(value -> { // Parse the JSON
-          JsonNode jsonNode = jsonParser.readValue(value, JsonNode.class);
-          return new Tuple2<>(jsonNode.get("TICKER").asText(), jsonNode.get("PRICE").asDouble());
-      }).returns(Types.TUPLE(Types.STRING, Types.DOUBLE))
-          .keyBy(0) // Logically partition the stream per stock symbol
-          .timeWindow(Time.seconds(10), Time.seconds(5)) // Sliding window definition
-          .min(1) // Calculate minimum price per stock over the window
-          .setParallelism(3) // Set parallelism for the min operator
-          .map(value -> value.f0 + ":  (with parallelism 3) - " + value.f1.toString() + "\n")
-          .addSink(createSinkFromStaticConfig());
+  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13
+  ```
++ The application uses the `timeWindow` operator to find the count of values for each stock symbol over a 5\-second tumbling window\. The following code creates the operator and sends the aggregated data to a new Kinesis Data Streams sink:
+
+  ```
+  input.flatMap(new Tokenizer()) // Tokenizer for generating words
+                  .keyBy(0) // Logically partition the stream for each word
+                  //.timeWindow(Time.seconds(5)) // Tumbling window definition (Flink 1.11)
+  		.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13
+                  .sum(1) // Sum the number of words per partition
+                  .map(value -> value.f0 + "," + value.f1.toString() + "\n")
+                  .addSink(createSinkFromStaticConfig());
   ```
 
 ## Compile the Application Code<a name="examples-sliding-compile"></a>
