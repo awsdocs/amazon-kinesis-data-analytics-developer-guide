@@ -93,15 +93,21 @@ The application code is located in the `TumblingWindowStreamingJob.java` file\. 
   return env.addSource(new FlinkKinesisConsumer<>(inputStreamName,
                   new SimpleStringSchema(), inputProperties));
   ```
++ Add the following import statement:
+
+  ```
+  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13
+  ```
 + The application uses the `timeWindow` operator to find the count of values for each stock symbol over a 5\-second tumbling window\. The following code creates the operator and sends the aggregated data to a new Kinesis Data Streams sink:
 
   ```
   input.flatMap(new Tokenizer()) // Tokenizer for generating words
-      .keyBy(0) // Logically partition the stream for each word
-      .timeWindow(Time.seconds(5)) // Tumbling window definition
-      .sum(1) // Sum the number of words per partition
-      .map(value -> value.f0 + "," + value.f1.toString() + "\n")
-      .addSink(createSinkFromStaticConfig());
+                  .keyBy(0) // Logically partition the stream for each word
+                  //.timeWindow(Time.seconds(5)) // Tumbling window definition (Flink 1.11)
+  		.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13
+                  .sum(1) // Sum the number of words per partition
+                  .map(value -> value.f0 + "," + value.f1.toString() + "\n")
+                  .addSink(createSinkFromStaticConfig());
   ```
 
 ## Compile the Application Code<a name="examples-tumbling-compile"></a>
