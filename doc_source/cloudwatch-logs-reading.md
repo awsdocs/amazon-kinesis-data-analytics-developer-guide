@@ -56,7 +56,7 @@ Replace the Region \(*us\-west\-2*\), Account ID \(*012345678901*\) and applicat
 
 ### Analyze Operations: Distribution of Tasks<a name="cloudwatch-logs-reading-tm"></a>
 
-The following CloudWatch Logs Insights query returns the number of tasks the Apache Flink Job Manager distributes between Task Managers\. You need to set the query's time frame to match one job run so that the query doesn't return tasks from previous jobs\. For more information about Parallelism, see [Scaling](how-scaling.md)\. 
+The following CloudWatch Logs Insights query returns the number of tasks the Apache Flink Job Manager distributes between Task Managers\. You need to set the query's time frame to match one job run so that the query doesn't return tasks from previous jobs\. For more information about Parallelism, see [ScalingProduction readiness](how-scaling.md)\. 
 
 ```
 fields @timestamp, message

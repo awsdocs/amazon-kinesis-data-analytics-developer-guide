@@ -22,9 +22,10 @@ You can only deploy a note from your Studio notebook if it meets the following c
 + In your Scala or Python code, use the [Blink planner](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/#dependency-structure) \(`senv`, `stenv` for Scala; `s_env`, `st_env` for Python\) and not the older "Flink" planner \(`stenv_2` for Scala, `st_env_2` for Python\)\. The Apache Flink project recommends the use of the Blink planner for production use cases, and this is the default planner in Zeppelin and in Flink\.
 + Your Python paragraphs must not use [shell invocations/assignments](https://ipython.readthedocs.io/en/stable/interactive/python-ipython-diff.html#shell-assignment) using `!` or [IPython magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) like `%timeit` or `%conda` in notes meant to be deployed as applications\.
 + You can't use Scala case classes as parameters of functions passed to higher\-order dataflow operators like `map` and `filter`\. For information about Scala case classes, see [CASE CLASSES](https://docs.scala-lang.org/overviews/scala-book/case-classes.html) in the Scala documentation\.
-+ You can deploy an application with a UDF written in Java or Scala, but not in Python\.
 
 ## SQL criteria<a name="how-notebook-durable-sql"></a>
 + Simple SELECT statements are not permitted, as there’s nowhere equivalent to a paragraph’s output section where the data can be delivered\.
 + In any given paragraph, DDL statements \(`USE`, `CREATE`, `ALTER`, `DROP`, `SET`, `RESET`\) must precede DML \(`INSERT`\) statements\. This is because DML statements in a paragraph must be submitted together as a single Flink job\.
 + There should be at most one paragraph that has DML statements in it\. This is because, for the deploy\-as\-application feature, we only support submitting a single job to Flink\.
+
+For more information and an example, see [ Translate, redact and analyze streaming data using SQL functions with Amazon Kinesis Data Analytics, Amazon Translate, and Amazon Comprehend](https://aws.amazon.com/blogs/machine-learning/translate-redact-and-analyze-streaming-data-using-sql-functions-with-amazon-kinesis-data-analytics-amazon-translate-and-amazon-comprehend/)\.

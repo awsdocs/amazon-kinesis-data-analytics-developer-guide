@@ -13,6 +13,8 @@ Before you start monitoring Kinesis Data Analytics, you should create a monitori
 The next step is to establish a baseline for normal Kinesis Data Analytics performance in your environment\. You do this by measuring performance at various times and under different load conditions\. As you monitor Kinesis Data Analytics, you can store historical monitoring data\. You can then compare it with current performance data, identify normal performance patterns and performance anomalies, and devise methods to address issues\.
 
 **Topics**
++ [Logging](logging.md)
++ [Monitoring](monitoring.md)
 + [Setting Up Application Logging](cloudwatch-logs.md)
 + [Analyzing Logs with CloudWatch Logs Insights](cloudwatch-logs-reading.md)
 + [Viewing Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)

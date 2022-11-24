@@ -1,6 +1,6 @@
 # Running a Kinesis Data Analytics for Apache Flink Application<a name="how-running-apps"></a>
 
-This topic contains information about running a Kinesis Data Analytics for Apache Flink application\.
+This topic contains information about running an Amazon Kinesis Data Analytics for Apache Flink\.
 
 When you run your Kinesis Data Analytics application, the Kinesis Data Analytics service creates an Apache Flink job\. An Apache Flink job is the execution lifecycle of your Kinesis Data Analytics application\. The execution of the job, and the resources it uses, are managed by the Job Manager\. The Job Manager separates the execution of the application into tasks\. Each task is managed by a Task Manager\. When you monitor your application's performance, you can examine the performance of each Task Manager, or of the Job Manager as a whole\. 
 
@@ -15,7 +15,7 @@ Both your application and the application's job have a current execution status:
     + **RUNNING:** An application that has successfully started is in the RUNNING status\.
   + **Transient application statuses:** An application in these statuses is typically in the process of transitioning to another status\. If an application stays in a transient status for a length of time, you can stop the application using the [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StopApplication.html) action with the `Force` parameter set to `true`\. These statuses include the following:
     + `STARTING:` Occurs after the [StartApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StartApplication.html) action\. The application is transitioning from the `READY` to the `RUNNING` status\.
-    + **STOPPING:** Occurs after the [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StopApplication.html) action\. The application is transitioning from the `RUNNING` to the `READY` status\.
+    + `STOPPING:` Occurs after the [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StopApplication.html) action\. The application is transitioning from the `RUNNING` to the `READY` status\.
     + `DELETING:` Occurs after the [DeleteApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_DeleteApplication.html) action\. The application is in the process of being deleted\.
     + `UPDATING:` Occurs after the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) action\. The application is updating, and will transition back to the `RUNNING` or `READY` status\.
     + `AUTOSCALING:` The application has the `AutoScalingEnabled` property of the [ ParallelismConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_ParallelismConfiguration.html) set to `true`, and the service is increasing the parallelism of the application\. When the application is in this status, the only valid API action you can use is the [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StopApplication.html) action with the `Force` parameter set to `true`\. For information about automatic scaling, see [Automatic Scaling](how-scaling.md#how-scaling-auto)\.

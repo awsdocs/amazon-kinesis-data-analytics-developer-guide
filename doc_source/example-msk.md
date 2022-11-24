@@ -1,4 +1,4 @@
-# Tutorial: Using a Kinesis Data Analytics application to Replicate Data from One MSK Cluster to Another in a VPC<a name="example-msk"></a>
+# Tutorial: Using a Kinesis Data Analytics application to Replicate Data from One Topic in an MSK Cluster to Another in a VPC<a name="example-msk"></a>
 
 The following tutorial demonstrates how to create an Amazon VPC with an Amazon MSK cluster and two topics, and how to create a Kinesis Data Analytics application that reads from one Amazon MSK topic and writes to another\.
 
@@ -19,7 +19,7 @@ To set up required prerequisites for this exercise, first complete the [Getting 
 To create a sample VPC and Amazon MSK cluster to access from a Kinesis Data Analytics application, follow the [Getting Started Using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) tutorial\.
 
 When completing the tutorial, note the following:
-+ In [Step 5: Create a Topic](https://docs.aws.amazon.com/msk/latest/developerguide/create-topic.html), repeat the `kafka-topics.sh --create` command to create a destination topic named `AWSKafkaTutorialTopicDestination`:
++ In [Step 3: Create a Topic](https://docs.aws.amazon.com/msk/latest/developerguide/create-topic.html), repeat the `kafka-topics.sh --create` command to create a destination topic named `AWSKafkaTutorialTopicDestination`:
 
   ```
   bin/kafka-topics.sh --create --zookeeper ZooKeeperConnectionString --replication-factor 3 --partitions 1 --topic AWSKafkaTutorialTopicDestination
@@ -53,7 +53,7 @@ The Java application code for this example is available from GitHub\. To downloa
 1. Use either the command\-line Maven tool or your preferred development environment to create the JAR file\. To compile the JAR file using the command\-line Maven tool, enter the following:
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 
    If the build is successful, the following file is created:
@@ -87,7 +87,7 @@ Your application code is now stored in an Amazon S3 bucket where your applicatio
 
 1. On the **Kinesis Analytics \- Create application** page, provide the application details as follows:
    + For **Application name**, enter **MyApplication**\.
-   + For **Runtime**, choose **Apache Flink version 1\.13\.2**\.
+   + For **Runtime**, choose **Apache Flink version 1\.15\.2**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -110,13 +110,13 @@ Role: `kinesis-analytics-MyApplication-us-west-2`
 **Note**  
 When you specify application resources using the console \(such as CloudWatch Logs or an Amazon VPC\), the console modifies your application execution role to grant permission to access those resources\.
 
-1. Under **Properties**, choose **Add Group**\. Create a property group named **KafkaSource** with the following properties:  
+1. Under **Properties**, choose **Add Group**\. Enter the following properties:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/example-msk.html)
 **Note**  
 The **ssl\.truststore\.password** for the default certificate is "changeit"; you do not need to change this value if you are using the default certificate\.
 
-   Choose **Add Group** again\. Create a property group named **KafkaSink** with the following properties:  
+   Choose **Add Group** again\. Enter the following properties:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/example-msk.html)
 

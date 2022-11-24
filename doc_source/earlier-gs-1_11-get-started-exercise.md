@@ -44,7 +44,7 @@ You can create these streams using either the Amazon Kinesis console or the foll
 In this section, you use a Python script to write sample records to the stream for the application to process\.
 
 **Note**  
-This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/developers/earlier-gs-1_11/python/)\.
+This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/sdk-for-python/)\.
 
 1. Create a file named `stock.py` with the following contents:
 
@@ -312,7 +312,7 @@ On the **MyApplication** page, choose **Configure**\. Update the application set
 
 ### Create and Run the Application \(AWS CLI\)<a name="earlier-gs-1_11-get-started-exercise-7-cli"></a>
 
-In this section, you use the AWS CLI to create and run the Kinesis Data Analytics application\. Kinesis Data Analytics for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and interact with Kinesis Data Analytics applications\.
+In this section, you use the AWS CLI to create and run the Kinesis Data Analytics application\. a Kinesis Data Analytics for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and interact with Kinesis Data Analytics applications\.
 
 #### Create a Permissions Policy<a name="earlier-gs-1_11-get-started-exercise-7-cli-policy"></a>
 

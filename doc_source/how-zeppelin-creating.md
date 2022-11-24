@@ -24,3 +24,5 @@ When creating the application from the console, you have the following options:
 + In the Kinesis Data Analytics console choose the **Studio** tab, then choose **Create Studio notebook**\.
 
 For a tutorial about how to create a Studio notebook using either the AWS Management Console or the AWS CLI, see [Tutorial: Creating a Studio notebook in Kinesis Data Analytics](example-notebook.md)\.
+
+For an example of a more advanced Studio notebook solution, see [Apache Flink on Amazon Kinesis Data Analytics Studio](https://streaming-analytics.workshop.aws/flink-on-kda-studio/)\.

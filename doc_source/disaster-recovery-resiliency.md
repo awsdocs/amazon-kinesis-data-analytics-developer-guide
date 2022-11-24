@@ -4,7 +4,7 @@ The AWS global infrastructure is built around AWS Regions and Availability Zones
 
 For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)\.
 
-In addition to the AWS global infrastructure, Kinesis Data Analytics for Apache Flink offers several features to help support your data resiliency and backup needs\.
+In addition to the AWS global infrastructure, a Kinesis Data Analytics for Apache Flink offers several features to help support your data resiliency and backup needs\.
 
 ## Disaster Recovery<a name="disaster-recovery"></a>
 

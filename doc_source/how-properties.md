@@ -45,7 +45,7 @@ The following example request for the [https://docs.aws.amazon.com/kinesisanalyt
 {
     "ApplicationName": "MyApplication",
     "ApplicationDescription": "my java test app",
-    "RuntimeEnvironment": "FLINK-1_13",
+    "RuntimeEnvironment": "FLINK-1_15",
     "ServiceExecutionRole": "arn:aws:iam::012345678901:role/KA-stream-rw-role",
     "ApplicationConfiguration": {
         "ApplicationCodeConfiguration": {

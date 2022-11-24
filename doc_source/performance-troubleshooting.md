@@ -40,7 +40,7 @@ For more information, see [Application Monitoring Levels](cloudwatch-logs.md#clo
 
 Check the application's `CPU` metric\. If this metric is above 75 percent, you can allow the application to allocate more resources for itself by enabling auto scaling\.
 
-If auto scaling is enabled, the application allocates more resources if CPU usage is over 75 percent for 15 minutes\. For more information about scaling, see the [Manage scaling properly](performance-improving.md#performance-improving-scaling) section following, and the [Scaling](how-scaling.md)\.
+If auto scaling is enabled, the application allocates more resources if CPU usage is over 75 percent for 15 minutes\. For more information about scaling, see the [Manage scaling properly](performance-improving.md#performance-improving-scaling) section following, and the [ScalingProduction readiness](how-scaling.md)\.
 
 **Note**  
 An application will only scale automatically in response to CPU usage\. The application will not auto scale in response to other system metrics, such as `heapMemoryUtilization`\. If your application has a high level of usage for other metrics, increase your application's parallelism manually\.

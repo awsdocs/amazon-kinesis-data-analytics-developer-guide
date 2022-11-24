@@ -184,7 +184,7 @@ When you use the console to create your application, the console creates a polic
 
    1. Choose **Edit trust relationship**\.
 
-   1. Use the following code for the trust relationship\. Replace the sample account ID \(*SINK012345678*\) with your sink account ID\.
+   1. Use the following code for the trust relationship\. Replace the sample account ID \(**SINK012345678**\) with your sink account ID\.
 
       ```
       {
@@ -223,10 +223,10 @@ def getReferrer():
     data = {}
     now = datetime.datetime.now()
     str_now = now.isoformat()
-    data['EVENT_TIME'] = str_now
-    data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
+    data['event_time'] = str_now
+    data['ticker'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
     price = random.random() * 100
-    data['PRICE'] = round(price, 2)
+    data['price'] = round(price, 2)
     return data
 
 while True:
@@ -282,15 +282,16 @@ public class BasicStreamingJob {
         return env.addSource(new FlinkKinesisConsumer<>(inputStreamName, new SimpleStringSchema(), inputProperties));
     }
 
-    private static FlinkKinesisProducer<String> createSinkFromStaticConfig() {
+    private static KinesisStreamsSink<String> createSinkFromStaticConfig() {
         Properties outputProperties = new Properties();
-        outputProperties.setProperty(ConsumerConfigConstants.AWS_REGION, region);
-        outputProperties.setProperty("AggregationEnabled", "false");
+        outputProperties.setProperty(AWSConfigConstants.AWS_REGION, region);
 
-        FlinkKinesisProducer<String> sink = new FlinkKinesisProducer<>(new SimpleStringSchema(), outputProperties);
-        sink.setDefaultStream(outputStreamName);
-        sink.setDefaultPartition("0");
-        return sink;
+        return KinesisStreamsSink.<String>builder()
+                .setKinesisClientProperties(outputProperties)
+                .setSerializationSchema(new SimpleStringSchema())
+                .setStreamName(outputProperties.getProperty("OUTPUT_STREAM", "ExampleOutputStream"))
+                .setPartitionKeyGenerator(element -> String.valueOf(element.hashCode()))
+                .build();
     }
 
     public static void main(String[] args) throws Exception {
@@ -313,7 +314,7 @@ Do the following to update and run the application:
 1. Build the application again by running the following command in the directory with the `pom.xml` file\.
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 
 1. Delete the previous JAR file from your Amazon Simple Storage Service \(Amazon S3\) bucket, and then upload the new `aws-kinesis-analytics-java-apps-1.0.jar` file to the S3 bucket\.

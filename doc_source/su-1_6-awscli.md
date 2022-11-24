@@ -1,6 +1,6 @@
 # Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)<a name="su-1_6-awscli"></a>
 
-In this step, you download and configure the AWS CLI to use with Kinesis Data Analytics for Apache Flink\.
+In this step, you download and configure the AWS CLI to use with a Kinesis Data Analytics for Apache Flink\.
 
 **Note**  
 The getting started exercises in this guide assume that you are using administrator credentials \(`adminuser`\) in your account to perform the operations\.

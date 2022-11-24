@@ -68,7 +68,7 @@ The following example demonstrates how to use the `CreateApplication` action to 
 {
     "ApplicationName": "test",
     "ApplicationDescription": "test-application-description",
-    "RuntimeEnvironment": "FLINK-1_13",
+    "RuntimeEnvironment": "FLINK-1_15",
     "ServiceExecutionRole": "arn:aws:iam::123456789123:role/myrole",
     "ApplicationConfiguration": {
         "ApplicationCodeConfiguration": {
@@ -161,7 +161,7 @@ The following example request for the [https://docs.aws.amazon.com/kinesisanalyt
             "LogLevel": "INFO"
          }
       },
-   "RuntimeEnvironment": "FLINK-1_13",
+   "RuntimeEnvironment": "FLINK-1_15",
    "ServiceExecutionRole": "arn:aws:iam::123456789123:role/myrole"
 }
 ```

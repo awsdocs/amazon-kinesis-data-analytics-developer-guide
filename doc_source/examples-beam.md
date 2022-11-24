@@ -1,4 +1,4 @@
-# Example: Using Apache Beam<a name="examples-beam"></a>
+# Creating an application using Apache Beam<a name="examples-beam"></a>
 
 In this exercise, you create a Kinesis Data Analytics application that transforms data using [Apache Beam](https://beam.apache.org/)\. Apache Beam is a programming model for processing streaming data\. For information about using Apache Beam with Kinesis Data Analytics, see [Using Apache Beam](how-creating-apps-beam.md)\.
 
@@ -123,10 +123,10 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.13.2 -Dflink.version.minor=1.8
+   mvn package -Dflink.version=1.15.2 -Dflink.version.minor=1.8
    ```
 **Note**  
-The provided source code relies on libraries from Java 11\. If you are using a development environment, 
+The provided source code relies on libraries from Java 11\. 
 
 Compiling the application creates the application JAR file \(`target/basic-beam-app-1.0.jar`\)\.
 
@@ -156,8 +156,8 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
 **Note**  
-Kinesis Data Analytics uses Apache Flink version 1\.13\.2\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+Kinesis Data Analytics uses Apache Flink version 1\.15\.2\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -245,9 +245,7 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, for **Group ID**, enter **BeamApplicationProperties**\.
-
-1. Enter the following application properties and values:    
+1. Enter the following:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/examples-beam.html)
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**\.

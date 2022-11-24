@@ -2,11 +2,12 @@
 
 You can use the [Apache Beam](https://beam.apache.org/) framework with your Kinesis Data Analytics application to process streaming data\. Kinesis Data Analytics applications that use Apache Beam use [Apache Flink runner](https://beam.apache.org/documentation/runners/flink/) to execute Beam pipelines\.
 
-For a tutorial about how to use Apache Beam in a Kinesis Data Analytics application, see [Apache Beam](examples-beam.md)\.
+For a tutorial about how to use Apache Beam in a Kinesis Data Analytics application, see [Using CloudFormation with Kinesis Data AnalyticsCreating an application using Apache Beam](examples-beam.md)\.
 
 **Topics**
 + [Using Apache Beam with Kinesis Data Analytics](#how-creating-apps-beam-using)
 + [Beam Capabilities](#how-creating-apps-beam-capabilities)
++ [Creating an application using Apache Beam](examples-beam.md)
 
 ## Using Apache Beam with Kinesis Data Analytics<a name="how-creating-apps-beam-using"></a>
 

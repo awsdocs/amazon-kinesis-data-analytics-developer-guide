@@ -12,3 +12,11 @@ Your compliance responsibility when using Kinesis Data Analytics for Apache Flin
 + [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/) – This collection of workbooks and guides might apply to your industry and location\.
 + [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) – This AWS service assesses how well your resource configurations comply with internal practices, industry guidelines, and regulations\.
 + [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) – This AWS service provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices\.
+
+## FedRAMP<a name="akda-java-compliance-fedramp"></a>
+
+The AWS FedRAMP Compliance program includes Kinesis Data Analytics as a FedRAMP\-authorized service\. If you are a federal or commercial customer, you can use the service to process and store sensitive workloads in the AWS GovCloud \(US\) Region’s authorization boundary with data up to the high impact level, as well as US East \(N\. Virginia\), US East \(Ohio\), US West \(N\. California\), US West \(Oregon\) Regions with data up to a moderate level\. 
+
+You can request access to the AWS FedRAMP Security Packages through the FedRAMP PMO or your AWS Sales Account Manager or, they can be downloaded through AWS Artifact at [AWS Artifact](https://aws.amazon.com/artifact/)\.
+
+For more information, see [FedRAMP](https://aws.amazon.com/compliance/fedramp/)\.

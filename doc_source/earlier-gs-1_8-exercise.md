@@ -283,8 +283,6 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, for **Group ID**, enter **ProducerConfigProperties**\.
-
 1. Enter the following application properties and values:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_8-exercise.html)
 

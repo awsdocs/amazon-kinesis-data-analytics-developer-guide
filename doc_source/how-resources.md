@@ -15,7 +15,7 @@ KPUs run applications in distinct execution units called **tasks** and **subtask
 
 The number of KPUs available to an application is equal to the application's `Parallelism` setting, divided by the application's `ParallelismPerKPU` setting\. 
 
-For more information about application parallelism, see [Scaling](how-scaling.md)\.
+For more information about application parallelism, see [ScalingProduction readiness](how-scaling.md)\.
 
 ## Apache Flink Application Resources<a name="how-resources-flink"></a>
 

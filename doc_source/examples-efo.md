@@ -4,7 +4,7 @@ In this exercise, you create a Kinesis Data Analytics application that reads fro
 
 For more information about using EFO with the Kinesis consumer, see [ FLIP\-128: Enhanced Fan Out for Kinesis Consumers](https://cwiki.apache.org/confluence/display/FLINK/FLIP-128%3A+Enhanced+Fan+Out+for+AWS+Kinesis+Consumers)\.
 
-The application you create in this example uses AWS Kinesis Connector \(flink\-connector\-kinesis\) 1\.13\.2\.
+The application you create in this example uses AWS Kinesis Connector \(flink\-connector\-kinesis\) 1\.15\.2\.
 
 **Note**  
 To set up required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\.
@@ -38,34 +38,33 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    
-   import datetime
-   import json
-   import random
-   import boto3
+    import datetime
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'EVENT_TIME': datetime.datetime.now().isoformat(),
-           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'PRICE': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Run the `stock.py` script: 
@@ -110,10 +109,10 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 **Note**  
-The provided source code relies on libraries from Java 11\. If you are using a development environment, 
+The provided source code relies on libraries from Java 11\. 
 
 Compiling the application creates the application JAR file \(`target/aws-kinesis-analytics-java-apps-1.0.jar`\)\.
 
@@ -143,8 +142,8 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
 **Note**  
-Kinesis Data Analytics uses Apache Flink version 1\.13\.2\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+Kinesis Data Analytics uses Apache Flink version 1\.15\.2\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -242,8 +241,8 @@ These permissions grant the application the ability to access the EFO consumer\.
                    "kinesis:SubscribeToShard"
                ],
                "Resource": [
-                   "arn:aws:kinesis:us-west-2:012345678901:stream/ExampleInputStream/consumer/my-flink-efo-consumer",
-                   "arn:aws:kinesis:us-west-2:012345678901:stream/ExampleInputStream/consumer/my-flink-efo-consumer:*"
+                   "arn:aws:kinesis:us-west-2:012345678901:stream/ExampleInputStream/consumer/my-efo-flink-app",
+                   "arn:aws:kinesis:us-west-2:012345678901:stream/ExampleInputStream/consumer/my-efo-flink-app:*"
                ]
            }
        ]
@@ -260,12 +259,12 @@ These permissions grant the application the ability to access the EFO consumer\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, choose **Create Group**\. For **Group ID**, enter **ConsumerConfigProperties**\.
+1. Under **Properties**, choose **Create Group**\. 
 
 1. Enter the following application properties and values:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/examples-efo.html)
 
-1. Under **Properties**, choose **Create Group**\. For **Group ID**, enter **ProducerConfigProperties**\.
+1. Under **Properties**, choose **Create Group**\. 
 
 1. Enter the following application properties and values:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/examples-efo.html)
@@ -288,7 +287,7 @@ The Flink job graph can be viewed by running the application, opening the Apache
 
 You can check the Kinesis Data Analytics metrics on the CloudWatch console to verify that the application is working\. 
 
-You can also check the Kinesis Data Streams console, in the data stream's **Enhanced fan\-out** tab, for the name of your consumer \(*my\-flink\-efo\-consumer*\)\.
+You can also check the Kinesis Data Streams console, in the data stream's **Enhanced fan\-out** tab, for the name of your consumer \(*basic\-efo\-flink\-app*\)\.
 
 ## Clean Up AWS Resources<a name="examples-efo-cleanup"></a>
 

@@ -42,7 +42,7 @@ The following example request for the [https://docs.aws.amazon.com/kinesisanalyt
 ```
 {
    "ApplicationName": "string",
-   "RuntimeEnvironment":"FLINK-1_13",
+   "RuntimeEnvironment":"FLINK-1_15",
    "ServiceExecutionRole":"arn:aws:iam::123456789123:role/myrole",
    "ApplicationConfiguration": { 
       "ApplicationCodeConfiguration":{
@@ -128,4 +128,8 @@ Note the following about application scaling:
 ### maxParallelism considerations<a name="how-scaling-auto-max-parallelism"></a>
 + Autoscale logic will prevent scaling a Flink job to a parallelism that will cause interference with the job and operator `maxParallelism`\. For example, if a simple job with only a source and a sink where the source has `maxParallelism` 16 and the `sink` has 8, we will not autoscale the job to above 8\.
 + If `maxParallelism` is not set for a job, Flink will default to 128\. Therefore, if you think that a job will need to run at a higher parallelism than 128, you will have to set that number for your application\.
-+ If you expect to see your job autoscale but are not seeing it, ensure your `maxParallelism`values allow for it\.
++ If you expect to see your job autoscale but are not seeing it, ensure your `maxParallelism` values allow for it\.
+
+For additional information, see [Enhanced monitoring and automatic scaling for Apache Flink](https://aws.amazon.com/blogs/big-data/enhanced-monitoring-and-automatic-scaling-for-apache-flink/)
+
+For an example, see [ kda\-flink\-app\-autoscaling](https://github.com/aws-samples/kda-flink-app-autoscaling)\.

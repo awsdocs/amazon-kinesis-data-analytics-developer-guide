@@ -49,34 +49,33 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    
    import datetime
-   import json
-   import random
-   import boto3
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'EVENT_TIME': datetime.datetime.now().isoformat(),
-           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'PRICE': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Later in the tutorial, you run the `stock.py` script to send data to the application\. 
@@ -121,7 +120,7 @@ In this section, you use the Apache Maven compiler to create the Java code for t
    + Use the command\-line Maven tool\. Create your JAR file by running the following command in the directory that contains the `pom.xml` file:
 
      ```
-     mvn package -Dflink.version=1.13.2
+     mvn package -Dflink.version=1.15.2
      ```
    + Use your development environment\. See your development environment documentation for details\.
 **Note**  
@@ -186,7 +185,7 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Description**, enter **My java test app**\.
    + For **Runtime**, choose **Apache Flink**\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -407,7 +406,7 @@ For step\-by\-step instructions for creating a role, see [Creating an IAM Role \
    {
        "ApplicationName": "test",
        "ApplicationDescription": "my java test app",
-       "RuntimeEnvironment": "FLINK-1_13",
+       "RuntimeEnvironment": "FLINK-1_15",
        "ServiceExecutionRole": "arn:aws:iam::012345678901:role/KA-stream-rw-role",
        "ApplicationConfiguration": {
            "ApplicationCodeConfiguration": {

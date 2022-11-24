@@ -1,6 +1,10 @@
 # Example: Tumbling Window<a name="examples-tumbling"></a>
 
-In this exercise, you create a Kinesis Data Analytics application that aggregates data using a tumbling window\. 
+In this exercise, you create a Kinesis Data Analytics application that aggregates data using a tumbling window\. Aggregration is enabled by default in Flink\. To disable it, use the following:
+
+```
+sink.producer.aggregation-enabled' = 'false'
+```
 
 **Note**  
 To set up required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\.
@@ -34,34 +38,33 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    
    import datetime
-   import json
-   import random
-   import boto3
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'EVENT_TIME': datetime.datetime.now().isoformat(),
-           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'PRICE': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Run the `stock.py` script: 
@@ -96,18 +99,18 @@ The application code is located in the `TumblingWindowStreamingJob.java` file\. 
 + Add the following import statement:
 
   ```
-  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13
+  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13 onward
   ```
 + The application uses the `timeWindow` operator to find the count of values for each stock symbol over a 5\-second tumbling window\. The following code creates the operator and sends the aggregated data to a new Kinesis Data Streams sink:
 
   ```
   input.flatMap(new Tokenizer()) // Tokenizer for generating words
-                  .keyBy(0) // Logically partition the stream for each word
-                  //.timeWindow(Time.seconds(5)) // Tumbling window definition (Flink 1.11)
-  		.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13
-                  .sum(1) // Sum the number of words per partition
-                  .map(value -> value.f0 + "," + value.f1.toString() + "\n")
-                  .addSink(createSinkFromStaticConfig());
+                      .keyBy(0) // Logically partition the stream for each word
+                      
+                      .window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13 onward
+                      .sum(1) // Sum the number of words per partition
+                      .map(value -> value.f0 + "," + value.f1.toString() + "\n")
+                      .addSink(createSinkFromStaticConfig());
   ```
 
 ## Compile the Application Code<a name="examples-tumbling-compile"></a>
@@ -119,10 +122,10 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 **Note**  
-The provided source code relies on libraries from Java 11\. If you are using a development environment, 
+The provided source code relies on libraries from Java 11\. 
 
 Compiling the application creates the application JAR file \(`target/aws-kinesis-analytics-java-apps-1.0.jar`\)\.
 
@@ -152,8 +155,8 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
 **Note**  
-Kinesis Data Analytics uses Apache Flink version 1\.13\.2\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+Kinesis Data Analytics uses Apache Flink version 1\.15\.2\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 

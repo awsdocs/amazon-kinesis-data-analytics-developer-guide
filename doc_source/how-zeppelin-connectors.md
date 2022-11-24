@@ -21,7 +21,7 @@ For the Kinesis connector:
    "MavenReference": { 
       "GroupId": "org.apache.flink",
       "ArtifactId": "flink-sql-connector-kinesis-2.12",
-      "Version": "1.13.2"
+      "Version": "1.15.2"
    }      
 }]
 
@@ -43,7 +43,7 @@ For the Apache Kafka connector:
    "MavenReference": { 
       "GroupId": "org.apache.flink",
       "ArtifactId": "flink-connector-kafka_2.12",
-      "Version": "1.13.2"
+      "Version": "1.15.2"
    }      
 }]
 ```

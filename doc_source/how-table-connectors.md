@@ -49,7 +49,7 @@ final String s3Sink = "CREATE TABLE sink_table (" +
     filteredTable.executeInsert("sink_table");
 ```
 
- You can use the `format` parameter to control what format Kinesis Data Analytics uses to write the output to the sink\. For information about formats, see [ Formats](https://ci.apache.org/projects/flink/flink-docs-stable/dev/table/connect.html#formats) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-stable/)\.
+ You can use the `format` parameter to control what format Kinesis Data Analytics uses to write the output to the sink\. For information about formats, see [ Formats](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/table/overview/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-stable/)\.
 
 For more information about table sinks, see [Table & Connectors ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/connectors/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
 

@@ -6,7 +6,7 @@ When working with Amazon Kinesis Data Analytics for Apache Flink, note the follo
   For a list of Regions that support Kinesis Data Analytics, see [Kinesis Data Analytics Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\.
 
    
-+ The number of Kinesis processing units \(KPU\) is limited to 32 by default\. For instructions on how to request an increase to this quota, see **To request a quota increase** in [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
++ The number of Kinesis processing units \(KPU\) is limited to 32 by default\. For instructions on how to request an increase to this quota, see **To request a quota increase** in [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. Make sure you specify the application prefix to which the new KPU limit needs to be applied\.
 
    
 
@@ -27,3 +27,5 @@ For Studio notebooks, the following quotas apply\. To request higher quotas, [cr
 + `websocketMessageSize` = 5 MiB
 + `noteSize` = 5 MiB
 + `noteCount` = 1000
++ `Max cumulative UDF size` = 100 MiB
++ `Max cumulative dependency jar size` = 300 MiB 

@@ -1,8 +1,11 @@
 # Earlier Version Information for Kinesis Data Analytics for Apache Flink<a name="earlier"></a>
 
-This topic contains information about using Kinesis Data Analytics with older versions of Apache Flink\. The versions of Apache Flink that Kinesis Data Analytics supports are **1\.13\.2** \(recommended\), **1\.11\.3**, **1\.11\.1**, **1\.8\.2** and **1\.6\.2**\.
+**Note**  
+In new Regions, we support only the latest Flink version at the time of service availability and beyond\.
 
-We recommend that you use the latest supported version of Apache Flink with your Kinesis Data Analytics application\. Apache Flink version 1\.13\.2 has the following features:
+This topic contains information about using Kinesis Data Analytics with older versions of Apache Flink\. The versions of Apache Flink that Kinesis Data Analytics supports are **1\.15\.2** \(recommended\), **1\.13\.2**, **1\.11\.1**, **1\.8\.2** and **1\.6\.2**\.
+
+We recommend that you use the latest supported version of Apache Flink with your Kinesis Data Analytics application\. Apache Flink version 1\.15\.2 has the following features:
 + Support for [ Apache Flink Table API & SQL](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/)
 + Support for Python applications\.
 + Support for Java version 11 and Scala version 2\.12
@@ -16,7 +19,8 @@ We recommend that you use the latest supported version of Apache Flink with your
 + [Building Applications with Apache Flink 1\.6\.2](#earlier-buildingapps-1_6)
 + [Upgrading Applications](#earlier-upgrading)
 + [Available Connectors in Apache Flink 1\.6\.2 and 1\.8\.2](#earlier-connectors)
-+ [Getting Started: Flink 1\.11\.3](earlier-gs-1_11.md)
++ [Getting Started: Flink 1\.13\.2](getting-started-1-13.md)
++ [Getting Started: Flink 1\.11\.1](earlier-gs-1_11.md)
 + [Getting Started: Flink 1\.8\.2](earlier-gs-1_8.md)
 + [Getting Started: Flink 1\.6\.2](earlier-gs-1_6.md)
 
@@ -122,9 +126,9 @@ To upgrade the version of an Kinesis Data Analytics application, you must update
 + Recompile your application code using the following command:
 
   ```
-  mvn package -Dflink.version=1.13.2
+  mvn package -Dflink.version=1.15.2
   ```
-+ Delete your existing application\. Create your application again, and choose **Apache Flink version 1\.13\.2 \(Recommended version\)** for the application's **Runtime**\.
++ Delete your existing application\. Create your application again, and choose **Apache Flink version 1\.15\.2 \(Recommended version\)** for the application's **Runtime**\.
 
 **Note**  
 You cannot use snapshots from your previous application versions\.

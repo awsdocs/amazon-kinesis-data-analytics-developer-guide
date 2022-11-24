@@ -257,10 +257,10 @@ In this section, you run a Python script in your Amazon EC2 client to send data 
        data = {}
        now = datetime.now()
        str_now = now.strftime("%Y-%m-%d %H:%M:%S")
-       data['EVENT_TIME'] = str_now
-       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
+       data['event_time'] = str_now
+       data['ticker'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
        price = random.random() * 100
-       data['PRICE'] = round(price, 2)
+       data['price'] = round(price, 2)
        return data
    
    

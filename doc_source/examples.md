@@ -12,4 +12,4 @@ These examples assume that you are using the US West \(Oregon\) Region \(`us-wes
 **Topics**
 + [DataStream API Examples](examples-datastream.md)
 + [Python Examples](examples-python.md)
-+ [Kinesis Data Analytics Solutions](examples-solutions.md)
++ [Scala Examples](examples-scala.md)

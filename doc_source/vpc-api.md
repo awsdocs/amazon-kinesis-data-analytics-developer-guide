@@ -12,7 +12,7 @@ The following example request code for the `CreateApplication` action includes a
 {
   "ApplicationName":"MyApplication",
   "ApplicationDescription":"My-Application-Description",
-  "RuntimeEnvironment":"FLINK-1_13",
+  "RuntimeEnvironment":"FLINK-1_15",
   "ServiceExecutionRole":"arn:aws:iam::123456789123:role/myrole",
   "ApplicationConfiguration": {
     "ApplicationCodeConfiguration":{

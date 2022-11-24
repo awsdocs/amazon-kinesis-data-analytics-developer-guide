@@ -1,6 +1,6 @@
 # Create and Run a Kinesis Data Analytics for Python Application<a name="gs-python-createapp"></a>
 
-In this exercise, you create a Kinesis Data Analytics application for Python application with an Kinesis stream as a source and a sink\.
+In this exercise, you create a Kinesis Data Analytics application for Python application with a Kinesis stream as a source and a sink\.
 
 **Topics**
 + [Create Dependent Resources](#gs-python-resources)
@@ -12,9 +12,9 @@ In this exercise, you create a Kinesis Data Analytics application for Python app
 
 ## Create Dependent Resources<a name="gs-python-resources"></a>
 
-Before you create a Kinesis Data Analytics for Apache Flink application for this exercise, you create the following dependent resources: 
+Before you create an Amazon Kinesis Data Analytics for Apache Flink for this exercise, you create the following dependent resources: 
 + Two Kinesis streams for input and output\.
-+ An Amazon S3 bucket to store the application's code and output \(`ka-app-<username>`\) 
++ An Amazon S3 bucket to store the application's code and output \(`ka-app-code-<username>`\) 
 
 ### Create Two Kinesis Streams<a name="gs-python-resources-streams"></a>
 
@@ -47,7 +47,7 @@ You can create these streams using either the Amazon Kinesis console or the foll
 ### Create an Amazon S3 Bucket<a name="gs-python-resources-s3"></a>
 
 You can create the Amazon S3 bucket using the console\. For instructions for creating this resource, see the following topics:
-+ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-*<username>***\. 
++ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-code\-*<username>***\. 
 
 ### Other Resources<a name="gs-python-resources-cw"></a>
 
@@ -72,35 +72,33 @@ aws configure
 1. Create a file named `stock.py` with the following contents:
 
    ```
-   import datetime
-   import json
-   import random
-   import boto3
-   import time
+    import datetime
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'event_time': datetime.datetime.now().isoformat(),
-           'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'price': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
-           time.sleep(2)
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Run the `stock.py` script: 
@@ -125,46 +123,42 @@ The Python application code for this example is available from GitHub\. To downl
 
 1. Navigate to the `amazon-kinesis-data-analytics-java-examples/python/GettingStarted` directory\.
 
-The application code is located in the `getting-started.py` file\. Note the following about the application code:
+The application code is located in the `streaming-file-sink.py` file\. Note the following about the application code:
 + The application uses a Kinesis table source to read from the source stream\. The following snippet calls the `create_table` function to create the Kinesis table source:
 
   ```
   table_env.execute_sql(
-          create_table(input_table_name, input_stream, input_region, stream_initpos)
-      )
+          create_table(output_table_name, output_stream, output_region)
   ```
 
   The `create_table` function uses a SQL command to create a table that is backed by the streaming source:
 
   ```
-  def create_table(table_name, stream_name, region, stream_initpos):
+  def create_table(table_name, stream_name, region, stream_initpos = None):
+      init_pos = "\n'scan.stream.initpos' = '{0}',".format(stream_initpos) if stream_initpos is not None else ''
+  
       return """ CREATE TABLE {0} (
                   ticker VARCHAR(6),
                   price DOUBLE,
                   event_time TIMESTAMP(3),
                   WATERMARK FOR event_time AS event_time - INTERVAL '5' SECOND
-  
                 )
                 PARTITIONED BY (ticker)
                 WITH (
                   'connector' = 'kinesis',
                   'stream' = '{1}',
-                  'aws.region' = '{2}',
-                  'scan.stream.initpos' = '{3}',
-                  'sink.partitioner-field-delimiter' = ';',
-                  'sink.producer.collection-max-count' = '100',
+                  'aws.region' = '{2}',{3}
                   'format' = 'json',
                   'json.timestamp-format.standard' = 'ISO-8601'
-                ) """.format(
-          table_name, stream_name, region, stream_initpos
-      )
+                ) """.format(table_name, stream_name, region, init_pos)
+   }
   ```
 + The application creates two tables, then writes the contents of one table to the other\.
 
   ```
       # 2. Creates a source table from a Kinesis Data Stream
       table_env.execute_sql(
-          create_table(input_table_name, input_stream, input_region, stream_initpos)
+          create_table(input_table_name, input_stream, input_region)
       )
   
       # 3. Creates a sink table writing to a Kinesis Data Stream
@@ -176,7 +170,8 @@ The application code is located in the `getting-started.py` file\. Note the foll
       table_result = table_env.execute_sql("INSERT INTO {0} SELECT * FROM {1}"
                              .format(output_table_name, input_table_name))
   ```
-+ The application uses the Flink connector, from the [flink\- sql\-connector\-kinesis\_2\.12/1\.13\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-                         sql-connector-kinesis_2.12/1.13.2) file\.
++ The application uses the Flink connector, from the [flink\- sql\-connector\-kinesis\_2\.12/1\.15\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) file\.
++ When using 3rd\-party python packages \(such as [boto3](https://aws.amazon.com/sdk-for-python/)\), they need to be added to the *GettingStarted* folder where `getting-started.py` is located\. There is no need to add any additional configuration in Apache Flink or Kinesis Data Analytics\. An example can be found at [How to use boto3 within pyFlink](https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples/commit/70a1372b7d0106e9fe8518119924ecf3d481f91c)\. 
 
 
 
@@ -186,7 +181,7 @@ In this section, you create an Amazon S3 bucket and upload your application code
 
 **To upload the application code using the console:**
 
-1. Use your preferred compression application to compress the `streaming-file-sink.py` and [https://mvnrepository\.com/artifact/org\.apache\.flink/flink\- sql\-connector\-kinesis\_2\.12/1\.13\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis_2.12/1.13.2) files\. Name the archive `myapp.zip`\. If you include the outer folder in your archive, you must include this in the path with the code in your configuration file\(s\): `GettingStarted/getting-started.py`\.
+1. Use your preferred compression application to compress the `getting-started.py` and [https://mvnrepository\.com/artifact/org\.apache\.flink/flink\- sql\-connector\-kinesis\_2\.12/1\.15\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) files\. Name the archive `myapp.zip`\. If you include the outer folder in your archive, you must include this in the path with the code in your configuration file\(s\): `GettingStarted/getting-started.py`\.
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -207,8 +202,14 @@ In this section, you create an Amazon S3 bucket and upload your application code
 1. You don't need to change any of the settings for the object, so choose **Upload**\.
 
 **To upload the application code using the AWS CLI:**
+**Note**  
+Do not use the compress features in Finder \(macOS\) or Windows Explorer \(Windows\) to create the `myapp.zip` archive\. This may result in invalid application code\.
 
-1. Use your preferred compression application to compress the `streaming-file-sink.py` and [https://mvnrepository\.com/artifact/org\.apache\.flink/flink\- sql\-connector\-kinesis\_2\.12/1\.13\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis_2.12/1.13.2) files\. Name the archive `myapp.zip`\. If you include the outer folder in your archive, you must include this in the path with the code in your configuration file\(s\): `GettingStarted/getting-started.py`\.
+1. Use your preferred compression application to compress the `streaming-file-sink.py` and [https://mvnrepository\.com/artifact/org\.apache\.flink/flink\- sql\-connector\-kinesis\_2\.12/1\.15\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) files\.
+**Note**  
+Do not use the compress features in Finder \(macOS\) or Windows Explorer \(Windows\) to create the *myapp\.zip* archive\. This may result in invalid application code\.
+
+1. Use your preferred compression application to compress the `getting-started.py` and [https://mvnrepository\.com/artifact/org\.apache\.flink/flink\-sql\-connector\-kinesis/1\.15\.2](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) files\. Name the archive `myapp.zip`\. If you include the outer folder in your archive, you must include this in the path with the code in your configuration file\(s\): `GettingStarted/getting-started.py`\.
 
 1. Run the following command:
 
@@ -230,7 +231,7 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Description**, enter **My java test app**\.
    + For **Runtime**, choose **Apache Flink**\.
-   + Leave the version as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+   + Leave the version as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -255,21 +256,21 @@ Use the following procedure to configure the application\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, choose **Add group**\. For **Group ID**, enter **consumer\.config\.0**\.
+1. Under **Properties**, choose **Add group**\.
 
-1. Enter the following application properties and values:    
+1. Enter the following:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/gs-python-createapp.html)
 
    Choose **Save**\.
 
-1. Under **Properties**, choose **Add group** again\. For **Group ID**, enter **producer\.config\.0**\. 
+1. Under **Properties**, choose **Add group** again\. 
 
-1. Enter the following application properties and values:    
+1. Enter the following:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/gs-python-createapp.html)
 
 1. Under **Properties**, choose **Add group** again\. For **Group ID**, enter **kinesis\.analytics\.flink\.run\.options**\. This special property group tells your application where to find its code resources\. For more information, see [Specifying your Code Files](how-python-creating.md#how-python-creating-code)\.
 
-1. Enter the following application properties and values:    
+1. Enter the following:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/gs-python-createapp.html)
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**\.

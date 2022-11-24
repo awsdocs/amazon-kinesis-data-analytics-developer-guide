@@ -24,6 +24,8 @@ The default checkpoint behavior is as follows:
 **CheckpointInterval:** 60000
 **MinPauseBetweenCheckpoints:** 5000
 If **ConfigurationType** is set to `DEFAULT`, the preceding values will be used, even if they are set to other values using either using the AWS Command Line Interface, or by setting the values in the application code\.
+**Note**  
+For Flink 1\.15 onward, Kinesis Data Analytics for Apache Flink will use `stop-with-savepoint` during Automatic Snapshot Creation, that is, application update, scaling or stopping\. 
 + `MinPauseBetweenCheckpoints` — The minimum time in milliseconds between the end of one checkpoint operation and the start of another\. Setting this value prevents the application from checkpointing continuously when a checkpoint operation takes longer than the `CheckpointInterval`\.
 
 ## Checkpointing API Examples<a name="how-fault-examples"></a>
@@ -37,7 +39,7 @@ The following example request for the [https://docs.aws.amazon.com/kinesisanalyt
 ```
 {
    "ApplicationName": "MyApplication",
-   "RuntimeEnvironment":"FLINK-1_13",
+   "RuntimeEnvironment":"FLINK-1_15",
    "ServiceExecutionRole":"arn:aws:iam::123456789123:role/myrole",
    "ApplicationConfiguration": { 
       "ApplicationCodeConfiguration":{
@@ -66,7 +68,7 @@ The following example request for the [https://docs.aws.amazon.com/kinesisanalyt
 ```
 {
    "ApplicationName": "MyApplication",
-   "RuntimeEnvironment":"FLINK-1_13",
+   "RuntimeEnvironment":"FLINK-1_15",
    "ServiceExecutionRole":"arn:aws:iam::123456789123:role/myrole",
    "ApplicationConfiguration": { 
       "ApplicationCodeConfiguration":{

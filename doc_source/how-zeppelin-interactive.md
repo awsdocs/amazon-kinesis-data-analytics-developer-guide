@@ -28,6 +28,10 @@ You specify which language Kinesis Data Analytics uses to run your application b
 
 For more information about Flink interpreters, see [ Flink interpreter for Apache Zeppelin](https://zeppelin.apache.org/docs/0.9.0/interpreter/flink.html)\.
 
+If you are using `%flink.pyflink` or `%flink.ipyflink` as your interpreters, you will need to use the `ZeppelinContext` to visualize the results within the notebook\.
+
+For more PyFlink specific examples, see [Query your data streams interactively using Kinesis Data Analytics Studio and Python](https://aws.amazon.com/blogs/big-data/query-your-data-streams-interactively-using-kinesis-data-analytics-studio-and-python/)\.
+
 ## Apache Flink table environment variables<a name="how-zeppelin-interactive-env-vars"></a>
 
 Apache Zeppelin provides access to table environment resources using environment variables\. 
@@ -37,7 +41,7 @@ You access Scala table environment resources with the following variables:
 
 | Variable | Resource | 
 | --- |--- |
-| senv | StreamingTableEnvironment | 
+| senv | StreamExecutionEnvironment | 
 | benv | ExecutionEnvironment | 
 | stenv | StreamTableEnvironment for blink planner | 
 | btenv | BatchTableEnvironment for blink planner | 
@@ -49,7 +53,7 @@ You access Python table environment resources with the following variables:
 
 | Variable | Resource | 
 | --- |--- |
-| s\_env | StreamingTableEnvironment | 
+| s\_env | StreamExecutionEnvironment | 
 | b\_env | ExecutionEnvironment | 
 | st\_env | StreamTableEnvironment for blink planner | 
 | bt\_env | BatchTableEnvironment for blink planner | 

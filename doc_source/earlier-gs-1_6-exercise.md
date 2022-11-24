@@ -97,7 +97,7 @@ The Java application code for this example is available from GitHub\. To downloa
 1. Navigate to the `amazon-kinesis-data-analytics-java-examples/GettingStarted_1_6` directory\.
 
 Note the following about the application code:
-+ A [Project Object Model \(pom\.xml\)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) file contains information about the application's configuration and dependencies, including the Kinesis Data Analytics for Apache Flink libraries\.
++ A [Project Object Model \(pom\.xml\)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) file contains information about the application's configuration and dependencies, including the a Kinesis Data Analytics for Apache Flink libraries\.
 + The `BasicStreamingJob.java` file contains the `main` method that defines the application's functionality\.
 + The application uses a Kinesis source to read from the source stream\. The following snippet creates the Kinesis source:
 
@@ -285,8 +285,6 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
    + For **Path to Amazon S3 object**, enter **java\-getting\-started\-1\.0\.jar**\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
-
-1. Under **Properties**, for **Group ID**, enter **ProducerConfigProperties**\.
 
 1. Enter the following application properties and values:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_6-exercise.html)

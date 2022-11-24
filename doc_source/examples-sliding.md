@@ -1,7 +1,5 @@
 # Example: Sliding Window<a name="examples-sliding"></a>
 
-In this exercise, you create a Kinesis Data Analytics application that aggregates data using a sliding window\.
-
 **Note**  
 To set up required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\.
 
@@ -97,15 +95,15 @@ The application code is located in the `SlidingWindowStreamingJobWithParallelism
 + Add the following import statement:
 
   ```
-  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13
+  import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows; //flink 1.13 onward
   ```
 + The application uses the `timeWindow` operator to find the count of values for each stock symbol over a 5\-second tumbling window\. The following code creates the operator and sends the aggregated data to a new Kinesis Data Streams sink:
 
   ```
   input.flatMap(new Tokenizer()) // Tokenizer for generating words
                   .keyBy(0) // Logically partition the stream for each word
-                  //.timeWindow(Time.seconds(5)) // Tumbling window definition (Flink 1.11)
-  		.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13
+                 
+  		.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) //Flink 1.13 onward
                   .sum(1) // Sum the number of words per partition
                   .map(value -> value.f0 + "," + value.f1.toString() + "\n")
                   .addSink(createSinkFromStaticConfig());
@@ -120,10 +118,10 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 **Note**  
-The provided source code relies on libraries from Java 11\. If you are using a development environment, 
+The provided source code relies on libraries from Java 11\. 
 
 Compiling the application creates the application JAR file \(`target/aws-kinesis-analytics-java-apps-1.0.jar`\)\.
 
@@ -152,7 +150,7 @@ Follow these steps to create, configure, update, and run the application using t
 1. On the **Kinesis Analytics \- Create application** page, provide the application details as follows:
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 

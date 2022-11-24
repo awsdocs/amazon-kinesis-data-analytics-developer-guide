@@ -43,34 +43,33 @@ aws configure
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    
    import datetime
-   import json
-   import random
-   import boto3
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'EVENT_TIME': datetime.datetime.now().isoformat(),
-           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'PRICE': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Run the `stock.py` script: 
@@ -90,55 +89,59 @@ The Python application code for this example is available from GitHub\. To downl
 1. Clone the remote repository with the following command:
 
    ```
-   git clone https://github.com/aws-samples/>amazon-kinesis-data-analytics-java-examples
+   git clone https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples
    ```
 
 1. Navigate to the `amazon-kinesis-data-analytics-java-examples/python/S3Sink` directory\.
 
 The application code is located in the `streaming-file-sink.py` file\. Note the following about the application code:
-+ The application uses a Kinesis table source to read from the source stream\. The following snippet calls the `create_table` function to create the Kinesis table source:
++ The application uses a Kinesis table source to read from the source stream\. The following snippet calls the `create_source_table` function to create the Kinesis table source:
 
   ```
   table_env.execute_sql(
-          create_table(input_table_name, input_stream, input_region, stream_initpos)
+          create_source_table(input_table_name, input_stream, input_region, stream_initpos)
       )
   ```
 
-  The `create_table` function uses a SQL command to create a table that is backed by the streaming source:
+  The `create_source_table` function uses a SQL command to create a table that is backed by the streaming source
 
   ```
-  def create_table(table_name, stream_name, region, stream_initpos):
-      return """ CREATE TABLE {0} (
-                  ticker VARCHAR(6),
-                  price DOUBLE,
-                  event_time TIMESTAMP(3),
-                  WATERMARK FOR event_time AS event_time - INTERVAL '5' SECOND
+  import datetime
+      import json
+      import random
+      import boto3
   
-                )
-                PARTITIONED BY (ticker)
-                WITH (
-                  'connector' = 'kinesis',
-                  'stream' = '{1}',
-                  'aws.region' = '{2}',
-                  'scan.stream.initpos' = '{3}',
-                  'sink.partitioner-field-delimiter' = ';',
-                  'sink.producer.collection-max-count' = '100',
-                  'format' = 'json',
-                  'json.timestamp-format.standard' = 'ISO-8601'
-                ) """.format(
-          table_name, stream_name, region, stream_initpos
-      )
+      STREAM_NAME = "ExampleInputStream"
+  
+  
+      def get_data():
+          return {
+              'event_time': datetime.datetime.now().isoformat(),
+              'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+              'price': round(random.random() * 100, 2)}
+  
+  
+      def generate(stream_name, kinesis_client):
+          while True:
+              data = get_data()
+              print(data)
+              kinesis_client.put_record(
+                  StreamName=stream_name,
+                  Data=json.dumps(data),
+                  PartitionKey="partitionkey")
+  
+  
+      if __name__ == '__main__':
+          generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
   ```
 + The application uses the `filesystem` connector to send records to an Amazon S3 bucket:
 
   ```
-   def create_sink_table(table_name, bucket_name):
+  def create_sink_table(table_name, bucket_name):
       return """ CREATE TABLE {0} (
                   ticker VARCHAR(6),
                   price DOUBLE,
-                  event_time TIMESTAMP(3),
-                  WATERMARK FOR event_time AS event_time - INTERVAL '5' SECOND
-  
+                  event_time VARCHAR(64)
                 )
                 PARTITIONED BY (ticker)
                 WITH (
@@ -147,16 +150,15 @@ The application code is located in the `streaming-file-sink.py` file\. Note the 
                     'format'='csv',
                     'sink.partition-commit.policy.kind'='success-file',
                     'sink.partition-commit.delay' = '1 min'
-                ) """.format(
-          table_name, bucket_name)
+                ) """.format(table_name, bucket_name)
   ```
-+ The application uses the Kinesis Flink connector, from the `amazon-kinesis-connector-flink-2.0.0.jar` file\.
++ The application uses the Kinesis Flink connector, from the [flink\-sql\-connector\-kinesis\-1\.15\.2\.jar](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) file\.
 
 ## Compress and Upload the Apache Flink Streaming Python Code<a name="examples-python-s3-upload"></a>
 
 In this section, you upload your application code to the Amazon S3 bucket you created in the [Create Dependent Resources](#examples-python-s3-resources) section\.
 
-1. Use your preferred compression application to compress the `streaming-file-sink.py` and `flink-sql-connector-kinesis_2.12-1.13.2.jar` files\. Name the archive `myapp.zip`\.
+1. Use your preferred compression application to compress the `streaming-file-sink.py` and [flink\-sql\-connector\-kinesis\-1\.15\.2\.jar](https://mvnrepository.com/artifact/org.apache.flink/flink-sql-connector-kinesis/1.15.2) files\. Name the archive `myapp.zip`\.
 
 1. In the Amazon S3 console, choose the **ka\-app\-code\-*<username>*** bucket, and choose **Upload**\.
 
@@ -180,8 +182,8 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
 **Note**  
-Kinesis Data Analytics uses Apache Flink version 1\.13\.2\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+Kinesis Data Analytics uses Apache Flink version 1\.15\.2\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\. 
 
@@ -202,7 +204,7 @@ Role: `kinesis-analytics-MyApplication-us-west-2`
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, choose **Add group**\. For **Group ID**, enter **consumer\.config\.0**\.
+1. Under **Properties**, choose **Add group**\.
 
 1. Enter the following application properties and values:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/examples-python-s3.html)
@@ -301,8 +303,8 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
                    "s3:PutObject"
                ],
                "Resource": [
-                   "arn:aws:s3:::ka-app-<username>",
-                   "arn:aws:s3:::ka-app-<username>/*"
+                   "arn:aws:s3:::ka-app-code-<username>",
+                   "arn:aws:s3:::ka-app-code-<username>/*"
                ]
            }
        ]

@@ -1,19 +1,21 @@
 # Development Troubleshooting<a name="troubleshooting-development"></a>
 
 **Topics**
-+ [Enabling Flamegraps](#troubleshooting-update-flamegraphs)
-+ [Issue with EFO connector 1\.13\.2](#troubleshooting-update-efo-connector)
++ [Apache Flink Flame Graphs](#troubleshooting-update-flamegraphs)
++ [Issue with EFO connector 1\.15\.2](#troubleshooting-update-efo-connector)
 + [Compile Error: "Could not resolve dependencies for project"](#troubleshooting-compile)
 + [Invalid Choice: "kinesisanalyticsv2"](#troubleshooting-cli-update)
 + [UpdateApplication Action Isn't Reloading Application Code](#troubleshooting-update)
 
-## Enabling Flamegraps<a name="troubleshooting-update-flamegraphs"></a>
+## Apache Flink Flame Graphs<a name="troubleshooting-update-flamegraphs"></a>
 
-Due to its experimental nature in Flink, Flamegraphs are currently disabled by default as it may affect application performance\. If you want to enable Flamegraphs for your application, create a case to request it to be enabled for you application ARN\. For more information, see the [AWS Support Center](https:console.aws.amazon.com/support/home#/)\.
+Flame Graphs are enabled by default on applications in Kinesis Data Analytics for Apache Flink versions that support it\. Flame Graphs may affect application performance if you keep the graph open, as mentioned in [Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/ops/debugging/flame_graphs/)\. 
 
-## Issue with EFO connector 1\.13\.2<a name="troubleshooting-update-efo-connector"></a>
+ If you want to disable Flame Graphs for your application, create a case to request it to be disabled for your application ARN\. For more information, see the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\.
 
-There is a known issue with the 1\.13\.2 Kinesis Data Streams EFO connector showing performance degradation if the application suffers from high backpressure\. To mitigate, use the Flink 1\.13\.3 connector\. You can use the [1\.13\-SNAPSHOT](https://mvnrepository.com/artifact/com.daml/build-info_2.13/1.13.0-snapshot.20210504.6833.0.9ae787d0) on Maven\. 
+## Issue with EFO connector 1\.15\.2<a name="troubleshooting-update-efo-connector"></a>
+
+There is a known issue with the 1\.15\.2 Kinesis Data Streams EFO connector showing performance degradation if the application suffers from high backpressure\. To mitigate, use the Flink 1\.13\.3 connector\. You can use the [1\.13\-SNAPSHOT](https://mvnrepository.com/artifact/com.daml/build-info_2.13/1.13.0-snapshot.20210504.6833.0.9ae787d0) on Maven\. 
 
 ## Compile Error: "Could not resolve dependencies for project"<a name="troubleshooting-compile"></a>
 

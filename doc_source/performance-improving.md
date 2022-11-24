@@ -21,7 +21,7 @@ If autoscaling is enabled, but CPU usage does not remain at this threshold, the 
 **Note**  
 If the application has automatically added more resources through auto scaling, the application will release the new resources after a period of inactivity\. Downscaling resources will temporarily affect performance\.
 
-For more information about scaling, see [Scaling](how-scaling.md)\.
+For more information about scaling, see [ScalingProduction readiness](how-scaling.md)\.
 
 ### Manage operator scaling properly<a name="performance-improving-scaling-op"></a>
 

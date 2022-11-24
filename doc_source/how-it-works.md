@@ -54,10 +54,10 @@ For more information about using the Table API, see [Table API](how-table.md)\.
 
 ## Creating Your Kinesis Data Analytics Application<a name="how-it-works-app"></a>
 
-A Kinesis Data Analytics application is an AWS resource that is hosted by the Kinesis Data Analytics service\. Your Kinesis Data Analytics application hosts your Apache Flink application and provides it with the following settings:
+Kinesis Data Analytics application is an AWS resource that is hosted by the Kinesis Data Analytics service\. Your Kinesis Data Analytics application hosts your Apache Flink application and provides it with the following settings:
 + **[Runtime Properties](how-properties.md): ** Parameters that you can provide to your application\. You can change these parameters without recompiling your application code\.
 + **[Fault Tolerance](how-fault.md)**: How your application recovers from interrupts and restarts\.
 + **[Logging and Monitoring](monitoring-overview.md)**: How your application logs events to CloudWatch Logs\. 
-+ **[Scaling](how-scaling.md)**: How your application provisions computing resources\.
++ **[ScalingProduction readiness](how-scaling.md)**: How your application provisions computing resources\.
 
 You create your Kinesis Data Analytics application using either the console or the AWS CLI\. To get started creating a Kinesis Data Analytics application, see [Getting Started \(DataStream API\)](getting-started.md)\.

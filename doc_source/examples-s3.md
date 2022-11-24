@@ -1,6 +1,6 @@
 # Example: Writing to an Amazon S3 Bucket<a name="examples-s3"></a>
 
-In this exercise, you create a Kinesis Data Analytics for Apache Flink application that has a Kinesis data stream as a source and an Amazon S3 bucket as a sink\. Using the sink, you can verify the output of the application in the Amazon S3 console\. 
+In this exercise, you create an Amazon Kinesis Data Analytics for Apache Flink that has a Kinesis data stream as a source and an Amazon S3 bucket as a sink\. Using the sink, you can verify the output of the application in the Amazon S3 console\. 
 
 **Note**  
 To set up required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\.
@@ -19,16 +19,16 @@ To set up required prerequisites for this exercise, first complete the [Getting 
 
 ## Create Dependent Resources<a name="examples-s3-resources"></a>
 
-Before you create a Kinesis Data Analytics for Apache Flink application for this exercise, you create the following dependent resources: 
+Before you create an Amazon Kinesis Data Analytics for Apache Flink for this exercise, you create the following dependent resources: 
 + A Kinesis data stream \(`ExampleInputStream`\)\.
-+ An Amazon S3 bucket to store the application's code and output \(`ka-app-<username>`\) 
++ An Amazon S3 bucket to store the application's code and output \(`ka-app-code-<username>`\) 
 
 **Note**  
 Kinesis Data Analytics for Apache Flink cannot write data to Amazon S3 with server\-side encryption enabled on Kinesis Data Analytics\.
 
 You can create the Kinesis stream and Amazon S3 bucket using the console\. For instructions for creating these resources, see the following topics:
 + [Creating and Updating Data Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) in the *Amazon Kinesis Data Streams Developer Guide*\. Name your data stream **ExampleInputStream**\.
-+ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-*<username>***\. Create two folders \(**code** and **data**\) in the Amazon S3 bucket\.
++ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-code\-*<username>***\. Create two folders \(**code** and **data**\) in the Amazon S3 bucket\.
 
 The application creates the following CloudWatch resources if they don't already exist:
 + A log group called `/aws/kinesis-analytics-java/MyApplication`\.
@@ -44,34 +44,33 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    
    import datetime
-   import json
-   import random
-   import boto3
+       import json
+       import random
+       import boto3
    
-   STREAM_NAME = "ExampleInputStream"
-   
-   
-   def get_data():
-       return {
-           'EVENT_TIME': datetime.datetime.now().isoformat(),
-           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-           'PRICE': round(random.random() * 100, 2)}
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def generate(stream_name, kinesis_client):
-       while True:
-           data = get_data()
-           print(data)
-           kinesis_client.put_record(
-               StreamName=stream_name,
-               Data=json.dumps(data),
-               PartitionKey="partitionkey")
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   if __name__ == '__main__':
-       generate(STREAM_NAME, boto3.client('kinesis'))
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Run the `stock.py` script: 
@@ -114,17 +113,14 @@ The application code is located in the `S3StreamingSinkJob.java` file\. Note the
 
   ```
   input.map(value -> { // Parse the JSON
-              JsonNode jsonNode = jsonParser.readValue(value, JsonNode.class);
-              return new Tuple2><jsonNode.get("TICKER").toString(), 1);
-          }).returns(Types.TUPLE(Types.STRING, Types.INT))
-                  .keyBy(0) // Logically partition the stream for each word
-                  // .timeWindow(Time.minutes(1)) // Tumbling window definition // Flink 1.11
-                  .window(TumblingProcessingTimeWindows.of(Time.minutes(1))) // Flink 1.13
-                  .sum(1) // Count the appearances by ticker per partition
-                  .map(value -> value.f0 + " count: " + value.f1.toString() + "\n")
-                  .addSink(createS3SinkFromStaticConfig());
-  
-          env.execute("Flink S3 Streaming Sink Job");
+                  JsonNode jsonNode = jsonParser.readValue(value, JsonNode.class);
+                  return new Tuple2<>(jsonNode.get("ticker").toString(), 1);
+              }).returns(Types.TUPLE(Types.STRING, Types.INT))
+              .keyBy(v -> v.f0) // Logically partition the stream for each word
+              .window(TumblingProcessingTimeWindows.of(Time.minutes(1)))
+              .sum(1) // Count the appearances by ticker per partition
+              .map(value -> value.f0 + " count: " + value.f1.toString() + "\n")
+              .addSink(createS3SinkFromStaticConfig());
   ```
 
 **Note**  
@@ -137,7 +133,7 @@ In this section, you modify the application code to write output to your Amazon 
 Update the following line with your user name to specify the application's output location:
 
 ```
-private static final String s3SinkPath = "s3a://ka-app-<username>/data";
+private static final String s3SinkPath = "s3a://ka-app-code-<username>/data";
 ```
 
 ## Compile the Application Code<a name="examples-s3-compile"></a>
@@ -149,19 +145,19 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 
 Compiling the application creates the application JAR file \(`target/aws-kinesis-analytics-java-apps-1.0.jar`\)\.
 
 **Note**  
-The provided source code relies on libraries from Java 11\. If you are using a development environment, 
+The provided source code relies on libraries from Java 11\. 
 
 ## Upload the Apache Flink Streaming Java Code<a name="examples-s3-upload"></a>
 
 In this section, you upload your application code to the Amazon S3 bucket you created in the [Create Dependent ResourcesWrite Sample Records to the Input Stream](#examples-s3-resources) section\.
 
-1. In the Amazon S3 console, choose the **ka\-app\-*<username>*** bucket, navigate to the **code** folder, and choose **Upload**\.
+1. In the Amazon S3 console, choose the **ka\-app\-code\-*<username>*** bucket, navigate to the **code** folder, and choose **Upload**\.
 
 1. In the **Select files** step, choose **Add files**\. Navigate to the `aws-kinesis-analytics-java-apps-1.0.jar` file that you created in the previous step\. 
 
@@ -182,7 +178,7 @@ Follow these steps to create, configure, update, and run the application using t
 1. On the **Kinesis Analytics \- Create application** page, provide the application details as follows:
    + For **Application name**, enter **MyApplication**\.
    + For **Runtime**, choose **Apache Flink**\.
-   + Leave the version pulldown as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+   + Leave the version pulldown as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -191,14 +187,14 @@ Follow these steps to create, configure, update, and run the application using t
 When you create a Kinesis Data Analytics application using the console, you have the option of having an IAM role and policy created for your application\. Your application uses this role and policy to access its dependent resources\. These IAM resources are named using your application name and Region as follows:  
 For **Application name**, enter **MyApplication**\.
 For **Runtime**, choose **Apache Flink**\.
-Leave the version as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+Leave the version as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
 1. Choose **Create application**\.
 
 **Note**  
-When you create a Kinesis Data Analytics for Apache Flink application using the console, you have the option of having an IAM role and policy created for your application\. Your application uses this role and policy to access its dependent resources\. These IAM resources are named using your application name and Region as follows:  
+When you create an Amazon Kinesis Data Analytics for Apache Flink using the console, you have the option of having an IAM role and policy created for your application\. Your application uses this role and policy to access its dependent resources\. These IAM resources are named using your application name and Region as follows:  
 Policy: `kinesis-analytics-service-MyApplication-us-west-2`
 Role: `kinesis-analytics-MyApplication-us-west-2`
 
@@ -216,16 +212,22 @@ Edit the IAM policy to add permissions to access the Kinesis data stream\.
 
    ```
    {
-               "Sid": "ReadCode",
+               "Sid": "S3",
                "Effect": "Allow",
                "Action": [
-                   "s3:GetObject",
-                   "s3:GetObjectVersion"
+                   "s3:Abort*",
+                   "s3:DeleteObject*",
+                   "s3:GetObject*",
+                   "s3:GetBucket*",
+                   "s3:List*",
+                   "s3:ListBucket",
+                   "s3:PutObject"
                ],
                "Resource": [
-                   "arn:aws:s3:::kinesis-analytics-placeholder-s3-bucket/kinesis-analytics-placeholder-s3-object"
+                   "arn:aws:s3:::ka-app-code-<username>",
+                   "arn:aws:s3:::ka-app-code-<username>/*"
                ]
-           },
+             }, 
            {
                "Sid": "ListCloudwatchLogGroups",
                "Effect": "Allow",
@@ -263,23 +265,7 @@ Edit the IAM policy to add permissions to access the Kinesis data stream\.
                "Action": "kinesis:*",
                "Resource": "arn:aws:kinesis:us-west-2:012345678901:stream/ExampleInputStream"
            },
-           {
-               "Sid": "WriteObjects",
-               "Effect": "Allow",
-               "Action": [
-                   "s3:Abort*",
-                   "s3:DeleteObject*",
-                   "s3:GetObject*",
-                   "s3:GetBucket*",
-                   "s3:List*",
-                   "s3:ListBucket",
-                   "s3:PutObject"
-               ],
-               "Resource": [
-                   "arn:aws:s3:::ka-app-<username>",
-                   "arn:aws:s3:::ka-app-<username>/*"
-               ]
-           }
+           
        ]
    }
    ```
@@ -289,7 +275,7 @@ Edit the IAM policy to add permissions to access the Kinesis data stream\.
 1. On the **MyApplication** page, choose **Configure**\.
 
 1. On the **Configure application** page, provide the **Code location**:
-   + For **Amazon S3 bucket**, enter **ka\-app\-*<username>***\.
+   + For **Amazon S3 bucket**, enter **ka\-app\-code\-*<username>***\.
    + For **Path to Amazon S3 object**, enter **code/aws\-kinesis\-analytics\-java\-apps\-1\.0\.jar**\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
@@ -317,6 +303,13 @@ This log stream is used to monitor the application\. This is not the same log st
 In the Amazon S3 console, open the **data** folder in your S3 bucket\.
 
 After a few minutes, objects containing aggregated data from the application will appear\.
+
+**Note**  
+Aggregration is enabled by default in Flink\. To disable it, use the following:  
+
+```
+sink.producer.aggregation-enabled' = 'false'
+```
 
 ## Optional: Customize the Source and Sink<a name="examples-s3-customize"></a>
 
@@ -468,7 +461,7 @@ This section includes procedures for cleaning up AWS resources that you created 
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Choose the **ka\-app\-*<username>* bucket\.**
+1. Choose the **ka\-app\-code\-*<username>* bucket\.**
 
 1. Choose **Delete** and then enter the bucket name to confirm deletion\.
 

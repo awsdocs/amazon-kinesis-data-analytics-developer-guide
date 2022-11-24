@@ -48,4 +48,4 @@ The following conditions may cause your application to become unstable and repea
 
   If you do not provide the correct version of `jackson-module-jaxb-annotations` as an explicit dependency, your application loads it from the environment dependencies, and since the versions do not match, the application crashes at runtime\. 
 
-  For more information about using Apache Beam with Kinesis Data Analytics, see [Apache Beam](examples-beam.md)\.
+  For more information about using Apache Beam with Kinesis Data Analytics, see [Using CloudFormation with Kinesis Data AnalyticsCreating an application using Apache Beam](examples-beam.md)\.

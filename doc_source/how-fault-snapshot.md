@@ -29,6 +29,9 @@ If `SnapshotsEnabled` is set to `true` in the [ ApplicationSnapshotConfiguration
 **Note**  
 Setting `ApplicationSnapshotConfiguration::SnapshotsEnabled` to `false` will lead to data loss during application updates\.
 
+**Note**  
+Kinesis Data Analytics triggers intermediate savepoints during snapshot creation\. For Flink version 1\.15 or greater, intermediate savepoints no longer commit any side effects\. See [Triggering savepoints](https://nightlies.apache.org/flink/flink-docs-master/docs/ops/state/savepoints/#triggering-savepoints)
+
 Automatically created snapshots have the following qualities:
 + The snapshot is managed by the service, but you can see the snapshot using the [ ListApplicationSnapshots](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_ListApplicationSnapshots.html) action\. Automatically created snapshots count against your snapshot limit\.
 + If your application exceeds the snapshot limit, manually created snapshots will fail, but the Kinesis Data Analytics service will still successfully create snapshots when the application is updated, scaled, or stopped\. You must manually delete snapshots using the [ DeleteApplicationSnapshot](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_DeleteApplicationSnapshot.html) action before creating more snapshots manually\.
@@ -42,7 +45,9 @@ To allow an application to restore from a snapshot that contains incompatible st
 You will see the following behavior when an application is restored from an obsolete snapshot:
 + **Operator added:** If a new operator is added, the savepoint has no state data for the new operator\. No fault will occur, and it is not necessary to set `AllowNonRestoredState`\.
 + **Operator deleted:** If an existing operator is deleted, the savepoint has state data for the missing operator\. A fault will occur unless `AllowNonRestoredState` is set to `true`\.
-+ **Operator modified:** If compatible changes are made, such as changing a parameter's type to a compatible type, the application can restore from the obsolete snapshot\. For more information about restoring from snapshots, see [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html) in the *Apache Flink Documentation*\. An application that uses Apache Flink version 1\.8 or later can possibly be restored from a snapshot with a different schema\. An application that uses Apache Flink version 1\.6 cannot be restored\.
++ **Operator modified:** If compatible changes are made, such as changing a parameter's type to a compatible type, the application can restore from the obsolete snapshot\. For more information about restoring from snapshots, see [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html) in the *Apache Flink Documentation*\. An application that uses Apache Flink version 1\.8 or later can possibly be restored from a snapshot with a different schema\. An application that uses Apache Flink version 1\.6 cannot be restored\. For two\-phase\-commit sinks, we recommend using system snapshot \(SwS\) instead of user created snapshot \(CreateApplicationSnapshot\)\.
+
+  For Flink, Kinesis Data Analytics triggers intermediate savepoints during snapshot creation\. For Flink 1\.15 onward, intermediate savepoints no longer commit any side effects\. See [Triggering Savepoints](https://nightlies.apache.org/flink/flink-docs-master/docs/ops/state/savepoints/#triggering-savepoints)\.
 
 If you need to resume an application that is incompatible with existing savepoint data, we recommend that you skip restoring from the snapshot by setting the `ApplicationRestoreType` parameter of the [StartApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StartApplication.html) action to `SKIP_RESTORE_FROM_SNAPSHOT`\.
 

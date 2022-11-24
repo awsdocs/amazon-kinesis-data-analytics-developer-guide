@@ -22,7 +22,7 @@ The following are the key concepts for VPCs:
 
 For more information about the Amazon VPC service, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)\.
 
-Kinesis Data Analytics creates [ elastic network interfaces](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ElasticNetworkInterfaces.html) in one of the subnets provided in your VPC configuration for the application\. The number of elastic network interfaces created in your VPC subnets may vary, depending on the parallelism and parallelism per KPU of the application\. For more information about application scaling, see [Scaling](how-scaling.md)\.
+Kinesis Data Analytics creates [ elastic network interfaces](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ElasticNetworkInterfaces.html) in one of the subnets provided in your VPC configuration for the application\. The number of elastic network interfaces created in your VPC subnets may vary, depending on the parallelism and parallelism per KPU of the application\. For more information about application scaling, see [ScalingProduction readiness](how-scaling.md)\.
 
 **Note**  
 VPC configurations are not supported for SQL applications\.

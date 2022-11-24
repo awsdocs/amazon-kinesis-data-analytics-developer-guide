@@ -14,6 +14,6 @@ This condition can have the following symptoms:
 There can be many causes for slow application throughput\. If your application is not keeping up with input, check the following:
 + If throughput lag is spiking and then tapering off, check if the application is restarting\. Your application will stop processing input while it restarts, causing lag to spike\. For information about application failures, see [Application is Restarting](troubleshooting-rt-restarts.md)\.
 + If throughput lag is consistent, check to see if your application is optimized for performance\. For information on optimizing your application's performance, see [Troubleshooting Performance](performance-troubleshooting.md)\.
-+ If throughput lag is not spiking but continuously increasing, and your application is optimized for performance, you must increase your application resources\. For information on increasing application resources, see [Scaling](how-scaling.md)\.
++ If throughput lag is not spiking but continuously increasing, and your application is optimized for performance, you must increase your application resources\. For information on increasing application resources, see [ScalingProduction readiness](how-scaling.md)\.
 
 For troubleshooting steps for slow throughput or consumer lag increasing in the application source, see [Troubleshooting Performance](performance-troubleshooting.md)\.

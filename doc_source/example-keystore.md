@@ -13,37 +13,22 @@ A **Truststore** is used to store certificates from Certified Authorities \(CA\)
 + A [Confluent Kafka](https://www.confluent.io) cluster hosted in AWS
 + An on\-premises Kafka cluster accessed through [AWS Direct Connect](https://aws.amazon.com/directconnect/) or VPN
 
-Your application will use a custom consumer \(`CustomFlinkKafkaConsumer`\) that overrides the `open` method to load the custom truststore\. This makes the truststore available to the application after the application restarts or replaces threads\. 
+Your application will use custom serialization and deserialization schemas that override the `open` method to load the custom truststore\. This makes the truststore available to the application after the application restarts or replaces threads\. 
 
-The custom truststore is retrieved and stored using the following code, from the `CustomFlinkKafkaConsumer.java` file:
+The custom truststore is retrieved and stored using the following code:
 
 ```
-@Override
-public void open(Configuration configuration) throws Exception {
-    // write truststore to /tmp
-    // NOTE: make sure that truststore is in JKS format for KDA/Flink. See README for details
-    dropFile("/tmp");
-
-    super.open(configuration);
-}
-
-private void dropFile(String destFolder) throws Exception
-{
-    InputStream input = null;
-    OutputStream outStream = null;
+public static void initializeKafkaTruststore() {
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    URL inputUrl = classLoader.getResource("kafka.client.truststore.jks");
+    File dest = new File("/tmp/kafka.client.truststore.jks");
 
     try {
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        input = classLoader.getResourceAsStream("kafka.client.truststore.jks");
-        byte[] buffer = new byte[input.available()];
-        input.read(buffer);
-
-        File destDir = new File(destFolder);
-        File targetFile = new File(destDir, "kafka.client.truststore.jks");
-        outStream = new FileOutputStream(targetFile);
-        outStream.write(buffer);
-        outStream.flush();
+        FileUtils.copyURLToFile(inputUrl, dest);
+    } catch (Exception ex) {
+        throw new FlinkRuntimeException("Failed to initialize Kakfa truststore", ex);
     }
+}
 ```
 
 **Note**  
@@ -67,10 +52,10 @@ To set up the required prerequisites for this exercise, first complete the [Gett
 To create a sample VPC and Amazon MSK cluster to access from a Kinesis Data Analytics application, follow the [Getting Started Using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) tutorial\.
 
 When completing the tutorial, also do the following:
-+ In [Step 5: Create a Topic](https://docs.aws.amazon.com/msk/latest/developerguide/create-topic.html), repeat the `kafka-topics.sh --create` command to create a destination topic named `AWSKafkaTutorialTopicDestination`:
++ In [Step 3: Create a Topic](https://docs.aws.amazon.com/msk/latest/developerguide/create-topic.html), repeat the `kafka-topics.sh --create` command to create a destination topic named `AWSKafkaTutorialTopicDestination`:
 
   ```
-  bin/kafka-topics.sh --create --zookeeper ZooKeeperConnectionString --replication-factor 3 --partitions 1 --topic AWSKafkaTutorialTopicDestination
+  bin/kafka-topics.sh --create --bootstrap-server ZooKeeperConnectionString --replication-factor 3 --partitions 1 --topic AWSKafkaTutorialTopicDestination
   ```
 **Note**  
 If the `kafka-topics.sh` command returns a `ZooKeeperClientTimeoutException`, verify that the Kafka cluster's security group has an inbound rule to allow all traffic from the client instance's private IP address\.
@@ -104,12 +89,12 @@ The Java application code for this example is available from GitHub\. To downloa
    git clone https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples
    ```
 
-1. The application code is located in the `amazon-kinesis-data-analytics-java-examples/CustomKeystore/KDAFlinkStreamingJob.java` and `CustomFlinkKafkaConsumer.java` files\. You can examine the code to familiarize yourself with the structure of Kinesis Data Analytics for Apache Flink application code\.
+1. The application code is located in the `amazon-kinesis-data-analytics-java-examples/CustomKeystore`\. You can examine the code to familiarize yourself with the structure of Amazon Kinesis Data Analytics for Apache Flink code\.
 
 1. Use either the command line Maven tool or your preferred development environment to create the JAR file\. To compile the JAR file using the command line Maven tool, enter the following:
 
    ```
-   mvn package -Dflink.version=1.13.2
+   mvn package -Dflink.version=1.15.2
    ```
 
    If the build is successful, the following file is created:
@@ -129,7 +114,7 @@ If you deleted the Amazon S3 bucket from the Getting Started tutorial, follow th
 
 1. In the Amazon S3 console, choose the **ka\-app\-code\-*<username>*** bucket, and choose **Upload**\.
 
-1. In the **Select files** step, choose **Add files**\. Navigate to the `KafkaGettingStartedJob-1.0.jar` file that you created in the previous step\. 
+1. In the **Select files** step, choose **Add files**\. Navigate to the `flink-app-1.0-SNAPSHOT.jar` file that you created in the previous step\. 
 
 1. You don't need to change any of the settings for the object, so choose **Upload**\.
 
@@ -143,14 +128,14 @@ Your application code is now stored in an Amazon S3 bucket where your applicatio
 
 1. On the **Kinesis Analytics \- Create application** page, provide the application details as follows:
    + For **Application name**, enter **MyApplication**\.
-   + For **Runtime**, choose **Apache Flink version 1\.13\.2**\.
+   + For **Runtime**, choose **Apache Flink version 1\.15\.2**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
 1. Choose **Create application**\.
 
 **Note**  
-When you create a Kinesis Data Analytics for Apache Flink application using the console, you have the option of having an IAM role and policy created for your application\. Your application uses this role and policy to access its dependent resources\. These IAM resources are named using your application name and Region as follows:  
+When you create an Amazon Kinesis Data Analytics for Apache Flink using the console, you have the option of having an IAM role and policy created for your application\. Your application uses this role and policy to access its dependent resources\. These IAM resources are named using your application name and Region as follows:  
 Policy: `kinesis-analytics-service-MyApplication-us-west-2`
 Role: `kinesis-analytics-MyApplication-us-west-2`
 
@@ -166,13 +151,13 @@ Role: `kinesis-analytics-MyApplication-us-west-2`
 **Note**  
 When you specify application resources using the console \(such as logs or a VPC\), the console modifies your application execution role to grant permission to access those resources\.
 
-1. Under **Properties**, choose **Add Group**\. Create a property group named **KafkaSource** with the following properties:  
+1. Under **Properties**, choose **Add Group**\. Enter the following properties:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/example-keystore.html)
 **Note**  
 The **ssl\.truststore\.password** for the default certificate is "changeit"—you don't need to change this value if you're using the default certificate\.
 
-   Choose **Add Group** again\. Create a property group named **KafkaSink** with the following properties:  
+   Choose **Add Group** again\. Enter the following properties:  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/example-keystore.html)
 

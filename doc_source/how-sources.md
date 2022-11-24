@@ -43,21 +43,22 @@ For an example of a Kinesis Data Analytics application that uses an EFO consumer
 
 ## Amazon MSK<a name="input-msk"></a>
 
-The `FlinkKafkaConsumer` source provides streaming data to your application from an Amazon MSK topic\. 
+The `KafkaSource` source provides streaming data to your application from an Amazon MSK topic\. 
 
-### Creating a `FlinkKafkaConsumer`<a name="input-msk-create"></a>
+### Creating a `KafkaSource`<a name="input-msk-create"></a>
 
-The following code example demonstrates creating a `FlinkKafkaConsumer`:
+The following code example demonstrates creating a `KafkaSource`:
 
 ```
-Properties inputProperties = new Properties();
-inputProperties.setProperty(ConsumerConfigConstants.AWS_REGION, region);
-inputProperties.setProperty("bootstrap.servers", "Cluster Bootstrap Broker String");
-inputProperties.setProperty("security.protocol", "SSL");
-inputProperties.setProperty("ssl.truststore.location", "/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts");
-inputProperties.setProperty("ssl.truststore.password", "changeit");
+KafkaSource<String> source = KafkaSource.<String>builder()
+    .setBootstrapServers(brokers)
+    .setTopics("input-topic")
+    .setGroupId("my-group")
+    .setStartingOffsets(OffsetsInitializer.earliest())
+    .setValueOnlyDeserializer(new SimpleStringSchema())
+    .build();
 
-DataStream<string> input = env.addSource(new FlinkKafkaConsumer<>("MyMSKTopic", new SimpleStringSchema(), inputProperties));
+env.fromSource(source, WatermarkStrategy.noWatermarks(), "Kafka Source");
 ```
 
-For more information about using a `FlinkKafkaConsumer`, see [MSK Replication](example-msk.md)\.
+For more information about using a `KafkaSource`, see [MSK Replication](example-msk.md)\.

@@ -1,19 +1,18 @@
 # Creating a Kinesis Data Analytics for Apache Flink Application<a name="how-creating-apps"></a>
 
-This topic contains information about creating a Kinesis Data Analytics for Apache Flink application\.
+This topic contains information about creating an Amazon Kinesis Data Analytics for Apache Flink\.
 
 **Topics**
 + [Building your Kinesis Data Analytics Application Code](#how-creating-apps-building)
 + [Creating your Kinesis Data Analytics Application](#how-creating-apps-creating)
 + [Starting your Kinesis Data Analytics Application](#how-creating-apps-starting)
 + [Verifying your Kinesis Data Analytics Application](#how-creating-apps-verifying)
-+ [Creating Kinesis Data Analytics applications with Apache Beam](how-creating-apps-beam.md)
 
 ## Building your Kinesis Data Analytics Application Code<a name="how-creating-apps-building"></a>
 
 This section describes the components you use to build the application code for your Kinesis Data Analytics application\. 
 
-We recommend that you use the latest supported version of Apache Flink for your application code\. The latest version of Apache Flink that Kinesis Data Analytics supports is **1\.13\.2**\. For information about upgrading Kinesis Data Analytics applications, see [Upgrading Applications](earlier.md#earlier-upgrading)\. 
+We recommend that you use the latest supported version of Apache Flink for your application code\. The latest version of Apache Flink that Kinesis Data Analytics supports is **1\.15\.2**\. For information about upgrading Kinesis Data Analytics applications, see [Upgrading Applications](earlier.md#earlier-upgrading)\. 
 
 You build your application code using [Apache Maven](https://maven.apache.org/)\. An Apache Maven project uses a `pom.xml` file to specify the versions of components that it uses\. 
 
@@ -31,10 +30,13 @@ Use the following component versions for Kinesis Data Analytics applications:
 | Scala | 2\.12 | 
 | Kinesis Data Analytics for Flink Runtime \(aws\-kinesisanalytics\-runtime\) | 1\.2\.0 | 
 | Kinesis Data Analytics Flink Connectors \(aws\-kinesisanalytics\-flink\) | 2\.0\.0 | 
-| AWS Kinesis Connector \(flink\-connector\-kinesis\) | [1\.13\.2](https://search.maven.org/artifact/org.apache.flink/flink-connector-kinesis_2.12/1.13.2/jar) | 
+| AWS Kinesis Connector \(flink\-connector\-kinesis\) | [1\.15\.2](https://search.maven.org/artifact/org.apache.flink/flink-connector-kinesis_2.12/1.15.2/jar) | 
 | Apache Beam \(Beam Applications Only\) | 2\.33\.0, with Jackson version 2\.12\.2 | 
 
-For an example of a `pom.xml` file for a Kinesis Data Analytics application that uses Apache Flink version 1\.13\.2, see the [Kinesis Data Analytics Getting Started Application\.](https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples/blob/master/GettingStarted/pom.xml)
+**Note**  
+In new Regions, we support only the latest Flink version at the time of service availability and beyond\.
+
+For an example of a `pom.xml` file for a Kinesis Data Analytics application that uses Apache Flink version 1\.15\.2, see the [Kinesis Data Analytics Getting Started Application\.](https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples/blob/master/GettingStarted/pom.xml)
 
 For information about creating a Kinesis Data Analytics application that uses **Apache Beam**, see [Using Apache Beam](how-creating-apps-beam.md)\.
 
@@ -43,7 +45,7 @@ For information about creating a Kinesis Data Analytics application that uses **
 When using Kinesis Data Analytics for Flink Runtime version 1\.1\.0 and later, you specify the version of Apache Flink that your application uses when you compile your application\. You provide the version of Apache Flink with the `-Dflink.version` parameter as follows:
 
 ```
-mvn package -Dflink.version=1.13.2
+mvn package -Dflink.version=1.15.2
 ```
 
 For building applications with older versions of Apache Flink, see [Earlier Versions](earlier.md)\.

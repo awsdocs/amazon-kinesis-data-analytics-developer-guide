@@ -13,9 +13,9 @@ In this exercise, you create a Kinesis Data Analytics application with an Amazon
 
 ## Create Dependent Resources<a name="gs-table-resources"></a>
 
-Before you create a Kinesis Data Analytics for Apache Flink application for this exercise, you create the following dependent resources: 
+Before you create an Amazon Kinesis Data Analytics for Apache Flink for this exercise, you create the following dependent resources: 
 + A virtual private cloud \(VPC\) based on Amazon VPC and an Amazon MSK cluster
-+ An Amazon S3 bucket to store the application's code and output \(`ka-app-<username>`\) 
++ An Amazon S3 bucket to store the application's code and output \(`ka-app-code-<username>`\) 
 
 ### Create a VPC and an Amazon MSK Cluster<a name="gs-table-resources-msk"></a>
 
@@ -35,7 +35,7 @@ When completing the tutorial, note the following:
 ### Create an Amazon S3 Bucket<a name="gs-table-resources-s3"></a>
 
 You can create the Amazon S3 bucket using the console\. For instructions for creating this resource, see the following topics:
-+ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-*<username>***\. 
++ [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-code\-*<username>***\. 
 
 ### Other Resources<a name="gs-table-resources-cw"></a>
 
@@ -61,41 +61,33 @@ In this section, you use a Python script to write sample records to the Amazon M
 1. Create a file named `stock.py` with the following contents\. Replace the `BROKERS` value with your bootstrap broker list you recorded previously\.
 
    ```
-   from kafka import KafkaProducer
-   import json
-   import random
-   from datetime import datetime
+   import datetime
+       import json
+       import random
+       import boto3
    
-   BROKERS = "<Bootstrap Brokers List>"
-   producer = KafkaProducer(
-       bootstrap_servers=BROKERS,
-       value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-       retry_backoff_ms=500,
-       request_timeout_ms=20000,
-       security_protocol='PLAINTEXT')
+       STREAM_NAME = "ExampleInputStream"
    
    
-   def getStock():
-       data = {}
-       now = datetime.now()
-       str_now = now.strftime("%Y-%m-%d %H:%M:%S")
-       data['event_time'] = str_now
-       data['ticker'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
-       price = random.random() * 100
-       data['price'] = round(price, 2)
-       return data
+       def get_data():
+           return {
+               'event_time': datetime.datetime.now().isoformat(),
+               'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+               'price': round(random.random() * 100, 2)}
    
    
-   while True:
-       data =getStock()
-       # print(data)
-       try:
-           future = producer.send("AWSKafkaTutorialTopic", value=data)
-           producer.flush()
-           record_metadata = future.get(timeout=10)
-           print("sent event to Kafka! topic {} partition {} offset {}".format(record_metadata.topic, record_metadata.partition, record_metadata.offset))
-       except Exception as e:
-           print(e.with_traceback())
+       def generate(stream_name, kinesis_client):
+           while True:
+               data = get_data()
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
+                   PartitionKey="partitionkey")
+   
+   
+       if __name__ == '__main__':
+           generate(STREAM_NAME, boto3.client('kinesis', region_name='us-west-2'))
    ```
 
 1. Later in the tutorial, you run the `stock.py` script to send data to the application\. 
@@ -161,7 +153,7 @@ In this section, you use the Apache Maven compiler to create the Java code for t
    + Use the command\-line Maven tool\. Create your JAR file by running the following command in the directory that contains the `pom.xml` file:
 
      ```
-     mvn package -Dflink.version=1.13.2
+     mvn package -Dflink.version=1.15.2
      ```
    + Use your development environment\. See your development environment documentation for details\.
 **Note**  
@@ -215,7 +207,7 @@ Follow these steps to create, configure, update, and run the application using t
    + For **Application name**, enter **MyApplication**\.
    + For **Description**, enter **My java test app**\.
    + For **Runtime**, choose **Apache Flink**\.
-   + Leave the version as **Apache Flink version 1\.13\.2 \(Recommended version\)**\.
+   + Leave the version as **Apache Flink version 1\.15\.2 \(Recommended version\)**\.
 
 1. For **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
@@ -245,15 +237,21 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket\.
        "Version": "2012-10-17",
        "Statement": [
            {
-               "Sid": "ReadCode",
-               "Effect": "Allow",
-               "Action": [
-                   "s3:GetObject",
-                   "s3:GetObjectVersion"
-               ],
-               "Resource": [
-                   "arn:aws:s3:::ka-app-code-username/aws-kinesis-analytics-java-apps-1.0.jar"
-               ]
+           "Sid": "S3",
+           "Effect": "Allow",
+           "Action": [
+               "s3:Abort*",
+               "s3:DeleteObject*",
+               "s3:GetObject*",
+               "s3:GetBucket*",
+               "s3:List*",
+               "s3:ListBucket",
+               "s3:PutObject"
+           ],
+           "Resource": [
+               "arn:aws:s3:::ka-app-code-<username>",
+               "arn:aws:s3:::ka-app-code-<username>/*"
+           ]
            },
            {
                "Sid": "DescribeLogGroups",
@@ -284,25 +282,8 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket\.
                "Resource": [
                    "arn:aws:logs:us-west-2:012345678901:log-group:/aws/kinesis-analytics/MyApplication:log-stream:kinesis-analytics-log-stream"
                ]
-           },
-           {
-               "Sid": "WriteObjects",
-               "Effect": "Allow",
-               "Action": [
-                   "s3:Abort*",
-                   "s3:DeleteObject*",
-                   "s3:GetObject*",
-                   "s3:GetBucket*",
-                   "s3:List*",
-                   "s3:ListBucket",
-                   "s3:PutObject"
-               ],
-               "Resource": [
-                   "arn:aws:s3:::ka-app-<username>",
-                   "arn:aws:s3:::ka-app-<username>/*"
-               ]
            }
-       ]
+        ]
    }
    ```
 
@@ -320,9 +301,9 @@ Use the following procedure to configure the application\.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**\.
 
-1. Under **Properties**, choose **Create group**\. For **Group ID**, enter **FlinkApplicationProperties**\.
+1. Under **Properties**, choose **Create group**\. 
 
-1. Enter the following application properties and values:    
+1. Enter the following:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/gs-table-create.html)
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**\.

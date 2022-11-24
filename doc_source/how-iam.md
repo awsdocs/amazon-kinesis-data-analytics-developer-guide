@@ -24,6 +24,7 @@ Each IAM role has two policies attached to it\. In the trust policy, you specify
 **Topics**
 + [Trust Policy](#iam-role-trust-policy)
 + [Permissions Policy](#iam-role-permissions-policy)
++ [Cross\-service confused deputy prevention](iam-cross-service-confused-deputy-prevention.md)
 
 ## Trust Policy<a name="iam-role-trust-policy"></a>
 
