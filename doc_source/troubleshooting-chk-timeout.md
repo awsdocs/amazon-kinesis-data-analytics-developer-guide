@@ -26,5 +26,4 @@ Your application log error messages show the cause for direct failures\. Transie
 + Your application has insufficient KPU provisioning\. For information about increasing application provisioning, see [Scaling](how-scaling.md)\.
 + Your application state size is too large\. You can monitor your application state size using the `lastCheckpointSize` metric\.
 + Your application's state data is unequally distributed between keys\. If your application uses the `KeyBy` operator, ensure that your incoming data is being divided equally between keys\. If most of the data is being assigned to a single key, this creates a bottleneck that causes failures\.
-+ Your application is dividing state data into too many keys\. Ensure that the number of keys your application uses does not exceed the number of allocated task slots\. For information about task slots, see [Application Resources](how-resources.md)\.
 + Your application is experiencing memory or garbage collection backpressure\. Monitor your application's `heapMemoryUtilization`, `oldGenerationGCTime`, and `oldGenerationGCCount` for spikes or steadily increasing values\.

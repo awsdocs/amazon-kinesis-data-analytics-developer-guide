@@ -360,13 +360,7 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket\.
 
 ### Run the Application<a name="gs-python-7-console-run"></a>
 
-Use the following procedure to run the application\.
-
-**To run the application**
-
-1. On the **MyApplication** page, choose **Run**\. Confirm the action\.
-
-1. When the application is running, refresh the page\. The console shows the **Application graph**\.
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job\.
 
 ### Stop the Application<a name="gs-python-7-console-stop"></a>
 

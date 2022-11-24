@@ -16,7 +16,7 @@ The following table describes the important changes to the documentation since t
 | EFO Consumer | Create applications that use an Enhanced Fan\-Out \(EFO\) consumer to read from a Kinesis Data Stream\. For more information, see [EFO Consumer](examples-efo.md)\.  | October 6, 2020 | 
 | Apache Beam | Create applications that use Apache Beam to process streaming data\. For more information, see [Apache Beam](examples-beam.md)\.  | September 15, 2020 | 
 | Performance | How to troubleshoot application performance issues, and how to create a performant application\. For more information, see [Performance](performance.md)\.  | July 21, 2020 | 
-| Custom Keystore | How to access an Amazon MSK cluster that uses a custom keystore for encryption in transit\. For more information, see [Custom Keystore](example-keystore.md)\.  | June 10, 2020 | 
+| Custom Keystore | How to access an Amazon MSK cluster that uses a custom keystore for encryption in transit\. For more information, see [Custom Truststore](example-keystore.md)\.  | June 10, 2020 | 
 | CloudWatch Alarms | Recommendations for creating CloudWatch alarms with Kinesis Data Analytics for Apache Flink\. For more information, see [Alarms](monitoring-metrics-alarms.md)\.  | June 5, 2020 | 
 | New CloudWatch Metrics | Kinesis Data Analytics now emits 22 metrics to Amazon CloudWatch Metrics\. For more information, see [Metrics and Dimensions](metrics-dimensions.md)\.  | May 12, 2020 | 
 | Custom CloudWatch Metrics | Define application\-specific metrics and emit them to Amazon CloudWatch Metrics\. For more information, see [Custom Metrics](monitoring-metrics-custom.md)\.  | May 12, 2020 | 

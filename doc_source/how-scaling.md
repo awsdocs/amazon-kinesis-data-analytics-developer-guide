@@ -124,3 +124,8 @@ Note the following about application scaling:
   + Disable automatic scaling
   + Configure your application's `parallelism` and `parallelismPerKPU` with the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) action\. For more information about setting your application's parallelism settings, see [Updating Your Application's Parallelism](#how-scaling-howto) following\.
   + Periodically monitor your application's resource usage to verify that your application has the correct parallelism settings for its workload\. For information about monitoring allocation resource usage, see [Viewing Kinesis Data Analytics Metrics and Dimensions](metrics-dimensions.md)\.
+
+### maxParallelism considerations<a name="how-scaling-auto-max-parallelism"></a>
++ Autoscale logic will prevent scaling a Flink job to a parallelism that will cause interference with the job and operator `maxParallelism`\. For example, if a simple job with only a source and a sink where the source has `maxParallelism` 16 and the `sink` has 8, we will not autoscale the job to above 8\.
++ If `maxParallelism` is not set for a job, Flink will default to 128\. Therefore, if you think that a job will need to run at a higher parallelism than 128, you will have to set that number for your application\.
++ If you expect to see your job autoscale but are not seeing it, ensure your `maxParallelism`values allow for it\.

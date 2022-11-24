@@ -36,7 +36,7 @@ When completing the tutorial, note the following:
 
 ## Create the Application Code<a name="example-msk-code"></a>
 
-In this section, you'll download and compile the application JAR file\.
+In this section, you'll download and compile the application JAR file\. We recommend using Java 11\.
 
 The Java application code for this example is available from GitHub\. To download the application code, do the following:
 
@@ -140,9 +140,7 @@ This log stream is used to monitor the application\.
 
 ## Run the Application<a name="example-msk-run"></a>
 
-1. On the **MyApplication** page, choose **Run**\. Leave the **Run without snapshot** option selected, and confirm the action\.
-
-1. When the application is running, refresh the page\. The console shows the **Application graph**\.
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job\.
 
 ## Test the Application<a name="example-msk-test"></a>
 

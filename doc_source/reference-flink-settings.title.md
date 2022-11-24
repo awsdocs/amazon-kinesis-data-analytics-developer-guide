@@ -3,10 +3,15 @@
 Kinesis Data Analytics for Apache Flink is an implementation of the Apache Flink framework\. Kinesis Data Analytics uses the default values described in this section\. Some of these values can be set by Kinesis Data Analytics applications in code, and others cannot be changed\.
 
 **Topics**
++ [Apache Flink Configuration](#apache-flink-configuration)
 + [State Backend](#reference-defaults-state-backend)
 + [Checkpointing](#reference-defaults-checkpoint)
 + [Savepointing](#reference-defaults-savepoint)
 + [Heap Sizes](#reference-defaults-heap)
+
+## Apache Flink Configuration<a name="apache-flink-configuration"></a>
+
+Kinesis Data Analytics provides a default Flink configuration consisting of Apache Flink\-recommended values for most properties and a few based on common application profiles\. For more information about Flink configuration, see [Configuration](https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/)\. Service\-provided default configuration works for most applications\. However, if you need to tweak Flink configuration properties to improve performance for certain applications with high parallelism, high memory and state usage, or enable new debugging features in Apache Flink, you can change certain properties by requesting a support case\. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/)\. You can check the current configuration for your application using the [Apache Flink Dashboard](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-dashboard.html)\.
 
 ## State Backend<a name="reference-defaults-state-backend"></a>
 

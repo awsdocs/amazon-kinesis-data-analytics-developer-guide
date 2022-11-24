@@ -23,6 +23,9 @@ Before you create a Kinesis Data Analytics for Apache Flink application for this
 + A Kinesis data stream \(`ExampleInputStream`\)\.
 + An Amazon S3 bucket to store the application's code and output \(`ka-app-<username>`\) 
 
+**Note**  
+Kinesis Data Analytics for Apache Flink cannot write data to Amazon S3 with server\-side encryption enabled on Kinesis Data Analytics\.
+
 You can create the Kinesis stream and Amazon S3 bucket using the console\. For instructions for creating these resources, see the following topics:
 + [Creating and Updating Data Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) in the *Amazon Kinesis Data Streams Developer Guide*\. Name your data stream **ExampleInputStream**\.
 + [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-*<username>***\. Create two folders \(**code** and **data**\) in the Amazon S3 bucket\.
@@ -110,12 +113,18 @@ The application code is located in the `S3StreamingSinkJob.java` file\. Note the
   The sink reads messages in a tumbling window, encodes messages into S3 bucket objects, and sends the encoded objects to the S3 sink\. The following code encodes objects for sending to Amazon S3:
 
   ```
-  input.flatMap(new Tokenizer()) // Tokenizer for generating words
-      .keyBy(0) // Logically partition the stream for each word
-      .window(TumblingProcessingTimeWindows.of(Time.minutes(1)))
-      .sum(1) // Sum the number of words per partition
-      .map(value -> value.f0 + " count: " + value.f1.toString() + "\n")
-      .addSink(createS3SinkFromStaticConfig());
+  input.map(value -> { // Parse the JSON
+              JsonNode jsonNode = jsonParser.readValue(value, JsonNode.class);
+              return new Tuple2><jsonNode.get("TICKER").toString(), 1);
+          }).returns(Types.TUPLE(Types.STRING, Types.INT))
+                  .keyBy(0) // Logically partition the stream for each word
+                  // .timeWindow(Time.minutes(1)) // Tumbling window definition // Flink 1.11
+                  .window(TumblingProcessingTimeWindows.of(Time.minutes(1))) // Flink 1.13
+                  .sum(1) // Count the appearances by ticker per partition
+                  .map(value -> value.f0 + " count: " + value.f1.toString() + "\n")
+                  .addSink(createS3SinkFromStaticConfig());
+  
+          env.execute("Flink S3 Streaming Sink Job");
   ```
 
 **Note**  

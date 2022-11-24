@@ -8,3 +8,4 @@ The following end\-to\-end examples demonstrate advanced Kinesis Data Analytics 
 + [Custom Scaling using Application Auto Scaling](examples-autoscaling.md)
 + [Amazon CloudWatch Dashboard](examples-cwdash.md)
 + [AWS Streaming Data Solution for Amazon MSK](examples-ssmsk.md)
++ [More Kinesis Data Analytics Solutions on GitHub](examples-solutions-github.md)

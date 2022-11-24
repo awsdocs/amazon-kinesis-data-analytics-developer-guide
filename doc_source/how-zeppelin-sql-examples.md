@@ -1,6 +1,8 @@
 # Examples<a name="how-zeppelin-sql-examples"></a>
 
 **Topics**
++ [Creating tables with Amazon MSK/Apache Kafka](#how-zeppelin-examples-creating-tables)
++ [Creating tables with Kinesis](#how-zeppelin-examples-creating-tables-with-kinesis)
 + [Tumbling window](#how-zeppelin-examples-tumbling)
 + [Sliding window](#how-zeppelin-examples-sliding)
 + [Interactive SQL](#how-zeppelin-examples-interactive-sql)
@@ -18,6 +20,86 @@ To view your application in the Apache Flink dashboard, choose **FLINK JOB** in 
 For more information about window queries, see [Windows](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/stream/operators/windows.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
 
 For more examples of Apache Flink Streaming SQL queries, see [Queries](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/queries.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+
+## Creating tables with Amazon MSK/Apache Kafka<a name="how-zeppelin-examples-creating-tables"></a>
+
+You can use the Amazon MSK Flink connector with Kinesis Data Analytics Studio to authenticate your connection with Plaintext, SSL, or IAM authentication\. Create your tables using the specific properties per your requirements\.
+
+```
+-- Plaintext connection
+
+CREATE TABLE your_table (
+  `column1` STRING,
+  `column2` BIGINT
+) WITH (
+  'connector' = 'kafka',
+  'topic' = 'your_topic',
+  'properties.bootstrap.servers' = '<bootstrap servers>',
+  'scan.startup.mode' = 'earliest-offset',
+  'format' = 'json'
+);
+
+-- SSL connection
+
+CREATE TABLE your_table (
+  `column1` STRING,
+  `column2` BIGINT
+) WITH (
+  'connector' = 'kafka',
+   'topic' = 'your_topic',
+  'properties.bootstrap.servers' = '<bootstrap servers>',
+  'properties.security.protocol' = 'SSL',
+  'properties.ssl.truststore.location' = '/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts',
+  'properties.ssl.truststore.password' = 'changeit',
+  'properties.group.id' = 'myGroup',
+  'scan.startup.mode' = 'earliest-offset',
+  'format' = 'json'
+);
+
+-- IAM connection (or for MSK Serverless)
+
+CREATE TABLE your_table (
+  `column1` STRING,
+  `column2` BIGINT
+) WITH (
+  'connector' = 'kafka',
+  'topic' = 'your_topic',
+  'properties.bootstrap.servers' = '<bootstrap servers>',
+  'properties.security.protocol' = 'SASL_SSL',
+  'properties.sasl.mechanism' = 'AWS_MSK_IAM',
+  'properties.sasl.jaas.config' = 'software.amazon.msk.auth.iam.IAMLoginModule required;',
+  'properties.sasl.client.callback.handler.class' = 'software.amazon.msk.auth.iam.IAMClientCallbackHandler',
+  'properties.group.id' = 'myGroup',
+  'scan.startup.mode' = 'earliest-offset',
+  'format' = 'json'
+);
+```
+
+You can combine these with other properties at [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/)\.
+
+## Creating tables with Kinesis<a name="how-zeppelin-examples-creating-tables-with-kinesis"></a>
+
+In the following example, you create a table using Kinesis:
+
+```
+CREATE TABLE KinesisTable (
+  `column1` BIGINT,
+  `column2` BIGINT,
+  `column3` BIGINT,
+  `column4` STRING,
+  `ts` TIMESTAMP(3)
+)
+PARTITIONED BY (column1, column2)
+WITH (
+  'connector' = 'kinesis',
+  'stream' = 'test_stream',
+  'aws.region' = '<region>',
+  'scan.stream.initpos' = 'LATEST',
+  'format' = 'csv'
+);
+```
+
+For more information on other properties you can use, see [Amazon Kinesis Data Streams SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kinesis/)\.
 
 ## Tumbling window<a name="how-zeppelin-examples-tumbling"></a>
 

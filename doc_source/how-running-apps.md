@@ -32,3 +32,7 @@ Both your application and the application's job have a current execution status:
   The application then proceeds to either the `RESTARTING` or `FAILED` status, depending on whether the job can be restarted\. 
 
   You can check the job's status by examining your application's CloudWatch log for status changes\.
+
+## Batch workloads<a name="batch-workloads"></a>
+
+Kinesis Data Analytics supports running Apache Flink batch workloads\. In a batch job, when an Apache Flink job gets to the **FINISHED** status, Kinesis Data Analytics application status is set to **READY**\. For more information about Flink job statuses, see [Jobs and Scheduling](https://nightlies.apache.org/flink/flink-docs-master/docs/internals/job_scheduling/)\.

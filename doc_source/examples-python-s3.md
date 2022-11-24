@@ -19,6 +19,9 @@ Before you create a Kinesis Data Analytics application for this exercise, you cr
 + A Kinesis data stream \(`ExampleInputStream`\)
 + An Amazon S3 bucket to store the application's code and output \(`ka-app-code-<username>`\) 
 
+**Note**  
+Kinesis Data Analytics for Apache Flink cannot write data to Amazon S3 with server\-side encryption enabled on Kinesis Data Analytics\.
+
 You can create the Kinesis stream and Amazon S3 bucket using the console\. For instructions for creating these resources, see the following topics:
 + [Creating and Updating Data Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) in the *Amazon Kinesis Data Streams Developer Guide*\. Name your data stream **ExampleInputStream**\.
 + [How Do I Create an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\. Give the Amazon S3 bucket a globally unique name by appending your login name, such as **ka\-app\-code\-*<username>***\.
@@ -308,9 +311,7 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
 
 ### Run the Application<a name="examples-python-s3-run"></a>
 
-1. On the **MyApplication** page, choose **Run**\. Leave the **Run without snapshot** option selected, and confirm the action\.
-
-1. When the application is running, refresh the page\. The console shows the **Application graph**\.
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job\.
 
 You can check the Kinesis Data Analytics metrics on the CloudWatch console to verify that the application is working\. 
 

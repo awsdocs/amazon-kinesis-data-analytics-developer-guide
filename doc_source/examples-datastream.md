@@ -10,5 +10,5 @@ The following examples demonstrate how to create applications using the Apache F
 + [Example: Use an EFO Consumer with a Kinesis Data Stream](examples-efo.md)
 + [Example: Writing to Kinesis Data Firehose](get-started-exercise-fh.md)
 + [Example: Read From a Kinesis Stream in a Different Account](examples-cross.md)
-+ [Tutorial: Using a Custom Keystore with Amazon MSK](example-keystore.md)
++ [Tutorial: Using a Custom Truststore with Amazon MSK](example-keystore.md)
 + [Example: Using Apache Beam](examples-beam.md)

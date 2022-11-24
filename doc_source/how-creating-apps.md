@@ -32,7 +32,7 @@ Use the following component versions for Kinesis Data Analytics applications:
 | Kinesis Data Analytics for Flink Runtime \(aws\-kinesisanalytics\-runtime\) | 1\.2\.0 | 
 | Kinesis Data Analytics Flink Connectors \(aws\-kinesisanalytics\-flink\) | 2\.0\.0 | 
 | AWS Kinesis Connector \(flink\-connector\-kinesis\) | [1\.13\.2](https://search.maven.org/artifact/org.apache.flink/flink-connector-kinesis_2.12/1.13.2/jar) | 
-| Apache Beam \(Beam Applications Only\) | 2\.23\.0, with Jackson version 2\.10\.2 | 
+| Apache Beam \(Beam Applications Only\) | 2\.33\.0, with Jackson version 2\.12\.2 | 
 
 For an example of a `pom.xml` file for a Kinesis Data Analytics application that uses Apache Flink version 1\.13\.2, see the [Kinesis Data Analytics Getting Started Application\.](https://github.com/aws-samples/amazon-kinesis-data-analytics-java-examples/blob/master/GettingStarted/pom.xml)
 

@@ -22,6 +22,7 @@ You can only deploy a note from your Studio notebook if it meets the following c
 + In your Scala or Python code, use the [Blink planner](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/#dependency-structure) \(`senv`, `stenv` for Scala; `s_env`, `st_env` for Python\) and not the older "Flink" planner \(`stenv_2` for Scala, `st_env_2` for Python\)\. The Apache Flink project recommends the use of the Blink planner for production use cases, and this is the default planner in Zeppelin and in Flink\.
 + Your Python paragraphs must not use [shell invocations/assignments](https://ipython.readthedocs.io/en/stable/interactive/python-ipython-diff.html#shell-assignment) using `!` or [IPython magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) like `%timeit` or `%conda` in notes meant to be deployed as applications\.
 + You can't use Scala case classes as parameters of functions passed to higher\-order dataflow operators like `map` and `filter`\. For information about Scala case classes, see [CASE CLASSES](https://docs.scala-lang.org/overviews/scala-book/case-classes.html) in the Scala documentation\.
++ You can deploy an application with a UDF written in Java or Scala, but not in Python\.
 
 ## SQL criteria<a name="how-notebook-durable-sql"></a>
 + Simple SELECT statements are not permitted, as there’s nowhere equivalent to a paragraph’s output section where the data can be delivered\.

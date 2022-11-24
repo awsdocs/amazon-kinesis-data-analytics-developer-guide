@@ -87,9 +87,15 @@ You can also create a Studio notebook from the Amazon MSK or Kinesis Data Stream
 
 To create your Studio notebook using the AWS CLI, do the following:
 
-1. Verify that you have the following information\. You need these values to create your application\.
-   + Your account ID\.
-   + The subnet IDs and security group ID for the Amazon VPC that contains your Amazon MSK cluster\.
+1. Verify your account ID\. You need this value to create your application\.
+
+1. Create the role `arn:aws:iam::AccountID:role/ZeppelinRole` and add the following permissions to the auto\-created role by console\.
+
+   `"kinesis:GetShardIterator",`
+
+   `"kinesis:GetRecords",`
+
+   `"kinesis:ListShards"`
 
 1. Create a file called `create.json` with the following contents\. Replace the placeholder values with your information\.
 

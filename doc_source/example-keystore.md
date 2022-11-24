@@ -1,21 +1,27 @@
-# Tutorial: Using a Custom Keystore with Amazon MSK<a name="example-keystore"></a>
+# Tutorial: Using a Custom Truststore with Amazon MSK<a name="example-keystore"></a>
 
-The following tutorial demonstrates how to access an Amazon MSK cluster that uses a custom keystore for encryption in transit\.
+ The following tutorial demonstrates how to securely connect \(encryption in transit\) to a Kafka Cluster that uses server certificates issued by a custom, private or even self\-hosted Certificate Authority \(CA\)\. 
 
-You can also use the technique in this tutorial for interactions between a Kinesis Data Analytics application and other Apache Kafka sources, such as the following:
+For connecting any Kafka Client securely over TLS to a Kafka Cluster, the Kafka Client \(like the example Flink Application\) must trust the complete chain of trust presented by the Kafka Cluster's server certificates \(from the Issuing CA up to the Root\-Level CA\)\. As an example for a custom Truststore, we will use an Amazon MSK cluster with Mutual TLS \(MTLS\) Authentication enabled\. This implies that the MSK cluster nodes use server certificates that are issued by an AWS Certificate Manager Private Certificate Authority \(ACM Private CA\) that is private to your account and Region and therefore not trusted by the default Truststore of the Java Virtual Machine \(JVM\) executing the Flink Application\. 
+
+**Note**  
+A **Keystore** is used to store private key and identity certificates an application should present to both server or client for verification\.
+A **Truststore** is used to store certificates from Certified Authorities \(CA\) that verify the certificate presented by the server in an SSL connection\.
+
+ You can also use the technique in this tutorial for interactions between a Kinesis Data Analytics application and other Apache Kafka sources, such as:
 + A custom Apache Kafka cluster hosted in AWS \([Amazon EC2](https://aws.amazon.com/ec2/) or [Amazon EKS](https://aws.amazon.com/eks/)\)
 + A [Confluent Kafka](https://www.confluent.io) cluster hosted in AWS
 + An on\-premises Kafka cluster accessed through [AWS Direct Connect](https://aws.amazon.com/directconnect/) or VPN
 
-Your application will use a custom consumer \(`CustomFlinkKafkaConsumer`\) that overrides the `open` method to load the custom keystore\. This makes the keystore available to the application after the application restarts or replaces threads\. 
+Your application will use a custom consumer \(`CustomFlinkKafkaConsumer`\) that overrides the `open` method to load the custom truststore\. This makes the truststore available to the application after the application restarts or replaces threads\. 
 
-The custom keystore is retrieved and stored using the following code, from the `CustomFlinkKafkaConsumer.java` file:
+The custom truststore is retrieved and stored using the following code, from the `CustomFlinkKafkaConsumer.java` file:
 
 ```
 @Override
 public void open(Configuration configuration) throws Exception {
-    // write keystore to /tmp
-    // NOTE: make sure that keystore is in JKS format for KDA/Flink. See README for details
+    // write truststore to /tmp
+    // NOTE: make sure that truststore is in JKS format for KDA/Flink. See README for details
     dropFile("/tmp");
 
     super.open(configuration);
@@ -41,14 +47,14 @@ private void dropFile(String destFolder) throws Exception
 ```
 
 **Note**  
-Apache Flink requires the keystore to be in [JKS format](https://en.wikipedia.org/wiki/Java_KeyStore)\.
+Apache Flink requires the truststore to be in [JKS format](https://en.wikipedia.org/wiki/Java_KeyStore)\.
 
 **Note**  
 To set up the required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\. 
 
 **Topics**
 + [Create a VPC with an Amazon MSK Cluster](#example-keystore-createcluster)
-+ [Create a Custom Keystore and Apply It to Your Cluster](#example-keystore-cert)
++ [Create a Custom Truststore and Apply It to Your Cluster](#example-keystore-cert)
 + [Create the Application Code](#example-keystore-code)
 + [Upload the Apache Flink Streaming Java Code](#example-keystore-upload)
 + [Create the Application](#example-keystore-create)
@@ -78,11 +84,11 @@ If the `kafka-topics.sh` command returns a `ZooKeeperClientTimeoutException`, ve
   ```
 + When following the steps in this tutorial and the prerequisite tutorials, be sure to use your selected AWS Region in your code, commands, and console entries\.
 
-## Create a Custom Keystore and Apply It to Your Cluster<a name="example-keystore-cert"></a>
+## Create a Custom Truststore and Apply It to Your Cluster<a name="example-keystore-cert"></a>
 
-In this section, you create a custom certificate authority \(CA\), use it to generate a custom keystore, and apply it to your MSK cluster\.
+In this section, you create a custom certificate authority \(CA\), use it to generate a custom truststore, and apply it to your MSK cluster\.
 
-To create and apply your custom keystore, follow the [Client Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-authentication.html) tutorial in the *Amazon Managed Streaming for Apache Kafka Developer Guide*\.
+To create and apply your custom truststore, follow the [Client Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-authentication.html) tutorial in the *Amazon Managed Streaming for Apache Kafka Developer Guide*\.
 
 ## Create the Application Code<a name="example-keystore-code"></a>
 
@@ -190,9 +196,7 @@ This log stream is used to monitor the application\.
 
 ## Run the Application<a name="example-keystore-run"></a>
 
-1. On the **MyApplication** page, choose **Run**\. Leave the **Run without snapshot** option selected, and confirm the action\.
-
-1. When the application is running, refresh the page\. The console shows the **Application graph**\.
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job\.
 
 ## Test the Application<a name="example-keystore-test"></a>
 

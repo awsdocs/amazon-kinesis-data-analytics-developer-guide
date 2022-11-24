@@ -19,7 +19,9 @@ When following the tutorial, do the following:
 
 ## Add a NAT Gateway to your VPC<a name="example-notebook-msk-nat"></a>
 
-If you created an Amazon MSK cluster by following the [Getting Started Using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) tutorial, or if your existing Amazon VPC does not already have a NAT gateway for its private subnets, you must add a NAT Gateway to your Amazon VPC\. The following diagram shows the architecture\.
+If you created an Amazon MSK cluster by following the [Getting Started Using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) tutorial, or if your existing Amazon VPC does not already have a NAT gateway for its private subnets, you must add a NAT Gateway to your Amazon VPC\. The following diagram shows the architecture\. 
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/images/vpc_05.png)
 
 To create a NAT Gateway for your Amazon VPC, do the following:
 

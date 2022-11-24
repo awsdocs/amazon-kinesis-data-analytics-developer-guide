@@ -287,9 +287,7 @@ Edit the IAM policy to add permissions to access the Kinesis data streams\.
 
 ### Run the Application<a name="examples-python-tumbling-run"></a>
 
-1. On the **MyApplication** page, choose **Run**\. Leave the **Run without snapshot** option selected, and confirm the action\.
-
-1. When the application is running, refresh the page\. The console shows the **Application graph**\.
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job\.
 
 You can check the Kinesis Data Analytics metrics on the CloudWatch console to verify that the application is working\. 
 
