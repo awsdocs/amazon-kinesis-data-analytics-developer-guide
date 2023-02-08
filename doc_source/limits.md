@@ -1,31 +1,52 @@
-# Kinesis Data Analytics for Apache Flink and Studio Notebook Quota<a name="limits"></a>
+# Limits<a name="limits"></a>
 
-When working with Amazon Kinesis Data Analytics for Apache Flink, note the following quota:
-+ You can create up to 50 Kinesis Data Analytics applications per Region in your account\. You can create a case to request additional applications via the service quota increase form\. For more information, see the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\.
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
 
-  For a list of Regions that support Kinesis Data Analytics, see [Kinesis Data Analytics Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region)\.
-
-   
-+ The number of Kinesis processing units \(KPU\) is limited to 32 by default\. For instructions on how to request an increase to this quota, see **To request a quota increase** in [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. Make sure you specify the application prefix to which the new KPU limit needs to be applied\.
+When working with Amazon Kinesis Data Analytics for SQL Applications, note the following limits:
++ The size of a row in an in\-application stream is limited to 512 KB\. Kinesis Data Analytics uses up to 1 KB to store metadata\. This metadata counts against the row limit\. 
 
    
-
-  With Kinesis Data Analytics, your AWS account is charged for allocated resources, rather than resources that your application uses\. You are charged an hourly rate based on the maximum number of KPUs that are used to run your stream\-processing application\. A single KPU provides you with 1 vCPU and 4 GiB of memory\. For each KPU, the service also provisions 50 GiB of running application storage\.
++ The SQL code in an application is limited to 100 KB\. 
 
    
-+ You can create up to 1,000 Kinesis Data Analytics [Snapshots](how-fault-snapshot.md) per application\. 
++ The longest window we recommend for a windowed query is one hour\. In\-application streams are stored in volatile storage, and unexpected application interruptions will cause the application to rebuild the stream from the source data in the volatile storage\.
+
+   
++ The most throughput we recommend for a single in\-application stream is between 2 and 20 MB/second, depending on the complexity of the application's query\.
+
+   
++ The service is available in specific \. For more information, see [Amazon Kinesis Data Analytics](https://docs.aws.amazon.com/general/latest/gr/rande.html#ka_region) in the *AWS General Reference*\. 
+
+   
++ You can create up to 50 Kinesis Data Analytics applications per in your account\. You can create a case to request additional applications via the service limit increase form\. For more information, see the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\.
+
+   
++ The maximum streaming throughput a single Kinesis Data Analytics for SQL application can process is approximately 100 MB/sec\. This assumes that you have increased the number of in\-application streams to the maximum value of 64, and you have increased your KPU limit beyond 8 \(see the following limit for details\)\. If your application needs to process more than 100 MB/sec of input, do one of the following:
+  + Use multiple Kinesis Data Analytics for SQL applications to process input
+  + Use [Kinesis Data Analytics for Java Applications](/kinesisanalytics/latest/java/what-is.html) if you want to continue to use a single stream and application\.
+
+   
++ The number of Kinesis processing units \(KPU\) is limited to eight\. For instructions on how to request an increase to this limit, see **To request a limit increase** in [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
+
+   
+
+  With Kinesis Data Analytics, you pay only for what you use\. You are charged an hourly rate based on the average number of KPUs that are used to run your stream\-processing application\. A single KPU provides you with 1 vCPU and 4 GB of memory\. 
+
+   
++ Each application can have one streaming source and up to one reference data source\. 
+
+   
++ You can configure up to three destinations for your Kinesis Data Analytics application\. We recommend that you use one of these destinations to persist in\-application error stream data\.
+
+   
++ The Amazon S3 object that stores reference data can be up to 1 GB in size\.
+
+   
++ If you change the reference data that is stored in the S3 bucket after you upload reference data to an in\-application table, you need to use the [UpdateApplication](API_UpdateApplication.md) operation \(using the API or AWS CLI\) to refresh the data in the in\-application table\. Currently, the AWS Management Console doesn't support refreshing reference data in your application\.
+
+   
++ Currently, Kinesis Data Analytics doesn't support data generated by the [Amazon Kinesis Producer Library \(KPL\)](https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-kpl.html)\. 
 
    
 + You can assign up to 50 tags per application\.
-
-   
-+ The maximum size for an application JAR file is 512 MiB\. If you exceed this quota, your application will fail to start\.
-
-   
-
-For Studio notebooks, the following quotas apply\. To request higher quotas, [create a support case](https://console.aws.amazon.com/support/home#/)\.
-+ `websocketMessageSize` = 5 MiB
-+ `noteSize` = 5 MiB
-+ `noteCount` = 1000
-+ `Max cumulative UDF size` = 100 MiB
-+ `Max cumulative dependency jar size` = 300 MiB 

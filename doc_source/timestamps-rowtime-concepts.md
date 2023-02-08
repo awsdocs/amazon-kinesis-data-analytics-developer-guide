@@ -1,5 +1,8 @@
 # Timestamps and the ROWTIME Column<a name="timestamps-rowtime-concepts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In\-application streams include a special column called `ROWTIME`\. It stores a timestamp when Amazon Kinesis Data Analytics inserts a row in the first in\-application stream\. `ROWTIME` reflects the timestamp at which Amazon Kinesis Data Analytics inserted a record into the first in\-application stream after reading from the streaming source\. This `ROWTIME` value is then maintained throughout your application\. 
 
 **Note**  

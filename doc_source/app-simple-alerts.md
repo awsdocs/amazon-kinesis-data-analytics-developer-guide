@@ -1,5 +1,8 @@
 # Example: Creating Simple Alerts<a name="app-simple-alerts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this Amazon Kinesis data analytics application, the query runs continuously on the in\-application stream that is created over the demo stream\. For more information, see [Continuous Queries](continuous-queries-concepts.md)\. 
 
 If any rows show a stock price change that is greater than 1 percent, those rows are inserted into another in\-application stream\. In the exercise, you can configure the application output to persist the results to an external destination\. You can then further investigate the results\. For example, you can use an AWS Lambda function to process records and send you alerts\. 

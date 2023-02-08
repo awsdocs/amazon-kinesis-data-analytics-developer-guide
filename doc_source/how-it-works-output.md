@@ -1,11 +1,18 @@
 # Configuring Application Output<a name="how-it-works-output"></a>
 
+
+
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In your application code, you write the output of SQL statements to one or more in\-application streams\. You can optionally add an output configuration to your application\. to persist everything written to an in\-application stream to an external destination such as an Amazon Kinesis data stream, a Kinesis Data Firehose delivery stream, or an AWS Lambda function\. 
 
 There is a limit on the number of external destinations you can use to persist an application output\. For more information, see [Limits](limits.md)\. 
 
 **Note**  
 We recommend that you use one external destination to persist in\-application error stream data so that you can investigate the errors\. 
+
+
 
 In each of these output configurations, you provide the following:
 + **In\-application stream name** – The stream that you want to persist to an external destination\. 

@@ -1,5 +1,8 @@
 # Example: Replacing a Substring using Regex \(REGEX\_REPLACE Function\)<a name="examples-transforming-strings-regexreplace"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 This example uses the `REGEX_REPLACE` function to transform a string in Amazon Kinesis Data Analytics\. `REGEX_REPLACE` replaces a substring with an alternative substring\. For more information, see [REGEX\_REPLACE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-regex-replace.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write the following records to an Amazon Kinesis data stream: 
@@ -11,11 +14,15 @@ In this example, you write the following records to an Amazon Kinesis data strea
 ...
 ```
 
+
+
 You then create an Amazon Kinesis data analytics application on the console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with one column \(REFERRER\) as shown\.
 
 ![\[Console screenshot showing in-application schema with list of URLs in the referrer column.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-10.png)
 
 Then, you use the application code with the `REGEX_REPLACE` function to convert the URL to use `https://` instead of `http://`\. You insert the resulting data into another in\-application stream, as shown following: 
+
+
 
 ![\[Console screenshot showing resulting data table with ROWTIME, ingest_time, and referrer columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_replace.png)
 
@@ -39,21 +46,26 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
     
    import json
    import boto3
-   import random
    
-   kinesis = boto3.client('kinesis')
-   def getReferrer():
-       data = {}
-       data['REFERRER'] = 'http://www.amazon.com'
-       return data
+   STREAM_NAME = 'ExampleInputStream'
    
-   while True:
-           data = json.dumps(getReferrer())
+   
+   def get_data():
+       return {'REFERRER': 'http://www.amazon.com'}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey='partitionkey')
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-regexreplace-2"></a>
@@ -75,6 +87,8 @@ Next, create an Amazon Kinesis data analytics application as follows:
    1. Choose **Discover schema**\. Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\. The inferred schema has only one column\.
 
    1. Choose **Save and continue**\.
+
+   
 
 1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 

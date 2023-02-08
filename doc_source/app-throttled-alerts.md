@@ -1,5 +1,8 @@
 # Example: Creating Throttled Alerts<a name="app-throttled-alerts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this Amazon Kinesis data analytics application, the query runs continuously on the in\-application stream created over the demo stream\. For more information, see [Continuous Queries](continuous-queries-concepts.md)\. If any rows show that the stock price change is greater than 1 percent, those rows are inserted into another in\-application stream\. The application throttles the alerts such that an alert is sent immediately when the stock price changes\. However, no more than one alert per minute per stock symbol is sent to the in\-application stream\.
 
 **To create a throttled alerts application**

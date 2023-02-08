@@ -1,18 +1,19 @@
-# Data Protection in Amazon Kinesis Data Analytics for Apache Flink<a name="data-protection"></a>
+# Data Protection in Amazon Kinesis Data Analytics for SQL Applications<a name="data-protection"></a>
 
-You can protect your data using tools that are provided by AWS\. Kinesis Data Analytics can work with services that support encrypting data, including Kinesis Data Analytics, Kinesis Data Firehose, and Amazon S3\. 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
 
-## Data Encryption in Kinesis Data Analytics for Apache Flink<a name="data-encryption"></a>
+You can protect your data using tools that are provided by AWS\. Kinesis Data Analytics can work with services that support encrypting data, including Kinesis Data Streams, Kinesis Data Firehose, and Amazon S3\. 
+
+## Data Encryption in Kinesis Data Analytics<a name="data-encryption"></a>
 
 ### Encryption at Rest<a name="encryption-at-rest"></a>
 
-Note the following about encrypting data at rest with a Kinesis Data Analytics for Apache Flink:
+Note the following about encrypting data at rest with Kinesis Data Analytics:
 + You can encrypt data on the incoming Kinesis data stream using [StartStreamEncryption](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StartStreamEncryption.html)\. For more information, see [What Is Server\-Side Encryption for Kinesis Data Streams?](https://docs.aws.amazon.com/streams/latest/dev/what-is-sse.html)\.
 + Output data can be encrypted at rest using Kinesis Data Firehose to store data in an encrypted Amazon S3 bucket\. You can specify the encryption key that your Amazon S3 bucket uses\. For more information, see [Protecting Data Using Server\-Side Encryption with KMS–Managed Keys \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html)\.
-+ an Amazon Kinesis Data Analytics for Apache Flink can read from any streaming source, and write to any streaming or database destination\. Ensure that your sources and destinations encrypt all data in transit and data at rest\.
 + Your application's code is encrypted at rest\.
-+ Durable application storage is encrypted at rest\.
-+ Running application storage is encrypted at rest\.
++ Your application's reference data is encrypted at rest\.
 
 ### Encryption In Transit<a name="encryption-in-transit"></a>
 

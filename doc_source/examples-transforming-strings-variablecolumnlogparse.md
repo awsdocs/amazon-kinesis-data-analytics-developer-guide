@@ -1,5 +1,8 @@
 # Example: Split Strings into Multiple Fields \(VARIABLE\_COLUMN\_LOG\_PARSE Function\)<a name="examples-transforming-strings-variablecolumnlogparse"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 This example uses the `VARIABLE_COLUMN_LOG_PARSE` function to manipulate strings in Kinesis Data Analytics\. `VARIABLE_COLUMN_LOG_PARSE` splits an input string into fields separated by a delimiter character or a delimiter string\. For more information, see [VARIABLE\_COLUMN\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-variable-column-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write semi\-structured records to an Amazon Kinesis data stream\. The example records are as follows:
@@ -15,11 +18,15 @@ In this example, you write semi\-structured records to an Amazon Kinesis data st
   "Col_D_Unstructured" : "value,value,value,value"}
 ```
 
+
+
 You then create an Amazon Kinesis data analytics application on the console, using the Kinesis stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with four columns, as shown following:
 
 ![\[Console screenshot showing in-application schema with 4 columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-10.png)
 
 Then, you use the application code with the `VARIABLE_COLUMN_LOG_PARSE` function to parse the comma\-separated values, and insert normalized rows in another in\-application stream, as shown following:
+
+
 
 ![\[Console screenshot showing real-time analytics tab with in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-20.png)
 
@@ -43,26 +50,33 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
     
    import json
    import boto3
-   import random
    
-   kinesis = boto3.client('kinesis')
+   STREAM_NAME = "ExampleInputStream"
    
-   def getHighHeartRate():
-       data = {}
-       data['Col_A'] = 'a'
-       data['Col_B'] = 'b'
-       data['Col_C'] = 'c'
-       data['Col_E_Unstructured'] = 'x,y,z'
-       return data
    
-   while True:
-           data = json.dumps(getHighHeartRate())
+   def get_data():
+       return {
+           'Col_A': 'a',
+           'Col_B': 'b',
+           'Col_C': 'c',
+           'Col_E_Unstructured': 'x,y,z'}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
+
+   
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-variablecolumnlogparse-2"></a>
 
@@ -83,6 +97,8 @@ Create an Amazon Kinesis data analytics application as follows:
    1. Choose **Discover schema**\. Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\. Note that the inferred schema has only one column\.
 
    1. Choose **Save and continue**\.
+
+   
 
 1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 

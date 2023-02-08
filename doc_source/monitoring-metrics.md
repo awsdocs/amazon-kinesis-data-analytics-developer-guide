@@ -1,5 +1,8 @@
 # Kinesis Data Analytics Metrics and Dimensions<a name="monitoring-metrics"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 The `AWS/KinesisAnalytics` namespace includes the following metrics\.
 
 

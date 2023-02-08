@@ -1,5 +1,8 @@
 # Creating Lambda Functions for Preprocessing<a name="lambda-preprocessing-functions"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Your Amazon Kinesis Data Analytics application can use Lambda functions for preprocessing records as they are ingested into the application\. Kinesis Data Analytics provides the following templates on the console to use as a starting point for preprocessing your data\.
 
 **Topics**

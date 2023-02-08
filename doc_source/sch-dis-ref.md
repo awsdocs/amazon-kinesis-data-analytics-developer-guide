@@ -1,5 +1,8 @@
 # Using the Schema Discovery Feature on Static Data<a name="sch-dis-ref"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 The schema discovery feature can generate a schema from either the data in a stream or data in a static file that is stored in an Amazon S3 bucket\. Suppose that you want to generate a schema for a Kinesis Data Analytics application for reference purposes or when live streaming data isn't available\. You can use the schema discovery feature on a static file that contains a sample of the data in the expected format of your streaming or reference data\. Kinesis Data Analytics can run schema discovery on sample data from a JSON or CSV file that's stored in an Amazon S3 bucket\. Using schema discovery on a data file uses either the console, or the [DiscoverInputSchema](API_DiscoverInputSchema.md) API with the `S3Configuration` parameter specified\.
 
 ## Running Schema Discovery Using the Console<a name="sch-dis-ref-console"></a>
@@ -19,7 +22,7 @@ For more information on how to add reference data and discover schema in the con
 ## Running Schema Discovery Using the API<a name="sch-dis-ref-api"></a>
 
 To run discovery on a static file using the API, you provide the API with an `S3Configuration` structure with the following information:
-+ `BucketARN`: The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
++ `BucketARN`: The Amazon Resource Name \(ARN\) of the Amazon S3 bucket that contains the file\. For the format of an Amazon S3 bucket ARN, see [Amazon Resource Names \(ARNs\) and Amazon Service Namespaces: Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3)\.
 + `RoleARN`: The ARN of an IAM role with the `AmazonS3ReadOnlyAccess` policy\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
 + `FileKey`: The file name of the object\.
 
@@ -42,7 +45,7 @@ To run discovery on a static file using the API, you provide the API with an `S3
 
 1. Create an Amazon S3 bucket and upload the `data.csv` file you created\. Note the ARN of the created bucket\. For information about creating an Amazon S3 bucket and uploading a file, see [Getting Started with Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)\. 
 
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. Create a role with the `AmazonS3ReadOnlyAccess` policy\. Note the ARN of the new role\. For information about creating a role, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. Create a role with the `AmazonS3ReadOnlyAccess` policy\. Note the ARN of the new role\. For information about creating a role, see [Creating a Role to Delegate Permissions to an Amazon Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\. For information about how to add a policy to a role, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\.
 
 1. Run the following `DiscoverInputSchema` command in the AWS CLI, substituting the ARNs for your Amazon S3 bucket and IAM role:
 

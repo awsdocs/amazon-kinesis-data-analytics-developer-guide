@@ -1,5 +1,8 @@
 # Step 4: Verify Output<a name="app-anomaly-verify-output"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 After configuring the application output in [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md), use the following AWS CLI commands to read records in the destination stream that is written by the application:
 
 1. Run the `get-shard-iterator` command to get a pointer to data on the output stream\.

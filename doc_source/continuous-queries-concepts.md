@@ -1,5 +1,8 @@
 # Continuous Queries<a name="continuous-queries-concepts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 A query over a stream executes continuously over streaming data\. This continuous execution enables scenarios, such as the ability for applications to continuously query a stream and generate alerts\. 
 
 In the Getting Started exercise, you have an in\-application stream named `SOURCE_SQL_STREAM_001`\. It continuously receives stock prices from a demo stream \(a Kinesis data stream\)\. The schema is as follows:

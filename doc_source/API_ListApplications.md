@@ -13,8 +13,8 @@ This operation requires permissions to perform the `kinesisanalytics:ListApplica
 
 ```
 {
-   "[ExclusiveStartApplicationName](#analytics-ListApplications-request-ExclusiveStartApplicationName)": "string",
-   "[Limit](#analytics-ListApplications-request-Limit)": number
+   "ExclusiveStartApplicationName": "string",
+   "Limit": number
 }
 ```
 
@@ -39,14 +39,14 @@ Required: No
 
 ```
 {
-   "[ApplicationSummaries](#analytics-ListApplications-response-ApplicationSummaries)": [ 
+   "ApplicationSummaries": [ 
       { 
-         "[ApplicationARN](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationARN)": "string",
-         "[ApplicationName](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationName)": "string",
-         "[ApplicationStatus](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationStatus)": "string"
+         "ApplicationARN": "string",
+         "ApplicationName": "string",
+         "ApplicationStatus": "string"
       }
    ],
-   "[HasMoreApplications](#analytics-ListApplications-response-HasMoreApplications)": boolean
+   "HasMoreApplications": boolean
 }
 ```
 
@@ -71,7 +71,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/ListApplications) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/ListApplications) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/ListApplications) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/ListApplications) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/ListApplications) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/ListApplications) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/ListApplications) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/ListApplications) 

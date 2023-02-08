@@ -1,5 +1,8 @@
 # Example: Tumbling Window Using an Event Timestamp<a name="examples-window-tumbling-event"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. For details, see [Tumbling Windows \(Aggregations Using GROUP BY\)](tumbling-window-concepts.md)\. This Amazon Kinesis Data Analytics example demonstrates a tumbling window that uses an event timestamp, which is a user\-created timestamp that is included in the streaming data\. It uses this approach rather than just using ROWTIME, which is a timestamp that Kinesis Data Analytics creates when the application receives the record\. You would use an event timestamp in the streaming data if you want to create an aggregation based on when an event occurred, rather than when it was received by the application\. In this example, the `ROWTIME` value triggers the aggregation every minute, and the records are aggregated by both `ROWTIME` and the included event time\. 
 
 In this example, you write the following records to an Amazon Kinesis stream\. The `EVENT_TIME` value is set to 5 seconds in the past, to simulate processing and transmission lag that might create a delay from when the event occurred, to when the record is ingested into Kinesis Data Analytics\.
@@ -12,11 +15,15 @@ In this example, you write the following records to an Amazon Kinesis stream\. T
 ...
 ```
 
+
+
 You then create a Kinesis Data Analytics application in the AWS Management Console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with three columns \(`EVENT_TIME`, `TICKER`, and `PRICE`\) as shown following\.
 
 ![\[Console screenshot showing the in-application schema with event time, ticker, and price columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_tumbling_event_schema.png)
 
 You use the application code with the `MIN` and `MAX` functions to create a windowed aggregation of the data\. Then you insert the resulting data into another in\-application stream, as shown in the following screenshot: 
+
+
 
 ![\[Console screenshot showing the resulting data in an in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_tumbling_event.png)
 
@@ -40,29 +47,33 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
    ```
     
-   import json
-   import boto3
-   import random
    import datetime
+   import json
+   import random
+   import boto3
    
-   kinesis = boto3.client('kinesis')
-   def getReferrer():
-       data = {}
-       now = datetime.datetime.now()
-       str_now = now.isoformat()
-       data['EVENT_TIME'] = str_now
-       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
-       price = random.random() * 100
-       data['PRICE'] = round(price, 2)
-       return data
+   STREAM_NAME = "ExampleInputStream"
    
-   while True:
-           data = json.dumps(getReferrer())
+   
+   def get_data():
+       return {
+           'EVENT_TIME': datetime.datetime.now().isoformat(),
+           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+           'PRICE': round(random.random() * 100, 2)}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-window-tumbling-event-2"></a>
@@ -76,6 +87,8 @@ Create a Kinesis Data Analytics application as follows:
 1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 
 1. On the **Connect to source** page, do the following:
+
+   
 
    1. Choose the stream that you created in the preceding section\. 
 

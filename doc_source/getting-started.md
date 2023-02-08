@@ -1,38 +1,53 @@
-# Getting Started with Amazon Kinesis Data Analytics for Apache Flink \(DataStream API\)<a name="getting-started"></a>
+# Getting Started with Amazon Kinesis Data Analytics for SQL Applications<a name="getting-started"></a>
 
-This section introduces you to the fundamental concepts of Kinesis Data Analytics for Apache Flink and the DataStream API\. It describes the available options for creating and testing your applications\. It also provides instructions for installing the necessary tools to complete the tutorials in this guide and to create your first application\. 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
+Following, you can find topics to help get you started using Amazon Kinesis Data Analytics for SQL Applications\. If you are new to Kinesis Data Analytics for SQL Applications, we recommend that you review the concepts and terminology presented in [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md) before performing the steps in the Getting Started section\.
 
 **Topics**
-+ [Components of Kinesis Data Analytics for Flink Application](#getting-started-components)
-+ [Prerequisites for Completing the Exercises](#setting-up-prerequisites)
-+ [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up.md)
++ [Sign up for an AWS account](#sign-up-for-aws)
++ [Create an administrative user](#create-an-admin)
 + [Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)
-+ [Step 3: Create and Run a Kinesis Data Analytics for Apache Flink Application](get-started-exercise.md)
-+ [Step 4: Clean Up AWS Resources](getting-started-cleanup.md)
-+ [Step 5: Next Steps](getting-started-next-steps.md)
++ [Step 3: Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md)
++ [Step 4 \(Optional\) Edit the Schema and SQL Code Using the Console](console-feature-summary.md)
 
-## Components of Kinesis Data Analytics for Flink Application<a name="getting-started-components"></a>
+## Sign up for an AWS account<a name="sign-up-for-aws"></a>
 
-To process data, your Kinesis Data Analytics application uses a Java/Apache Maven or Scala application that processes input and produces output using the Apache Flink runtime\. 
+If you do not have an AWS account, complete the following steps to create one\.
 
-a Kinesis Data Analytics application has the following components:
-+ **Runtime properties:** You can use *runtime properties* to configure your application without recompiling your application code\. 
-+ **Source:** The application consumes data by using a *source*\. A source connector reads data from a Kinesis data stream, an Amazon S3 bucket, etc\. For more information, see [Sources](how-sources.md)\.
-+ **Operators:** The application processes data by using one or more *operators*\. An operator can transform, enrich, or aggregate data\. For more information, see [DataStream API Operators](how-operators.md)\.
-+ **Sink:** The application produces data to external sources by using *sinks*\. A sink connector writes data to a Kinesis data stream, a Kinesis Data Firehose delivery stream, an Amazon S3 bucket, etc\. For more information, see [Sinks](how-sinks.md)\.
+**To sign up for an AWS account**
 
-After you create, compile, and package your application code, you upload the code package to an Amazon Simple Storage Service \(Amazon S3\) bucket\. You then create a Kinesis Data Analytics application\. You pass in the code package location, a Kinesis data stream as the streaming data source, and typically a streaming or file location that receives the application's processed data\.
+1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
 
-## Prerequisites for Completing the Exercises<a name="setting-up-prerequisites"></a>
+1. Follow the online instructions\.
 
-To complete the steps in this guide, you must have the following:
-+ [Java Development Kit \(JDK\) version 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)\. Set the `JAVA_HOME` environment variable to point to your JDK install location\.
-+ We recommend that you use a development environment \(such as [Eclipse Java Neon](http://www.eclipse.org/downloads/packages/release/neon/3) or [IntelliJ Idea](https://www.jetbrains.com/idea/)\) to develop and compile your application\.
-+ [Git client](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)\. Install the Git client if you haven't already\.
-+ [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)\. Maven must be in your working path\. To test your Apache Maven installation, enter the following:
+   Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-  ```
-  $ mvn -version
-  ```
+   When you sign up for an AWS account, an *AWS account root user* is created\. The root user has access to all AWS services and resources in the account\. As a security best practice, [assign administrative access to an administrative user](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html), and use only the root user to perform [tasks that require root user access](https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html)\.
 
-To get started, go to [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up.md)\.
+AWS sends you a confirmation email after the sign\-up process is complete\. At any time, you can view your current account activity and manage your account by going to [https://aws\.amazon\.com/](https://aws.amazon.com/) and choosing **My Account**\.
+
+## Create an administrative user<a name="create-an-admin"></a>
+
+After you sign up for an AWS account, create an administrative user so that you don't use the root user for everyday tasks\.
+
+**Secure your AWS account root user**
+
+1.  Sign in to the [AWS Management Console](https://console.aws.amazon.com/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
+
+   For help signing in by using root user, see [Signing in as the root user](https://docs.aws.amazon.com/signin/latest/userguide/console-sign-in-tutorials.html#introduction-to-root-user-sign-in-tutorial) in the *AWS Sign\-In User Guide*\.
+
+1. Turn on multi\-factor authentication \(MFA\) for your root user\.
+
+   For instructions, see [Enable a virtual MFA device for your AWS account root user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html#enable-virt-mfa-for-root) in the *IAM User Guide*\.
+
+**Create an administrative user**
++ For your daily administrative tasks, grant administrative access to an administrative user in AWS IAM Identity Center \(successor to AWS Single Sign\-On\)\.
+
+  For instructions, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
+
+**Sign in as the administrative user**
++ To sign in with your IAM Identity Center user, use the sign\-in URL that was sent to your email address when you created the IAM Identity Center user\.
+
+  For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](https://docs.aws.amazon.com/signin/latest/userguide/iam-id-center-sign-in-tutorial.html) in the *AWS Sign\-In User Guide*\.

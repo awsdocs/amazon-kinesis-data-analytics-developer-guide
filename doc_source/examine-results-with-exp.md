@@ -1,5 +1,8 @@
 # Step 3: Examine the Results<a name="examine-results-with-exp"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 When you run the SQL code for this [example](app-anomaly-detection-with-explanation.md), you first see rows with an anomaly score equal to zero\. This happens during the initial learning phase\. Then you get results similar to the following:
 
 ```

@@ -1,5 +1,8 @@
 # Step 3: Configure the Application Output<a name="app-hotspots-create-ka-app-config-destination"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 At this point in the [Hotspots example](app-hotspots-detection.md), you have Amazon Kinesis Data Analytics application code discovering significant hotspots from a streaming source and assigning a heat score to each\. 
 
 You can now send the application result from the in\-application stream to an external destination, which is another Kinesis data stream \(`ExampleOutputStream`\)\. You can then analyze the hotspot scores and determine what an appropriate threshold is for hotspot heat\. You can extend this application further to generate alerts\. 

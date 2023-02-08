@@ -1,4 +1,7 @@
-# Using Identity\-Based Policies \(IAM Policies\) for Amazon Kinesis Data Analytics<a name="using-identity-based-policies"></a>
+
+
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.# Using Identity\-Based Policies \(IAM Policies\) for Amazon Kinesis Data Analytics<a name="using-identity-based-policies"></a>
 
 The following are examples of identity\-based policies that demonstrate how an account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\) and grant permissions to perform operations on Amazon Kinesis Data Analytics resources\.
 
@@ -7,7 +10,7 @@ We recommend that you first review the introductory topics that explain the basi
 
 **Topics**
 + [Permissions Required to Use the Amazon Kinesis Data Analytics Console](#console-permissions)
-+ [AWS Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics](#access-policy-aws-managed-policies)
++ [Amazon\-Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics](#access-policy-aws-managed-policies)
 + [Customer Managed Policy Examples](#access-policy-customer-managed-examples)
 
 The following shows an example of a permissions policy\.
@@ -40,35 +43,36 @@ For a table showing all of the Kinesis Data Analytics API operations and the res
 For a user to work with the Kinesis Data Analytics console, you must grant the necessary permissions\. For example, if you want a user to have permissions to create an application, grant permissions that show them the streaming sources in the account so that the user can configure input and output on the console\.
 
 We recommend the following:
-+ Use the AWS managed policies to grant user permissions\. For available policies, see [AWS Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics](#access-policy-aws-managed-policies)\.
++ Use the Amazon\-managed policies to grant user permissions\. For available policies, see [Amazon\-Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics](#access-policy-aws-managed-policies)\.
 + Create custom policies\. In this case, we recommend that you review the example provided in this section\. For more information, see [Customer Managed Policy Examples](#access-policy-customer-managed-examples)\.
 
-## AWS Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics<a name="access-policy-aws-managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\. 
 
-The following AWS managed policies, which you can attach to users in your account, are specific to Amazon Kinesis Data Analytics:
+
+
+## Amazon\-Managed \(Predefined\) Policies for Amazon Kinesis Data Analytics<a name="access-policy-aws-managed-policies"></a>
+
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These Amazon\-managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed\. For more information, see [Amazon\-Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\. 
+
+The following Amazon\-managed policies, which you can attach to users in your account, are specific to Amazon Kinesis Data Analytics:
 + **`AmazonKinesisAnalyticsReadOnly`** – Grants permissions for Amazon Kinesis Data Analytics actions that enable a user to list Amazon Kinesis Data Analytics applications and review input/output configuration\. It also grants permissions that allow a user to view a list of Kinesis streams and Kinesis Data Firehose delivery streams\. As the application is running, the user can view source data and real\-time analytics results in the console\.
 
    
 + **`AmazonKinesisAnalyticsFullAccess`** – Grants permissions for all Amazon Kinesis Data Analytics actions and all other permissions that allows a user to create and manage Amazon Kinesis Data Analytics applications\. However, note the following:
 
    
-  + These permissions are not sufficient if the user wants to create a new IAM role in the console \(these permissions allow the user to select an existing role\)\. If you want the user to be able to create an IAM role in the console, add the `IAMFullAccess` AWS managed policy\.
+  + These permissions are not sufficient if the user wants to create a new IAM role in the console \(these permissions allow the user to select an existing role\)\. If you want the user to be able to create an IAM role in the console, add the `IAMFullAccess` Amazon\-managed policy\.
 
      
-  + A user must have permission for the `iam:PassRole` action to specify an IAM role when configuring Amazon Kinesis Data Analytics application\. This AWS managed policy grants permission for the `iam:PassRole` action to the user only on the IAM roles that start with the prefix `service-role/kinesis-analytics`\. 
+  + A user must have permission for the `iam:PassRole` action to specify an IAM role when configuring Amazon Kinesis Data Analytics application\. This Amazon\-managed policy grants permission for the `iam:PassRole` action to the user only on the IAM roles that start with the prefix `service-role/kinesis-analytics`\. 
 
     If the user wants to configure the Amazon Kinesis Data Analytics application with a role that does not have this prefix, you first must explicitly grant the user permission for the `iam:PassRole` action on the specific role\. 
 
-**Note**  
-You can review these permissions policies by signing in to the IAM console and searching for specific policies there\.
-
-You can also create your own custom IAM policies to allow permissions for Amazon Kinesis Data Analytics actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\. 
+You can also create your own custom IAM policies to allow permissions for Amazon Kinesis Data Analytics actions and resources\. You can attach these custom policies to the users or groups that require those permissions\. 
 
 ## Customer Managed Policy Examples<a name="access-policy-customer-managed-examples"></a>
 
-The examples in this section provide a group of sample policies that you can attach to a user\. If you are new to creating policies, we recommend that you first create an IAM user in your account\. Then attach the policies to the user in sequence, as outlined in the steps in this section\. You can then use the console to verify the effects of each policy as you attach the policy to the user\. 
+The examples in this section provide a group of sample policies that you can attach to a user\. If you are new to creating policies, we recommend that you first create a user in your account\. Then attach the policies to the user in sequence, as outlined in the steps in this section\. You can then use the console to verify the effects of each policy as you attach the policy to the user\. 
 
 Initially, the user doesn't have permissions and can't do anything on the console\. As you attach policies to the user, you can verify that the user can perform various actions on the console\. 
 
@@ -84,9 +88,11 @@ We recommend that you use two browser windows\. In one window, create the user a
 + [Step 5: Allow the User to Create an Amazon Kinesis Data Analytics Application](#console-permissions-grant-create-applications)
 + [Step 6: Allow the Application to Use Lambda Preprocessing](#console-permissions-grant-lambda)
 
+
+
 ### Step 1: Create an IAM User<a name="console-permissions-createuser"></a>
 
-First, you need to create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user that you created\. You can then access AWS using a special URL and that IAM user's credentials\. 
+First, you need to create a user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the user that you created\. You can then access AWS using a special URL and that user's credentials\. 
 
 For instructions, see [Creating Your First IAM User and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\. 
 
@@ -180,11 +186,11 @@ Add this policy to the user\.
 }
 ```
 
- Verify these permissions by signing into the Amazon Kinesis Data Analytics console using the IAM user credentials\.
+ Verify these permissions by signing into the Amazon Kinesis Data Analytics console using the user credentials\.
 
 ### Step 4: Allow the User to Start a Specific Application<a name="console-permissions-start-app"></a>
 
-If you want the user to be able to start one of the existing Amazon Kinesis Data Analytics applications, attach the following policy to the user\. The policy provides the permission for the `kinesisanalytics:StartApplication` action\. You must update the policy by providing your account ID, AWS Region, and application name\. 
+If you want the user to be able to start one of the existing Amazon Kinesis Data Analytics applications, attach the following policy to the user\. The policy provides the permission for the `kinesisanalytics:StartApplication` action\. You must update the policy by providing your account ID, AWS Region and application name\. 
 
 ```
 {
@@ -236,7 +242,7 @@ If you want the user to create an Amazon Kinesis Data Analytics application, you
 
 ### Step 6: Allow the Application to Use Lambda Preprocessing<a name="console-permissions-grant-lambda"></a>
 
-If you want the application to be able to use Lambda preprocessing, attach the following policy to the role\. For more information about Lambda preprocessing, see [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md)\.
+If you want the application to be able to use Lambda preprocessing, attach the following policy to the role\. 
 
 ```
      {

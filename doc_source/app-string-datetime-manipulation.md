@@ -1,5 +1,8 @@
 # Example: Transforming DateTime Values<a name="app-string-datetime-manipulation"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics supports converting columns to time stamps\. For example, you might want to use your own time stamp as part of a `GROUP BY` clause as another time\-based window, in addition to the `ROWTIME` column\. Kinesis Data Analytics provides operations and SQL functions for working with date and time fields\. 
 + **Date and time operators** – You can perform arithmetic operations on dates, times, and interval data types\. For more information, see [Date, Timestamp, and Interval Operators](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-date-timestamp-interval.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
@@ -38,13 +41,19 @@ In this example, you write the following records to an Amazon Kinesis data strea
 ...
 ```
 
+
+
 You then create an Amazon Kinesis data analytics application on the console, with the Kinesis stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with two columns \(`EVENT_TIME` and `TICKER`\) as shown\.
 
 ![\[Console screenshot showing the in-application schema with event time and ticker columns..\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_0.png)
 
 Then, you use the application code with SQL functions to convert the `EVENT_TIME` time stamp field in various ways\. You then insert the resulting data into another in\-application stream, as shown in the following screenshot: 
 
+
+
 ![\[Console screenshot showing the resulting data in an in-application stream..\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_1.png)
+
+
 
 ### Step 1: Create a Kinesis Data Stream<a name="examples-transforming-dates-1"></a>
 
@@ -60,29 +69,33 @@ Create an Amazon Kinesis data stream and populate it with event time and ticker 
 
    ```
     
-   import json
-   import boto3
-   import random
    import datetime
+   import json
+   import random
+   import boto3
    
-   kinesis = boto3.client('kinesis')
-   def getReferrer():
-       data = {}
-       now = datetime.datetime.now()
-       str_now = now.isoformat()
-       data['EVENT_TIME'] = str_now
-       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
-       price = random.random() * 100
-       data['PRICE'] = round(price, 2)
-       return data
+   STREAM_NAME = "ExampleInputStream"
    
-   while True:
-           data = json.dumps(getReferrer())
+   
+   def get_data():
+       return {
+           'EVENT_TIME': datetime.datetime.now().isoformat(),
+           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+           'PRICE': round(random.random() * 100, 2)}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ### Step 2: Create the Amazon Kinesis Data Analytics Application<a name="examples-transforming-dates-2"></a>
@@ -108,6 +121,8 @@ Create an application as follows:
    1. Choose **Save schema and update stream samples**\. After the console saves the schema, choose **Exit**\.
 
    1. Choose **Save and continue**\.
+
+   
 
 1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 

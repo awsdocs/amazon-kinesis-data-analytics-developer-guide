@@ -1,5 +1,8 @@
 # Using the Schema Discovery Feature on Streaming Data<a name="sch-dis"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Providing an input schema that describes how records on the streaming input map to an in\-application stream can be cumbersome and error prone\. You can use the [DiscoverInputSchema](API_DiscoverInputSchema.md) API \(called the *discovery API*\) to infer a schema\. Using random samples of records on the streaming source, the API can infer a schema \(that is, column names, data types, and position of the data element in the incoming data\)\. 
 
 **Note**  

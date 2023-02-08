@@ -1,5 +1,8 @@
 # Mapping Streaming Source Elements to SQL Input Columns<a name="sch-mapping"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 With Amazon Kinesis Data Analytics, you can process and analyze streaming data in either JSON or CSV formats using standard SQL\. 
 + To process and analyze streaming CSV data, you assign column names and data types for the columns of the input stream\. Your application imports one column from the input stream per column definition, in order\. 
 

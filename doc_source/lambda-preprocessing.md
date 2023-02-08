@@ -1,11 +1,14 @@
 # Preprocessing Data Using a Lambda Function<a name="lambda-preprocessing"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 If the data in your stream needs format conversion, transformation, enrichment, or filtering, you can preprocess the data using an AWS Lambda function\. You can do this before your application SQL code executes or before your application creates a schema from your data stream\. 
 
 Using a Lambda function for preprocessing records is useful in the following scenarios:
 + Transforming records from other formats \(such as KPL or GZIP\) into formats that Kinesis Data Analytics can analyze\. Kinesis Data Analytics currently supports JSON or CSV data formats\.
 + Expanding data into a format that is more accessible for operations such as aggregation or anomaly detection\. For instance, if several data values are stored together in a string, you can expand the data into separate columns\.
-+ Data enrichment with other AWS services, such as extrapolation or error correction\.
++ Data enrichment with other Amazon services, such as extrapolation or error correction\.
 + Applying complex string transformation to record fields\.
 + Data filtering for cleaning up the data\.
 
@@ -44,8 +47,6 @@ To use Lambda preprocessing, the application's IAM role requires the following p
        "Resource": "<FunctionARN>"
    }
 ```
-
-For more information about adding permissions policies, see [Authentication and Access Control for Amazon Kinesis Data Analytics for SQL Applications](authentication-and-access-control.md)\.
 
 ## Lambda Preprocessing Metrics<a name="lambda-preprocessing-metrics"></a>
 

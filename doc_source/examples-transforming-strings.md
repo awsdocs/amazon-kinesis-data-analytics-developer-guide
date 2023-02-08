@@ -1,5 +1,8 @@
 # Examples: Transforming String Values<a name="examples-transforming-strings"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics supports formats such as JSON and CSV for records on a streaming source\. For details, see [RecordFormat](API_RecordFormat.md)\. These records then map to rows in an in\-application stream as per the input configuration\. For details, see [Configuring Application Input](how-it-works-input.md)\. The input configuration specifies how record fields in the streaming source map to columns in an in\-application stream\. 
 
 This mapping works when records on the streaming source follow the supported formats, which results in an in\-application stream with normalized data\. But what if data on your streaming source does not conform to supported standards? For example, what if your streaming source contains data such as clickstream data, IoT sensors, and application logs? 

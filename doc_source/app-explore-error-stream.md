@@ -1,5 +1,8 @@
 # Example: Exploring the In\-Application Error Stream<a name="app-explore-error-stream"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics provides an in\-application error stream for each application that you create\. Any rows that your application cannot process are sent to this error stream\. You might consider persisting the error stream data to an external destination so that you can investigate\. 
 
 You perform the following exercises on the console\. In these examples, you introduce errors in the input configuration by editing the schema that is inferred by the discovery process, and then you verify the rows that are sent to the error stream\.
@@ -38,6 +41,8 @@ In this exercise, you introduce a parse error\.
 
 In this exercise, you update the application code to introduce a runtime error \(division by zero\)\. Notice that Amazon Kinesis Data Analytics sends the resulting rows to the in\-application error stream, not to the `DESTINATION_SQL_STREAM` in\-application stream where the results are supposed to be written\.
 
+
+
 1. Create a Kinesis data analytics application as described in the Kinesis Data Analytics [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) exercise\.
 
    Verify the results on the **Real\-time analytics** tab as follows:
@@ -51,6 +56,8 @@ In this exercise, you update the application code to introduce a runtime error \
    FROM "SOURCE_SQL_STREAM_001"
    WHERE sector SIMILAR TO '%TECH%';
    ```
+
+   
 
 1. Run the application\.
 

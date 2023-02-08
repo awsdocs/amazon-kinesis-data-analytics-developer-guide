@@ -1,29 +1,20 @@
 # Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)<a name="setup-awscli"></a>
 
-In this step, you download and configure the AWS CLI to use with Kinesis Data Analytics\.
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
 
-**Note**  
-The getting started exercises in this guide assume that you are using administrator credentials \(`adminuser`\) in your account to perform the operations\.
+Follow the steps to download and configure the AWS Command Line Interface \(AWS CLI\)\.
 
-**Note**  
-If you already have the AWS CLI installed, you might need to upgrade to get the latest functionality\. For more information, see [ Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*\. To check the version of the AWS CLI, run the following command:  
-
-```
-aws --version
-```
-The exercises in this tutorial require the following AWS CLI version or later:  
-
-```
-aws-cli/1.16.63
-```
+**Important**  
+You don't need the AWS CLI to perform the steps in the Getting Started exercise\. However, some of the exercises in this guide use the AWS CLI\. You can skip this step and go to [ Step 3: Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md), and then set up the AWS CLI later when you need it\.
 
 **To set up the AWS CLI**
 
 1. Download and configure the AWS CLI\. For instructions, see the following topics in the *AWS Command Line Interface User Guide*: 
-   + [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)
-   + [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+   + [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)
+   + [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-1. Add a named profile for the administrator user in the AWS CLI `config` file\. You use this profile when executing the AWS CLI commands\. For more information about named profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) in the *AWS Command Line Interface User Guide*\.
+1. Add a named profile for the administrator user in the AWS CLI config file\. You use this profile when executing the AWS CLI commands\. For more information about named profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles) in the *AWS Command Line Interface User Guide*\.
 
    ```
    [profile adminuser]
@@ -33,8 +24,6 @@ aws-cli/1.16.63
    ```
 
    For a list of available AWS Regions, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *Amazon Web Services General Reference*\.
-**Note**  
-The example code and commands in this tutorial use the US West \(Oregon\) Region\. To use a different Region, change the Region in the code and commands for this tutorial to the Region you want to use\.
 
 1. Verify the setup by entering the following help command at the command prompt: 
 
@@ -42,8 +31,6 @@ The example code and commands in this tutorial use the US West \(Oregon\) Region
    aws help
    ```
 
-After you set up an AWS account and the AWS CLI, you can try the next exercise, in which you configure a sample application and test the end\-to\-end setup\.
+## Next Step<a name="setting-up-next-step-3"></a>
 
-## Next Step<a name="setup-awscli-next-step-3"></a>
-
-[ Step 3: Create and Run a Kinesis Data Analytics for Apache Flink Application](get-started-exercise.md)
+[ Step 3: Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md)

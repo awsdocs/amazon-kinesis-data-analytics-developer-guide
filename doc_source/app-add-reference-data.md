@@ -1,5 +1,8 @@
 # Example: Adding Reference Data to a Kinesis Data Analytics Application<a name="app-add-reference-data"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this exercise, you add reference data to an existing Amazon Kinesis data analytics application\. For information about reference data, see the following topics:
 + [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)
 + [Configuring Application Input](how-it-works-input.md)
@@ -51,19 +54,23 @@ In this step, you store the sample reference data as an Amazon S3 object\.
    WAS,  SomeCompanyC
    ```
 
-1. Upload the `TickerReference.csv` file to your S3 bucket\. For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service Console User Guide*\.
+   
+
+1. Upload the `TickerReference.csv` file to your S3 bucket\. For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ### Create an IAM Role<a name="prepare-create-iamrole"></a>
 
 Next, create an IAM role that Kinesis Data Analytics can assume and read the Amazon S3 object\.
 
-1. In AWS Identity and Access Management \(IAM\), create an IAM role named **KinesisAnalytics\-ReadS3Object**\. To create the role, follow the instructions in [Creating a Role for an AWS Service \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*\.
+1. In AWS Identity and Access Management \(IAM\), create an IAM role named **KinesisAnalytics\-ReadS3Object**\. To create the role, follow the instructions in [Creating a Role for an Amazon Service \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*\.
 
    On the IAM console, specify the following:
    + For **Select Role Type**, choose **AWS Lambda**\. After creating the role, you will change the trust policy to allow Kinesis Data Analytics \(not AWS Lambda\) to assume the role\.
    + Do not attach any policy on the **Attach Policy** page\.
 
 1. Update the IAM role policies:
+
+   
 
    1. On the IAM console, choose the role that you created\.
 
@@ -84,7 +91,9 @@ Next, create an IAM role that Kinesis Data Analytics can assume and read the Ama
       }
       ```
 
-   1. On the **Permissions** tab, attach an AWS managed policy called **AmazonS3ReadOnlyAccess**\. This grants the role permissions to read an Amazon S3 object\. This policy is shown following:
+      
+
+   1. On the **Permissions** tab, attach an Amazon\-managed policy called **AmazonS3ReadOnlyAccess**\. This grants the role permissions to read an Amazon S3 object\. This policy is shown following:
 
       ```
       {

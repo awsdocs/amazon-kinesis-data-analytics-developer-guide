@@ -1,5 +1,8 @@
 # Creating CloudWatch Alarms to Monitor Amazon Kinesis Data Analytics<a name="creating-alarms"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 You can create an Amazon CloudWatch alarm that sends an Amazon SNS message when the alarm changes state\. An alarm watches a single metric over a time period you specify\. It performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods\. The action is a notification sent to an Amazon SNS topic or Auto Scaling policy\. 
 
 Alarms invoke actions for sustained state changes only\. For a CloudWatch alarm to invoke an action, the state must have changed and been maintained for a specified amount of time\.

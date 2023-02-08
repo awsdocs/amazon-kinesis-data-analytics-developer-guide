@@ -1,5 +1,8 @@
 # Step 3\.4: \(Optional\) Update the Application Code<a name="get-started-update-appcode"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this step, you explore how to update the application code\. 
 
 **To update application code**
@@ -62,6 +65,8 @@ You now have your first working Amazon Kinesis Data Analytics application\. In t
 
    
 + Your application code queried the `SOURCE_SQL_STREAM_001` and wrote output to another in\-application stream called `DESTINATION_SQL_STREAM`\. 
+
+
 
 Now you can optionally configure application output to write the application output to an external destination\. That is, you can configure the application output to write records in the `DESTINATION_SQL_STREAM` to an external destination\. For this exercise, this is an optional step\. To learn how to configure the destination, go to the next step\.
 

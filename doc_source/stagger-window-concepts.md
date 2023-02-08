@@ -1,5 +1,8 @@
 # Stagger Windows<a name="stagger-window-concepts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Using *stagger windows* is a windowing method that is suited for analyzing groups of data that arrive at inconsistent times\. It is well suited for any time\-series analytics use case, such as a set of related sales or log records\.
 
 For example, [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-logs-limitations) have a capture window of approximately 10 minutes\. But they can have a capture window of up to 15 minutes if you're aggregating data on the client\. Stagger windows are ideal for aggregating these logs for analysis\.
@@ -16,7 +19,8 @@ In the following tumbling window query, records are grouped into windows by row 
 
 ```
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
-    TICKER_SYMBOL VARCHAR(4), 
+    TICKER_SYMBOL VARCHAR(4),
+    EVENT_TIME timestamp,
     TICKER_COUNT     DOUBLE);
 
 CREATE OR REPLACE PUMP "STREAM_PUMP" AS 

@@ -1,5 +1,8 @@
 # Example: Parsing Log Strings Based on Regular Expressions \(REGEX\_LOG\_PARSE Function\)<a name="examples-transforming-strings-regexlogparse"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 This example uses the `REGEX_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. `REGEX_LOG_PARSE` parses a string based on default Java regular expression patterns\. For more information, see [REGEX\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-regex-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write the following records to an Amazon Kinesis stream: 
@@ -11,11 +14,15 @@ In this example, you write the following records to an Amazon Kinesis stream:
 ...
 ```
 
+
+
 You then create an Amazon Kinesis data analytics application on the console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with one column \(LOGENTRY\), as shown following\.
 
 ![\[Console screenshot showing in-application schema with LOGENTRY column.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_0.png)
 
 Then, you use the application code with the `REGEX_LOG_PARSE` function to parse the log string to retrieve the data elements\. You insert the resulting data into another in\-application stream, as shown in the following screenshot: 
+
+
 
 ![\[Console screenshot showing the resulting data table with ROWTIME, LOGENTRY, MATCH1, and MATCH2 columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_1.png)
 
@@ -39,21 +46,29 @@ Create an Amazon Kinesis data stream and populate the log records as follows:
     
    import json
    import boto3
-   import random
    
-   kinesis = boto3.client('kinesis')
-   def getReferrer():
-       data = {}
-       data['LOGENTRY'] = '203.0.113.24 - - [25/Mar/2018:15:25:37 -0700] "GET /index.php HTTP/1.1" 200 125 "-" "Mozilla/5.0 [en] Gecko/20100101 Firefox/52.0"'
-       return data
+   STREAM_NAME = 'ExampleInputStream'
    
-   while True:
-           data = json.dumps(getReferrer())
+   
+   def get_data():
+       return {
+           'LOGENTRY': '203.0.113.24 - - [25/Mar/2018:15:25:37 -0700] '
+                       '"GET /index.php HTTP/1.1" 200 125 "-" '
+                       '"Mozilla/5.0 [en] Gecko/20100101 Firefox/52.0"'}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-regexlogparse-2"></a>
@@ -75,6 +90,8 @@ Next, create an Amazon Kinesis data analytics application as follows:
    1. Choose **Discover schema**\. Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\. The inferred schema has only one column\.
 
    1. Choose **Save and continue**\.
+
+   
 
 1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 

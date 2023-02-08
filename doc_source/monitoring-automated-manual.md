@@ -1,5 +1,8 @@
 # Monitoring Tools<a name="monitoring-automated-manual"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 AWS provides various tools that you can use to monitor Amazon Kinesis Data Analytics\. You can configure some of these tools to do the monitoring for you, while some of the tools require manual intervention\. We recommend that you automate monitoring tasks as much as possible\.
 
 ## Automated Monitoring Tools<a name="monitoring-automated-tools"></a>
@@ -12,7 +15,7 @@ You can use the following automated monitoring tools to watch Amazon Kinesis Dat
 
 ## Manual Monitoring Tools<a name="monitoring-manual-tools"></a>
 
-Another important part of monitoring Amazon Kinesis Data Analytics involves manually monitoring those items that the CloudWatch alarms don't cover\. The Amazon Kinesis Data Analytics, CloudWatch, Trusted Advisor, and other AWS console dashboards provide an at\-a\-glance view of the state of your AWS environment\. 
+Another important part of monitoring Amazon Kinesis Data Analytics involves manually monitoring those items that the CloudWatch alarms don't cover\. The Amazon Kinesis Data Analytics, CloudWatch, Trusted Advisor, and other AWS Management Console dashboards provide an at\-a\-glance view of the state of your AWS environment\. 
 + The CloudWatch home page shows the following:
   + Current alarms and status
   + Graphs of alarms and resources
@@ -21,6 +24,6 @@ Another important part of monitoring Amazon Kinesis Data Analytics involves manu
   In addition, you can use CloudWatch to do the following: 
   + Create [customized dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.html) to monitor the services you care about
   + Graph metric data to troubleshoot issues and discover trends
-  + Search and browse all your AWS resource metrics
+  + Search and browse all your metrics
   + Create and edit alarms to be notified of problems
-+ AWS Trusted Advisor can help you monitor your AWS resources to improve performance, reliability, security, and cost effectiveness\. Four Trusted Advisor checks are available to all users\. More than 50 checks are available to users with a Business or Enterprise support plan\. For more information, see [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/)\.
++ AWS Trusted Advisor can help you monitor your to improve performance, reliability, security, and cost effectiveness\. Four Trusted Advisor checks are available to all users\. More than 50 checks are available to users with a Business or Enterprise support plan\. For more information, see [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/)\.

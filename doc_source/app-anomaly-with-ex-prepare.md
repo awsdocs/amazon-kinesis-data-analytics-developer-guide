@@ -1,5 +1,8 @@
 # Step 1: Prepare the Data<a name="app-anomaly-with-ex-prepare"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Before you create an Amazon Kinesis Data Analytics application for this [example](app-anomaly-detection-with-explanation.md), you create a Kinesis data stream to use as the streaming source for your application\. You also run Python code to write simulated blood pressure data to the stream\. 
 
 **Topics**
@@ -36,59 +39,53 @@ In this step, you run Python code to continuously generate sample records and wr
 
    ```
     
+   from enum import Enum
    import json
-   import boto3
    import random
+   import boto3
    
-   kinesis = boto3.client('kinesis')
+   STREAM_NAME = "ExampleInputStream"
    
-   # Generate normal blood pressure with a 0.995 probability
-   def getNormalBloodPressure():
-       data = {}
-       data['Systolic'] = random.randint(90, 120)
-       data['Diastolic'] = random.randint(60, 80)
-       data['BloodPressureLevel'] = 'NORMAL'
-       return data
-       
-   # Generate high blood pressure with probability 0.005
-   def getHighBloodPressure():
-       data = {}
-       data['Systolic'] = random.randint(130, 200)
-       data['Diastolic'] = random.randint(90, 150)
-       data['BloodPressureLevel'] = 'HIGH'
-       return data
-       
-   # Generate low blood pressure with probability 0.005
-   def getLowBloodPressure():
-       data = {}
-       data['Systolic'] = random.randint(50, 80)
-       data['Diastolic'] = random.randint(30, 50)
-       data['BloodPressureLevel'] = 'LOW'
-       return data
    
-   while True:
-       rnd = random.random()
-       if (rnd < 0.005):
-           data = json.dumps(getLowBloodPressure())
-           print(data)
-           kinesis.put_record(
-                   StreamName="BloodPressureExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
-       elif (rnd > 0.995):
-           data = json.dumps(getHighBloodPressure())
-           print(data)
-           kinesis.put_record(
-                   StreamName="BloodPressureExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+   class PressureType(Enum):
+       low = 'LOW'
+       normal = 'NORMAL'
+       high = 'HIGH'
+   
+   
+   def get_blood_pressure(pressure_type):
+       pressure = {'BloodPressureLevel': pressure_type.value}
+       if pressure_type == PressureType.low:
+           pressure['Systolic'] = random.randint(50, 80)
+           pressure['Diastolic'] = random.randint(30, 50)
+       elif pressure_type == PressureType.normal:
+           pressure['Systolic'] = random.randint(90, 120)
+           pressure['Diastolic'] = random.randint(60, 80)
+       elif pressure_type == PressureType.high:
+           pressure['Systolic'] = random.randint(130, 200)
+           pressure['Diastolic'] = random.randint(90, 150)
        else:
-           data = json.dumps(getNormalBloodPressure())
-           print(data)
-           kinesis.put_record(
-                   StreamName="BloodPressureExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           raise TypeError
+       return pressure
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           rnd = random.random()
+           pressure_type = (
+               PressureType.low if rnd < 0.005
+               else PressureType.high if rnd > 0.995
+               else PressureType.normal)
+           blood_pressure = get_blood_pressure(pressure_type)
+           print(blood_pressure)
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(blood_pressure),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 **Next Step**  

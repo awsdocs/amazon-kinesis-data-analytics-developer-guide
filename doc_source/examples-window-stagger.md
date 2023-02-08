@@ -1,5 +1,8 @@
 # Example: Stagger Window<a name="examples-window-stagger"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 When a windowed query processes separate windows for each unique partition key, starting when data with the matching key arrives, the window is referred to as a *stagger window*\. For details, see [Stagger Windows](stagger-window-concepts.md)\. This Amazon Kinesis Data Analytics example uses the EVENT\_TIME and TICKER columns to create stagger windows\. The source stream contains groups of six records with identical EVENT\_TIME and TICKER values that arrive within in a one\-minute period, but not necessarily with the same minute value \(for example, `18:41:xx`\)\.
 
 In this example, you write the following records to a Kinesis data stream at the following times\. The script does not write the times to the stream, but the time that the record is ingested by the application is written to the `ROWTIME` field:
@@ -20,11 +23,15 @@ In this example, you write the following records to a Kinesis data stream at the
 ...
 ```
 
+
+
 You then create a Kinesis Data Analytics application in the AWS Management Console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with two columns \(`EVENT_TIME` and `TICKER`\) as shown following\.
 
 ![\[Console screenshot showing the in-application schema with price and ticker columns.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger_schema.png)
 
 You use the application code with the `COUNT` function to create a windowed aggregation of the data\. Then you insert the resulting data into another in\-application stream, as shown in the following screenshot: 
+
+
 
 ![\[Console screenshot showing the resulting data in an in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger.png)
 
@@ -48,31 +55,37 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
    ```
     
-   import json
-   import boto3
-   import random
    import datetime
+   import json
+   import random
    import time
+   import boto3
    
-   kinesis = boto3.client('kinesis')
-   def getData():
-       data = {}
-       now = datetime.datetime.utcnow() - datetime.timedelta(seconds=10)
-       str_now = now.isoformat()
-       data['EVENT_TIME'] = str_now
-       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
-       return data
+   STREAM_NAME = "ExampleInputStream"
    
-   while True:
-       data = json.dumps(getData())
-       # Send six records, ten seconds apart, with the same event time and ticker
-       for x in range(0, 6):
-           print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
+   
+   def get_data():
+       event_time = datetime.datetime.utcnow() - datetime.timedelta(seconds=10)
+       return {
+           'EVENT_TIME': event_time.isoformat(),
+           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
+           # Send six records, ten seconds apart, with the same event time and ticker
+           for _ in range(6):
+               print(data)
+               kinesis_client.put_record(
+                   StreamName=stream_name,
+                   Data=json.dumps(data),
                    PartitionKey="partitionkey")
-           time.sleep(10)
+               time.sleep(10)
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-stagger-window-2"></a>
@@ -86,6 +99,8 @@ Create a Kinesis Data Analytics application as follows:
 1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 
 1. On the **Connect to source** page, do the following:
+
+   
 
    1. Choose the stream that you created in the preceding section\. 
 

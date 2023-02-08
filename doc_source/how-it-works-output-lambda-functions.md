@@ -1,5 +1,8 @@
 # Creating Lambda Functions for Application Destinations<a name="how-it-works-output-lambda-functions"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Your Kinesis Data Analytics application can use AWS Lambda functions as an output\. Kinesis Data Analytics provides templates for creating Lambda functions to use as a destination for your applications\. Use these templates as a starting point for post\-processing output from your application\. 
 
 **Topics**
@@ -15,7 +18,7 @@ The following template for creating a destination Lambda function in Node\.js is
 
 | Lambda as Output Blueprint | Language and Version | Description | 
 | --- | --- | --- | 
-| kinesis\-analytics\-output | Node\.js 6\.10 | Deliver output records from a Kinesis Data Analytics application to a custom destination\. | 
+| kinesis\-analytics\-output | Node\.js 12\.x | Deliver output records from a Kinesis Data Analytics application to a custom destination\. | 
 
 ## Creating a Lambda Function Destination in Python<a name="how-it-works-lambda-dest-python"></a>
 

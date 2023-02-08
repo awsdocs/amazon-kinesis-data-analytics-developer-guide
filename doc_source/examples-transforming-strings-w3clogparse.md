@@ -1,5 +1,8 @@
 # Example: Parsing Web Logs \(W3C\_LOG\_PARSE Function\)<a name="examples-transforming-strings-w3clogparse"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 This example uses the `W3C_LOG_PARSE` function to transform a string in Amazon Kinesis Data Analytics\. You can use `W3C_LOG_PARSE` to format Apache logs quickly\. For more information, see [W3C\_LOG\_PARSE](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sql-reference-w3c-log-parse.html) in the *Amazon Kinesis Data Analytics SQL Reference*\.
 
 In this example, you write log records to an Amazon Kinesis data stream\. Example logs are shown following:
@@ -10,6 +13,8 @@ In this example, you write log records to an Amazon Kinesis data stream\. Exampl
 {"Log":"192.168.254.30 - John [24/May/2004:22:01:04 -0700] "GET /icons/apache_pbc.gif HTTP/1.1" 304 0"}
 ...
 ```
+
+
 
 You then create an Amazon Kinesis data analytics application on the console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with one column \(log\), as shown following:
 
@@ -39,21 +44,27 @@ Create an Amazon Kinesis data stream, and populate the log records as follows:
     
    import json
    import boto3
-   import random
    
-   kinesis = boto3.client('kinesis')
-   def getLog():
-       data = {}
-       data['log'] = '192.168.254.30 - John [24/May/2004:22:01:02 -0700] "GET /icons/apache_pb.gif HTTP/1.1" 304 0'
-       return data
+   STREAM_NAME = "ExampleInputStream"
    
-   while True:
-           data = json.dumps(getLog())
+   
+   def get_data():
+       return {'log': '192.168.254.30 - John [24/May/2004:22:01:02 -0700] '
+                      '"GET /icons/apache_pb.gif HTTP/1.1" 304 0'}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-transforming-strings-w3clogparse-2"></a>
@@ -75,6 +86,8 @@ Create an Amazon Kinesis data analytics application as follows:
    1. Choose **Discover schema**\. Wait for the console to show the inferred schema and samples records used to infer the schema for the in\-application stream created\. The inferred schema has only one column\.
 
    1. Choose **Save and continue**\.
+
+   
 
 1. On the application details page, choose **Go to SQL editor**\. To start the application, choose **Yes, start application** in the dialog box that appears\.
 

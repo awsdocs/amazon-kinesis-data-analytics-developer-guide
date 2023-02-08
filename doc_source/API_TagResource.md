@@ -6,11 +6,11 @@ Adds one or more key\-value tags to a Kinesis Analytics application\. Note that 
 
 ```
 {
-   "[ResourceARN](#analytics-TagResource-request-ResourceARN)": "string",
-   "[Tags](#analytics-TagResource-request-Tags)": [ 
+   "ResourceARN": "string",
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#analytics-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#analytics-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }
@@ -24,7 +24,7 @@ The request accepts the following data in JSON format\.
 The ARN of the application to assign the tags\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
-Pattern: `arn:aws:kinesisanalytics:[a-z]{2}-[a-z]+-\d{1}+:\d{12}+:application/[a-zA-Z0-9_.-]{1,128}`   
+Pattern: `arn:.*`   
 Required: Yes
 
  ** [Tags](#API_TagResource_RequestSyntax) **   <a name="analytics-TagResource-request-Tags"></a>
@@ -39,23 +39,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_TagResource_Errors"></a>
 
- **ConcurrentModificationException**   
+ ** ConcurrentModificationException **   
 Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
 HTTP Status Code: 400
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 Application is not available for this operation\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Specified application can't be found\.  
 HTTP Status Code: 400
 
- **TooManyTagsException**   
+ ** TooManyTagsException **   
 Application created with too many tags, or too many tags added to an application\. Note that the maximum number of application tags includes system tags\. The maximum number of user\-defined application tags is 50\.  
 HTTP Status Code: 400
 
@@ -66,7 +66,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/TagResource) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/TagResource) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/TagResource) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/TagResource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/TagResource) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/TagResource) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/TagResource) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/TagResource) 

@@ -1,5 +1,8 @@
 # Tumbling Windows \(Aggregations Using GROUP BY\)<a name="tumbling-window-concepts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 When a windowed query processes each window in a non\-overlapping manner, the window is referred to as a *tumbling window*\. In this case, each record on an in\-application stream belongs to a specific window\. It is processed only once \(when the query processes the window to which the record belongs\)\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/window-tumbling-20.png)

@@ -19,83 +19,83 @@ In the output configuration, you can configure the application to write data fro
 
 ```
 {
-   "[ApplicationCode](#analytics-CreateApplication-request-ApplicationCode)": "string",
-   "[ApplicationDescription](#analytics-CreateApplication-request-ApplicationDescription)": "string",
-   "[ApplicationName](#analytics-CreateApplication-request-ApplicationName)": "string",
-   "[CloudWatchLoggingOptions](#analytics-CreateApplication-request-CloudWatchLoggingOptions)": [ 
+   "ApplicationCode": "string",
+   "ApplicationDescription": "string",
+   "ApplicationName": "string",
+   "CloudWatchLoggingOptions": [ 
       { 
-         "[LogStreamARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-LogStreamARN)": "string",
-         "[RoleARN](API_CloudWatchLoggingOption.md#analytics-Type-CloudWatchLoggingOption-RoleARN)": "string"
+         "LogStreamARN": "string",
+         "RoleARN": "string"
       }
    ],
-   "[Inputs](#analytics-CreateApplication-request-Inputs)": [ 
+   "Inputs": [ 
       { 
-         "[InputParallelism](API_Input.md#analytics-Type-Input-InputParallelism)": { 
-            "[Count](API_InputParallelism.md#analytics-Type-InputParallelism-Count)": number
+         "InputParallelism": { 
+            "Count": number
          },
-         "[InputProcessingConfiguration](API_Input.md#analytics-Type-Input-InputProcessingConfiguration)": { 
-            "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
-               "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
-               "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
+         "InputProcessingConfiguration": { 
+            "InputLambdaProcessor": { 
+               "ResourceARN": "string",
+               "RoleARN": "string"
             }
          },
-         "[InputSchema](API_Input.md#analytics-Type-Input-InputSchema)": { 
-            "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
+         "InputSchema": { 
+            "RecordColumns": [ 
                { 
-                  "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
-                  "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
-                  "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
+                  "Mapping": "string",
+                  "Name": "string",
+                  "SqlType": "string"
                }
             ],
-            "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
-            "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
-               "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
-                  "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
-                     "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
-                     "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
+            "RecordEncoding": "string",
+            "RecordFormat": { 
+               "MappingParameters": { 
+                  "CSVMappingParameters": { 
+                     "RecordColumnDelimiter": "string",
+                     "RecordRowDelimiter": "string"
                   },
-                  "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
-                     "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
+                  "JSONMappingParameters": { 
+                     "RecordRowPath": "string"
                   }
                },
-               "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
+               "RecordFormatType": "string"
             }
          },
-         "[KinesisFirehoseInput](API_Input.md#analytics-Type-Input-KinesisFirehoseInput)": { 
-            "[ResourceARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-ResourceARN)": "string",
-            "[RoleARN](API_KinesisFirehoseInput.md#analytics-Type-KinesisFirehoseInput-RoleARN)": "string"
+         "KinesisFirehoseInput": { 
+            "ResourceARN": "string",
+            "RoleARN": "string"
          },
-         "[KinesisStreamsInput](API_Input.md#analytics-Type-Input-KinesisStreamsInput)": { 
-            "[ResourceARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-ResourceARN)": "string",
-            "[RoleARN](API_KinesisStreamsInput.md#analytics-Type-KinesisStreamsInput-RoleARN)": "string"
+         "KinesisStreamsInput": { 
+            "ResourceARN": "string",
+            "RoleARN": "string"
          },
-         "[NamePrefix](API_Input.md#analytics-Type-Input-NamePrefix)": "string"
+         "NamePrefix": "string"
       }
    ],
-   "[Outputs](#analytics-CreateApplication-request-Outputs)": [ 
+   "Outputs": [ 
       { 
-         "[DestinationSchema](API_Output.md#analytics-Type-Output-DestinationSchema)": { 
-            "[RecordFormatType](API_DestinationSchema.md#analytics-Type-DestinationSchema-RecordFormatType)": "string"
+         "DestinationSchema": { 
+            "RecordFormatType": "string"
          },
-         "[KinesisFirehoseOutput](API_Output.md#analytics-Type-Output-KinesisFirehoseOutput)": { 
-            "[ResourceARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-ResourceARN)": "string",
-            "[RoleARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-RoleARN)": "string"
+         "KinesisFirehoseOutput": { 
+            "ResourceARN": "string",
+            "RoleARN": "string"
          },
-         "[KinesisStreamsOutput](API_Output.md#analytics-Type-Output-KinesisStreamsOutput)": { 
-            "[ResourceARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-ResourceARN)": "string",
-            "[RoleARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-RoleARN)": "string"
+         "KinesisStreamsOutput": { 
+            "ResourceARN": "string",
+            "RoleARN": "string"
          },
-         "[LambdaOutput](API_Output.md#analytics-Type-Output-LambdaOutput)": { 
-            "[ResourceARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-ResourceARN)": "string",
-            "[RoleARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-RoleARN)": "string"
+         "LambdaOutput": { 
+            "ResourceARN": "string",
+            "RoleARN": "string"
          },
-         "[Name](API_Output.md#analytics-Type-Output-Name)": "string"
+         "Name": "string"
       }
    ],
-   "[Tags](#analytics-CreateApplication-request-Tags)": [ 
+   "Tags": [ 
       { 
-         "[Key](API_Tag.md#analytics-Type-Tag-Key)": "string",
-         "[Value](API_Tag.md#analytics-Type-Tag-Value)": "string"
+         "Key": "string",
+         "Value": "string"
       }
    ]
 }
@@ -157,10 +157,10 @@ Required: No
 
 ```
 {
-   "[ApplicationSummary](#analytics-CreateApplication-response-ApplicationSummary)": { 
-      "[ApplicationARN](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationARN)": "string",
-      "[ApplicationName](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationName)": "string",
-      "[ApplicationStatus](API_ApplicationSummary.md#analytics-Type-ApplicationSummary-ApplicationStatus)": "string"
+   "ApplicationSummary": { 
+      "ApplicationARN": "string",
+      "ApplicationName": "string",
+      "ApplicationStatus": "string"
    }
 }
 ```
@@ -177,28 +177,32 @@ Type: [ApplicationSummary](API_ApplicationSummary.md) object
 
 ## Errors<a name="API_CreateApplication_Errors"></a>
 
- **CodeValidationException**   
+ ** CodeValidationException **   
 User\-provided application code \(query\) is invalid\. This can be a simple syntax error\.  
 HTTP Status Code: 400
 
- **ConcurrentModificationException**   
+ ** ConcurrentModificationException **   
 Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
 HTTP Status Code: 400
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 Exceeded the number of applications allowed\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 Application is not available for this operation\.  
 HTTP Status Code: 400
 
- **TooManyTagsException**   
+ ** TooManyTagsException **   
 Application created with too many tags, or too many tags added to an application\. Note that the maximum number of application tags includes system tags\. The maximum number of user\-defined application tags is 50\.  
+HTTP Status Code: 400
+
+ ** UnsupportedOperationException **   
+The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateApplication_SeeAlso"></a>
@@ -208,7 +212,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/CreateApplication) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/CreateApplication) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/CreateApplication) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/CreateApplication) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/CreateApplication) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/CreateApplication) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/CreateApplication) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/CreateApplication) 

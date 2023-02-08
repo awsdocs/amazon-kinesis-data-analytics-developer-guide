@@ -1,5 +1,8 @@
 # Step 2: Create the Kinesis Data Analytics Application<a name="app-hotspot-create-app"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section of the [Hotspots example](app-hotspots-detection.md), you create an Amazon Kinesis data analytics application as follows:
 + Configure the application input to use the Kinesis data stream you created as the streaming source in [Step 1](app-hotspots-prepare.md)\.
 + Use the provided application code in the AWS Management Console\.
@@ -33,8 +36,14 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you create
        );
    ```
 
+   
+
 1. Run the SQL code and review the results\.  
 ![\[Results of SQL code showing rowtime, hotspot, and hotspot_heat.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/hotspot-v2-40.png)
+
+
+
+
 
 **Next Step**  
 [Step 3: Configure the Application Output](app-hotspots-create-ka-app-config-destination.md)

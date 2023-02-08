@@ -1,4 +1,7 @@
-# Amazon Kinesis Data Analytics API Permissions: Actions, Permissions, and Resources Reference<a name="api-permissions-reference"></a>
+
+
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.# Amazon Kinesis Data Analytics API Permissions: Actions, Permissions, and Resources Reference<a name="api-permissions-reference"></a>
 
 When you are setting up [Access Control](authentication-and-access-control.md#access-control) and writing a permissions policy that you can attach to an IAM identity \(identity\-based policies\), you can use the following table as a reference\. The table lists each Amazon Kinesis Data Analytics API operation, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions\. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field\. 
 
@@ -7,7 +10,9 @@ You can use AWS\-wide condition keys in your Amazon Kinesis Data Analytics polic
 **Note**  
 To specify an action, use the `kinesisanalytics` prefix followed by the API operation name \(for example, `kinesisanalytics:AddApplicationInput`\)\.
 
-If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, you can open the table in a new window\. To close the window, choose the close button \(**X**\) in the lower\-right corner\.
+Use the scroll bars to see the rest of the table\.
+
+
 
 
 **Amazon Kinesis Data Analytics API and Required Permissions for Actions**  
@@ -27,7 +32,11 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 |  [StartApplication](API_StartApplication.md)   |  kinesisanalytics:StartApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [StopApplication](API_StopApplication.md)   |  kinesisanalytics:StopApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
 |  [UpdateApplication](API_UpdateApplication.md)   |  kinesisanalytics:UpdateApplication  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
-|  Access or sample data in the console   |  kinesisanalytics:[GetApplicationState](#api-permissions-reference-gas)  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
+|  Access or sample data in the console   |  kinesisanalytics:GetApplicationState  |  `arn:aws:kinesisanalytics: region:accountId:application/application-name`  | 
+
+
+
+
 
 ## GetApplicationState<a name="api-permissions-reference-gas"></a>
 

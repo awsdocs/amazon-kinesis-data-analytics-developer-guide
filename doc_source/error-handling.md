@@ -1,8 +1,13 @@
 # Error Handling<a name="error-handling"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics returns API or SQL errors directly to you\. For more information about API operations, see [Actions](API_Operations.md)\. For more information about handling SQL errors, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
 
 Amazon Kinesis Data Analytics reports runtime errors using an in\-application error stream called `error_stream`\. 
+
+
 
 ## Reporting Errors Using an In\-Application Error Stream<a name="error-handling-errorstream"></a>
 
@@ -32,5 +37,5 @@ The error stream has the following schema:
 | ERROR\_NAME | VARCHAR\(32\) |  | 
 | MESSAGE | VARCHAR\(4096\) |  | 
 | DATA\_ROWTIME | TIMESTAMP | The row time of the incoming record | 
-| DATA\_ROW | VARCHAR\(49152\) | The hex\-encoded data in the original row\. You can use standard libraries to hex decode this value, or use web resources such as this [Hex to String Converter](http://string-functions.com/hex-string.aspx)\.  | 
-| PUMP\_NAME | VARCHAR\(128\) | The originating pump, as defined with `CREATE PUMP` | 
+| DATA\_ROW | VARCHAR\(49152\) |  The hex\-encoded data in the original row\. You can use standard libraries to hex decode this value, or use web resources such as this [Hex to String Converter](http://string-functions.com/hex-string.aspx)\.  | 
+| PUMP\_NAME | VARCHAR\(128\) |  The originating pump, as defined with `CREATE PUMP` | 

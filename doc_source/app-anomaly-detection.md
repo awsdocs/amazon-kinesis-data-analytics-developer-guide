@@ -1,5 +1,8 @@
 # Example: Detecting Data Anomalies on a Stream \(RANDOM\_CUT\_FOREST Function\)<a name="app-anomaly-detection"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics provides a function \(`RANDOM_CUT_FOREST`\) that can assign an anomaly score to each record based on values in the numeric columns\. For more information, see [`RANDOM_CUT_FOREST` Function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 In this exercise, you write application code to assign an anomaly score to records on your application's streaming source\. To set up the application, you do the following:
@@ -50,7 +53,7 @@ In this exercise, you write application code to assign an anomaly score to recor
 
 1. **Configure output** – You configure the application output to persist data in the `DESTINATION_SQL_STREAM` to an external destination, which is another Kinesis data stream\. Reviewing the anomaly scores that are assigned to each record and determining what score indicates an anomaly \(and that you need to be alerted\) is external to the application\. You can use an AWS Lambda function to process these anomaly scores and configure alerts\. 
 
-The exercise uses the US East \(N\. Virginia\) \(`us-east-1`\) AWS Region to create these streams and your application\. If you use any other Region, you must update the code accordingly\.
+The exercise uses the US East \(N\. Virginia\) \(`us-east-1`\) to create these streams and your application\. If you use any other Region, you must update the code accordingly\.
 
 **Topics**
 + [Step 1: Prepare](app-anomaly-prepare.md)

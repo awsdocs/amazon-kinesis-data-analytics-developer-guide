@@ -1,5 +1,8 @@
 # Examples: Transforming Data<a name="examples-transforming"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 There are times when your application code must preprocess incoming records before performing any analytics in Amazon Kinesis Data Analytics\. This can happen for various reasons, such as when records don't conform to the supported record formats, resulting in unnormalized columns in the in\-application input streams\. 
 
 This section provides examples of how to use the available string functions to normalize data, how to extract information that you need from string columns, and so on\. The section also points to date time functions that you might find useful\. 

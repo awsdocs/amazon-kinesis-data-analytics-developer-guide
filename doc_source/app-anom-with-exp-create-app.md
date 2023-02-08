@@ -1,5 +1,8 @@
 # Step 2: Create an Analytics Application<a name="app-anom-with-exp-create-app"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section, you create an Amazon Kinesis Data Analytics application and configure it to use the Kinesis data stream that you created as the streaming source in [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md)\. You then run application code that uses the `RANDOM_CUT_FOREST_WITH_EXPLANATION` function\.
 
 **To create an application**

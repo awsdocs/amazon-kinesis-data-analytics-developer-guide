@@ -1,5 +1,8 @@
 # Parallelizing Input Streams for Increased Throughput<a name="input-parallelism"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics applications can support multiple in\-application input streams, to scale an application beyond the throughput of a single in\-application input stream\. For more information on in\-application input streams, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\.
 
 In almost all cases, Amazon Kinesis Data Analytics scales your application to handle the capacity of the Kinesis streams or Kinesis Data Firehose source streams that feed into your application\. However, if your source stream's throughput exceeds the throughput of a single in\-application input stream, you can explicitly increase the number of in\-application input streams that your application uses\. You do so with the `InputParallelism` parameter\.

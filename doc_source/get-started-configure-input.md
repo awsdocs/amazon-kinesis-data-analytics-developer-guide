@@ -1,5 +1,8 @@
 # Step 3\.2: Configure Input<a name="get-started-configure-input"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Your application needs a streaming source\. To help you get started, the console can create a demo stream \(called `kinesis-analytics-demo-stream`\)\. The console also runs a script that populates records in the stream\.
 
 **To add a streaming source to your application**
@@ -43,6 +46,10 @@ Your application needs a streaming source\. To help you get started, the console
    + If you choose **Edit schema**, you can edit the inferred schema\. For this exercise, don't change the inferred schema\. For more information about editing a schema, see [Working with the Schema Editor](console-summary-edit-schema.md)\.
 
      If you choose **Rediscover schema**, you can request the console to run [DiscoverInputSchema](API_DiscoverInputSchema.md) again and infer the schema\. 
+
+     
+
+   
 
 1. Choose **Save and continue**\.
 

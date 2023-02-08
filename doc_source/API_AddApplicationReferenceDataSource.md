@@ -15,37 +15,37 @@ Amazon Kinesis Analytics reads reference data \(that is, an Amazon S3 object\) a
 
 ```
 {
-   "[ApplicationName](#analytics-AddApplicationReferenceDataSource-request-ApplicationName)": "string",
-   "[CurrentApplicationVersionId](#analytics-AddApplicationReferenceDataSource-request-CurrentApplicationVersionId)": number,
-   "[ReferenceDataSource](#analytics-AddApplicationReferenceDataSource-request-ReferenceDataSource)": { 
-      "[ReferenceSchema](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-ReferenceSchema)": { 
-         "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
+   "ApplicationName": "string",
+   "CurrentApplicationVersionId": number,
+   "ReferenceDataSource": { 
+      "ReferenceSchema": { 
+         "RecordColumns": [ 
             { 
-               "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
-               "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
-               "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
+               "Mapping": "string",
+               "Name": "string",
+               "SqlType": "string"
             }
          ],
-         "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
-         "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
-            "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
-               "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
-                  "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
-                  "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
+         "RecordEncoding": "string",
+         "RecordFormat": { 
+            "MappingParameters": { 
+               "CSVMappingParameters": { 
+                  "RecordColumnDelimiter": "string",
+                  "RecordRowDelimiter": "string"
                },
-               "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
-                  "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
+               "JSONMappingParameters": { 
+                  "RecordRowPath": "string"
                }
             },
-            "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
+            "RecordFormatType": "string"
          }
       },
-      "[S3ReferenceDataSource](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-S3ReferenceDataSource)": { 
-         "[BucketARN](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-BucketARN)": "string",
-         "[FileKey](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-FileKey)": "string",
-         "[ReferenceRoleARN](API_S3ReferenceDataSource.md#analytics-Type-S3ReferenceDataSource-ReferenceRoleARN)": "string"
+      "S3ReferenceDataSource": { 
+         "BucketARN": "string",
+         "FileKey": "string",
+         "ReferenceRoleARN": "string"
       },
-      "[TableName](API_ReferenceDataSource.md#analytics-Type-ReferenceDataSource-TableName)": "string"
+      "TableName": "string"
    }
 }
 ```
@@ -78,23 +78,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_AddApplicationReferenceDataSource_Errors"></a>
 
- **ConcurrentModificationException**   
+ ** ConcurrentModificationException **   
 Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
 HTTP Status Code: 400
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 Application is not available for this operation\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Specified application can't be found\.  
 HTTP Status Code: 400
 
- **UnsupportedOperationException**   
+ ** UnsupportedOperationException **   
 The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation\.   
 HTTP Status Code: 400
 
@@ -105,7 +105,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource) 

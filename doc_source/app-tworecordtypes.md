@@ -1,5 +1,8 @@
 # Example: Transforming Multiple Data Types<a name="app-tworecordtypes"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
  A common requirement in extract, transform, and load \(ETL\) applications is to process multiple record types on a streaming source\. You can create Amazon Kinesis data analytics applications to process these kinds of streaming sources\. The process is as follows:
 
 1. First, you map the streaming source to an in\-application input stream, similar to all other Kinesis data analytics applications\.

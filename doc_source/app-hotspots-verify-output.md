@@ -1,5 +1,8 @@
 # Step 4: Verify the Application Output<a name="app-hotspots-verify-output"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section of the [Hotspots example](app-hotspots-detection.md), you set up a web application that displays the hotspot information in a Scalable Vector Graphics \(SVG\) control\.
 
 1. Create a file named `index.html` with the following contents:
@@ -46,16 +49,16 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    </html>
    ```
 
-1. Create a file in the same directory named `hotspots_viewer.js` with the following contents\. Provide your AWS Region, credentials, and output stream name in the variables provided\.
+1. Create a file in the same directory named `hotspots_viewer.js` with the following contents\. Provide your , credentials, and output stream name in the variables provided\.
 
    ```
    // Visualize example output from the Kinesis Analytics hotspot detection algorithm.
    // This script assumes that the output stream has a single shard.
    
    // Modify this section to reflect your AWS configuration
-   var awsRegion = "",        // The AWS region where your Kinesis Analytics application is configured.
-       accessKeyId = "",      // Your AWS Access Key ID
-       secretAccessKey = "",  // Your AWS Secret Access Key
+   var awsRegion = "",        // The  where your Kinesis Analytics application is configured.
+       accessKeyId = "",      // Your Access Key ID
+       secretAccessKey = "",  // Your Secret Access Key
        outputStream = "";     // The name of the Kinesis Stream where the output from the HOTSPOTS function is being written
    
    // The variables in this section should reflect way input data was generated and the parameters that the HOTSPOTS
@@ -207,5 +210,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you set up
    init();
    ```
 
-1. With the Python code from the first section running, open `index.html` in a web browser\. The hotspot information appears on the page, as shown following\.  
+1. With the Python code from the first section running, open `index.html` in a web browser\. The hotspot information appears on the page, as shown following\.
+
+     
 ![\[Scalable Vector Graphics diagram displaying hotspot information.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/hotspots_visualizer.png)

@@ -1,5 +1,8 @@
 # Example: Retrieving the Most Frequently Occurring Values \(TOP\_K\_ITEMS\_TUMBLING\)<a name="examples-window-topkitems"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING` function to retrieve the most frequently occurring values in a tumbling window\. For more information, see [`TOP_K_ITEMS_TUMBLING` function](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/top-k.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 The `TOP_K_ITEMS_TUMBLING` function is useful when aggregating over tens or hundreds of thousands of keys, and you want to reduce your resource usage\. The function produces the same result as aggregating with `GROUP BY` and `ORDER BY` clauses\.
@@ -14,11 +17,15 @@ In this example, you write the following records to an Amazon Kinesis data strea
 ...
 ```
 
+
+
 You then create a Kinesis Data Analytics application in the AWS Management Console, with the Kinesis data stream as the streaming source\. The discovery process reads sample records on the streaming source and infers an in\-application schema with one column \(`TICKER`\) as shown following\.
 
 ![\[Console screenshot showing the in-application schema with a ticker column.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk_schema.png)
 
 You use the application code with the `TOP_K_VALUES_TUMBLING` function to create a windowed aggregation of the data\. Then you insert the resulting data into another in\-application stream, as shown in the following screenshot: 
+
+
 
 ![\[Console screenshot showing the resulting data in an in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk.png)
 
@@ -42,29 +49,33 @@ Create an Amazon Kinesis data stream and populate the records as follows:
 
    ```
     
-   import json
-   import boto3
-   import random
    import datetime
+   import json
+   import random
+   import boto3
    
-   kinesis = boto3.client('kinesis')
-   def getReferrer():
-       data = {}
-       now = datetime.datetime.now()
-       str_now = now.isoformat()
-       data['EVENT_TIME'] = str_now
-       data['TICKER'] = random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV'])
-       price = random.random() * 100
-       data['PRICE'] = round(price, 2)
-       return data
+   STREAM_NAME = "ExampleInputStream"
    
-   while True:
-           data = json.dumps(getReferrer())
+   
+   def get_data():
+       return {
+           'EVENT_TIME': datetime.datetime.now().isoformat(),
+           'TICKER': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+           'PRICE': round(random.random() * 100, 2)}
+   
+   
+   def generate(stream_name, kinesis_client):
+       while True:
+           data = get_data()
            print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(data),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
 
 ## Step 2: Create the Kinesis Data Analytics Application<a name="examples-window-topkitems-2"></a>
@@ -78,6 +89,8 @@ Create a Kinesis Data Analytics application as follows:
 1. On the application details page, choose **Connect streaming data** to connect to the source\. 
 
 1. On the **Connect to source** page, do the following:
+
+   
 
    1. Choose the stream that you created in the preceding section\. 
 

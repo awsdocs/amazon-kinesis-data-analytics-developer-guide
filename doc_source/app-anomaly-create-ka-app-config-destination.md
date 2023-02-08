@@ -1,10 +1,15 @@
 # Step 3: Configure Application Output<a name="app-anomaly-create-ka-app-config-destination"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 After completing [Step 2: Create an Application](app-anom-score-create-app.md), you have application code that is reading heart rate data from a streaming source and assigning an anomaly score to each\. 
 
 You can now send the application results from the in\-application stream to an external destination, which is another Kinesis data stream \(`OutputStreamTestingAnomalyScores`\)\. You can analyze the anomaly scores and determine which heart rate is anomalous\. You can then extend this application further to generate alerts\. 
 
 Follow these steps to configure application output:
+
+
 
 1. Open the Amazon Kinesis Data Analytics console\. In the SQL editor, choose either **Destination** or **Add a destination** in the application dashboard\. 
 

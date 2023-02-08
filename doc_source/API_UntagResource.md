@@ -6,8 +6,8 @@ Removes one or more tags from a Kinesis Analytics application\. For more informa
 
 ```
 {
-   "[ResourceARN](#analytics-UntagResource-request-ResourceARN)": "string",
-   "[TagKeys](#analytics-UntagResource-request-TagKeys)": [ "string" ]
+   "ResourceARN": "string",
+   "TagKeys": [ "string" ]
 }
 ```
 
@@ -19,7 +19,7 @@ The request accepts the following data in JSON format\.
 The ARN of the Kinesis Analytics application from which to remove the tags\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
-Pattern: `arn:aws:kinesisanalytics:[a-z]{2}-[a-z]+-\d{1}+:\d{12}+:application/[a-zA-Z0-9_.-]{1,128}`   
+Pattern: `arn:.*`   
 Required: Yes
 
  ** [TagKeys](#API_UntagResource_RequestSyntax) **   <a name="analytics-UntagResource-request-TagKeys"></a>
@@ -35,23 +35,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_UntagResource_Errors"></a>
 
- **ConcurrentModificationException**   
+ ** ConcurrentModificationException **   
 Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
 HTTP Status Code: 400
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 Application is not available for this operation\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Specified application can't be found\.  
 HTTP Status Code: 400
 
- **TooManyTagsException**   
+ ** TooManyTagsException **   
 Application created with too many tags, or too many tags added to an application\. Note that the maximum number of application tags includes system tags\. The maximum number of user\-defined application tags is 50\.  
 HTTP Status Code: 400
 
@@ -62,7 +62,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/UntagResource) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/UntagResource) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/UntagResource) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/UntagResource) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/UntagResource) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/UntagResource) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/UntagResource) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/UntagResource) 

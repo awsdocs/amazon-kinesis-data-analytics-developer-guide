@@ -1,5 +1,8 @@
 # Delivery Model for Persisting Application Output to an External Destination<a name="failover-checkpoint"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics uses an "at least once" delivery model for application output to the configured destinations\. When an application is running, Kinesis Data Analytics takes internal checkpoints\. These checkpoints are points in time when output records have been delivered to the destinations without data loss\. The service uses the checkpoints as needed to ensure that your application output is delivered at least once to the configured destinations\.
 
 In a normal situation, your application processes incoming data continuously\. Kinesis Data Analytics writes the output to the configured destinations, such as a Kinesis data stream or a Kinesis Data Firehose delivery stream\. However, your application can be interrupted occasionally, for example:

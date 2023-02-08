@@ -1,5 +1,8 @@
 # Streaming Data Operations: Stream Joins<a name="stream-joins-concepts"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 You can have multiple in\-application streams in your application\. You can write `JOIN` queries to correlate data arriving on these streams\. For example, suppose that you have the following in\-application streams:
 + **OrderStream** – Receives stock orders being placed\.
 
@@ -52,6 +55,6 @@ SELECT STREAM
     o.orderId, o.ticker, o.amount AS orderAmount,
     t.ticker, t.tradeId, t.amount AS tradeAmount,
 FROM OrderStream AS o
-OUTER JOIN TradeStream OVER (RANGE INTERVAL '1' MINUTE PRECEDING) AS t
+LEFT OUTER JOIN TradeStream OVER (RANGE INTERVAL '1' MINUTE PRECEDING) AS t
 ON    o.orderId = t.orderId;
 ```

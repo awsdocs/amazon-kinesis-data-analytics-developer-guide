@@ -1,5 +1,8 @@
 # In\-Application Streams and Pumps<a name="streams-pumps"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 When you configure [application input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html), you map a streaming source to an in\-application stream that is created\. Data continuously flows from the streaming source into the in\-application stream\. An in\-application stream works like a table that you can query using SQL statements, but it's called a stream because it represents continuous data flow\. 
 
 **Note**  

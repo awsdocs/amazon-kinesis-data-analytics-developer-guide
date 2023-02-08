@@ -1,5 +1,8 @@
 # Step 2: Create an Application<a name="app-anom-score-create-app"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section, you create an Amazon Kinesis Data Analytics application as follows:
 + Configure the application input to use the Kinesis data stream that you created in [Step 1: Prepare](app-anomaly-prepare.md) as the streaming source\.
 + Use the **Anomaly Detection** template on the console\. 
@@ -44,8 +47,14 @@ In this section, you create an Amazon Kinesis Data Analytics application as foll
          ORDER BY FLOOR("TEMP_STREAM".ROWTIME TO SECOND), ANOMALY_SCORE DESC;
    ```
 
+   
+
 1. Run the SQL code and review the results on the Kinesis Data Analytics console:  
 ![\[Console screenshot showing real-time analytics tab with the resulting data in the in-application stream.\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/anom-v2-40.png)
+
+
+
+
 
 **Next Step**  
 [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md)

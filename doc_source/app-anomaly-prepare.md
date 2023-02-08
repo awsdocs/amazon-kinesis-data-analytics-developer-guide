@@ -1,5 +1,8 @@
 # Step 1: Prepare<a name="app-anomaly-prepare"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Before you create an Amazon Kinesis Data Analytics application for this exercise, you must create two Kinesis data streams\. Configure one of the streams as the streaming source for your application, and the other stream as the destination where Kinesis Data Analytics persists your application output\. 
 
 **Topics**
@@ -54,42 +57,47 @@ In this step, you run Python code to continuously generate sample records and wr
 
    ```
     
+   from enum import Enum
    import json
-   import boto3
    import random
+   import boto3
    
-   kinesis = boto3.client('kinesis')
+   STREAM_NAME = 'ExampleInputStream'
    
-   # generate normal heart rate with probability .99
-   def getNormalHeartRate():
-       data = {}
-       data['heartRate'] = random.randint(60, 100)
-       data['rateType'] = "NORMAL"
-       return data
-   # generate high heart rate with probability .01 (very few)
-   def getHighHeartRate():
-       data = {}
-       data['heartRate'] = random.randint(150, 200)
-       data['rateType'] = "HIGH"
-       return data
    
-   while True:
-       rnd = random.random()
-       if (rnd < 0.01):
-           data = json.dumps(getHighHeartRate())
-           print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+   class RateType(Enum):
+       normal = 'NORMAL'
+       high = 'HIGH'
+   
+   
+   def get_heart_rate(rate_type):
+       if rate_type == RateType.normal:
+           rate = random.randint(60, 100)
+       elif rate_type == RateType.high:
+           rate = random.randint(150, 200)
        else:
-           data = json.dumps(getNormalHeartRate())
-           print(data)
-           kinesis.put_record(
-                   StreamName="ExampleInputStream",
-                   Data=data,
-                   PartitionKey="partitionkey")
+           raise TypeError
+       return {'heartRate': rate, 'rateType': rate_type.value}
+   
+   
+   def generate(stream_name, kinesis_client, output=True):
+       while True:
+           rnd = random.random()
+           rate_type = RateType.high if rnd < 0.01 else RateType.normal
+           heart_rate = get_heart_rate(rate_type)
+           if output:
+               print(heart_rate)
+           kinesis_client.put_record(
+               StreamName=stream_name,
+               Data=json.dumps(heart_rate),
+               PartitionKey="partitionkey")
+   
+   
+   if __name__ == '__main__':
+       generate(STREAM_NAME, boto3.client('kinesis'))
    ```
+
+
 
 **Next Step**  
 [Step 2: Create an Application](app-anom-score-create-app.md)

@@ -1,5 +1,8 @@
 # Working with the Schema Editor<a name="console-summary-edit-schema"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 The schema for an Amazon Kinesis Data Analytics application's input stream defines how data from the stream is made available to SQL queries in the application\. 
 
 ![\[Diagram showing relationship between streaming input, source schema configuration, and in-application input streams\]](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/edit-schema-diagram.png)

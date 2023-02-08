@@ -1,5 +1,8 @@
 # Example: Detecting Hotspots on a Stream \(HOTSPOTS Function\)<a name="app-hotspots-detection"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Amazon Kinesis Data Analytics provides the `HOTSPOTS` function, which can locate and return information about relatively dense regions in your data\. For more information, see [HOTSPOTS](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/sqlrf-hotspots.html) in the *Amazon Kinesis Data Analytics SQL Reference*\. 
 
 In this exercise, you write application code to locate hotspots on your application's streaming source\. To set up the application, you do the following steps:
@@ -44,7 +47,9 @@ In this exercise, you write application code to locate hotspots on your applicat
 
 1. **Verify the output** – The example includes a JavaScript application that reads data from the output stream and displays it graphically, so you can view the hotspots that the application generates in real time\. 
 
-The exercise uses the US West \(Oregon\) \(`us-west-2`\) AWS Region to create these streams and your application\. If you use any other Region, update the code accordingly\.
+
+
+The exercise uses the US West \(Oregon\) \(`us-west-2`\) to create these streams and your application\. If you use any other Region, update the code accordingly\.
 
 **Topics**
 + [Step 1: Create the Input and Output Streams](app-hotspots-prepare.md)

@@ -1,5 +1,8 @@
 # Configuring Application Input<a name="how-it-works-input"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Your Amazon Kinesis Data Analytics application can receive input from a single streaming source and, optionally, use one reference data source\. For more information, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\. The sections in this topic describe the application input sources\.
 
 **Topics**

@@ -1,5 +1,8 @@
 # Application Code<a name="how-it-works-app-code"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Application code is a series of SQL statements that process input and produce output\. These SQL statements operate on in\-application streams and reference tables\. For more information, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md)\. 
 
 For information about the SQL language elements that are supported by Kinesis Data Analytics, see [Amazon Kinesis Data Analytics SQL Reference](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/analytics-sql-reference.html)\.
@@ -7,6 +10,8 @@ For information about the SQL language elements that are supported by Kinesis Da
 In relational databases, you work with tables, using INSERT statements to add records and the SELECT statement to query the data\. In Amazon Kinesis Data Analytics, you work with streams\. You can write a SQL statement to query these streams\. The results of querying one in\-application stream are always sent to another in\-application stream\. When performing complex analytics, you might create several in\-application streams to hold the results of intermediate analytics\. And then finally, you configure application output to persist results of the final analytics \(from one or more in\-application streams\) to external destinations\. In summary, the following is a typical pattern for writing application code:
 + The SELECT statement is always used in the context of an INSERT statement\. That is, when you select rows, you insert results into another in\-application stream\.
 + The INSERT statement is always used in the context of a pump\. That is, you use pumps to write to an in\-application stream\.
+
+
 
 The following example application code reads records from one in\-application \(SOURCE\_SQL\_STREAM\_001\) stream and write it to another in\-application stream \(DESTINATION\_SQL\_STREAM\)\. You can insert records to in\-application streams using pumps, as shown following:
 

@@ -1,5 +1,8 @@
 # Step 2: Create the Application<a name="tworecordtypes-create-app"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section, you create an Amazon Kinesis data analytics application\. You then update the application by adding input configuration that maps the streaming source you created in the preceding section to an in\-application input stream\. 
 
 1. Open the Kinesis Data Analytics console at [ https://console\.aws\.amazon\.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics)\.
@@ -71,6 +74,8 @@ In this section, you create an Amazon Kinesis data analytics application\. You t
       ```
 
    1. Choose **Save and run SQL**\. Choose the **Real\-time analytics** tab to see all of the in\-application streams that the application created and verify the data\. 
+
+   
 
 **Next Step**  
 You can configure application output to persist results to an external destination, such as another Kinesis stream or a Kinesis Data Firehose data delivery stream\. 

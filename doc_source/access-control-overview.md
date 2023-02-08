@@ -1,11 +1,21 @@
 # Overview of Managing Access Permissions to Your Amazon Kinesis Data Analytics Resources<a name="access-control-overview"></a>
 
-Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. An account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\), and some services \(such as AWS Lambda\) also support attaching permissions policies to resources\. 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
+
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
+
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 **Note**  
 An *account administrator* \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
-
-When granting permissions, you decide who is getting the permissions, the resources they get permissions for, and the specific actions that you want to allow on those resources\.
 
 **Topics**
 + [Amazon Kinesis Data Analytics Resources and Operations](#access-control-resources)
@@ -31,9 +41,9 @@ Amazon Kinesis Data Analytics provides a set of operations to work with Amazon K
 
 ## Understanding Resource Ownership<a name="access-control-resource-ownership"></a>
 
-The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
+The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, a user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
 + If you use the root account credentials of your AWS account to create an application, your AWS account is the owner of the resource\. \(In Amazon Kinesis Data Analytics, the resource is an application\.\)
-+ If you create an IAM user in your AWS account and grant permissions to create an application to that user, the user can create an application\. However, your AWS account, to which the user belongs, owns the application resource\.
++ If you create a user in your AWS account and grant permissions to create an application to that user, the user can create an application\. However, your AWS account, to which the user belongs, owns the application resource\. We strongly recommend you grant permissions to roles and not users\.
 + If you create an IAM role in your AWS account with permissions to create an application, anyone who can assume the role can create an application\. Your AWS account, to which the user belongs, owns the application resource\. 
 
 ## Managing Access to Resources<a name="manage-access-overview"></a>
@@ -53,13 +63,13 @@ Policies that are attached to an IAM identity are referred to as *identity\-base
 
 You can attach policies to IAM identities\. For example, you can do the following:
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an Amazon Kinesis Data Analytics resource, such as an application, you can attach a permissions policy to a user or group that the user belongs to\.
-+ **Attach a permissions policy to a role \(grant cross\-account permissions\)** – You can attach an identity\-based permissions policy to an IAM role to grant cross\-account permissions\. For example, the administrator in account A can create a role to grant cross\-account permissions to another AWS account \(for example, account B\) or an AWS service as follows:
++ **Attach a permissions policy to a role \(grant cross\-account permissions\)** – You can attach an identity\-based permissions policy to an IAM role to grant cross\-account permissions\. For example, the administrator in account A can create a role to grant cross\-account permissions to another AWS account \(for example, account B\) or an Amazon service as follows:
 
   1. Account A administrator creates an IAM role and attaches a permissions policy to the role that grants permissions on resources in account A\.
 
   1. Account A administrator attaches a trust policy to the role identifying account B as the principal who can assume the role\. 
 
-  1. Account B administrator can then delegate permissions to assume the role to any users in account B\. Doing this allows users in account B to create or access resources in account A\. The principal in the trust policy can also be an AWS service principal if you want to grant an AWS service permissions to assume the role\.
+  1. Account B administrator can then delegate permissions to assume the role to any users in account B\. Doing this allows users in account B to create or access resources in account A\. The principal in the trust policy can also be an Amazon service principal if you want to grant an Amazon service permissions to assume the role\.
 
   For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 

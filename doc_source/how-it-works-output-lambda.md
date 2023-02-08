@@ -1,5 +1,8 @@
 # Using a Lambda Function as Output<a name="how-it-works-output-lambda"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 Using AWS Lambda as a destination allows you to more easily perform post\-processing of your SQL results before sending them to a final destination\. Common post\-processing tasks include the following:
 + Aggregating multiple rows into a single record
 + Combining current results with past results to address late\-arriving data

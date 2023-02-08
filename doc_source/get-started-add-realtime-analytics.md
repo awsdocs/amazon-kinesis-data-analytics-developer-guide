@@ -1,5 +1,8 @@
 # Step 3\.3: Add Real\-Time Analytics \(Add Application Code\)<a name="get-started-add-realtime-analytics"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 You can write your own SQL queries against the in\-application stream, but for the following step you use one of the templates that provides sample code\.
 
 1. On the application hub page, choose **Go to SQL editor**\.   
@@ -9,6 +12,8 @@ You can write your own SQL queries against the in\-application stream, but for t
 
    The console sends a request to start the application \(see [StartApplication](API_StartApplication.md)\), and then the SQL editor page appears\.
 
+   
+
 1. The console opens the SQL editor page\. Review the page, including the buttons \(**Add SQL from templates**, **Save and run SQL**\) and various tabs\.
 
 1. In the SQL editor, choose **Add SQL from templates**\.
@@ -16,6 +21,8 @@ You can write your own SQL queries against the in\-application stream, but for t
 1. From the available template list, choose **Continuous filter**\. The sample code reads data from one in\-application stream \(the `WHERE` clause filters the rows\) and inserts it in another in\-application stream as follows:
    + It creates the in\-application stream `DESTINATION_SQL_STREAM`\.
    + It creates a pump `STREAM_PUMP`, and uses it to select rows from `SOURCE_SQL_STREAM_001` and insert them in the `DESTINATION_SQL_STREAM`\. 
+
+   
 
 1. Choose **Add this SQL to editor**\. 
 
@@ -48,6 +55,8 @@ You can write your own SQL queries against the in\-application stream, but for t
 
          
       + The **Destination** tab shows the external destination where Kinesis Data Analytics writes the query results\. You haven't configured any external destination for your application output yet\.
+
+      
 
 **Next Step**  
 [Step 3\.4: \(Optional\) Update the Application Code](get-started-update-appcode.md)

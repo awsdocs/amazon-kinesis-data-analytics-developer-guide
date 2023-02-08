@@ -13,21 +13,21 @@ Infers a schema by evaluating sample records on the specified streaming source \
 
 ```
 {
-   "[InputProcessingConfiguration](#analytics-DiscoverInputSchema-request-InputProcessingConfiguration)": { 
-      "[InputLambdaProcessor](API_InputProcessingConfiguration.md#analytics-Type-InputProcessingConfiguration-InputLambdaProcessor)": { 
-         "[ResourceARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-ResourceARN)": "string",
-         "[RoleARN](API_InputLambdaProcessor.md#analytics-Type-InputLambdaProcessor-RoleARN)": "string"
+   "InputProcessingConfiguration": { 
+      "InputLambdaProcessor": { 
+         "ResourceARN": "string",
+         "RoleARN": "string"
       }
    },
-   "[InputStartingPositionConfiguration](#analytics-DiscoverInputSchema-request-InputStartingPositionConfiguration)": { 
-      "[InputStartingPosition](API_InputStartingPositionConfiguration.md#analytics-Type-InputStartingPositionConfiguration-InputStartingPosition)": "string"
+   "InputStartingPositionConfiguration": { 
+      "InputStartingPosition": "string"
    },
-   "[ResourceARN](#analytics-DiscoverInputSchema-request-ResourceARN)": "string",
-   "[RoleARN](#analytics-DiscoverInputSchema-request-RoleARN)": "string",
-   "[S3Configuration](#analytics-DiscoverInputSchema-request-S3Configuration)": { 
-      "[BucketARN](API_S3Configuration.md#analytics-Type-S3Configuration-BucketARN)": "string",
-      "[FileKey](API_S3Configuration.md#analytics-Type-S3Configuration-FileKey)": "string",
-      "[RoleARN](API_S3Configuration.md#analytics-Type-S3Configuration-RoleARN)": "string"
+   "ResourceARN": "string",
+   "RoleARN": "string",
+   "S3Configuration": { 
+      "BucketARN": "string",
+      "FileKey": "string",
+      "RoleARN": "string"
    }
 }
 ```
@@ -57,7 +57,7 @@ Required: No
 ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2048\.  
-Pattern: `arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   
+Pattern: `arn:.*`   
 Required: No
 
  ** [S3Configuration](#API_DiscoverInputSchema_RequestSyntax) **   <a name="analytics-DiscoverInputSchema-request-S3Configuration"></a>
@@ -69,33 +69,33 @@ Required: No
 
 ```
 {
-   "[InputSchema](#analytics-DiscoverInputSchema-response-InputSchema)": { 
-      "[RecordColumns](API_SourceSchema.md#analytics-Type-SourceSchema-RecordColumns)": [ 
+   "InputSchema": { 
+      "RecordColumns": [ 
          { 
-            "[Mapping](API_RecordColumn.md#analytics-Type-RecordColumn-Mapping)": "string",
-            "[Name](API_RecordColumn.md#analytics-Type-RecordColumn-Name)": "string",
-            "[SqlType](API_RecordColumn.md#analytics-Type-RecordColumn-SqlType)": "string"
+            "Mapping": "string",
+            "Name": "string",
+            "SqlType": "string"
          }
       ],
-      "[RecordEncoding](API_SourceSchema.md#analytics-Type-SourceSchema-RecordEncoding)": "string",
-      "[RecordFormat](API_SourceSchema.md#analytics-Type-SourceSchema-RecordFormat)": { 
-         "[MappingParameters](API_RecordFormat.md#analytics-Type-RecordFormat-MappingParameters)": { 
-            "[CSVMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-CSVMappingParameters)": { 
-               "[RecordColumnDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordColumnDelimiter)": "string",
-               "[RecordRowDelimiter](API_CSVMappingParameters.md#analytics-Type-CSVMappingParameters-RecordRowDelimiter)": "string"
+      "RecordEncoding": "string",
+      "RecordFormat": { 
+         "MappingParameters": { 
+            "CSVMappingParameters": { 
+               "RecordColumnDelimiter": "string",
+               "RecordRowDelimiter": "string"
             },
-            "[JSONMappingParameters](API_MappingParameters.md#analytics-Type-MappingParameters-JSONMappingParameters)": { 
-               "[RecordRowPath](API_JSONMappingParameters.md#analytics-Type-JSONMappingParameters-RecordRowPath)": "string"
+            "JSONMappingParameters": { 
+               "RecordRowPath": "string"
             }
          },
-         "[RecordFormatType](API_RecordFormat.md#analytics-Type-RecordFormat-RecordFormatType)": "string"
+         "RecordFormatType": "string"
       }
    },
-   "[ParsedInputRecords](#analytics-DiscoverInputSchema-response-ParsedInputRecords)": [ 
+   "ParsedInputRecords": [ 
       [ "string" ]
    ],
-   "[ProcessedInputRecords](#analytics-DiscoverInputSchema-response-ProcessedInputRecords)": [ "string" ],
-   "[RawInputRecords](#analytics-DiscoverInputSchema-response-RawInputRecords)": [ "string" ]
+   "ProcessedInputRecords": [ "string" ],
+   "RawInputRecords": [ "string" ]
 }
 ```
 
@@ -123,20 +123,24 @@ Type: Array of strings
 
 ## Errors<a name="API_DiscoverInputSchema_Errors"></a>
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **ResourceProvisionedThroughputExceededException**   
+ ** ResourceProvisionedThroughputExceededException **   
 Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException\. For more information, see [GetRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference\.  
 HTTP Status Code: 400
 
- **ServiceUnavailableException**   
+ ** ServiceUnavailableException **   
 The service is unavailable\. Back off and retry the operation\.   
 HTTP Status Code: 500
 
- **UnableToDetectSchemaException**   
+ ** UnableToDetectSchemaException **   
 Data format is not valid\. Amazon Kinesis Analytics is not able to detect schema for the given streaming source\.  
+HTTP Status Code: 400
+
+ ** UnsupportedOperationException **   
+The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_DiscoverInputSchema_SeeAlso"></a>
@@ -146,7 +150,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/DiscoverInputSchema) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/DiscoverInputSchema) 

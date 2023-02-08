@@ -1,5 +1,8 @@
 # Step 3\.1: Create an Application<a name="get-started-create-app"></a>
 
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+
 In this section, you create an Amazon Kinesis Data Analytics application\. You configure application input in the next step\.
 
 **To create a data analytics application**
@@ -14,6 +17,8 @@ In this section, you create an Amazon Kinesis Data Analytics application\. You c
    Doing this creates a Kinesis data analytics application with a status of READY\. The console shows the application hub where you can configure input and output\.
 **Note**  
 To create an application, the [CreateApplication](API_CreateApplication.md) operation requires only the application name\. You can add input and output configuration after you create an application in the console\.
+
+   
 
    In the next step, you configure input for the application\. In the input configuration, you add a streaming data source to the application and discover a schema for an in\-application input stream by sampling data on the streaming source\.
 

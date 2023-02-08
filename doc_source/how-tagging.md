@@ -1,10 +1,11 @@
 # Using Tagging<a name="how-tagging"></a>
 
-
+**Warning**  
+For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
 
 This section describes how to add key\-value metadata tags to Kinesis Data Analytics applications\. These tags can be used for the following purposes:
-+ Determining billing for individual Kinesis Data Analytics applications\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management Guide*\.
-+ Controlling access to application resources based on tags\. For more information, see [Controlling Access Using Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *AWS Identity and Access Management User Guide*\.
++ Determining billing for individual Kinesis Data Analytics applications\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management Guide*\.
++ Controlling access to application resources based on tags\. For more information, see [Controlling Access Using Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the * User Guide*\.
 + User\-defined purposes\. You can define application functionality based on the presence of user tags\.
 
 Note the following information about tagging:
@@ -19,7 +20,7 @@ Note the following information about tagging:
 
 ## Adding Tags when an Application is Created<a name="how-tagging-create"></a>
 
-You add tags when creating an application using the `tags` parameter of the [CreateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_CreateApplication.html) action\.
+You add tags when creating an application using the `tags` parameter of the [CreateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html) action\.
 
 The following example request shows the `Tags` node for a `CreateApplication` request:
 
@@ -38,7 +39,7 @@ The following example request shows the `Tags` node for a `CreateApplication` re
 
 ## Adding or Updating Tags for an Existing Application<a name="how-tagging-add"></a>
 
-You add tags to an application using the [TagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_TagResource.html) action\. You cannot add tags to an application using the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) action\.
+You add tags to an application using the [TagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_TagResource.html) action\. You cannot add tags to an application using the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html) action\.
 
 To update an existing tag, add a tag with the same key of the existing tag\.
 
@@ -62,7 +63,7 @@ The following example request for the `TagResource` action adds new tags or upda
 
 ## Listing Tags for an Application<a name="how-tagging-list"></a>
 
-To list existing tags, you use the [ListTagsForResource](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_ListTagsForResource.html) action\.
+To list existing tags, you use the [ListTagsForResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListTagsForResource.html) action\.
 
 The following example request for the `ListTagsForResource` action lists tags for an application:
 
@@ -74,9 +75,9 @@ The following example request for the `ListTagsForResource` action lists tags fo
 
 ## Removing Tags from an Application<a name="how-tagging-remove"></a>
 
-To remove tags from an application, you use the [UntagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UntagResource.html) action\.
+To remove tags from an application, you use the [UntagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UntagResource.html) action\.
 
-The following example request for the `UntagResource` action removess tags from an application:
+The following example request for the `UntagResource` action removes tags from an application:
 
 ```
 {

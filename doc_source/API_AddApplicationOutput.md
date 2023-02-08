@@ -19,25 +19,25 @@ This operation requires permissions to perform the `kinesisanalytics:AddApplicat
 
 ```
 {
-   "[ApplicationName](#analytics-AddApplicationOutput-request-ApplicationName)": "string",
-   "[CurrentApplicationVersionId](#analytics-AddApplicationOutput-request-CurrentApplicationVersionId)": number,
-   "[Output](#analytics-AddApplicationOutput-request-Output)": { 
-      "[DestinationSchema](API_Output.md#analytics-Type-Output-DestinationSchema)": { 
-         "[RecordFormatType](API_DestinationSchema.md#analytics-Type-DestinationSchema-RecordFormatType)": "string"
+   "ApplicationName": "string",
+   "CurrentApplicationVersionId": number,
+   "Output": { 
+      "DestinationSchema": { 
+         "RecordFormatType": "string"
       },
-      "[KinesisFirehoseOutput](API_Output.md#analytics-Type-Output-KinesisFirehoseOutput)": { 
-         "[ResourceARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-ResourceARN)": "string",
-         "[RoleARN](API_KinesisFirehoseOutput.md#analytics-Type-KinesisFirehoseOutput-RoleARN)": "string"
+      "KinesisFirehoseOutput": { 
+         "ResourceARN": "string",
+         "RoleARN": "string"
       },
-      "[KinesisStreamsOutput](API_Output.md#analytics-Type-Output-KinesisStreamsOutput)": { 
-         "[ResourceARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-ResourceARN)": "string",
-         "[RoleARN](API_KinesisStreamsOutput.md#analytics-Type-KinesisStreamsOutput-RoleARN)": "string"
+      "KinesisStreamsOutput": { 
+         "ResourceARN": "string",
+         "RoleARN": "string"
       },
-      "[LambdaOutput](API_Output.md#analytics-Type-Output-LambdaOutput)": { 
-         "[ResourceARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-ResourceARN)": "string",
-         "[RoleARN](API_LambdaOutput.md#analytics-Type-LambdaOutput-RoleARN)": "string"
+      "LambdaOutput": { 
+         "ResourceARN": "string",
+         "RoleARN": "string"
       },
-      "[Name](API_Output.md#analytics-Type-Output-Name)": "string"
+      "Name": "string"
    }
 }
 ```
@@ -70,23 +70,23 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_AddApplicationOutput_Errors"></a>
 
- **ConcurrentModificationException**   
+ ** ConcurrentModificationException **   
 Exception thrown as a result of concurrent modification to an application\. For example, two individuals attempting to edit the same application at the same time\.  
 HTTP Status Code: 400
 
- **InvalidArgumentException**   
+ ** InvalidArgumentException **   
 Specified input parameter value is invalid\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 Application is not available for this operation\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Specified application can't be found\.  
 HTTP Status Code: 400
 
- **UnsupportedOperationException**   
+ ** UnsupportedOperationException **   
 The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation\.   
 HTTP Status Code: 400
 
@@ -97,7 +97,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/kinesisanalytics-2015-08-14/AddApplicationOutput) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/AddApplicationOutput) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/kinesisanalytics-2015-08-14/AddApplicationOutput) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/kinesisanalytics-2015-08-14/AddApplicationOutput) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/AddApplicationOutput) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/kinesisanalytics-2015-08-14/AddApplicationOutput) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/kinesisanalytics-2015-08-14/AddApplicationOutput) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/kinesisanalytics-2015-08-14/AddApplicationOutput) 
