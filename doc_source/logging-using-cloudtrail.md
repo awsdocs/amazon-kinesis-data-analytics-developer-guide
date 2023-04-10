@@ -14,7 +14,7 @@ For an ongoing record of events in your AWS account, including events for Kinesi
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-All Kinesis Data Analytics actions are logged by CloudTrail and are documented in the [Kinesis Data Analytics API reference](/kinesisanalytics/latest/apiv2/Welcome.html)\. For example, calls to the  `[CreateApplication](/kinesisanalytics/latest/dev/API_CreateApplication.html)` and ` [UpdateApplication](/kinesisanalytics/latest/dev/API_UpdateApplication.html)` actions generate entries in the CloudTrail log files\. 
+All Kinesis Data Analytics actions are logged by CloudTrail and are documented in the [Kinesis Data Analytics API reference](/kinesisanalytics/latest/apiv2/Welcome.html)\. For example, calls to the  `[CreateApplication](/kinesisanalytics/latest/apiv2/API_CreateApplication.html)` and ` [UpdateApplication](/kinesisanalytics/latest/apiv2/API_UpdateApplication.html)` actions generate entries in the CloudTrail log files\. 
 
 Every event or log entry contains information about who generated the request\. The identity information helps you determine the following: 
 + Whether the request was made with root or AWS Identity and Access Management \(IAM\) user credentials\.
@@ -27,7 +27,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 
-The following example shows a CloudTrail log entry that demonstrates the [AddApplicationCloudWatchLoggingOption](/kinesisanalytics/latest/dev/API_AddApplicationCloudWatchLoggingOption.html) and [DescribeApplication](/kinesisanalytics/latest/dev/API_DescribeApplication.html) actions\.
+The following example shows a CloudTrail log entry that demonstrates the [AddApplicationCloudWatchLoggingOption](/kinesisanalytics/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.html) and [DescribeApplication](/kinesisanalytics/latest/apiv2/API_DescribeApplication.html) actions\.
 
 ```
 {
@@ -42,26 +42,34 @@ The following example shows a CloudTrail log entry that demonstrates the [AddApp
                 "accessKeyId": "EXAMPLE_KEY_ID",
                 "userName": "Alice"
             },
-            "eventTime": "2019-03-14T01:03:00Z",
+            "eventTime": "2019-03-07T01:19:47Z",
             "eventSource": "kinesisanalytics.amazonaws.com",
             "eventName": "AddApplicationCloudWatchLoggingOption",
             "awsRegion": "us-east-1",
             "sourceIPAddress": "127.0.0.1",
             "userAgent": "aws-sdk-java/unknown-version Linux/x.xx",
             "requestParameters": {
+                "applicationName": "cloudtrail-test",
                 "currentApplicationVersionId": 1,
                 "cloudWatchLoggingOption": {
-                    "roleARN": "arn:aws:iam::012345678910:role/cloudtrail_test",
-                    "logStreamARN": "arn:aws:logs:us-east-1:012345678910:log-group:cloudtrail-test:log-stream:sql-cloudwatch"
-                },
-                "applicationName": "cloudtrail-test"
+                    "logStreamARN": "arn:aws:logs:us-east-1:012345678910:log-group:cloudtrail-test:log-stream:flink-cloudwatch"
+                }
             },
-            "responseElements": null,
-            "requestID": "e897cd34-45f4-11e9-8912-e52573a36cd9",
-            "eventID": "57fe50e9-c764-47c3-a0aa-d0c271fa1cbb",
+            "responseElements": {
+                "cloudWatchLoggingOptionDescriptions": [
+                    {
+                        "cloudWatchLoggingOptionId": "2.1",
+                        "logStreamARN": "arn:aws:logs:us-east-1:012345678910:log-group:cloudtrail-test:log-stream:flink-cloudwatch"
+                    }
+                ],
+                "applicationVersionId": 2,
+                "applicationARN": "arn:aws:kinesisanalytics:us-east-1:012345678910:application/cloudtrail-test"
+            },
+            "requestID": "18dfb315-4077-11e9-afd3-67f7af21e34f",
+            "eventID": "d3c9e467-db1d-4cab-a628-c21258385124",
             "eventType": "AwsApiCall",
-            "apiVersion": "2015-08-14",
-            "recipientAccountId": "303967445486"
+            "apiVersion": "2018-05-23",
+            "recipientAccountId": "012345678910"
         },
         {
             "eventVersion": "1.05",
@@ -73,20 +81,20 @@ The following example shows a CloudTrail log entry that demonstrates the [AddApp
                 "accessKeyId": "EXAMPLE_KEY_ID",
                 "userName": "Alice"
             },
-            "eventTime": "2019-03-14T05:37:20Z",
+            "eventTime": "2019-03-12T02:40:48Z",
             "eventSource": "kinesisanalytics.amazonaws.com",
             "eventName": "DescribeApplication",
             "awsRegion": "us-east-1",
             "sourceIPAddress": "127.0.0.1",
             "userAgent": "aws-sdk-java/unknown-version Linux/x.xx",
             "requestParameters": {
-                "applicationName": "cloudtrail-test"
+                "applicationName": "sample-app"
             },
             "responseElements": null,
-            "requestID": "3b74eb29-461b-11e9-a645-fb677e53d147",
-            "eventID": "750d0def-17b6-4c20-ba45-06d9d45e87ee",
+            "requestID": "3e82dc3e-4470-11e9-9d01-e789c4e9a3ca",
+            "eventID": "90ffe8e4-9e47-48c9-84e1-4f2d427d98a5",
             "eventType": "AwsApiCall",
-            "apiVersion": "2015-08-14",
+            "apiVersion": "2018-05-23",
             "recipientAccountId": "012345678910"
         }
     ]

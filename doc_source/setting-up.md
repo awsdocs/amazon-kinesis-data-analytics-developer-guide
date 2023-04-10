@@ -1,20 +1,12 @@
 # Step 1: Set Up an AWS Account and Create an Administrator User<a name="setting-up"></a>
 
-Before you use Amazon Kinesis Data Analytics for the first time, complete the following tasks:
+Before you use Kinesis Data Analytics for the first time, complete the following tasks:
 
-1. [Sign Up for AWS](#setting-up-signup)
+## Sign up for an AWS account<a name="sign-up-for-aws"></a>
 
-1. [Create an IAM User](#setting-up-iam)
+If you do not have an AWS account, complete the following steps to create one\.
 
-## Sign Up for AWS<a name="setting-up-signup"></a>
-
-When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all services in AWS, including Amazon Kinesis Data Analytics\. You are charged only for the services that you use\.
-
-With Kinesis Data Analytics, you pay only for the resources you use\.  If you are a new AWS customer, you can get started with Kinesis Data Analytics for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
-
-If you already have an AWS account, skip to the next task\. If you don't have an AWS account, perform the steps in the following procedure to create one\.
-
-**To create an AWS account**
+**To sign up for an AWS account**
 
 1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
 
@@ -22,26 +14,48 @@ If you already have an AWS account, skip to the next task\. If you don't have an
 
    Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-Note your AWS account ID because you'll need it for the next task\.
+   When you sign up for an AWS account, an *AWS account root user* is created\. The root user has access to all AWS services and resources in the account\. As a security best practice, [assign administrative access to an administrative user](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html), and use only the root user to perform [tasks that require root user access](https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html)\.
 
-## Create an IAM User<a name="setting-up-iam"></a>
+AWS sends you a confirmation email after the sign\-up process is complete\. At any time, you can view your current account activity and manage your account by going to [https://aws\.amazon\.com/](https://aws.amazon.com/) and choosing **My Account**\.
 
-Services in AWS, such as Amazon Kinesis Data Analytics, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service\. The console requires your password\. You can create access keys for your AWS account to access the AWS CLI or API\. However, we don't recommend that you access AWS using the credentials for your AWS account\. Instead, we recommend that you use AWS Identity and Access Management \(IAM\)\. Create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user that you created\. You can then access AWS using a special URL and that IAM user's credentials\.
+## Create an administrative user<a name="create-an-admin"></a>
 
-If you signed up for AWS, but you haven't created an IAM user for yourself, you can create one using the IAM console\.
+After you sign up for an AWS account, create an administrative user so that you don't use the root user for everyday tasks\.
 
-The Getting Started exercises in this guide assume that you have a user \(`adminuser`\) with administrator privileges\. Follow the procedure to create `adminuser` in your account\.
+**Secure your AWS account root user**
 
-**To create an administrator user and sign in to the console**
+1.  Sign in to the [AWS Management Console](https://console.aws.amazon.com/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
 
-1. Create an administrator user called `adminuser` in your AWS account\. For instructions, see [Creating Your First IAM User and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+   For help signing in by using root user, see [Signing in as the root user](https://docs.aws.amazon.com/signin/latest/userguide/console-sign-in-tutorials.html#introduction-to-root-user-sign-in-tutorial) in the *AWS Sign\-In User Guide*\.
 
-1. A user can sign in to the AWS Management Console using a special URL\. For more information, [How Users Sign In to Your Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_how-users-sign-in.html) in the *IAM User Guide*\.
+1. Turn on multi\-factor authentication \(MFA\) for your root user\.
 
-For more information about IAM, see the following:
-+ [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)
-+ [Getting Started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
-+ [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
+   For instructions, see [Enable a virtual MFA device for your AWS account root user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html#enable-virt-mfa-for-root) in the *IAM User Guide*\.
+
+**Create an administrative user**
++ For your daily administrative tasks, grant administrative access to an administrative user in AWS IAM Identity Center \(successor to AWS Single Sign\-On\)\.
+
+  For instructions, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
+
+**Sign in as the administrative user**
++ To sign in with your IAM Identity Center user, use the sign\-in URL that was sent to your email address when you created the IAM Identity Center user\.
+
+  For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](https://docs.aws.amazon.com/signin/latest/userguide/iam-id-center-sign-in-tutorial.html) in the *AWS Sign\-In User Guide*\.
+
+## Grant programmatic access<a name="setting-up-access"></a>
+
+Users need programmatic access if they want to interact with AWS outside of the AWS Management Console\. The way to grant programmatic access depends on the type of user that's accessing AWS\.
+
+To grant users programmatic access, choose one of the following options\.
+
+
+****  
+
+| Which user needs programmatic access? | To | By | 
+| --- | --- | --- | 
+|  Workforce identity \(Users managed in IAM Identity Center\)  | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/setting-up.html)  | 
+| IAM | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. | Following the instructions in [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the IAM User Guide\. | 
+| IAM | \(Not recommended\)Use long\-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/setting-up.html)  | 
 
 ## Next Step<a name="setting-up-next-step-2"></a>
 
