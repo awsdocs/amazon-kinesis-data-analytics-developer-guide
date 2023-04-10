@@ -9,7 +9,7 @@ If checkpoints fail for your application, the `numberOfFailedCheckpoints` will b
 Checkpoints can fail due to either direct failures, such as application errors, or due to transient failures, such as running out of application resources\. Check your application logs and metrics for the following symptoms:
 + Errors in your code\.
 + Errors accessing your application's dependent services\.
-+ Errors serializing data\. If the default serializer can't serialize your application data, the application will fail\. For information about using a custom serializer in your application, see [Custom Serializers](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/custom_serializers.html) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
++ Errors serializing data\. If the default serializer can't serialize your application data, the application will fail\. For information about using a custom serializer in your application, see [Custom Serializers](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/custom_serializers.html) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 + Out of Memory errors\.
 + Spikes or steady increases in the following metrics:
   + `heapMemoryUtilization`
@@ -18,7 +18,7 @@ Checkpoints can fail due to either direct failures, such as application errors, 
   + `lastCheckpointSize`
   + `lastCheckpointDuration`
 
-For more information about monitoring checkpoints, see [Monitoring Checkpointing](https://ci.apache.org/projects/flink/flink-docs-release-1.11/monitoring/checkpoint_monitoring.html) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about monitoring checkpoints, see [Monitoring Checkpointing](https://nightlies.apache.org/flink/flink-docs-release-1.15/monitoring/checkpoint_monitoring.html) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Causes and Solutions<a name="troubleshooting-chk-timeout-causes"></a>
 

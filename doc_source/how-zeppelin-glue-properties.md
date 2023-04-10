@@ -14,15 +14,15 @@ To add a property to an AWS Glue table, do the following:
 
 ## Using Apache Flink time values<a name="how-zeppelin-glue-timestamp"></a>
 
-Apache Flink provides time values that describe when stream processing events occured, such as [ Processing Time](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/streaming/time_attributes.html#processing-time) and [ Event Time](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/streaming/time_attributes.html#event-time)\. To include these values in your application output, you define properties on your AWS Glue table that tell the Kinesis Data Analytics runtime to emit these values into the specified fields\. 
+Apache Flink provides time values that describe when stream processing events occured, such as [ Processing Time](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/streaming/time_attributes.html#processing-time) and [ Event Time](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/streaming/time_attributes.html#event-time)\. To include these values in your application output, you define properties on your AWS Glue table that tell the Kinesis Data Analytics runtime to emit these values into the specified fields\. 
 
 The keys and values you use in your table properties are as follows:
 
 
 | Timestamp Type | Key | Value | 
 | --- |--- |--- |
-| [ Processing Time](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/streaming/time_attributes.html#processing-time) | kinesisanalytics\.proctime | The column name that AWS Glue will use to expose the value\. This column name does not correspond to an existing table column\. | 
-| [ Event Time](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/streaming/time_attributes.html#event-time) | kinesisanalytics\.rowtime | The column name that AWS Glue will use to expose the value\. This column name corresponds to an existing table column\. | 
+| [ Processing Time](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/streaming/time_attributes.html#processing-time) | kinesisanalytics\.proctime | The column name that AWS Glue will use to expose the value\. This column name does not correspond to an existing table column\. | 
+| [ Event Time](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/streaming/time_attributes.html#event-time) | kinesisanalytics\.rowtime | The column name that AWS Glue will use to expose the value\. This column name corresponds to an existing table column\. | 
 | kinesisanalytics\.watermark\.*column\_name*\.milliseconds | The watermark interval in milliseconds | 
 
 ## Using Flink Connector and format properties<a name="how-zeppelin-glue-connector"></a>
@@ -32,7 +32,7 @@ You provide information about your data sources to your application's Flink conn
 
 | Connector Type | Key | Value | 
 | --- |--- |--- |
-| [ Kafka](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/connectors/kafka.html#connector-options) | format | The format used to deserialize and serialize Kafka messages, e\.g\. json or csv\. | 
+| [ Kafka](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/kafka.html#connector-options) | format | The format used to deserialize and serialize Kafka messages, e\.g\. json or csv\. | 
 | scan\.startup\.mode | The startup mode for the Kafka consumer, e\.g\. earliest\-offset or timestamp\. | 
 | [ Kinesis](https://ci.apache.org/projects/flink/flink-docs-release-1.12/dev/table/connectors/kinesis.html#connector-options) | format | The format used to deserialize and serialize Kinesis data stream records, e\.g\. json or csv\. | 
 | aws\.region | The AWS region where the stream is defined\.  | 

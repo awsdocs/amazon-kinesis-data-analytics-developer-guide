@@ -153,7 +153,7 @@ In this section, you use the Apache Maven compiler to create the Java code for t
    + Use the command\-line Maven tool\. Create your JAR file by running the following command in the directory that contains the `pom.xml` file:
 
      ```
-     mvn package -Dflink.version=1.15.2
+     mvn package -Dflink.version=1.15.3
      ```
    + Use your development environment\. See your development environment documentation for details\.
 **Note**  

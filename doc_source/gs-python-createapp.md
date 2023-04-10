@@ -72,7 +72,8 @@ aws configure
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    import datetime
+    
+       import datetime
        import json
        import random
        import boto3

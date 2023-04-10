@@ -44,7 +44,7 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-   import datetime
+       import datetime
        import json
        import random
        import boto3
@@ -124,7 +124,7 @@ The application code is located in the `S3StreamingSinkJob.java` file\. Note the
   ```
 
 **Note**  
-The application uses a Flink `StreamingFileSink` object to write to Amazon S3\. For more information about the `StreamingFileSink`, see [StreamingFileSink](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/connectors/streamfile_sink.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+The application uses a Flink `StreamingFileSink` object to write to Amazon S3\. For more information about the `StreamingFileSink`, see [StreamingFileSink](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/connectors/streamfile_sink.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Modify the Application Code<a name="examples-s3-modify"></a>
 
@@ -145,7 +145,7 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 
 Compiling the application creates the application JAR file \(`target/aws-kinesis-analytics-java-apps-1.0.jar`\)\.
@@ -353,9 +353,9 @@ To customize the folder names created in the S3 bucket, do the following:
    }
    ```
 
-The preceding code example uses the `DateTimeBucketAssigner` with a custom date format to create folders in the S3 bucket\. The `DateTimeBucketAssigner` uses the current system time to create bucket names\. If you want to create a custom bucket assigner to further customize the created folder names, you can create a class that implements [BucketAssigner](https://ci.apache.org/projects/flink/flink-docs-release-1.11/api/java/org/apache/flink/streaming/api/functions/sink/filesystem/BucketAssigner.html)\. You implement your custom logic by using the `getBucketId` method\.
+The preceding code example uses the `DateTimeBucketAssigner` with a custom date format to create folders in the S3 bucket\. The `DateTimeBucketAssigner` uses the current system time to create bucket names\. If you want to create a custom bucket assigner to further customize the created folder names, you can create a class that implements [BucketAssigner](https://nightlies.apache.org/flink/flink-docs-release-1.15/api/java/org/apache/flink/streaming/api/functions/sink/filesystem/BucketAssigner.html)\. You implement your custom logic by using the `getBucketId` method\.
 
-A custom implementation of `BucketAssigner` can use the [Context](https://ci.apache.org/projects/flink/flink-docs-release-1.11/api/java/org/apache/flink/streaming/api/functions/sink/filesystem/BucketAssigner.Context.html) parameter to obtain more information about a record in order to determine its destination folder\.
+A custom implementation of `BucketAssigner` can use the [Context](https://nightlies.apache.org/flink/flink-docs-release-1.15/api/java/org/apache/flink/streaming/api/functions/sink/filesystem/BucketAssigner.Context.html) parameter to obtain more information about a record in order to determine its destination folder\.
 
 ### Configure Read Frequency<a name="examples-s3-configure-read"></a>
 
@@ -428,7 +428,7 @@ To configure the `DefaultRollingPolicy` object, do the following:
 
    The preceding code example sets the frequency of writes to the Amazon S3 bucket to 8 minutes\.
 
-For more information about configuring the Apache Flink streaming file sink, see [Row\-encoded Formats](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/connectors/streamfile_sink.html#row-encoded-formats) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about configuring the Apache Flink streaming file sink, see [Row\-encoded Formats](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/connectors/streamfile_sink.html#row-encoded-formats) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Clean Up AWS Resources<a name="examples-s3-cleanup"></a>
 

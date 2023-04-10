@@ -1,9 +1,10 @@
-# Security Best Practices for Kinesis Data Analytics<a name="security-best-practices"></a>
-
-**Warning**  
-For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
+# Security Best Practices for Kinesis Data Analytics for Apache Flink<a name="security-best-practices"></a>
 
 Amazon Kinesis Data Analytics provides a number of security features to consider as you develop and implement your own security policies\. The following best practices are general guidelines and don’t represent a complete security solution\. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions\. 
+
+## Implement least privilege access<a name="security-best-practices-privileges"></a>
+
+When granting permissions, you decide who is getting what permissions to which Kinesis Data Analytics resources\. You enable specific actions that you want to allow on those resources\. Therefore you should grant only the permissions that are required to perform a task\. Implementing least privilege access is fundamental in reducing security risk and the impact that could result from errors or malicious intent\. 
 
 ## Use IAM roles to access other Amazon services<a name="security-best-practices-roles"></a>
 

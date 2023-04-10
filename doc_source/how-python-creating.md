@@ -10,7 +10,7 @@ When you create your application using the [CreateApplication](https://docs.aws.
 + **pyFiles**: A Python resource file containing resources to be used by the application\.
 + **pyArchives**: A zip file containing resource files for the application\.
 
-For more information about Apache Flink Python code file types, see [ Command Line Usage](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/cli.html#usage) in the [ Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about Apache Flink Python code file types, see [ Command Line Usage](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/cli.html#usage) in the [ Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 **Note**  
 Kinesis Data Analytics does not support the `pyModule`, `pyExecutable`, or `pyRequirements` file types\. All of the code, requirements, and dependencies must be in your zip file\. You can't specify dependencies to be installed using pip\. 

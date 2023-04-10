@@ -217,4 +217,4 @@ In this section, you use your Studio notebook to query data from your Kinesis da
 
 To open the Apache Flink Dashboard for your application to view operational aspects, choose **FLINK JOB**\. For more information about the Flink Dashboard, see [Apache Flink Dashboard](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-dashboard.html) in the [Kinesis Data Analytics Developer Guide](https://docs.aws.amazon.com/)\.
 
-For more examples of Flink Streaming SQL queries, see [Queries](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/queries.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more examples of Flink Streaming SQL queries, see [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.

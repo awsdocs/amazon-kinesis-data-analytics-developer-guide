@@ -19,7 +19,7 @@ For more information about application parallelism, see [ScalingProduction readi
 
 ## Apache Flink Application Resources<a name="how-resources-flink"></a>
 
-The Apache Flink environment allocates resources for your application using units called **task slots**\. When Kinesis Data Analytics allocates resources for your application, it assigns one or more Apache Flink task slots to a single KPU\. The number of slots assigned to a single KPU is equal to your application's `ParallelismPerKPU` setting\. For more information about task slots, see [ Job Scheduling](https://ci.apache.org/projects/flink/flink-docs-release-1.11/internals/job_scheduling.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+The Apache Flink environment allocates resources for your application using units called **task slots**\. When Kinesis Data Analytics allocates resources for your application, it assigns one or more Apache Flink task slots to a single KPU\. The number of slots assigned to a single KPU is equal to your application's `ParallelismPerKPU` setting\. For more information about task slots, see [ Job Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ### Operator Parallelism<a name="how-resources-flink-operatorparallelism"></a>
 
@@ -27,7 +27,7 @@ You can set the maximum number of subtasks that an operator can use\. This value
 
 You can set the parallelism of the operators in your application using the `setParallelism` method\. Using this method, you can control the number of subtasks each operator can use at one time\.
 
-For more information about operator chaining, see [ Task chaining and resource groups](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/stream/operators/#task-chaining-and-resource-groups) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about operator chaining, see [ Task chaining and resource groups](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/#task-chaining-and-resource-groups) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ### Operator Chaining<a name="how-resources-flink-operatorchaining"></a>
 

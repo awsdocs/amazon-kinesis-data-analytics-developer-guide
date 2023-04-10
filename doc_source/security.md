@@ -1,8 +1,5 @@
 # Security in Amazon Kinesis Data Analytics<a name="security"></a>
 
-**Warning**  
-For new projects, we recommend that you use the new Kinesis Data Analytics Studio over Kinesis Data Analytics for SQL Applications\. Kinesis Data Analytics Studio combines ease of use with advanced analytical capabilities, enabling you to build sophisticated stream processing applications in minutes\.
-
 Cloud security at AWS is the highest priority\. As an AWS customer, you will benefit from a data center and network architecture built to meet the requirements of the most security\-sensitive organizations\.
 
 Security is a shared responsibility between AWS and you\. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) describes this as security *of* the cloud and security *in* the cloud:
@@ -12,11 +9,10 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Kinesis Data Analytics\. The following topics show you how to configure Kinesis Data Analytics to meet your security and compliance objectives\. You'll also learn how to use other Amazon services that can help you to monitor and secure your Kinesis Data Analytics resources\. 
 
 **Topics**
-+ [Data Protection in Amazon Kinesis Data Analytics for SQL Applications](data-protection.md)
-+ [Identity and Access Management in Kinesis Data Analytics](iam-role.md)
-+ [Authentication and Access Control for Amazon Kinesis Data Analytics](authentication-and-access-control.md)
++ [Data Protection in Amazon Kinesis Data Analytics for Apache Flink](data-protection.md)
++ [Identity and Access Management for Amazon Kinesis Data Analytics](security-iam.md)
 + [Monitoring Amazon Kinesis Data Analytics](security-monitoring.md)
-+ [Compliance Validation for Amazon Kinesis Data Analytics for SQL Applications](akda-java-compliance.md)
-+ [Resilience in Amazon Kinesis Data Analytics](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in Kinesis Data Analytics for SQL Applications](infrastructure-security.md)
-+ [Security Best Practices for Kinesis Data Analytics](security-best-practices.md)
++ [Compliance Validation for Amazon Kinesis Data Analytics for Apache Flink](akda-java-compliance.md)
++ [Resilience in Amazon Kinesis Data Analytics for Apache Flink](disaster-recovery-resiliency.md)
++ [Infrastructure Security in Kinesis Data Analytics for Apache Flink](infrastructure-security.md)
++ [Security Best Practices for Kinesis Data Analytics for Apache Flink](security-best-practices.md)

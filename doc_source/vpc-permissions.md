@@ -1,6 +1,6 @@
 # VPC Application Permissions<a name="vpc-permissions"></a>
 
-This section describes the permission policies your application will need to work with your VPC\. For more information about using permissions policies, see [Identity and Access Management](how-iam.md)\.
+This section describes the permission policies your application will need to work with your VPC\. For more information about using permissions policies, see [Identity and Access Management for Amazon Kinesis Data Analytics](security-iam.md)\.
 
 The following permissions policy grants your application the necessary permissions to interact with a VPC\. To use this permission policy, add it to your application's execution role\.
 

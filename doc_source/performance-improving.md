@@ -63,4 +63,4 @@ Failures in other services can cause failures in your application\. If you are s
 
 To troubleshoot memory issues, you can run your application in a local Flink installation\. This will give you access to debugging tools such as the stack trace and heap dumps that are not available when running your application in Kinesis Data Analytics\.
 
-For information about creating a local Flink installation, see [ Local Setup Tutorial](https://ci.apache.org/projects/flink/flink-docs-release-1.11/tutorials/local_setup.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For information about creating a local Flink installation, see [ Local Setup Tutorial](https://nightlies.apache.org/flink/flink-docs-release-1.15/tutorials/local_setup.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.

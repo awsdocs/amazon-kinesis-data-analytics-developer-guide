@@ -2,7 +2,7 @@
 
 Checkpointing is the method that is used for implementing fault tolerance in Amazon Kinesis Data Analytics for Apache Flink\. A *checkpoint* is an up\-to\-date backup of a running application that is used to recover immediately from an unexpected application disruption or failover\. 
 
-For details on checkpointing in Apache Flink applications, see [Checkpoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/checkpoints.html) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For details on checkpointing in Apache Flink applications, see [Checkpoints](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/state/checkpoints.html) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 A *snapshot* is a manually created and managed backup of application state\. Snapshots let you restore your application to a previous state by calling [https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html)\. For more information, see [Managing Application Backups Using Snapshots](how-fault-snapshot.md)\.
 

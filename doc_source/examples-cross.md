@@ -314,7 +314,7 @@ Do the following to update and run the application:
 1. Build the application again by running the following command in the directory with the `pom.xml` file\.
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 
 1. Delete the previous JAR file from your Amazon Simple Storage Service \(Amazon S3\) bucket, and then upload the new `aws-kinesis-analytics-java-apps-1.0.jar` file to the S3 bucket\.

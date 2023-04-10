@@ -4,7 +4,7 @@ This topic contains information about running an Amazon Kinesis Data Analytics f
 
 When you run your Kinesis Data Analytics application, the Kinesis Data Analytics service creates an Apache Flink job\. An Apache Flink job is the execution lifecycle of your Kinesis Data Analytics application\. The execution of the job, and the resources it uses, are managed by the Job Manager\. The Job Manager separates the execution of the application into tasks\. Each task is managed by a Task Manager\. When you monitor your application's performance, you can examine the performance of each Task Manager, or of the Job Manager as a whole\. 
 
-For information about Apache Flink jobs, see [Jobs and Scheduling](https://ci.apache.org/projects/flink/flink-docs-release-1.11/internals/job_scheduling.html) in the *[Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.*
+For information about Apache Flink jobs, see [Jobs and Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html) in the *[Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.*
 
 ## Application and Job Status<a name="how-running-job-status"></a>
 

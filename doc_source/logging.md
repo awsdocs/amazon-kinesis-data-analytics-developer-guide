@@ -14,4 +14,4 @@ fields @timestamp, @message
 | sort @timestamp desc
 ```
 
-For other useful queries, see [Example Queries](https://docs.aws.amazon.com/cloudwatch-logs-reading.html#cloudwatch-logs-reading-examples)\.
+For other useful queries, see [Example Queries](https://docs.aws.amazon.com/kinesisanalytics/latest/java/cloudwatch-logs-reading.html#cloudwatch-logs-reading-examples)\.

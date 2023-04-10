@@ -94,7 +94,7 @@ The Java application code for this example is available from GitHub\. To downloa
 1. Use either the command line Maven tool or your preferred development environment to create the JAR file\. To compile the JAR file using the command line Maven tool, enter the following:
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 
    If the build is successful, the following file is created:

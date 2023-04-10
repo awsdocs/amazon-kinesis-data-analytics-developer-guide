@@ -4,7 +4,7 @@ In this exercise, you create a Kinesis Data Analytics application that reads fro
 
 For more information about using EFO with the Kinesis consumer, see [ FLIP\-128: Enhanced Fan Out for Kinesis Consumers](https://cwiki.apache.org/confluence/display/FLINK/FLIP-128%3A+Enhanced+Fan+Out+for+AWS+Kinesis+Consumers)\.
 
-The application you create in this example uses AWS Kinesis Connector \(flink\-connector\-kinesis\) 1\.15\.2\.
+The application you create in this example uses AWS Kinesis Connector \(flink\-connector\-kinesis\) 1\.15\.3\.
 
 **Note**  
 To set up required prerequisites for this exercise, first complete the [Getting Started \(DataStream API\)](getting-started.md) exercise\.
@@ -38,7 +38,8 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-    import datetime
+    
+       import datetime
        import json
        import random
        import boto3
@@ -109,7 +110,7 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 **Note**  
 The provided source code relies on libraries from Java 11\. 

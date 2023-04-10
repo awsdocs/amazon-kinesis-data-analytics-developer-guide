@@ -49,7 +49,7 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-   import datetime
+       import datetime
        import json
        import random
        import boto3

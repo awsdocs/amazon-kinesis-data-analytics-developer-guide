@@ -1,6 +1,4 @@
-# Step 1: Set Up an AWS Account and Create an Administrator User<a name="setting-up"></a>
-
-Before you use Kinesis Data Analytics for the first time, complete the following tasks:
+# Step 1: Set Up an AWS Account and Create an Administrator User<a name="earlier-gs-1_6-setting-up"></a>
 
 ## Sign up for an AWS account<a name="sign-up-for-aws"></a>
 
@@ -42,7 +40,7 @@ After you sign up for an AWS account, create an administrative user so that you 
 
   For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](https://docs.aws.amazon.com/signin/latest/userguide/iam-id-center-sign-in-tutorial.html) in the *AWS Sign\-In User Guide*\.
 
-## Grant programmatic access<a name="setting-up-access"></a>
+## Grant programmatic access<a name="setting-up-access-gs-6"></a>
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console\. The way to grant programmatic access depends on the type of user that's accessing AWS\.
 
@@ -53,10 +51,6 @@ To grant users programmatic access, choose one of the following options\.
 
 | Which user needs programmatic access? | To | By | 
 | --- | --- | --- | 
-|  Workforce identity \(Users managed in IAM Identity Center\)  | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/setting-up.html)  | 
+|  Workforce identity \(Users managed in IAM Identity Center\)  | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_6-setting-up.html)  | 
 | IAM | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. | Following the instructions in [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the IAM User Guide\. | 
-| IAM | \(Not recommended\)Use long\-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/setting-up.html)  | 
-
-## Next Step<a name="setting-up-next-step-2"></a>
-
-[Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli.md)
+| IAM | \(Not recommended\)Use long\-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_6-setting-up.html)  | 

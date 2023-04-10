@@ -1,6 +1,6 @@
 # Adding Streaming Data Sources to Kinesis Data Analytics for Apache Flink<a name="how-sources"></a>
 
-Apache Flink provides connectors for reading from files, sockets, collections, and custom sources\. In your application code, you use an [Apache Flink source](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/datastream_api.html#data-sources) to receive data from a stream\. This section describes the sources that are available for Amazon services\.
+Apache Flink provides connectors for reading from files, sockets, collections, and custom sources\. In your application code, you use an [Apache Flink source](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/datastream_api.html#data-sources) to receive data from a stream\. This section describes the sources that are available for Amazon services\.
 
 ## Kinesis Data Streams<a name="input-streams"></a>
 

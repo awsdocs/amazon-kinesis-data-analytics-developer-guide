@@ -1,12 +1,9 @@
 # Earlier Version Information for Kinesis Data Analytics for Apache Flink<a name="earlier"></a>
 
-**Note**  
-In new Regions, we support only the latest Flink version at the time of service availability and beyond\.
-
 This topic contains information about using Kinesis Data Analytics with older versions of Apache Flink\. The versions of Apache Flink that Kinesis Data Analytics supports are **1\.15\.2** \(recommended\), **1\.13\.2**, **1\.11\.1**, **1\.8\.2** and **1\.6\.2**\.
 
 We recommend that you use the latest supported version of Apache Flink with your Kinesis Data Analytics application\. Apache Flink version 1\.15\.2 has the following features:
-+ Support for [ Apache Flink Table API & SQL](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/)
++ Support for [ Apache Flink Table API & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/)
 + Support for Python applications\.
 + Support for Java version 11 and Scala version 2\.12
 + An improved memory model
@@ -126,7 +123,7 @@ To upgrade the version of an Kinesis Data Analytics application, you must update
 + Recompile your application code using the following command:
 
   ```
-  mvn package -Dflink.version=1.15.2
+  mvn package -Dflink.version=1.15.3
   ```
 + Delete your existing application\. Create your application again, and choose **Apache Flink version 1\.15\.2 \(Recommended version\)** for the application's **Runtime**\.
 

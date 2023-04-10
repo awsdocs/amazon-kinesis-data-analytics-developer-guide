@@ -1,6 +1,6 @@
 # Transforming Data Using Operators in Kinesis Data Analytics for Apache Flink With the DataStream API<a name="how-operators"></a>
 
-To transform incoming data in an Amazon Kinesis Data Analytics for Apache Flink, you use an Apache Flink *operator*\. An Apache Flink operator transforms one or more data streams into a new data stream\. The new data stream contains modified data from the original data stream\. Apache Flink provides more than 25 pre\-built stream processing operators\. For more information, see [Operators](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/stream/operators/) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+To transform incoming data in an Amazon Kinesis Data Analytics for Apache Flink, you use an Apache Flink *operator*\. An Apache Flink operator transforms one or more data streams into a new data stream\. The new data stream contains modified data from the original data stream\. Apache Flink provides more than 25 pre\-built stream processing operators\. For more information, see [Operators](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 **Topics**
 + [Transform Operators](#how-operators-transform)

@@ -17,6 +17,7 @@ To change the time window during which Kinesis Data Analytics performs maintenan
 | US West \(Oregon\) | 06:00–14:00 UTC | 
 | Asia Pacific \(Hong Kong\) | 13:00–21:00 UTC | 
 | Asia Pacific \(Mumbai\) | 16:30–00:30 UTC | 
+| Asia Pacific \(Hyderabad\) | 06:30–14:30 UTC | 
 | Asia Pacific \(Seoul\) | 13:00–21:00 UTC | 
 | Asia Pacific \(Singapore\) | 14:00–22:00 UTC | 
 | Asia Pacific \(Sydney\) | 12:00–20:00 UTC | 
@@ -26,10 +27,12 @@ To change the time window during which Kinesis Data Analytics performs maintenan
 | China \(Beijing\) | 13:00–21:00 UTC | 
 | China \(Ningxia\) | 13:00–21:00 UTC | 
 | Europe \(Frankfurt\) | 06:00–14:00 UTC | 
+| Europe \(Zurich\) | 02:00–10:00 UTC | 
 | Europe \(Ireland\) | 22:00–06:00 UTC | 
 | Europe \(London\) | 22:00–06:00 UTC | 
 | Europe \(Stockholm\) | 21:00–05:00 UTC | 
 | Europe \(Milan\) | 21:00–05:00 UTC | 
+| Europe \(Spain\) | 02:00–10:00 UTC | 
 | Africa \(Cape Town\) | 13:00–21:00 UTC | 
 | Europe \(Ireland\) | 22:00–06:00 UTC | 
 | Europe \(London\) | 23:00–07:00 UTC | 
@@ -37,6 +40,7 @@ To change the time window during which Kinesis Data Analytics performs maintenan
 | Europe \(Stockholm\) | 23:00–07:00 UTC | 
 | Middle East \(Bahrain\) | 13:00–21:00 UTC | 
 | South America \(São Paulo\) | 19:00–03:00 UTC | 
+| Middle East \(UAE\) | 13:00–21:00 UTC | 
 
 ## Set a UUID for all operators<a name="maintenance-setting-operator-ids"></a>
 

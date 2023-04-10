@@ -118,7 +118,7 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 **Note**  
 The provided source code relies on libraries from Java 11\. 

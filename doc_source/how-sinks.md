@@ -1,12 +1,12 @@
 # Writing Data Using Sinks in Kinesis Data Analytics for Apache Flink<a name="how-sinks"></a>
 
-In your application code, you use an [Apache Flink sink](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/datastream_api.html#data-sinks) to write data from an Apache Flink stream to an AWS service, such as Kinesis Data Streams\.
+In your application code, you use an [Apache Flink sink](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/datastream_api.html#data-sinks) to write data from an Apache Flink stream to an AWS service, such as Kinesis Data Streams\.
 
 Apache Flink provides sinks for files, sockets, and custom sinks\. The following sinks are available for AWS:
 
 ## Kinesis Data Streams<a name="sinks-streams"></a>
 
-Apache Flink provides information about the [Kinesis Data Streams Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/connectors/kinesis.html) in the Apache Flink documentation\.
+Apache Flink provides information about the [Kinesis Data Streams Connector](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/connectors/kinesis.html) in the Apache Flink documentation\.
 
 For an example of an application that uses a Kinesis data stream for input and output, see [Getting Started \(DataStream API\)](getting-started.md)\.
 

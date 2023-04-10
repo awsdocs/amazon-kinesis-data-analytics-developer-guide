@@ -67,7 +67,7 @@ fields @timestamp, message
 | limit 2000
 ```
 
-The following CloudWatch Logs Insights query returns the subtasks assigned to each Task Manager\. The total number of subtasks is the sum of every task's parallelism\. Task parallelism is derived from operator parallelism, and is the same as the application's parallelism by default, unless you change it in code by specifying `setParallelism`\. For more information about setting operator parallelism, see [ Setting the Parallelism: Operator Level](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/parallel.html#operator-level) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+The following CloudWatch Logs Insights query returns the subtasks assigned to each Task Manager\. The total number of subtasks is the sum of every task's parallelism\. Task parallelism is derived from operator parallelism, and is the same as the application's parallelism by default, unless you change it in code by specifying `setParallelism`\. For more information about setting operator parallelism, see [ Setting the Parallelism: Operator Level](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ```
 fields @timestamp, @tmid, @subtask
@@ -77,7 +77,7 @@ fields @timestamp, @tmid, @subtask
 | limit 2000
 ```
 
-For more information about task scheduling, see [Jobs and Scheduling](https://ci.apache.org/projects/flink/flink-docs-release-1.11/internals/job_scheduling.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about task scheduling, see [Jobs and Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ### Analyze Operations: Change in Parallelism<a name="cloudwatch-logs-reading-auto"></a>
 

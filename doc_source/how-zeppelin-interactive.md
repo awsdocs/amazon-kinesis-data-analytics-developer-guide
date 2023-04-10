@@ -9,7 +9,7 @@ The following example SQL query shows how to retrieve data from a data source:
 select * from stock;
 ```
 
-For more examples of Flink Streaming SQL queries, see [Examples and tutorials](how-zeppelin-examples.md) following, and [Queries](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/queries.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more examples of Flink Streaming SQL queries, see [Examples and tutorials](how-zeppelin-examples.md) following, and [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 You can use Flink SQL queries in the Studio notebook to query streaming data\. You may also use Python \(Table API\) and Scala \(Table and Datastream APIs\) to write programs to query your streaming data interactively\. You can view the results of your queries or programs, update them in seconds, and re\-run them to view updated results\.
 
@@ -60,4 +60,4 @@ You access Python table environment resources with the following variables:
 | st\_env\_2 | StreamTableEnvironment for flink planner | 
 | bt\_env\_2 | BatchTableEnvironment for flink planner | 
 
-For more information about using table environments, see [ Create a TableEnvironment](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/common.html#create-a-tableenvironment) in the [ Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\. 
+For more information about using table environments, see [ Create a TableEnvironment](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/common.html#create-a-tableenvironment) in the [ Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\. 

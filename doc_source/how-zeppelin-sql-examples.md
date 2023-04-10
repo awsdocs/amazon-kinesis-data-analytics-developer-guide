@@ -17,9 +17,9 @@ For information about Apache Flink SQL query settings, see [ Flink on Zeppelin N
 
 To view your application in the Apache Flink dashboard, choose **FLINK JOB** in your application's **Zeppelin Note** page\.
 
-For more information about window queries, see [Windows](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/stream/operators/windows.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about window queries, see [Windows](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/windows.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
-For more examples of Apache Flink Streaming SQL queries, see [Queries](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/queries.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more examples of Apache Flink Streaming SQL queries, see [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Creating tables with Amazon MSK/Apache Kafka<a name="how-zeppelin-examples-creating-tables"></a>
 
@@ -125,7 +125,7 @@ GROUP BY HOP(event_time, INTERVAL '3' SECOND, INTERVAL '5' SECOND)
 
 ## Interactive SQL<a name="how-zeppelin-examples-interactive-sql"></a>
 
-This example prints the max of event time and processing time and the sum of values from the key\-values table\. Ensure that you have the sample data generation script from the [Data generator](#notebook-example-data-generator) running\. To try other SQL queries such as filtering and joins in your Studio notebook, see the Apache Flink documentation: [Queries](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/queries.html) in the Apache Flink documentation\.
+This example prints the max of event time and processing time and the sum of values from the key\-values table\. Ensure that you have the sample data generation script from the [Data generator](#notebook-example-data-generator) running\. To try other SQL queries such as filtering and joins in your Studio notebook, see the Apache Flink documentation: [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the Apache Flink documentation\.
 
 ```
 %flink.ssql(type=single, parallelism=4, refreshInterval=1000, template=<h1>{2}</h1> records seen until <h1>Processing Time: {1}</h1> and <h1>Event Time: {0}</h1>)
@@ -157,7 +157,7 @@ GROUP BY
 
 ## BlackHole SQL connector<a name="how-zeppelin-examples-blackhole-connector-sql"></a>
 
-The BlackHole SQL connector doesn't require that you create a Kinesis data stream or an Amazon MSK cluster to test your queries\. For information about the BlackHole SQL connector, see [BlackHole SQL Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/connectors/blackhole.html) in the Apache Flink documentation\. In this example, the default catalog is an in\-memory catalog\.
+The BlackHole SQL connector doesn't require that you create a Kinesis data stream or an Amazon MSK cluster to test your queries\. For information about the BlackHole SQL connector, see [BlackHole SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/blackhole.html) in the Apache Flink documentation\. In this example, the default catalog is an in\-memory catalog\.
 
 ```
 %flink.ssql
@@ -245,7 +245,7 @@ FROM
 
 ## Interactive Scala<a name="notebook-example-interactive-scala"></a>
 
-This is the Scala translation of the [Interactive SQL](#how-zeppelin-examples-interactive-sql)\. For more Scala examples, see [Table API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/tableApi.html) in the Apache Flink documentation\.
+This is the Scala translation of the [Interactive SQL](#how-zeppelin-examples-interactive-sql)\. For more Scala examples, see [Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html) in the Apache Flink documentation\.
 
 ```
 %flink
@@ -310,7 +310,7 @@ SELECT * FROM `query02`
 
 ## Interactive Python<a name="notebook-example-interactive-python"></a>
 
-This is the Python translation of the [Interactive SQL](#how-zeppelin-examples-interactive-sql)\. For more Python examples, see [Table API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/tableApi.html) in the Apache Flink documentation\. 
+This is the Python translation of the [Interactive SQL](#how-zeppelin-examples-interactive-sql)\. For more Python examples, see [Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html) in the Apache Flink documentation\. 
 
 ```
 %flink.pyflink

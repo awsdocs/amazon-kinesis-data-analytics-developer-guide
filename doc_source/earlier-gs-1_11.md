@@ -17,7 +17,7 @@ This section introduces you to the fundamental concepts of Kinesis Data Analytic
 
 To process data, your Kinesis Data Analytics application uses a Java/Apache Maven or Scala application that processes input and produces output using the Apache Flink runtime\. 
 
-a Kinesis Data Analytics application has the following components:
+An Kinesis Data Analytics application has the following components:
 + **Runtime properties:** You can use *runtime properties* to configure your application without recompiling your application code\. 
 + **Source:** The application consumes data by using a *source*\. A source connector reads data from a Kinesis data stream, an Amazon S3 bucket, etc\. For more information, see [Sources](how-sources.md)\.
 + **Operators:** The application processes data by using one or more *operators*\. An operator can transform, enrich, or aggregate data\. For more information, see [DataStream API Operators](how-operators.md)\.

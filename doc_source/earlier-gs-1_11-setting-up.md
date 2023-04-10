@@ -1,20 +1,10 @@
 # Step 1: Set Up an AWS Account and Create an Administrator User<a name="earlier-gs-1_11-setting-up"></a>
 
-Before you use Kinesis Data Analytics for the first time, complete the following tasks:
+## Sign up for an AWS account<a name="sign-up-for-aws"></a>
 
-1. [Sign Up for AWS](#earlier-gs-1_11-setting-up-signup)
+If you do not have an AWS account, complete the following steps to create one\.
 
-1. [Create an IAM User](#earlier-gs-1_11-setting-up-iam)
-
-## Sign Up for AWS<a name="earlier-gs-1_11-setting-up-signup"></a>
-
-When you sign up for AWS, your account is automatically signed up for all Amazon services, including Kinesis Data Analytics\. You are charged only for the services that you use\.
-
-With Kinesis Data Analytics, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Kinesis Data Analytics for free\. For more information, see [AWS Free Tier](https://aws.amazon.com/free/)\.
-
-If you already have an AWS account, skip to the next task\. If you don't have an AWS account, follow these steps to create one\.
-
-**To create an AWS account**
+**To sign up for an AWS account**
 
 1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
 
@@ -22,87 +12,48 @@ If you already have an AWS account, skip to the next task\. If you don't have an
 
    Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-Note your account ID because you'll need it for the next task\.
+   When you sign up for an AWS account, an *AWS account root user* is created\. The root user has access to all AWS services and resources in the account\. As a security best practice, [assign administrative access to an administrative user](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html), and use only the root user to perform [tasks that require root user access](https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html)\.
 
-## Create an IAM User<a name="earlier-gs-1_11-setting-up-iam"></a>
+AWS sends you a confirmation email after the sign\-up process is complete\. At any time, you can view your current account activity and manage your account by going to [https://aws\.amazon\.com/](https://aws.amazon.com/) and choosing **My Account**\.
 
-Services in AWS, such as Kinesis Data Analytics, require that you provide credentials when you access them\. This is so that the service can determine whether you have permissions to access the resources that are owned by that service\. The AWS Management Console requires that you enter your password\. 
+## Create an administrative user<a name="create-an-admin"></a>
 
-You can create access keys for your AWS account to access the AWS Command Line Interface \(AWS CLI\) or API\. However, we don't recommend that you access AWS using the credentials for your AWS account\. Instead, we recommend that you use AWS Identity and Access Management \(IAM\)\. Create an IAM user, add the user to an IAM group with administrative permissions, and then grant administrative permissions to the IAM user that you created\. You can then access AWS using a special URL and that IAM user's credentials\.
+After you sign up for an AWS account, create an administrative user so that you don't use the root user for everyday tasks\.
 
-If you signed up for AWS, but you haven't created an IAM user for yourself, you can create one using the IAM console\.
+**Secure your AWS account root user**
 
-The getting started exercises in this guide assume that you have a user \(`adminuser`\) with administrator permissions\. Follow the procedure to create `adminuser` in your account\.
+1.  Sign in to the [AWS Management Console](https://console.aws.amazon.com/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
+
+   For help signing in by using root user, see [Signing in as the root user](https://docs.aws.amazon.com/signin/latest/userguide/console-sign-in-tutorials.html#introduction-to-root-user-sign-in-tutorial) in the *AWS Sign\-In User Guide*\.
+
+1. Turn on multi\-factor authentication \(MFA\) for your root user\.
+
+   For instructions, see [Enable a virtual MFA device for your AWS account root user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html#enable-virt-mfa-for-root) in the *IAM User Guide*\.
+
+**Create an administrative user**
++ For your daily administrative tasks, grant administrative access to an administrative user in AWS IAM Identity Center \(successor to AWS Single Sign\-On\)\.
+
+  For instructions, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
+
+**Sign in as the administrative user**
++ To sign in with your IAM Identity Center user, use the sign\-in URL that was sent to your email address when you created the IAM Identity Center user\.
+
+  For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](https://docs.aws.amazon.com/signin/latest/userguide/iam-id-center-sign-in-tutorial.html) in the *AWS Sign\-In User Guide*\.
+
+## Grant programmatic access<a name="setting-up-access-gs-11"></a>
+
+Users need programmatic access if they want to interact with AWS outside of the AWS Management Console\. The way to grant programmatic access depends on the type of user that's accessing AWS\.
+
+To grant users programmatic access, choose one of the following options\.
 
 
+****  
 
-
-
-**To create a group for administrators**
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Groups**, and then choose **Create New Group**\.
-
-1. For **Group Name**, enter a name for your group, such as **Administrators**, and then choose **Next Step**\.
-
-1. In the list of policies, select the check box next to the **AdministratorAccess** policy\. You can use the **Filter** menu and the **Search** box to filter the list of policies\.
-
-1. Choose **Next Step**, and then choose **Create Group**\.
-
-Your new group is listed under **Group Name**\.
-
-**To create an IAM user for yourself, add it to the Administrators group, and create a password**
-
-1. In the navigation pane, choose **Users**, and then choose **Add user**\.
-
-1. In the **User name** box, enter a user name\.
-
-1. Choose both **Programmatic access** and **AWS Management Console access**\.
-
-1. Choose **Next: Permissions**\.
-
-1. Select the check box next to the **Administrators** group\. Then choose **Next: Review**\.
-
-1. Choose **Create user**\.
-
-**To sign in as the new IAM user**
-
-1. Sign out of the AWS Management Console\.
-
-1. Use the following URL format to sign in to the console:
-
-   `https://aws_account_number.signin.aws.amazon.com/console/`
-
-   The *aws\_account\_number* is your account ID without any hyphens\. For example, if your account ID is 1234\-5678\-9012, replace *aws\_account\_number* with **123456789012**\. For information about how to find your account number, see [Your AWS Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
-
-1. Enter the IAM user name and password that you just created\. When you're signed in, the navigation bar displays *your\_user\_name* @ *your\_aws\_account\_id*\.
-
-**Note**  
-If you don't want the URL for your sign\-in page to contain your account ID, you can create an account alias\.
-
-**To create or remove an account alias**
-
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. On the navigation pane, choose **Dashboard**\.
-
-1. Find the IAM users sign\-in link\.
-
-1. To create the alias, choose **Customize**\. Enter the name you want to use for your alias, and then choose **Yes, Create**\.
-
-1. To remove the alias, choose **Customize**, and then choose **Yes, Delete**\. The sign\-in URL reverts to using your account ID\.
-
-To sign in after you create an account alias, use the following URL:
-
-`https://your_account_alias.signin.aws.amazon.com/console/`
-
-To verify the sign\-in link for IAM users for your account, open the IAM console and check under **IAM users sign\-in link** on the dashboard\.
-
-For more information about IAM, see the following:
-+ [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)
-+ [Getting started](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
-+ [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
+| Which user needs programmatic access? | To | By | 
+| --- | --- | --- | 
+|  Workforce identity \(Users managed in IAM Identity Center\)  | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_11-setting-up.html)  | 
+| IAM | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. | Following the instructions in [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the IAM User Guide\. | 
+| IAM | \(Not recommended\)Use long\-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs\. |  Following the instructions for the interface that you want to use\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/kinesisanalytics/latest/java/earlier-gs-1_11-setting-up.html)  | 
 
 ## Next Step<a name="earlier-gs-1_11-setting-up-next-step-2"></a>
 

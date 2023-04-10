@@ -5,7 +5,7 @@ This topic contains a version of the [Getting Started \(DataStream API\)](gettin
 **Topics**
 + [Components of Kinesis Data Analytics for Flink Application](#getting-started-components)
 + [Prerequisites for Completing the Exercises](#su-1_8-prerequisites)
-+ [Step 1: Set Up an AWS Account and Create an Administrator User](su-1_8.md)
++ [Step 1: Set Up an AWS Account and Create an Administrator User](earlier-gs-1_8-setting-up.md)
 + [Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](su-1_8-awscli.md)
 + [Step 3: Create and Run a Kinesis Data Analytics for Apache Flink Application](earlier-gs-1_8-exercise.md)
 + [Step 4: Clean Up AWS Resources](earlier-gs-1_8-cleanup.md)
@@ -14,7 +14,7 @@ This topic contains a version of the [Getting Started \(DataStream API\)](gettin
 
 To process data, your Kinesis Data Analytics application uses a Java/Apache Maven or Scala application that processes input and produces output using the Apache Flink runtime\. 
 
-a Kinesis Data Analytics application has the following components:
+An Kinesis Data Analytics application has the following components:
 + **Runtime properties:** You can use *runtime properties* to configure your application without recompiling your application code\. 
 + **Source:** The application consumes data by using a *source*\. A source connector reads data from a Kinesis data stream, an Amazon S3 bucket, etc\. For more information, see [Sources](how-sources.md)\.
 + **Operators:** The application processes data by using one or more *operators*\. An operator can transform, enrich, or aggregate data\. For more information, see [DataStream API Operators](how-operators.md)\.
@@ -35,4 +35,4 @@ To complete the steps in this guide, you must have the following:
   $ mvn -version
   ```
 
-To get started, go to [Step 1: Set Up an AWS Account and Create an Administrator User](su-1_8.md)\.
+To get started, go to [Step 1: Set Up an AWS Account and Create an Administrator User](earlier-gs-1_8-setting-up.md)\.

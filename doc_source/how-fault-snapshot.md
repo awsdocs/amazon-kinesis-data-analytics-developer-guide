@@ -1,6 +1,6 @@
 # Managing Application Backups Using Snapshots<a name="how-fault-snapshot"></a>
 
-A *snapshot* is the Kinesis Data Analytics implementation of an Apache Flink *Savepoint*\. A snapshot is a user\- or service\-triggered, created, and managed backup of the application state\. For information about Apache Flink Savepoints, see [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html) in the [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\. Using snapshots, you can restart an application from a particular snapshot of application state\.
+A *snapshot* is the Kinesis Data Analytics implementation of an Apache Flink *Savepoint*\. A snapshot is a user\- or service\-triggered, created, and managed backup of the application state\. For information about Apache Flink Savepoints, see [Savepoints](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/state/savepoints.html) in the [Apache Flink Documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\. Using snapshots, you can restart an application from a particular snapshot of application state\.
 
 **Note**  
 We recommend that your application create a snapshot several times a day to restart properly with correct state data\. The correct frequency for your snapshots depends on your application's business logic\. Taking frequent snapshots allows you to recover more recent data, but increases cost and requires more system resources\.
@@ -45,13 +45,13 @@ To allow an application to restore from a snapshot that contains incompatible st
 You will see the following behavior when an application is restored from an obsolete snapshot:
 + **Operator added:** If a new operator is added, the savepoint has no state data for the new operator\. No fault will occur, and it is not necessary to set `AllowNonRestoredState`\.
 + **Operator deleted:** If an existing operator is deleted, the savepoint has state data for the missing operator\. A fault will occur unless `AllowNonRestoredState` is set to `true`\.
-+ **Operator modified:** If compatible changes are made, such as changing a parameter's type to a compatible type, the application can restore from the obsolete snapshot\. For more information about restoring from snapshots, see [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html) in the *Apache Flink Documentation*\. An application that uses Apache Flink version 1\.8 or later can possibly be restored from a snapshot with a different schema\. An application that uses Apache Flink version 1\.6 cannot be restored\. For two\-phase\-commit sinks, we recommend using system snapshot \(SwS\) instead of user created snapshot \(CreateApplicationSnapshot\)\.
++ **Operator modified:** If compatible changes are made, such as changing a parameter's type to a compatible type, the application can restore from the obsolete snapshot\. For more information about restoring from snapshots, see [Savepoints](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/state/savepoints.html) in the *Apache Flink Documentation*\. An application that uses Apache Flink version 1\.8 or later can possibly be restored from a snapshot with a different schema\. An application that uses Apache Flink version 1\.6 cannot be restored\. For two\-phase\-commit sinks, we recommend using system snapshot \(SwS\) instead of user created snapshot \(CreateApplicationSnapshot\)\.
 
   For Flink, Kinesis Data Analytics triggers intermediate savepoints during snapshot creation\. For Flink 1\.15 onward, intermediate savepoints no longer commit any side effects\. See [Triggering Savepoints](https://nightlies.apache.org/flink/flink-docs-master/docs/ops/state/savepoints/#triggering-savepoints)\.
 
 If you need to resume an application that is incompatible with existing savepoint data, we recommend that you skip restoring from the snapshot by setting the `ApplicationRestoreType` parameter of the [StartApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_StartApplication.html) action to `SKIP_RESTORE_FROM_SNAPSHOT`\.
 
-For more information about how Apache Flink deals with incompatible state data, see [State Schema Evolution](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/stream/state/schema_evolution.html) in the *Apache Flink Documentation*\.
+For more information about how Apache Flink deals with incompatible state data, see [State Schema Evolution](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/state/schema_evolution.html) in the *Apache Flink Documentation*\.
 
 ## Snapshot API Examples<a name="how-fault-snapshot-examples"></a>
 

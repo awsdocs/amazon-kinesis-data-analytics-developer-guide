@@ -5,7 +5,8 @@ This section introduces you to the fundamental concepts of Kinesis Data Analytic
 **Topics**
 + [Components of a Kinesis Data Analytics for Flink Application](#getting-started-components-1-13)
 + [Prerequisites for Completing the Exercises](#setting-up-prerequisites-1-13)
-+ [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up-1-13.md)
++ [Step 1: Set Up an AWS Account and Create an Administrator User](earlier-gs-1_13-setting-up.md)
++ [Next Step](#earlier-gs-1_13-setup-awscli)
 + [Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli-1-13.md)
 + [Step 3: Create and Run a Kinesis Data Analytics for Apache Flink Application](get-started-exercise-1-13.md)
 + [Step 4: Clean Up AWS Resources](getting-started-cleanup-1-13.md)
@@ -36,3 +37,7 @@ To complete the steps in this guide, you must have the following:
   ```
 
 To get started, go to [Step 1: Set Up an AWS Account and Create an Administrator User](setting-up.md)\.
+
+## Next Step<a name="earlier-gs-1_13-setup-awscli"></a>
+
+[Step 2: Set Up the AWS Command Line Interface \(AWS CLI\)](setup-awscli-1-13.md)

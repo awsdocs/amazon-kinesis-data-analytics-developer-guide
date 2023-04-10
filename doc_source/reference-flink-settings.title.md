@@ -8,6 +8,8 @@ Kinesis Data Analytics for Apache Flink is an implementation of the Apache Flink
 + [Checkpointing](#reference-defaults-checkpoint)
 + [Savepointing](#reference-defaults-savepoint)
 + [Heap Sizes](#reference-defaults-heap)
++ [Modifiable Flink configuration properties](reference-modifiable-settings.md)
++ [Viewing configured Flink properties](viewing-modifiable-settings.md)
 
 ## Apache Flink Configuration<a name="apache-flink-configuration"></a>
 
@@ -22,9 +24,9 @@ We enable the following features on the state backend:
 + Asynchronous state backend snapshots
 + Local recovery of checkpoints
 
-In Kinesis Data Analytics, the `state.backend.rocksdb.ttl.compaction.filter.enabled` configuration is enabled by default\. Using this filter, you can update your application code to enable the compaction cleanup strategy\. For more information, see [State TTL in Flink 1\.8\.0](https://flink.apache.org/2019/05/19/state-ttl.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+In Kinesis Data Analytics, the `state.backend.rocksdb.ttl.compaction.filter.enabled` configuration is enabled by default\. Using this filter, you can update your application code to enable the compaction cleanup strategy\. For more information, see [State TTL in Flink 1\.8\.0](https://flink.apache.org/2019/05/19/state-ttl.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
-For more information about state backends, see [State Backends](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/state_backends.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about state backends, see [State Backends](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/state/state_backends.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Checkpointing<a name="reference-defaults-checkpoint"></a>
 
@@ -46,15 +48,16 @@ Kinesis Data Analytics for Apache Flink uses a default checkpoint configuration 
 | Restart Strategy | Not Modifiable | Fixed Delay, with infinite retries every 10 seconds\. | 
 | Checkpoint and Savepoint Location | Not Modifiable | We store durable checkpoint and savepoint data to a service\-owned S3 bucket\. | 
 | State Backend Memory Threshold | Not Modifiable | 1048576 | 
+| Unaligned checkpoints | Not Modifiable | 0 | 
 
 ## Savepointing<a name="reference-defaults-savepoint"></a>
 
 By default, when restoring from a savepoint, the resume operation will try to map all state of the savepoint back to the program you are restoring with\. If you dropped an operator, by default, restoring from a savepoint that has data that corresponds to the missing operator will fail\. You can allow the operation to succeed by setting the *AllowNonRestoredState* parameter of the application's [FlinkRunConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_FlinkRunConfiguration.html) to `true`\. This will allow the resume operation to skip state that cannot be mapped to the new program\.
 
-For more information, see [ Allowing Non\-Restored State](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html#allowing-non-restored-state) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information, see [ Allowing Non\-Restored State](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/state/savepoints.html#allowing-non-restored-state) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Heap Sizes<a name="reference-defaults-heap"></a>
 
 Kinesis Data Analytics allocates each KPU 3 GiB of JVM heap, and reserves 1 GiB for native code allocations\. For information about increasing your application capacity, see [Application Scaling in Kinesis Data Analytics for Apache Flink](how-scaling.md)\. 
 
-For more information about JVM heap sizes, see [Configuration](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/config.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about JVM heap sizes, see [Configuration](https://nightlies.apache.org/flink/flink-docs-release-1.15/ops/config.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.

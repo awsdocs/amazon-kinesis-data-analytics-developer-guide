@@ -11,7 +11,7 @@ Apache Zeppelin provides your Studio notebooks with a complete suite of analytic
 
 To get started using Kinesis Data Analytics and Apache Zeppelin, see [Creating a Studio notebook Tutorial](example-notebook.md)\. For more information about Apache Zeppelin, see the [Apache Zeppelin documentation](http://zeppelin.apache.org)\.
 
- With a notebook, you model queries using the Apache Flink [ Table API & SQL](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/) in SQL, Python, or Scala, or [DataStream API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/datastream_api.html) in Scala\. With a few clicks, you can then promote the Studio notebook to a continuously\-running, non\-interactive, Kinesis Data Analytics stream\-processing application for your production workloads\.
+ With a notebook, you model queries using the Apache Flink [ Table API & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/) in SQL, Python, or Scala, or [DataStream API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/datastream_api.html) in Scala\. With a few clicks, you can then promote the Studio notebook to a continuously\-running, non\-interactive, Kinesis Data Analytics stream\-processing application for your production workloads\.
 
 **Topics**
 + [Creating a Studio notebook](how-zeppelin-creating.md)

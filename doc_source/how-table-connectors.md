@@ -20,7 +20,7 @@ You create a table source from a data stream\. The following code creates a tabl
     Table table = streamTableEnvironment.fromDataStream(events);
 ```
 
-For more information about table sources, see [Table & Connectors ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/connectors/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about table sources, see [Table & Connectors ](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Table API Sinks<a name="how-table-connectors-sink"></a>
 
@@ -49,10 +49,10 @@ final String s3Sink = "CREATE TABLE sink_table (" +
     filteredTable.executeInsert("sink_table");
 ```
 
- You can use the `format` parameter to control what format Kinesis Data Analytics uses to write the output to the sink\. For information about formats, see [ Formats](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/table/overview/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-stable/)\.
+ You can use the `format` parameter to control what format Kinesis Data Analytics uses to write the output to the sink\. For information about formats, see [ Formats](https://nightlies.apache.org/flink/flink-docs-release-1.15//docs/connectors/table/overview/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-stable/)\.
 
-For more information about table sinks, see [Table & Connectors ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/connectors/) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For more information about table sinks, see [Table & Connectors ](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## User\-Defined Sources and Sinks<a name="how-table-connectors-userdef"></a>
 
-You can use existing Apache Kafka connectors for sending data to and from other AWS services, such as Amazon MSK and Amazon S3\. For interacting with other data sources and destinations, you can define your own sources and sinks\. For more information, see [ User\-Defined Sources and Sinks](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sourceSinks.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+You can use existing Apache Kafka connectors for sending data to and from other AWS services, such as Amazon MSK and Amazon S3\. For interacting with other data sources and destinations, you can define your own sources and sinks\. For more information, see [ User\-Defined Sources and Sinks](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sourceSinks.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.

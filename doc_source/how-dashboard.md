@@ -4,7 +4,7 @@ You can use your application's Apache Flink Dashboard to monitor your Kinesis Da
 + Resources in use, including Task Managers and Task Slots\. 
 + Information about Jobs, including those that are running, completed, canceled, and failed\. 
 
-For information about Apache Flink Task Managers, Task Slots, and Jobs, see [Apache Flink Architecture](https://ci.apache.org/projects/flink/flink-docs-release-1.11/concepts/flink-architecture.html#taskmanagers) on the Apache Flink website\. 
+For information about Apache Flink Task Managers, Task Slots, and Jobs, see [Apache Flink Architecture](https://nightlies.apache.org/flink/flink-docs-release-1.15/concepts/flink-architecture.html#taskmanagers) on the Apache Flink website\. 
 
 Note the following about using the Apache Flink Dashboard with Kinesis Data Analytics applications:
 + The Apache Flink Dashboard for Kinesis Data Analytics applications is read\-only\. You can't make changes to your Kinesis Data Analytics application using the Apache Flink Dashboard\.

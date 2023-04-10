@@ -38,7 +38,7 @@ This section requires the [AWS SDK for Python \(Boto\)](https://aws.amazon.com/d
 1. Create a file named `stock.py` with the following contents:
 
    ```
-   import datetime
+       import datetime
        import json
        import random
        import boto3
@@ -122,7 +122,7 @@ To compile the application, do the following:
 1. Compile the application with the following command: 
 
    ```
-   mvn package -Dflink.version=1.15.2
+   mvn package -Dflink.version=1.15.3
    ```
 **Note**  
 The provided source code relies on libraries from Java 11\. 

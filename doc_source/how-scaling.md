@@ -1,6 +1,6 @@
 # Application Scaling in Kinesis Data Analytics for Apache Flink<a name="how-scaling"></a>
 
-You can configure the parallel execution of tasks and the allocation of resources for Amazon Kinesis Data Analytics for Apache Flink to implement scaling\. For information about how Apache Flink schedules parallel instances of tasks, see [Parallel Execution](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/parallel.html) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+You can configure the parallel execution of tasks and the allocation of resources for Amazon Kinesis Data Analytics for Apache Flink to implement scaling\. For information about how Apache Flink schedules parallel instances of tasks, see [Parallel Execution](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 **Topics**
 + [Configuring Application Parallelism and ParallelismPerKPU](#how-parallelism)
@@ -17,7 +17,7 @@ You configure the parallel execution for your Kinesis Data Analytics application
 **Note**  
 The limit for `Parallelism` is equal to `ParallelismPerKPU` times the limit for KPUs \(which has a default of 32\)\. The KPUs limit can be increased by requesting a limit increase\. For instructions on how to request a limit increase, see "To request a limit increase" in [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.
 
-For information about setting task parallelism for a specific operator, see [ Setting the Parallelism: Operator](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/parallel.html#operator-level) in the [Apache Flink documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.11/)\.
+For information about setting task parallelism for a specific operator, see [ Setting the Parallelism: Operator](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/)\.
 
 ## Allocating Kinesis Processing Units<a name="how-scaling-kpus"></a>
 

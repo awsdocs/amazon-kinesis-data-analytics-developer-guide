@@ -32,7 +32,7 @@ You can write custom messages to your Kinesis Data Analytics application's Cloud
 1. Instantiate the `Logger` object, passing in your application class:
 
    ```
-   private static final Logger log = Logger.getLogger(YourApplicationClass.class);
+   private static final Logger log = LogManager.getLogger.getLogger(YourApplicationClass.class);
    ```
 
 1. Write to the log using `log.info`\. A large number of messages are written to the application log\. To make your custom messages easier to filter, use the `INFO` application log level\.
