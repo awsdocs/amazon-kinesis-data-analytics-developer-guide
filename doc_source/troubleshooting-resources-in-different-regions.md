@@ -1,3 +1,0 @@
-# Integrating with resources in different regions<a name="troubleshooting-resources-in-different-regions"></a>
-
-You can enable using `StreamingFileSink` to write to an Amazon S3 bucket in a different Region from your Kinesis Data Analytics application via a setting required for cross Region replication in the Flink configuration\. To do this, file a support ticket at [AWS Support Center](https://console.aws.amazon.com/support/home#/)\.
